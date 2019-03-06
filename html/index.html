@@ -20,7 +20,7 @@
         crossorigin="anonymous"></script>
 
     <link rel="stylesheet" href="mainPage.css" />
-    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat|Raleway" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
         integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 </head>
@@ -46,13 +46,22 @@
 
         <div id="banner-buttons">
             <div class="row">
-                <div class="col-sm-12 col-md-6 col-xl-4">
-                    <button class="find-events">Find Events</button>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-sm-12 col-md-6 col-xl-4">
-                    <button class="host-event">Host an Event</button>
+                <div class="col-sm-12 col-md-8 col-lg-6 col-xl-4">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-12" id="banner-about-text">
+                                <p>O Lorem Ipsum é um texto modelo da indústria tipográfica e de impressão. O Lorem Ipsum tem vindo a ser o texto padrão usado por estas indústrias desde o ano de 1500,</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12 col-md-6">
+                            <button class="find-events">Find Events</button>
+                        </div>
+                        <div class="col-12 col-md-6">
+                            <button class="host-event">Host an Event</button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -69,7 +78,7 @@
     <div class="container" id="search-box">
         <div class="row">
             <div class="col-12 col-md-5">
-                <input type="text" placeholder="search"/>
+                <input type="text" placeholder="Search" class="search-field"/>
             </div>
             <div class="col-2 col-md-1">
                 <button class="btn date">Start<span><i class="far fa-calendar-alt"></i></span></button>
@@ -79,7 +88,7 @@
             </div>
             <div class="col-4 col-md-3">
                 <i class="fas fa-map-marker-alt"></i>
-                <input type="text" placeholder="Location" class="location-field"/>
+                <input type="text" placeholder="Location"/>
             </div>
             <div class="col-4 col-md-2">
                 <div class="dropdown">
