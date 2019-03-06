@@ -20,10 +20,29 @@ body {
     text-align: center;
 }
 
-.nav-item.nav-link {
+.event-card .event-description {
+    margin-top: 1em;
+    margin-bottom: 1em;
+} 
+
+.event-card .nav-item, .event-card .nav-item:hover {
+    border: 0;
+    background-color: white;
+    border-bottom: 3px solid #a1c8dd;
+    border-radius: 0;
+    color: #a1c8dd;
+}
+
+.event-card .nav-item.active, .event-card .nav-item.active:hover {
+    border-color: #457295;
+    color: #457295;
+}
+
+.event-card .nav-item.nav-link {
     width: 30%;
     transition: width .3s ease-in-out;
 }
-.nav-item.nav-link.active {
+
+.event-card .nav-item.nav-link.active {
     width: 70%;
 }

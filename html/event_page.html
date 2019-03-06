@@ -6,8 +6,10 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Event Page</title>
 
-
+    <link href="https://fonts.googleapis.com/css?family=Montserrat|Raleway" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="./constants.css">
     <link rel="stylesheet" href="./navbar.css">
     <link rel="stylesheet" href="./event_page.css">
 
@@ -27,35 +29,13 @@
                 <li class="nav-item">
                     <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
                 </li>
-                <!-- <li class="nav-item">
-                    <a class="nav-link" href="#">Link</a>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Dropdown
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="#">Action</a>
-                    <a class="dropdown-item" href="#">Another action</a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#">Something else here</a>
-                    </div>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-                </li> -->
-                </ul>
-                <!-- <form class="form-inline my-2 my-lg-0">
-                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-                </form> -->
             </div>
         </div>
     </nav>
     <div class="background-mask"></div>
-    <div class="container event-card">
+    <div class="container event-card font-content">
         <div class="row">
-            <div class="col-12 event-title">
+            <div class="col-12 event-title font-title">
                 <h1>Event Title</h1>
             </div>
         </div>
@@ -63,27 +43,29 @@
             <div class="col-sm-6 event-spacetime">
                 <div class="row">
                     <div class="col-12">
-                        Time
+                            <span><i class="far fa-calendar-alt"></i></span> Time
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-12">
-                        Location
+                        <span><i class="fas fa-map-marker-alt"></i></span> Location
                     </div>
                 </div>
             </div>
             <div class="col-sm-6 event-category">
-                Category
+                Category <span><i class="fas fa-tag"></i></span>
             </div>
         </div>
         <div class="row event-description">
             <div class="col-12">
-                event description
+                    Cow cheeseburger feta. Goat cottage cheese bocconcini roquefort red leicester cream cheese cow danish fontina. Mozzarella cheddar melted cheese who moved my cheese roquefort parmesan cheeseburger pecorino. Goat feta lancashire fondue cauliflower cheese roquefort cheeseburger.
             </div>
         </div>
         <div class="row event-map">
-        <div class="col-12">
-                MAP
+            <div class="col-12">
+                <div style="height: 400px; background-color:salmon">
+                    MAP_PLACEHOLDER
+                </div>
             </div>
         </div>
         <div class="row">
@@ -95,15 +77,18 @@
                     </div>
                 </nav>
                 <div class="tab-content" id="nav-tabContent">
-                    <div class="tab-pane fade show active" id="nav-announcements" role="tabpanel" aria-labelledby="nav-announcements-tab">ANNOUNCEMENTS HERE</div>
-                    <div class="tab-pane fade" id="nav-discussion" role="tabpanel" aria-labelledby="nav-discussion-tab">DISCUSSIONNNN</div>
+                    <div class="tab-pane fade show active" id="nav-announcements" role="tabpanel" aria-labelledby="nav-announcements-tab">
+                        <div style="height: 400px; background-color:aqua">
+                            ANNOUNCEMENTS HERE
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="nav-discussion" role="tabpanel" aria-labelledby="nav-discussion-tab">
+                        <div style="height: 400px; background-color:aqua">
+                            DISCUSSION HERE
+                        </div>
+                    </div>
                 </div>
                 
-                <!-- <div class="row">
-                    <div class="col-12 discussion-container">
-                        POSTS GO HERE
-                    </div>
-                </div> -->
             </div>
         </div>
     </div>
