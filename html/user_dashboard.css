@@ -10,8 +10,16 @@
     padding: 2em 3em;
 }
 
+.dashboard-item + .dashboard-item {
+    margin-top: 1em;
+}
+
 .card-container h1 {
     color: var(--secondary-color-dark);
+}
+
+.card-container .item-date {
+    font-family: Montserrat, sans-serif;
 }
 
 .dashboard-item .item-year-month {
@@ -25,15 +33,15 @@
 
 .dashboard-item .item-day {
     color: var(--secondary-color-medium);
-    font-weight: bold;
+    font-weight: bolder;
 }
 
 .dashboard-item .item-day .item-day-number {
-    font-size: 1.6em;
+    font-size: 1.4em;
 }
 
-.dashboard-item + .dashboard-item {
-    margin-top: 1em;
+.dashboard-item .item-day .item-day-week {
+    font-size: 0.7em;
 }
 
 .dashboard-item .item-info {
