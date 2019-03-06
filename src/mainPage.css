@@ -1,0 +1,135 @@
+body{
+    font-family: 'Montserrat', cursive;
+    color: white;
+    background-color: #121633;
+    overflow-x: hidden;
+}
+
+#banner-wrapper{
+    height: 100vh;
+    width: 100vw;
+}
+
+#banner-image-container > img, #banner-image-container{
+    width:100%;
+    height:100%;
+    object-fit: cover;
+    position: absolute;
+    z-index: -5;
+}
+
+#banner-image-container > img:last-child {
+    -webkit-mask-image: url(curve.svg);
+    mask-image: url(curve.svg);
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    -webkit-mask-size: 100% 300vw;
+    mask-size: 100% 300vw;
+    -webkit-mask-position: center 50%;
+    mask-position: center 50%;
+    filter: blur(0.1em);
+}
+
+
+#page-title{
+    position: relative;
+    top: 20vh;
+    right: 5vw;
+}
+
+@media only screen and (max-width: 768px) {
+    #page-title { right:0 }
+
+    #page-title h1, #page-title h2{
+       text-align: center;
+    }
+}
+
+
+#page-title > .row{
+    color:white;
+}
+
+#page-title > .row h1{
+    font-size: Calc(5vw + 5vh);
+}
+
+#page-title > .row h2{
+    font-size: Calc(1.5vw + 1.5vh);
+}
+
+/*********** BANNER BUTTONS *********/
+
+#banner-buttons{
+    position: relative;
+    top: 45vh;
+    padding: 0 10%;
+}
+
+@media only screen and (min-width: 1200px) {
+    #banner-buttons{
+        top: 40vh;
+    }
+}
+
+@media only screen and (min-width: 1500px) {
+    #banner-buttons{
+        top: 35vh;
+    }
+}
+
+#banner-buttons button{
+    border-radius: 500px;
+    font-size: 1.5em;
+    width: 100%;
+    height: 3em;
+    margin: 0.5em 0;
+    font-weight: bold;
+}
+
+#banner-buttons button.find-events{
+    border: 3px #ff8e00 solid;
+    background-color: transparent;
+    color: #ff8e00;
+}
+
+#banner-buttons button.host-event{
+    border: 0;
+    background-color: #ff8e00;
+    color: white;
+}
+
+
+/************ BANNER ABOUT ***********/
+
+#banner-about{
+    position: absolute;
+    width: 100%;
+    bottom: 1em;
+}
+
+#banner-about *{
+    margin: 0;
+}
+
+#banner-about p{
+    text-align: center;
+}
+
+
+/************* SEARCH BOX ************/
+
+#search-box{
+    margin-top: 3em;
+    background-color: white;
+    border-radius: 500px;
+    border: 0;
+    font-size: 2em;
+    padding: 0.5em 1em;
+    color: #121633;
+}
+
+#search-box input[type="text"]{
+    height: 100%;
+    border: 0;
+}
