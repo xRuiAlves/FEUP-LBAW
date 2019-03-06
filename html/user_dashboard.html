@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>User Dashboard</title>
+
+    <link href="https://fonts.googleapis.com/css?family=Montserrat|Raleway" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr"
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="./constants.css">
+    <link rel="stylesheet" href="./navbar.css">
+    <link rel="stylesheet" href="./event_page.css">
+    <link rel="stylesheet" href="./user_dashboard.css">
+
+
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg">
+        <div class="container">
+
+            <a class="navbar-brand" href="#">Eventually</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Home
+                            <span class="sr-only">(current)</span>
+                        </a>
+                    </li>
+            </div>
+        </div>
+    </nav>
+    <div class="background-mask"></div>
+    <div class="container card-container font-content">
+        <!-- Tou a dar reuse nas classes dos events que não deviam ser exclusivas a events! -->
+        <div class="row">
+            <div class="col-12 font-title">
+                <h1>Your events</h1>
+            </div>
+        </div>
+        <div class="row dashboard-item">
+            <div class="col-2 item-date">
+                <div class="row">
+                    <div class="col-6 item-year-month">
+                        <div class="item-month">Fev</div>
+                        <div class="item-year">2019</div>
+                    </div>
+                    <div class="col-6 item-day">
+                        <div class="item-day-number">18</div>
+                        <div class="item-day-week">TUE</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-10 item-info item-type-attendee">
+                <header>Lorem ipsum bacon cenas</header>
+                <footer>
+                    <div class="event-day">[Day 1/2]</div>
+                    <div class="event-extra-info">
+                        <div class="date">
+                            10:00
+                            <span>
+                                <i class="far fa-clock"></i>
+                            </span>
+                        </div>
+                        <div class="location">
+                            Porto, Portugal
+                            <span>
+                                <i class="fas fa-map-marker-alt"></i>
+                            </span>
+                        </div>
+                    </div>
+                </footer>
+            </div>
+        </div>
+        <div class="row dashboard-item">
+            <div class="col-2 item-date">
+                <div class="row">
+                    <div class="col-6 item-year-month">
+                        <div class="item-month"></div>
+                        <div class="item-year"></div>
+                    </div>
+                    <div class="col-6 item-day">
+                        <div class="item-day-number">19</div>
+                        <div class="item-day-week">WED</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-10 item-info item-type-attendee">
+                <header>Lorem ipsum bacon cenas</header>
+                <footer>
+                    <div class="event-day">[Day 2/2]</div>
+                    <div class="event-extra-info">
+                        <div class="date">
+                            12:45
+                            <span>
+                                <i class="far fa-clock"></i>
+                            </span>
+                        </div>
+                        <div class="location">
+                            Porto, Portugal
+                            <span>
+                                <i class="fas fa-map-marker-alt"></i>
+                            </span>
+                        </div>
+                    </div>
+                </footer>
+            </div>
+        </div>
+        <div class="row dashboard-item">
+            <div class="col-2 item-date">
+                <div class="row">
+                    <div class="col-6 item-year-month">
+                        <div class="item-month">May</div>
+                        <div class="item-year">2019</div>
+                    </div>
+                    <div class="col-6 item-day">
+                        <div class="item-day-number">03</div>
+                        <div class="item-day-week">SUN</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-10 item-info item-type-organizer">
+                <header>And they don't stop coming and they don't stop coming and they don't stop coming and they don't stop coming and they don't stop coming and they don't stop coming and they don't stop coming and they don't stop coming and they don't stop coming and they don't stop coming and they don't stop coming and they don't stop coming and they don't stop coming and they don't stop coming and they don't stop coming and they don't stop coming and they don't stop coming and they don't stop coming and they don't stop coming</header>
+                <footer>
+                    <div class="event-day"></div>
+                    <div class="event-extra-info">
+                        <div class="date">
+                            16:30
+                            <span>
+                                <i class="far fa-clock"></i>
+                            </span>
+                        </div>
+                        <div class="location">
+                            London, England
+                            <span>
+                                <i class="fas fa-map-marker-alt"></i>
+                            </span>
+                        </div>
+                    </div>
+                </footer>
+            </div>
+        </div>
+        <div class="row dashboard-item">
+            <div class="col-2 item-date">
+                <div class="row">
+                    <div class="col-6 item-year-month">
+                        <div class="item-month"></div>
+                        <div class="item-year"></div>
+                    </div>
+                    <div class="col-6 item-day">
+                        <div class="item-day-number">19</div>
+                        <div class="item-day-week">WED</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-10 item-info item-type-attendee">
+                <header>Lorem ipsum bacon cenas</header>
+                <footer>
+                    <div class="event-day">[Day 2/2]</div>
+                    <div class="event-extra-info">
+                        <div class="date">
+                            12:45
+                            <span>
+                                <i class="far fa-clock"></i>
+                            </span>
+                        </div>
+                        <div class="location">
+                            Porto, Portugal
+                            <span>
+                                <i class="fas fa-map-marker-alt"></i>
+                            </span>
+                        </div>
+                    </div>
+                </footer>
+            </div>
+        </div>
+        <div class="row dashboard-item">
+            <div class="col-2 item-date">
+                <div class="row">
+                    <div class="col-6 item-year-month">
+                        <div class="item-month">May</div>
+                        <div class="item-year">2019</div>
+                    </div>
+                    <div class="col-6 item-day">
+                        <div class="item-day-number">03</div>
+                        <div class="item-day-week">SUN</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-10 item-info item-type-organizer">
+                <header>YAN - Yet Another Event</header>
+                <footer>
+                    <div class="event-day"></div>
+                    <div class="event-extra-info">
+                        <div class="date">
+                            16:30
+                            <span>
+                                <i class="far fa-clock"></i>
+                            </span>
+                        </div>
+                        <div class="location">
+                            London, England
+                            <span>
+                                <i class="fas fa-map-marker-alt"></i>
+                            </span>
+                        </div>
+                    </div>
+                </footer>
+            </div>
+        </div>
+        <div class="row dashboard-item">
+            <div class="col-2 item-date">
+                <div class="row">
+                    <div class="col-6 item-year-month">
+                        <div class="item-month"></div>
+                        <div class="item-year"></div>
+                    </div>
+                    <div class="col-6 item-day">
+                        <div class="item-day-number">19</div>
+                        <div class="item-day-week">WED</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-10 item-info item-type-attendee">
+                <header>Lorem ipsum bacon cenas sit batata frita bacon cenas sit batata frita bacon cenas sit batata frita bacon cenas sit batata frita bacon cenas sit batata frita bacon cenas sit batata frita bacon cenas sit batata frita bacon cenas sit batata frita bacon cenas sit batata frita bacon cenas sit batata frita bacon cenas sit batata frita bacon cenas sit batata frita bacon cenas sit batata frita bacon cenas sit batata frita bacon cenas sit batata frita </header>
+                <footer>
+                    <div class="event-day">[Day 2/2]</div>
+                    <div class="event-extra-info">
+                        <div class="date">
+                            12:45
+                            <span>
+                                <i class="far fa-clock"></i>
+                            </span>
+                        </div>
+                        <div class="location">
+                            Porto, Portugal
+                            <span>
+                                <i class="fas fa-map-marker-alt"></i>
+                            </span>
+                        </div>
+                    </div>
+                </footer>
+            </div>
+        </div>
+        <div class="row dashboard-item">
+            <div class="col-2 item-date">
+                <div class="row">
+                    <div class="col-6 item-year-month">
+                        <div class="item-month">May</div>
+                        <div class="item-year">2019</div>
+                    </div>
+                    <div class="col-6 item-day">
+                        <div class="item-day-number">03</div>
+                        <div class="item-day-week">SUN</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-10 item-info item-type-organizer">
+                <header>YAN - Yet Another Event</header>
+                <footer>
+                    <div class="event-day"></div>
+                    <div class="event-extra-info">
+                        <div class="date">
+                            16:30
+                            <span>
+                                <i class="far fa-clock"></i>
+                            </span>
+                        </div>
+                        <div class="location">
+                            London, England
+                            <span>
+                                <i class="fas fa-map-marker-alt"></i>
+                            </span>
+                        </div>
+                    </div>
+                </footer>
+            </div>
+        </div>
+        <div class="row dashboard-item">
+            <div class="col-2 item-date">
+                <div class="row">
+                    <div class="col-6 item-year-month">
+                        <div class="item-month"></div>
+                        <div class="item-year"></div>
+                    </div>
+                    <div class="col-6 item-day">
+                        <div class="item-day-number">19</div>
+                        <div class="item-day-week">WED</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-10 item-info item-type-attendee">
+                <header>Lorem ipsum bacon cenas Lorem ipsum bacon cenas Lorem ipsum bacon cenas Lorem ipsum bacon cenas Lorem ipsum bacon cenas Lorem ipsum bacon cenas Lorem ipsum bacon cenas Lorem ipsum bacon cenas Lorem ipsum bacon cenas Lorem ipsum bacon cenas</header>
+                <footer>
+                    <div class="event-day">[Day 2/2]</div>
+                    <div class="event-extra-info">
+                        <div class="date">
+                            12:45
+                            <span>
+                                <i class="far fa-clock"></i>
+                            </span>
+                        </div>
+                        <div class="location">
+                            Porto, Portugal
+                            <span>
+                                <i class="fas fa-map-marker-alt"></i>
+                            </span>
+                        </div>
+                    </div>
+                </footer>
+            </div>
+        </div>
+        <div class="row dashboard-item">
+            <div class="col-2 item-date">
+                <div class="row">
+                    <div class="col-6 item-year-month">
+                        <div class="item-month">May</div>
+                        <div class="item-year">2019</div>
+                    </div>
+                    <div class="col-6 item-day">
+                        <div class="item-day-number">03</div>
+                        <div class="item-day-week">SUN</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-10 item-info item-type-organizer">
+                <header>YAN - Yet Another Event</header>
+                <footer>
+                    <div class="event-day"></div>
+                    <div class="event-extra-info">
+                        <div class="date">
+                            16:30
+                            <span>
+                                <i class="far fa-clock"></i>
+                            </span>
+                        </div>
+                        <div class="location">
+                            London, England
+                            <span>
+                                <i class="fas fa-map-marker-alt"></i>
+                            </span>
+                        </div>
+                    </div>
+                </footer>
+            </div>
+        </div>
+        <div class="row dashboard-item">
+            <div class="col-2 item-date">
+                <div class="row">
+                    <div class="col-6 item-year-month">
+                        <div class="item-month"></div>
+                        <div class="item-year"></div>
+                    </div>
+                    <div class="col-6 item-day">
+                        <div class="item-day-number">19</div>
+                        <div class="item-day-week">WED</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-10 item-info item-type-attendee">
+                <header>Lorem ipsum bacon cenas</header>
+                <footer>
+                    <div class="event-day">[Day 2/2]</div>
+                    <div class="event-extra-info">
+                        <div class="date">
+                            12:45
+                            <span>
+                                <i class="far fa-clock"></i>
+                            </span>
+                        </div>
+                        <div class="location">
+                            Porto, Portugal
+                            <span>
+                                <i class="fas fa-map-marker-alt"></i>
+                            </span>
+                        </div>
+                    </div>
+                </footer>
+            </div>
+        </div>
+        <div class="row dashboard-item">
+            <div class="col-2 item-date">
+                <div class="row">
+                    <div class="col-6 item-year-month">
+                        <div class="item-month">May</div>
+                        <div class="item-year">2019</div>
+                    </div>
+                    <div class="col-6 item-day">
+                        <div class="item-day-number">03</div>
+                        <div class="item-day-week">SUN</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-10 item-info item-type-organizer">
+                <header>YAN - Yet Another Event</header>
+                <footer>
+                    <div class="event-day"></div>
+                    <div class="event-extra-info">
+                        <div class="date">
+                            16:30
+                            <span>
+                                <i class="far fa-clock"></i>
+                            </span>
+                        </div>
+                        <div class="location">
+                            London, England
+                            <span>
+                                <i class="fas fa-map-marker-alt"></i>
+                            </span>
+                        </div>
+                    </div>
+                </footer>
+            </div>
+        </div>
+        <div class="row dashboard-item">
+            <div class="col-2 item-date">
+                <div class="row">
+                    <div class="col-6 item-year-month">
+                        <div class="item-month"></div>
+                        <div class="item-year"></div>
+                    </div>
+                    <div class="col-6 item-day">
+                        <div class="item-day-number">19</div>
+                        <div class="item-day-week">WED</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-10 item-info item-type-attendee">
+                <header>Lorem ipsum bacon cenas</header>
+                <footer>
+                    <div class="event-day">[Day 2/2]</div>
+                    <div class="event-extra-info">
+                        <div class="date">
+                            12:45
+                            <span>
+                                <i class="far fa-clock"></i>
+                            </span>
+                        </div>
+                        <div class="location">
+                            Porto, Portugal
+                            <span>
+                                <i class="fas fa-map-marker-alt"></i>
+                            </span>
+                        </div>
+                    </div>
+                </footer>
+            </div>
+        </div>
+        <div class="row dashboard-item">
+            <div class="col-2 item-date">
+                <div class="row">
+                    <div class="col-6 item-year-month">
+                        <div class="item-month">May</div>
+                        <div class="item-year">2019</div>
+                    </div>
+                    <div class="col-6 item-day">
+                        <div class="item-day-number">03</div>
+                        <div class="item-day-week">SUN</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-10 item-info item-type-organizer">
+                <header>YAN - Yet Another Event</header>
+                <footer>
+                    <div class="event-day"></div>
+                    <div class="event-extra-info">
+                        <div class="date">
+                            16:30
+                            <span>
+                                <i class="far fa-clock"></i>
+                            </span>
+                        </div>
+                        <div class="location">
+                            London, England
+                            <span>
+                                <i class="fas fa-map-marker-alt"></i>
+                            </span>
+                        </div>
+                    </div>
+                </footer>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

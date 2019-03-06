@@ -1,0 +1,75 @@
+@import "palette.css";
+
+.card-container {
+    background-color: var(--color-grey-light);
+    border-radius: 0.5em;
+    transform: translateY(-10%);
+    -webkit-box-shadow: 0px 0px 12px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 0px 12px 0px rgba(0,0,0,0.75);
+    box-shadow: 0px 0px 12px 0px rgba(0,0,0,0.75);
+    padding: 2em 3em;
+}
+
+.card-container h1 {
+    color: var(--secondary-color-dark);
+}
+
+.dashboard-item .item-year-month {
+    color: var(--secondary-color-light);
+}
+
+.dashboard-item .item-year-month .item-month {
+    font-weight: bold;
+    font-size: 1.2em;
+}
+
+.dashboard-item .item-day {
+    color: var(--secondary-color-medium);
+    font-weight: bold;
+}
+
+.dashboard-item .item-day .item-day-number {
+    font-size: 1.6em;
+}
+
+.dashboard-item + .dashboard-item {
+    margin-top: 1em;
+}
+
+.dashboard-item .item-info {
+    color: var(--secondary-color-medium);
+    background-color: white;
+    border-radius: 0.4em;
+    padding: 0.5em 1em;
+    text-align: justify;
+}
+
+.dashboard-item .item-type-attendee {
+    border: 1px solid var(--primary-color);
+}
+
+.dashboard-item .item-type-organizer {
+    border: 1px solid var(--secondary-color-medium);
+}
+
+.dashboard-item .item-info > header {
+    font-weight: bold;
+    margin-bottom: 0.5em;
+}
+
+.dashboard-item .item-info > footer {
+    display: flex;
+    justify-content: space-between;
+}
+
+.dashboard-item .item-info .event-extra-info {
+    display: flex;
+}
+
+.dashboard-item .item-info .event-extra-info span {
+    margin-left: 0.1em;
+}
+
+.dashboard-item .item-info .event-extra-info > div + div {
+    margin-left: 1.2em;
+}
