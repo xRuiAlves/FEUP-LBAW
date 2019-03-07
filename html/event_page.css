@@ -1,13 +1,3 @@
-body {
-    background-color: #121633;
-}
-
-.background-mask {
-    background-color: #ff8e03;
-    width: 100%;
-    height: 200px;
-}
-
 .event-card {
     background-color: #ededed;
 }

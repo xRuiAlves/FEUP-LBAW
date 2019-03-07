@@ -1,4 +1,4 @@
-@import "palette.css";
+@import "./palette.css";
 
 .card-container {
     background-color: var(--color-grey-light);
@@ -19,4 +19,32 @@
         border-radius: 0;
         padding: 1em 1em;
     }
+}
+
+/************ BACKGROUND ************/
+body {
+    background: var(--secondary-color-dark) repeat;
+    z-index: -2;
+}
+
+
+#background_wave {
+    position: absolute;
+    top: -30%;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1;
+
+    background: var(--primary-color) repeat;
+
+    mask-image: url("./curve.svg");    
+    mask-repeat: no-repeat;
+    mask-size: 100% 300vw;
+    mask-position: center calc(45% - 4.5vw);
+
+    -webkit-mask-image: url("./curve.svg");    
+    -webkit-mask-repeat: no-repeat;
+    -webkit-mask-size: 100% 300vw;
+    -webkit-mask-position: center calc(45% - 4.5vw);
 }
