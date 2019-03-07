@@ -1,10 +1,22 @@
+@import "palette.css";
+
 .card-container {
     background-color: var(--color-grey-light);
     border-radius: 0.5em;
-    transform: translateY(-10%);
     -webkit-box-shadow: 0px 0px 12px 0px rgba(0,0,0,0.75);
     -moz-box-shadow: 0px 0px 12px 0px rgba(0,0,0,0.75);
     box-shadow: 0px 0px 12px 0px rgba(0,0,0,0.75);
     padding: 2em 3em;
     color: var(--secondary-color-dark);
+}
+
+.card-container h1 {
+    color: var(--secondary-color-dark);
+}
+
+@media only screen and (max-width: 576px) {
+    .card-container {
+        border-radius: 0;
+        padding: 1em 1em;
+    }
 }

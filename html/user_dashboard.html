@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>User Dashboard</title>
 
@@ -16,6 +16,7 @@
     <link rel="stylesheet" href="./navbar.css">
     <link rel="stylesheet" href="./event_page.css">
     <link rel="stylesheet" href="./user_dashboard.css">
+    <link rel="stylesheet" href="./common.css">
 
 
 </head>
@@ -42,7 +43,6 @@
     </nav>
     <div class="background-mask"></div>
     <div class="container card-container font-content">
-        <!-- Tou a dar reuse nas classes dos events que não deviam ser exclusivas a events! -->
         <div class="row">
             <div class="col-12 font-title">
                 <h1>Your events</h1>
@@ -59,474 +59,28 @@
                     <div class="item-day-week">TUE</div>
                 </div>
             </div>
-            <div class="item-info item-type-attendee">
-                <header>Lorem ipsum bacon cenas</header>
-                <footer>
-                    <div class="event-day">[Day 1/2]</div>
-                    <div class="event-extra-info">
-                        <div class="date">
-                            10:00
-                            <span>
-                                <i class="far fa-clock"></i>
-                            </span>
-                        </div>
-                        <div class="location">
-                            Porto, Portugal
-                            <span>
-                                <i class="fas fa-map-marker-alt"></i>
-                            </span>
-                        </div>
+            <article class="item-info item-type-attendee">
+                <header class="row">
+                    <div class="col-12">
+                        Lorem ipsum bacon cenas
+                    </div>
+                </header>
+                <footer class="row">
+                    <div class="col-6 col-md-6 col-xl-8 timespan" >[Day 1/2]</div>
+                    <div class="col-6 col-md-2 col-xl-2 text-right time">
+                        <span>
+                            <i class="far fa-clock"></i>
+                        </span>
+                        10:00
+                    </div>
+                    <div class="col-12 col-md-4 col-xl-2 location">
+                        <span>
+                            <i class="fas fa-map-marker-alt"></i>
+                        </span>
+                        Porto, Portugal
                     </div>
                 </footer>
-            </div>
-        </div>
-        <div class="dashboard-item">
-            <div class="item-date">
-                <div class="item-year-month">
-                    <div class="item-month"></div>
-                    <div class="item-year"></div>
-                </div>
-                <div class="item-day">
-                    <div class="item-day-number">19</div>
-                    <div class="item-day-week">WED</div>
-                </div>
-            </div>
-            <div class="item-info item-type-attendee">
-                <header>Lorem ipsum bacon cenas</header>
-                <footer>
-                    <div class="event-day">[Day 1/2]</div>
-                    <div class="event-extra-info">
-                        <div class="date">
-                            12:15
-                            <span>
-                                <i class="far fa-clock"></i>
-                            </span>
-                        </div>
-                        <div class="location">
-                            London, England
-                            <span>
-                                <i class="fas fa-map-marker-alt"></i>
-                            </span>
-                        </div>
-                    </div>
-                </footer>
-            </div>
-        </div>
-        <div class="dashboard-item">
-            <div class="item-date">
-                <div class="item-year-month">
-                    <div class="item-month">May</div>
-                    <div class="item-year">2019</div>
-                </div>
-                <div class="item-day">
-                    <div class="item-day-number">08</div>
-                    <div class="item-day-week">SAT</div>
-                </div>
-            </div>
-            <div class="item-info item-type-organizer">
-                <header>They don't stop coming and they dont stop coming and they dont stop coming and they dont stop coming and they dont stop coming and they dont stop coming and they dont stop coming and they dont stop coming and they dont stop coming and they dont stop coming</header>
-                <footer>
-                    <div class="event-day"></div>
-                    <div class="event-extra-info">
-                        <div class="date">
-                            21:10
-                            <span>
-                                <i class="far fa-clock"></i>
-                            </span>
-                        </div>
-                        <div class="location">
-                            Braga, New Zeland
-                            <span>
-                                <i class="fas fa-map-marker-alt"></i>
-                            </span>
-                        </div>
-                    </div>
-                </footer>
-            </div>
-        </div>
-        <div class="dashboard-item">
-            <div class="item-date">
-                <div class="item-year-month">
-                    <div class="item-month">Fev</div>
-                    <div class="item-year">2019</div>
-                </div>
-                <div class="item-day">
-                    <div class="item-day-number">18</div>
-                    <div class="item-day-week">TUE</div>
-                </div>
-            </div>
-            <div class="item-info item-type-attendee">
-                <header>Lorem ipsum bacon cenas</header>
-                <footer>
-                    <div class="event-day">[Day 1/2]</div>
-                    <div class="event-extra-info">
-                        <div class="date">
-                            10:00
-                            <span>
-                                <i class="far fa-clock"></i>
-                            </span>
-                        </div>
-                        <div class="location">
-                            Porto, Portugal
-                            <span>
-                                <i class="fas fa-map-marker-alt"></i>
-                            </span>
-                        </div>
-                    </div>
-                </footer>
-            </div>
-        </div>
-        <div class="dashboard-item">
-            <div class="item-date">
-                <div class="item-year-month">
-                    <div class="item-month"></div>
-                    <div class="item-year"></div>
-                </div>
-                <div class="item-day">
-                    <div class="item-day-number">19</div>
-                    <div class="item-day-week">WED</div>
-                </div>
-            </div>
-            <div class="item-info item-type-attendee">
-                <header>YAT - Yet Another Event</header>
-                <footer>
-                    <div class="event-day">[Day 1/2]</div>
-                    <div class="event-extra-info">
-                        <div class="date">
-                            10:00
-                            <span>
-                                <i class="far fa-clock"></i>
-                            </span>
-                        </div>
-                        <div class="location">
-                            Porto, Portugal
-                            <span>
-                                <i class="fas fa-map-marker-alt"></i>
-                            </span>
-                        </div>
-                    </div>
-                </footer>
-            </div>
-        </div>
-        <div class="dashboard-item">
-            <div class="item-date">
-                <div class="item-year-month">
-                    <div class="item-month">May</div>
-                    <div class="item-year">2019</div>
-                </div>
-                <div class="item-day">
-                    <div class="item-day-number">08</div>
-                    <div class="item-day-week">SAT</div>
-                </div>
-            </div>
-            <div class="item-info item-type-organizer">
-                <header>Lorem ipsum bacon cenas</header>
-                <footer>
-                    <div class="event-day">[Day 1/2]</div>
-                    <div class="event-extra-info">
-                        <div class="date">
-                            10:00
-                            <span>
-                                <i class="far fa-clock"></i>
-                            </span>
-                        </div>
-                        <div class="location">
-                            Porto, Portugal
-                            <span>
-                                <i class="fas fa-map-marker-alt"></i>
-                            </span>
-                        </div>
-                    </div>
-                </footer>
-            </div>
-        </div>
-        <div class="dashboard-item">
-            <div class="item-date">
-                <div class="item-year-month">
-                    <div class="item-month">Fev</div>
-                    <div class="item-year">2019</div>
-                </div>
-                <div class="item-day">
-                    <div class="item-day-number">18</div>
-                    <div class="item-day-week">TUE</div>
-                </div>
-            </div>
-            <div class="item-info item-type-attendee">
-                <header>Lorem ipsum bacon cenas</header>
-                <footer>
-                    <div class="event-day">[Day 1/2]</div>
-                    <div class="event-extra-info">
-                        <div class="date">
-                            10:00
-                            <span>
-                                <i class="far fa-clock"></i>
-                            </span>
-                        </div>
-                        <div class="location">
-                            Porto, Portugal
-                            <span>
-                                <i class="fas fa-map-marker-alt"></i>
-                            </span>
-                        </div>
-                    </div>
-                </footer>
-            </div>
-        </div>
-        <div class="dashboard-item">
-            <div class="item-date">
-                <div class="item-year-month">
-                    <div class="item-month"></div>
-                    <div class="item-year"></div>
-                </div>
-                <div class="item-day">
-                    <div class="item-day-number">19</div>
-                    <div class="item-day-week">WED</div>
-                </div>
-            </div>
-            <div class="item-info item-type-attendee">
-                <header>Lorem ipsum bacon cenas</header>
-                <footer>
-                    <div class="event-day">[Day 1/2]</div>
-                    <div class="event-extra-info">
-                        <div class="date">
-                            10:00
-                            <span>
-                                <i class="far fa-clock"></i>
-                            </span>
-                        </div>
-                        <div class="location">
-                            Porto, Portugal
-                            <span>
-                                <i class="fas fa-map-marker-alt"></i>
-                            </span>
-                        </div>
-                    </div>
-                </footer>
-            </div>
-        </div>
-        <div class="dashboard-item">
-            <div class="item-date">
-                <div class="item-year-month">
-                    <div class="item-month">May</div>
-                    <div class="item-year">2019</div>
-                </div>
-                <div class="item-day">
-                    <div class="item-day-number">08</div>
-                    <div class="item-day-week">SAT</div>
-                </div>
-            </div>
-            <div class="item-info item-type-organizer">
-                <header>They don't stop coming and they dont stop coming</header>
-                <footer>
-                    <div class="event-day">[Day 1/2]</div>
-                    <div class="event-extra-info">
-                        <div class="date">
-                            10:00
-                            <span>
-                                <i class="far fa-clock"></i>
-                            </span>
-                        </div>
-                        <div class="location">
-                            Porto, Portugal
-                            <span>
-                                <i class="fas fa-map-marker-alt"></i>
-                            </span>
-                        </div>
-                    </div>
-                </footer>
-            </div>
-        </div>
-        <div class="dashboard-item">
-            <div class="item-date">
-                <div class="item-year-month">
-                    <div class="item-month">Fev</div>
-                    <div class="item-year">2019</div>
-                </div>
-                <div class="item-day">
-                    <div class="item-day-number">18</div>
-                    <div class="item-day-week">TUE</div>
-                </div>
-            </div>
-            <div class="item-info item-type-attendee">
-                <header>Lorem ipsum bacon cenas</header>
-                <footer>
-                    <div class="event-day">[Day 1/2]</div>
-                    <div class="event-extra-info">
-                        <div class="date">
-                            10:00
-                            <span>
-                                <i class="far fa-clock"></i>
-                            </span>
-                        </div>
-                        <div class="location">
-                            Porto, Portugal
-                            <span>
-                                <i class="fas fa-map-marker-alt"></i>
-                            </span>
-                        </div>
-                    </div>
-                </footer>
-            </div>
-        </div>
-        <div class="dashboard-item">
-            <div class="item-date">
-                <div class="item-year-month">
-                    <div class="item-month"></div>
-                    <div class="item-year"></div>
-                </div>
-                <div class="item-day">
-                    <div class="item-day-number">19</div>
-                    <div class="item-day-week">WED</div>
-                </div>
-            </div>
-            <div class="item-info item-type-attendee">
-                <header>Lorem ipsum bacon cenas</header>
-                <footer>
-                    <div class="event-day">[Day 1/2]</div>
-                    <div class="event-extra-info">
-                        <div class="date">
-                            10:00
-                            <span>
-                                <i class="far fa-clock"></i>
-                            </span>
-                        </div>
-                        <div class="location">
-                            Porto, Portugal
-                            <span>
-                                <i class="fas fa-map-marker-alt"></i>
-                            </span>
-                        </div>
-                    </div>
-                </footer>
-            </div>
-        </div>
-        <div class="dashboard-item">
-            <div class="item-date">
-                <div class="item-year-month">
-                    <div class="item-month">May</div>
-                    <div class="item-year">2019</div>
-                </div>
-                <div class="item-day">
-                    <div class="item-day-number">08</div>
-                    <div class="item-day-week">SAT</div>
-                </div>
-            </div>
-            <div class="item-info item-type-organizer">
-                <header>Lorem ipsum bacon cenas</header>
-                <footer>
-                    <div class="event-day">[Day 1/2]</div>
-                    <div class="event-extra-info">
-                        <div class="date">
-                            10:00
-                            <span>
-                                <i class="far fa-clock"></i>
-                            </span>
-                        </div>
-                        <div class="location">
-                            Porto, Portugal
-                            <span>
-                                <i class="fas fa-map-marker-alt"></i>
-                            </span>
-                        </div>
-                    </div>
-                </footer>
-            </div>
-        </div>
-        <div class="dashboard-item">
-            <div class="item-date">
-                <div class="item-year-month">
-                    <div class="item-month">Fev</div>
-                    <div class="item-year">2019</div>
-                </div>
-                <div class="item-day">
-                    <div class="item-day-number">18</div>
-                    <div class="item-day-week">TUE</div>
-                </div>
-            </div>
-            <div class="item-info item-type-attendee">
-                <header>Lorem ipsum bacon cenas Lorem ipsum bacon cenas Lorem ipsum bacon cenas Lorem ipsum bacon cenas Lorem ipsum bacon cenas Lorem ipsum bacon cenas Lorem ipsum bacon cenas Lorem ipsum bacon cenas</header>
-                <footer>
-                    <div class="event-day">[Day 1/2]</div>
-                    <div class="event-extra-info">
-                        <div class="date">
-                            10:00
-                            <span>
-                                <i class="far fa-clock"></i>
-                            </span>
-                        </div>
-                        <div class="location">
-                            Porto, Portugal
-                            <span>
-                                <i class="fas fa-map-marker-alt"></i>
-                            </span>
-                        </div>
-                    </div>
-                </footer>
-            </div>
-        </div>
-        <div class="dashboard-item">
-            <div class="item-date">
-                <div class="item-year-month">
-                    <div class="item-month"></div>
-                    <div class="item-year"></div>
-                </div>
-                <div class="item-day">
-                    <div class="item-day-number">19</div>
-                    <div class="item-day-week">WED</div>
-                </div>
-            </div>
-            <div class="item-info item-type-attendee">
-                <header>Lorem ipsum bacon cenas</header>
-                <footer>
-                    <div class="event-day">[Day 1/2]</div>
-                    <div class="event-extra-info">
-                        <div class="date">
-                            10:00
-                            <span>
-                                <i class="far fa-clock"></i>
-                            </span>
-                        </div>
-                        <div class="location">
-                            Porto, Portugal
-                            <span>
-                                <i class="fas fa-map-marker-alt"></i>
-                            </span>
-                        </div>
-                    </div>
-                </footer>
-            </div>
-        </div>
-        <div class="dashboard-item">
-            <div class="item-date">
-                <div class="item-year-month">
-                    <div class="item-month">May</div>
-                    <div class="item-year">2019</div>
-                </div>
-                <div class="item-day">
-                    <div class="item-day-number">08</div>
-                    <div class="item-day-week">SAT</div>
-                </div>
-            </div>
-            <div class="item-info item-type-organizer">
-                <header>Lorem ipsum bacon cenas</header>
-                <footer>
-                    <div class="event-day">[Day 1/2]</div>
-                    <div class="event-extra-info">
-                        <div class="date">
-                            10:00
-                            <span>
-                                <i class="far fa-clock"></i>
-                            </span>
-                        </div>
-                        <div class="location">
-                            Porto, Portugal
-                            <span>
-                                <i class="fas fa-map-marker-alt"></i>
-                            </span>
-                        </div>
-                    </div>
-                </footer>
-            </div>
+            </article>
         </div>
     </div>
 

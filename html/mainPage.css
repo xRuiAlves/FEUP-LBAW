@@ -51,7 +51,9 @@ body {
 }
 
 @media only screen and (max-width: 768px) {
-    #page-title { right:0 }
+    #page-title { 
+        right:0 
+    }
 
     #page-title h1, #page-title h2 {
        text-align: center;
