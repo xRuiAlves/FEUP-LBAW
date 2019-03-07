@@ -2,6 +2,23 @@
     background-color: #1c2458;
 }
 
-.navbar a {
+.navbar, .navbar a {
     color: white;
+}
+
+.navbar .navbar-toggler-icon {
+    display: flex;
+    align-items: center;
+}
+
+.navbar-nav .nav-item {
+    transition: border 0.4s;
+    border-bottom: 1px solid transparent;
+}
+
+@media screen and (min-width: 992px) {
+    /* Only adding the hover to >lg devices (equal to the configured collapse in the navbar) */
+    .navbar-nav .nav-item:hover {
+        border-color: white;
+    }
 }
