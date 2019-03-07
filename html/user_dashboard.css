@@ -1,14 +1,5 @@
 @import "palette.css";
-
-.card-container {
-    background-color: var(--color-grey-light);
-    border-radius: 0.5em;
-    transform: translateY(-10%);
-    -webkit-box-shadow: 0px 0px 12px 0px rgba(0,0,0,0.75);
-    -moz-box-shadow: 0px 0px 12px 0px rgba(0,0,0,0.75);
-    box-shadow: 0px 0px 12px 0px rgba(0,0,0,0.75);
-    padding: 2em 3em;
-}
+@import "common.css";
 
 .dashboard-item + .dashboard-item {
     margin-top: 1em;

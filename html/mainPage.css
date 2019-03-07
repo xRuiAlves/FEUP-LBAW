@@ -1,4 +1,5 @@
 @import "palette.css";
+@import "common.css";
 
 body {
     font-family: 'Montserrat', cursive;
@@ -129,6 +130,7 @@ body {
 
 #search-box {
     margin-top: 3em;
+    margin-bottom: 5em;
     background-color: white;
     border-radius: 1.5em;
     border: 0;
@@ -180,4 +182,11 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: center;
+}
+
+
+/********** EVENT CARD ***********/
+
+.event-card {
+    margin-top: 2.5em;
 }
