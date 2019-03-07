@@ -39,28 +39,6 @@ body {
     right: 5vw;
 }
 
-@media only screen and (max-width: 768px) {
-
-    #page-title {
-        top:10vh;
-    }
-
-    #banner-image-container > img:last-child {
-        height: 60%;
-    }
-}
-
-@media only screen and (max-width: 768px) {
-    #page-title { 
-        right:0 
-    }
-
-    #page-title h1, #page-title h2 {
-       text-align: center;
-    }
-}
-
-
 #page-title > .row {
     color:white;
 }
@@ -79,6 +57,7 @@ body {
     padding: 1em 0;
     font-family: Raleway, sans-serif;
 }
+
 
 /*********** BANNER BUTTONS *********/
 
@@ -110,7 +89,6 @@ body {
     color: var(--primary-color);
 }
 
-
 /************ BANNER ABOUT ***********/
 
 #banner-about {
@@ -126,6 +104,7 @@ body {
 #banner-about p {
     text-align: center;
 }
+
 
 
 /************* SEARCH BOX ************/
@@ -161,14 +140,13 @@ body {
 #search-box .row > div {
     display: flex;
     flex-direction: row;
+    justify-content: space-around;
 }
+
 
 #search-box i{
     padding: 0.5em;
 }
-
-
-
 
 
 /******* DROPDOWNS *******/
@@ -191,4 +169,50 @@ body {
 
 .event-card {
     margin-top: 2.5em;
+}
+
+
+
+
+@media only screen and (max-width: 768px) {
+
+    #page-title {
+        top:10vh;
+        right:0
+    }
+
+    #banner-image-container > img:last-child {
+        height: 60%;
+    }
+
+    #page-title h1, #page-title h2 {
+       text-align: center;
+    }
+
+    #banner-buttons {
+        bottom: 10vh;
+    }
+}
+
+/* fix mobile landscape */
+@media only screen and (max-height: 600px) {
+    #banner-wrapper {
+        height: 200vh;
+    }
+
+    #banner-image-container > img:last-child {
+        height: 100%;
+    }
+
+    #banner-buttons {
+        bottom: auto;
+        top: 100vh;
+    }
+
+    @media only screen and (min-width: 800px) {
+        #banner-image-container > img:first-child{
+            height:auto;
+            bottom: -20vh;
+        }
+    }
 }
