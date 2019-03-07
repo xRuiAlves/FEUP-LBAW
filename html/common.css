@@ -12,6 +12,7 @@
 
 .card-container h1 {
     color: var(--secondary-color-dark);
+    margin-bottom: 0.5em;
 }
 
 @media only screen and (max-width: 576px) {
