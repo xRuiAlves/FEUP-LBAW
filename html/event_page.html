@@ -10,37 +10,55 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="./constants.css">
+    <link rel="stylesheet" href="./common.css">
     <link rel="stylesheet" href="./navbar.css">
     <link rel="stylesheet" href="./event_page.css">
 
 
 </head>
 <body>
+    <div id="background_wave"></div>
+    
     <nav class="navbar navbar-expand-lg">
         <div class="container">
-
             <a class="navbar-brand" href="#">Eventually</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
+    
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon">
+                    <i class="fas fa-bars"></i>
+                </span>
             </button>
-
+    
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-                </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/#search-box">Search</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/create_event.html">Host</a>
+                    </li>
+                </ul>
+                <div class="nav-item">
+                    <a href="/user_dashboard.html">
+                        <i class="fas fa-user"></i>
+                    </a>
+                </div>
             </div>
         </div>
     </nav>
-    <div class="background-mask"></div>
-    <div class="container event-card font-content">
+    
+    <div class="container card-container font-content">
         <div class="row">
             <div class="col-12 event-title font-title">
                 <h1>Event Title</h1>
             </div>
         </div>
         <div class="row event-details">
-            <div class="col-sm-6 event-spacetime">
+            <div class="col-6 event-spacetime">
                 <div class="row">
                     <div class="col-12">
                             <span><i class="far fa-calendar-alt"></i></span> Time
@@ -52,7 +70,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-sm-6 event-category">
+            <div class="col-6 event-category">
                 Category <span><i class="fas fa-tag"></i></span>
             </div>
         </div>
