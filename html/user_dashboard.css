@@ -1,6 +1,11 @@
 @import "palette.css";
 @import "common.css";
 
+.dashboard-item {
+    display: flex;
+    justify-content: space-between;
+}
+
 .dashboard-item + .dashboard-item {
     margin-top: 1em;
 }
@@ -10,11 +15,15 @@
 }
 
 .card-container .item-date {
+    display: flex;
+    width: 5em;
     font-family: Montserrat, sans-serif;
 }
 
 .dashboard-item .item-year-month {
+    text-align: center;
     color: var(--secondary-color-light);
+    width: 2.5em;
 }
 
 .dashboard-item .item-year-month .item-month {
@@ -23,16 +32,20 @@
 }
 
 .dashboard-item .item-day {
+    text-align: center;
     color: var(--secondary-color-medium);
     font-weight: bolder;
+    width: 2.5em;
 }
 
 .dashboard-item .item-day .item-day-number {
     font-size: 1.4em;
+    text-align: center;
 }
 
 .dashboard-item .item-day .item-day-week {
     font-size: 0.7em;
+    text-align: center;
 }
 
 .dashboard-item .item-info {
@@ -41,6 +54,7 @@
     border-radius: 0.4em;
     padding: 0.5em 1em;
     text-align: justify;
+    width: 100%;
 }
 
 .dashboard-item .item-type-attendee {
