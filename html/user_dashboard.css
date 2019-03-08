@@ -94,16 +94,29 @@
     border-radius: 0.4em;
     padding: 0.5em 1em;
     flex-grow: 1;
+    cursor: pointer;
 }
 
 .dashboard-day-items .item-type-attendee {
+    transition-property: background-color;
+    transition-duration: 0.2s;
     border: 1px solid var(--secondary-color-medium);
     background-color: var(--secondary-color-medium-translucid);
 }
 
+.dashboard-day-items .item-type-attendee:hover {
+    background-color: var(--secondary-color-medium-dark-translucid);
+}
+
 .dashboard-day-items .item-type-organizer {
+    transition-property: background-color;
+    transition-duration: 0.2s;
     border: 1px solid var(--primary-color);
     background-color: var(--primary-color-translucid);
+}
+
+.dashboard-day-items .item-type-organizer:hover {
+    background-color: var(--primary-color-dark-translucid);
 }
 
 .dashboard-day-items .dashboard-day-item > header {
