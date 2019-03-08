@@ -5,6 +5,7 @@
     padding: 0;
     top: 7em;
     margin-bottom: 7em;
+    overflow: hidden;
 }
 
 .event-card .event-category {
@@ -12,8 +13,23 @@
 } 
 .event-card .event-brief {
     padding: 3em;
+    padding-bottom: 1em;
+    background-color: white;
 }
+
+.event-card .event-description {
+    margin-bottom: 1em;
+}
+
+.event-card .event-details, .event-card .event-title {
+    font-weight: bold;
+}
+
 .event-card .event-map img {
+    width: 100%;
+}
+
+.event-card .event-map img:hover {
     width: 100%;
 }
 
@@ -27,11 +43,15 @@
     padding: 0.5em 2em;
     font-weight: bold;
 }
+.event-card .event-brief .attend-btn button:hover {
+    background-color: var(--secondary-color-medium-dark);
+}
 
 .event-card .separator hr {
     padding: 0;
     margin:0;
     margin-bottom: 1.5em;
+    border-top-width: 2px;
 }
 
 .message-area {
@@ -44,7 +64,6 @@
 .event-card .event-description {
     margin-top: 1em;
     text-align: justify; 
-    margin-bottom: 3em;
 } 
 
 .event-card .nav-item, .card-container .nav-item:hover {

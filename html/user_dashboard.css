@@ -3,6 +3,7 @@
 
 .user-events-container > header {
     max-width: 100%;
+    margin-bottom: 2em;
 }
 
 .user-events-container > header .label {
@@ -39,7 +40,7 @@
 
 .sticky-container .sticky-item {
     position: sticky;
-    top: 0.4em;
+    top: 4em;
 }
 
 .sticky-container + .sticky-container {
@@ -97,10 +98,12 @@
 
 .dashboard-day-items .item-type-attendee {
     border: 1px solid var(--secondary-color-medium);
+    background-color: var(--secondary-color-medium-translucid);
 }
 
 .dashboard-day-items .item-type-organizer {
     border: 1px solid var(--primary-color);
+    background-color: var(--primary-color-translucid);
 }
 
 .dashboard-day-items .dashboard-day-item > header {
@@ -109,11 +112,13 @@
 }
 
 @media only screen and (max-width: 576px) {
+
     .card-container.user-events-container {
         -webkit-box-shadow: none;
         -moz-box-shadow: none;
         box-shadow: none;
         top: 0;
+        margin-bottom: 2em;
     }
 
     .dashboard-day-container .item-day {

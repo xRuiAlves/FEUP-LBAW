@@ -1,8 +1,12 @@
 :root {
     --primary-color: #ff8e00;
+    --primary-color-translucid: #ff88002e;
+    --navbar-color: #172752;
+    /* --navbar-color: #222858; */
     --secondary-color-dark: #121633;
     --secondary-color-medium-dark: #233d5e;
     --secondary-color-medium: #346488;
+    --secondary-color-medium-translucid: #03a9f41f;
     --secondary-color-light: #84B9D8;
     --color-grey-light: #ededed;
 }

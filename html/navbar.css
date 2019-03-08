@@ -1,11 +1,13 @@
+@import "palette.css";
+
 .navbar {
-    background-color: #1c2458;
+    background-color: var(--navbar-color);
     position: sticky;
     top: 0;
-    z-index: 2
+    z-index: 2;
 }
 
-.navbar, .navbar a {
+.navbar, .navbar a, .navbar button {
     color: white;
 }
 
