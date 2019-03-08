@@ -38,3 +38,29 @@
 .card-container .nav-item.nav-link.active {
     width: 70%;
 }
+
+.announcement {
+    background-color: white;
+    padding: 2em;
+    margin-top: 3em;
+    width: 100%;
+    display: flex;
+    color: var(--secondary-color-medium);
+}
+
+.announcement .icon {
+    width: 2em;
+    font-size: 1.4em;
+}
+.announcement .content {
+    flex-grow: 1;
+}
+
+.announcement .content .date {
+    color: var(--secondary-color-light);
+}
+
+.add-announcement-btn {
+    padding-left: 2em;
+    margin-top: 2em;
+}
