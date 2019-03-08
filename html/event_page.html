@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
@@ -7,8 +8,10 @@
     <title>Event Page</title>
 
     <link href="https://fonts.googleapis.com/css?family=Montserrat|Raleway" rel="stylesheet">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
+        integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="./constants.css">
     <link rel="stylesheet" href="./common.css">
     <link rel="stylesheet" href="./navbar.css">
@@ -16,15 +19,16 @@
 
 
 </head>
+
 <body>
     <div id="background_wave"></div>
-    
+
     <nav class="navbar navbar-expand-lg">
         <div class="container">
             <a class="navbar-brand" href="/">Eventually</a>
 
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon">
                     <i class="fas fa-bars"></i>
                 </span>
@@ -54,55 +58,70 @@
             </div>
         </div>
     </nav>
-    
+
     <div class="container card-container font-content event-card">
-        <div class="row">
-            <div class="col-12 event-title font-title">
-                <h1>Event Title</h1>
-            </div>
-        </div>
-        <div class="row event-details">
-            <div class="col-6 event-spacetime">
-                <div class="row">
-                    <div class="col-12">
-                            <span><i class="far fa-calendar-alt"></i></span> Time
-                    </div>
+        <div class="event-brief">
+            <div class="row no-gutters">
+                <div class="col-10 event-title font-title">
+                    <h1>Event Title</h1>
                 </div>
-                <div class="row">
-                    <div class="col-12">
-                        <span><i class="fas fa-map-marker-alt"></i></span> Location
-                    </div>
+                <div class="col-2 attend-btn text-right">
+                        <button type="button" class="btn">
+                                <span><i class="fas fa-calendar-check icon-left"></i></span>
+                                Attend
+                        </button>
                 </div>
             </div>
-            <div class="col-6 event-category">
-                Category <span><i class="fas fa-tag"></i></span>
+            <div class="separator">
+                <hr>
             </div>
-        </div>
-        <div class="row event-description">
-            <div class="col-12">
-                    Cow cheeseburger feta. Goat cottage cheese bocconcini roquefort red leicester cream cheese cow danish fontina. Mozzarella cheddar melted cheese who moved my cheese roquefort parmesan cheeseburger pecorino. Goat feta lancashire fondue cauliflower cheese roquefort cheeseburger.
+            <div class="row event-details">
+                <div class="col-6 event-spacetime">
+                    <div class="row">
+                        <div class="col-12">
+                            <span><i class="far fa-calendar-alt icon-left"></i></span> Time
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12">
+                            <span><i class="fas fa-map-marker-alt icon-left"></i></span> Location
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6 event-category">
+                    Category <span><i class="fas fa-tag icon-right"></i></span>
+                </div>
+            </div>
+            <div class="row event-description">
+                <div class="col-12">
+                    Cow cheeseburger feta. Goat cottage cheese bocconcini roquefort red leicester cream cheese cow danish
+                    fontina. Mozzarella cheddar melted cheese who moved my cheese roquefort parmesan cheeseburger pecorino.
+                    Goat feta lancashire fondue cauliflower cheese roquefort cheeseburger.
+                </div>
             </div>
         </div>
         <div class="row event-map">
             <div class="col-12">
-                <div style="height: 400px; background-color:salmon">
-                    MAP_PLACEHOLDER
-                </div>
+                <img src="mapa.jpg" alt="event location map">
             </div>
         </div>
         <div class="row">
             <div class="col-12 message-area">
                 <nav>
                     <div class="nav nav-tabs" id="nav-tab" role="tablist">
-                        <a class="nav-item nav-link active" id="nav-announcements-tab" data-toggle="tab" href="#nav-announcements" role="tab" aria-controls="nav-announcements" aria-selected="true">Announcements</a>
-                        <a class="nav-item nav-link" id="nav-discussion-tab" data-toggle="tab" href="#nav-discussion" role="tab" aria-controls="nav-discussion" aria-selected="false">Discussion</a>
+                        <a class="nav-item nav-link active" id="nav-announcements-tab" data-toggle="tab"
+                            href="#nav-announcements" role="tab" aria-controls="nav-announcements"
+                            aria-selected="true">Announcements</a>
+                        <a class="nav-item nav-link" id="nav-discussion-tab" data-toggle="tab" href="#nav-discussion"
+                            role="tab" aria-controls="nav-discussion" aria-selected="false">Discussion</a>
                     </div>
                 </nav>
                 <div class="tab-content" id="nav-tabContent">
-                    <div class="tab-pane fade show active" id="nav-announcements" role="tabpanel" aria-labelledby="nav-announcements-tab">
+                    <div class="tab-pane fade show active" id="nav-announcements" role="tabpanel"
+                        aria-labelledby="nav-announcements-tab">
                         <div class="announcements-area">
-                            <div class="add-announcement-btn">
-                                <span><i class="far fa-edit"></i></span>
+                            <div class="add-btn">
+                                <span><i class="fas fa-bullhorn"></i></span>
                                 New Announcement
                             </div>
                             <div class="announcement">
@@ -112,7 +131,7 @@
                                         11.11.2012 | 12:12
                                     </div>
                                     <div class="text">
-                                        Bring yo snickerz
+                                            Bring yo snickerzBring yo snickerzBring yo snickerzBring yo snickerzBring yo snickerzBring yo snickerzBring yo snickerzBring yo snickerzBring yo snickerzBring yo snickerzBring yo snickerzBring yo snickerzBring yo snickerzBring yo snickerzBring yo snickerzBring yo snickerzBring yo snickerzBring yo snickerzBring yo snickerzBring yo snickerzBring yo snickerzBring yo snickerzBring yo snickerzBring yo snickerzBring yo snickerzBring yo snickerzBring yo snickerzBring yo snickerzBring yo snickerzBring yo snickerzBring yo snickerzBring yo snickerzBring yo snickerzBring yo snickerzBring yo snickerzBring yo snickerzBring yo snickerzBring yo snickerz
                                     </div>
                                 </div>
                             </div>
@@ -135,9 +154,9 @@
                                     </div>
                                     <div class="text">
                                         dont be sick
-                                        <br>    
-                                        <br>    
-                                        <br>    
+                                        <br>
+                                        <br>
+                                        <br>
                                         Ever
                                     </div>
                                 </div>
@@ -145,18 +164,70 @@
                         </div>
                     </div>
                     <div class="tab-pane fade" id="nav-discussion" role="tabpanel" aria-labelledby="nav-discussion-tab">
-                        <div style="height: 400px; background-color:aqua">
-                            DISCUSSION HERE
+                        <div class="discussions-area">
+                            <div class="add-btn">
+                                <span><i class="far fa-edit"></i></span>
+                                New Post
+                            </div>
+                            <div class="post">
+                                <div class="icon"><span><i class="fas fa-reply"></i></span></div>
+                                <div class="content">
+                                    <div class="date">
+                                        11.11.2012 | 12:12
+                                    </div>
+                                    <div class="text">
+                                        Bring yo snickerz
+                                    </div>
+                                    <div class="comments-toggler">0 comments</div>
+                                </div>
+                            </div>
+                            <div class="post">
+                                <div class="icon"><span><i class="fas fa-reply"></i></span></div>
+                                <div class="content">
+                                    <div class="date">
+                                        11.11.2012 | 12:12
+                                    </div>
+                                    <div class="text">
+                                        get chiizzeeee
+                                    </div>
+                                    <div class="comments-toggler">0 comments</div>
+                                </div>
+                            </div>
+                            <div class="post">
+                                <div class="icon"><span><i class="fas fa-reply"></i></i></span></div>
+                                <div class="content">
+                                    <div class="date">
+                                        11.11.2012 | 12:12
+                                    </div>
+                                    <div class="text">
+                                        dont be sick
+                                        <br>
+                                        <br>
+                                        <br>
+                                        Ever
+                                    </div>
+                                    <div class="comments-toggler">
+                                        0 comments
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
-                
+
             </div>
         </div>
     </div>
 
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
 </body>
+
 </html>

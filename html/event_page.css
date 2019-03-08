@@ -1,66 +1,119 @@
+@import "palette.css";
+
 .card-container.event-card {
-    background-color: #ededed;
     position: relative;
+    padding: 0;
     top: 7em;
+    margin-bottom: 7em;
 }
 
-.card-container .event-category {
+.event-card .event-category {
     text-align: right;
 } 
+.event-card .event-brief {
+    padding: 3em;
+}
+.event-card .event-map img {
+    width: 100%;
+}
 
+.event-card .event-brief .attend-btn button i {
+    font-size: 1.25em;
+}
+
+.event-card .event-brief .attend-btn button {
+    background-color: var(--secondary-color-medium);
+    color: white;
+    padding: 0.5em 2em;
+    font-weight: bold;
+}
+
+.event-card .separator hr {
+    padding: 0;
+    margin:0;
+    margin-bottom: 1.5em;
+}
+
+.message-area {
+    padding-bottom: 2em;
+}
 .message-area .nav-item {
     text-align: center;
 }
 
-.card-container .event-description {
+.event-card .event-description {
     margin-top: 1em;
-    margin-bottom: 1em;
+    text-align: justify; 
+    margin-bottom: 3em;
 } 
 
-.card-container .nav-item, .card-container .nav-item:hover {
+.event-card .nav-item, .card-container .nav-item:hover {
     border: 0;
     background-color: white;
-    border-bottom: 3px solid #a1c8dd;
+    border-bottom: 3px solid var(--secondary-color-light);
     border-radius: 0;
-    color: #a1c8dd;
+    color: var(--secondary-color-light);
 }
 
-.card-container .nav-item.active, .card-container .nav-item.active:hover {
-    border-color: #457295;
-    color: #457295;
+.event-card .nav-item.active, .card-container .nav-item.active:hover {
+    border-color: var(--secondary-color-medium);
+    color: var(--secondary-color-medium);
 }
 
-.card-container .nav-item.nav-link {
+.event-card .nav-item.nav-link {
     width: 30%;
     transition: width .3s ease-in-out;
 }
 
-.card-container .nav-item.nav-link.active {
+.event-card .nav-item.nav-link.active {
     width: 70%;
 }
 
-.announcement {
+.announcement, .post {
     background-color: white;
-    padding: 2em;
-    margin-top: 3em;
+    padding: 1em 2em;
+    margin-top: 2em;
     width: 100%;
     display: flex;
     color: var(--secondary-color-medium);
 }
 
-.announcement .icon {
+.announcement .icon, .post .icon {
     width: 2em;
     font-size: 1.4em;
 }
-.announcement .content {
-    flex-grow: 1;
+.announcement .content, .post .content {
+    width: 100%;
+    font-weight: 600;
 }
 
-.announcement .content .date {
-    color: var(--secondary-color-light);
+.announcement .content .text, .post .content .text {
+    text-align: justify;
+} 
+
+.announcement .content .date, .post .content .date {
+    font-weight: 100;
 }
 
-.add-announcement-btn {
-    padding-left: 2em;
+.add-btn {
+    font-weight: bold;
+    margin-left: 2em;
     margin-top: 2em;
+    cursor: pointer;
+    color: var(--secondary-color-light);
+    display: inline-block;
 }
+
+.post .content .comments-toggler {
+    font-weight: 100;
+    margin-top: 0.25em;
+    cursor: pointer;
+    color: var(--secondary-color-light);
+    display: inline-block;
+}
+
+.add-btn:hover, .post .content .comments-toggler:hover {
+    color: var(--secondary-color-medium);
+}
+
+
