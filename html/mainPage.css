@@ -8,6 +8,10 @@ body {
     overflow-x: hidden;
 }
 
+input {
+    outline: none;
+}
+
 #banner-wrapper {
     height: 100vh;
     width: 100%;
@@ -170,8 +174,6 @@ body {
 .event-card {
     margin-top: 2.5em;
 }
-
-
 
 
 @media only screen and (max-width: 768px) {
