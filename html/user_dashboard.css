@@ -1,6 +1,33 @@
 @import "palette.css";
 @import "common.css";
 
+.user-events-container > header .label {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.user-events-container > header .label .label-color {
+    width: 1em;
+    height: 1em;
+    border-radius: 0.2em;
+    margin-left: 0.6em;
+}
+
+.user-events-container > header .label .label-color.label-attending {
+    background-color: var(--secondary-color-medium);
+}
+
+.user-events-container > header .label .label-color.label-organizing {
+    background-color: var(--primary-color);
+}
+
+.card-container.user-events-container {
+    position: relative;
+    top: 7em;
+    margin-bottom: 2em;
+}
+
 .sticky-container {
     display: flex;
     align-items: flex-start;
@@ -20,7 +47,7 @@
 }
 
 .dashboard-day-items {
-    flex-grow: 1;
+    width: 100%;
 }
 
 .dashboard-day-item + .dashboard-day-item {
@@ -65,11 +92,11 @@
 }
 
 .dashboard-day-items .item-type-attendee {
-    border: 1px solid var(--primary-color);
+    border: 1px solid var(--secondary-color-medium);
 }
 
 .dashboard-day-items .item-type-organizer {
-    border: 1px solid var(--secondary-color-medium);
+    border: 1px solid var(--primary-color);
 }
 
 .dashboard-day-items .dashboard-day-item > header {
@@ -77,16 +104,44 @@
     margin-bottom: 0.5em;
 }
 
-.dashboard-day-items .dashboard-day-item > footer > div.time > span{
-    padding: 0 0.25em;
-}
-
 @media only screen and (max-width: 576px) {
-    .dashboard-day-items .item-day {
+    .card-container.user-events-container {
+        -webkit-box-shadow: none;
+        -moz-box-shadow: none;
+        box-shadow: none;
+        top: 0;
+    }
+
+    .dashboard-day-container .item-day {
         width: 3em;
     }
 
     .sticky-container .item-year-month {
         width: 3em;
+    }
+
+    .card-container.user-events-container {
+        border-radius: 0;
+        padding: 0.8em 0.8em;
+        background-color: transparent;
+    }
+
+    .card-container.user-events-container h1 {
+        margin-bottom: 1em;
+        color: var(--secondary-color-dark);
+    }
+
+    .card-container.user-events-container header {
+        margin-bottom: 1.5em;
+    }
+
+    .user-events-container > header .label {
+        flex-direction: row-reverse;
+        align-items: center;
+    }
+
+    .user-events-container > header .label .label-color {
+        margin-right: 0.6em;
+        margin-left: 0;
     }
 }

@@ -59,16 +59,24 @@
             </div>
         </div>
     </nav>
-    
-    <div class="container card-container font-content">
-        <div class="row">
-            <div class="col-12 font-title">
+
+    <div class="container card-container font-content user-events-container">
+        <header class="row">
+            <div class="col-12 col-sm-9 font-title">
                 <h1>Your Events</h1>
             </div>
-        </div>
+            <div class="col-12 col-sm-3 text-right">
+                <div class="label">Organizing
+                    <div class="label-color label-organizing"></div>
+                </div>
+                <div class="label">Attending
+                    <div class="label-color label-attending"></div>
+                </div>
+            </div>
+        </header>
         <div class="sticky-container">
             <div class="item-year-month sticky-item">
-                <div class="item-month">Fev</div>
+                <div class="item-month">Apr</div>
                 <div class="item-year">2019</div>
             </div>
             <div class="dashboard-day-containers">
@@ -78,114 +86,48 @@
                         <div class="item-day-week">TUE</div>
                     </div>
                     <div class="dashboard-day-items">
-                        <article class="dashboard-day-item item-type-attendee">
+                        <article class="dashboard-day-item item-type-organizer">
                             <header class="row">
                                 <div class="col-12">
-                                    Lorem ipsum bacon cenas
+                                    Functional Progamming using Phoenix + Elixir - The perks of being a Back End Developer
                                 </div>
                             </header>
                             <footer class="row">
-                                <div class="col-6 col-md-6 col-xl-8 timespan">[Day 1/2]</div>
-                                <div class="col-6 col-md-2 col-xl-2 text-right time">
-                                    <span>
-                                        <i class="far fa-clock"></i>
-                                    </span>
-                                    10:00
-                                </div>
-                                <div class="col-12 col-md-4 col-xl-2 location">
+                                <div class="col-12 location">
                                     <span>
                                         <i class="fas fa-map-marker-alt"></i>
                                     </span>
-                                    Porto, Portugal
+                                    Madrid, Spain
                                 </div>
+                                <div class="col-6 time">
+                                    <span>
+                                        <i class="far fa-clock"></i>
+                                    </span>
+                                    15:50
+                                </div>
+                                <div class="col-6 text-right timespan"></div>
                             </footer>
                         </article>
                         <article class="dashboard-day-item item-type-attendee">
                             <header class="row">
                                 <div class="col-12">
-                                    Lorem ipsum bacon cenas
+                                    Semana de Informática
                                 </div>
                             </header>
                             <footer class="row">
-                                <div class="col-6 col-md-6 col-xl-8 timespan">[Day 1/2]</div>
-                                <div class="col-6 col-md-2 col-xl-2 text-right time">
-                                    <span>
-                                        <i class="far fa-clock"></i>
-                                    </span>
-                                    10:00
-                                </div>
-                                <div class="col-12 col-md-4 col-xl-2 location">
+                                <div class="col-12 location">
                                     <span>
                                         <i class="fas fa-map-marker-alt"></i>
                                     </span>
                                     Porto, Portugal
                                 </div>
-                            </footer>
-                        </article>
-                        <article class="dashboard-day-item item-type-attendee">
-                            <header class="row">
-                                <div class="col-12">
-                                    Lorem ipsum bacon cenas
-                                </div>
-                            </header>
-                            <footer class="row">
-                                <div class="col-6 col-md-6 col-xl-8 timespan">[Day 1/2]</div>
-                                <div class="col-6 col-md-2 col-xl-2 text-right time">
+                                <div class="col-6 time">
                                     <span>
                                         <i class="far fa-clock"></i>
                                     </span>
-                                    10:00
+                                    09:15
                                 </div>
-                                <div class="col-12 col-md-4 col-xl-2 location">
-                                    <span>
-                                        <i class="fas fa-map-marker-alt"></i>
-                                    </span>
-                                    Porto, Portugal
-                                </div>
-                            </footer>
-                        </article>
-                        <article class="dashboard-day-item item-type-attendee">
-                            <header class="row">
-                                <div class="col-12">
-                                    Lorem ipsum bacon cenas
-                                </div>
-                            </header>
-                            <footer class="row">
-                                <div class="col-6 col-md-6 col-xl-8 timespan">[Day 1/2]</div>
-                                <div class="col-6 col-md-2 col-xl-2 text-right time">
-                                    <span>
-                                        <i class="far fa-clock"></i>
-                                    </span>
-                                    10:00
-                                </div>
-                                <div class="col-12 col-md-4 col-xl-2 location">
-                                    <span>
-                                        <i class="fas fa-map-marker-alt"></i>
-                                    </span>
-                                    Porto, Portugal
-                                </div>
-                            </footer>
-                        </article>
-                        <article class="dashboard-day-item item-type-attendee">
-                            <header class="row">
-                                <div class="col-12">
-                                    Lorem ipsum bacon cenas
-                                </div>
-                            </header>
-                            <footer class="row">
-                                <div class="col-6 col-md-6 col-xl-8 timespan">[Day 1/2]</div>
-                                <div class="col-6 col-md-2 col-xl-2 text-right time">
-                                    <span>
-                                        <i class="far fa-clock"></i>
-                                    </span>
-                                    10:00
-                                </div>
-                                <div class="col-12 col-md-4 col-xl-2 location">
-                                    <span>
-                                        <i class="fas fa-map-marker-alt"></i>
-                                    </span>
-                                    Porto, Portugal
-                                </div>
+                                <div class="col-6 text-right timespan">[Day 1/2]</div>
                             </footer>
                         </article>
                     </div>
@@ -193,117 +135,73 @@
                 <div class="dashboard-day-container sticky-container">
                     <div class="item-day sticky-item">
                         <div class="item-day-number">19</div>
-                        <div class="item-day-week">WES</div>
+                        <div class="item-day-week">WED</div>
                     </div>
                     <div class="dashboard-day-items">
-                        <article class="dashboard-day-item item-type-attendee">
+                        <article class="dashboard-day-item item-type-organizer">
                             <header class="row">
                                 <div class="col-12">
-                                    Lorem ipsum bacon cenas
+                                    Politécnico Career Fest
                                 </div>
                             </header>
                             <footer class="row">
-                                <div class="col-6 col-md-6 col-xl-8 timespan">[Day 1/2]</div>
-                                <div class="col-6 col-md-2 col-xl-2 text-right time">
-                                    <span>
-                                        <i class="far fa-clock"></i>
-                                    </span>
-                                    10:00
-                                </div>
-                                <div class="col-12 col-md-4 col-xl-2 location">
+                                <div class="col-12 location">
                                     <span>
                                         <i class="fas fa-map-marker-alt"></i>
                                     </span>
-                                    Porto, Portugal
+                                    Lisboa, Portugal
                                 </div>
+                                <div class="col-6 time">
+                                    <span>
+                                        <i class="far fa-clock"></i>
+                                    </span>
+                                    08:30
+                                </div>
+                                <div class="col-6 text-right timespan"></div>
                             </footer>
                         </article>
                         <article class="dashboard-day-item item-type-attendee">
                             <header class="row">
                                 <div class="col-12">
-                                    Lorem ipsum bacon cenas
+                                    Semana de Informática
                                 </div>
                             </header>
                             <footer class="row">
-                                <div class="col-6 col-md-6 col-xl-8 timespan">[Day 1/2]</div>
-                                <div class="col-6 col-md-2 col-xl-2 text-right time">
-                                    <span>
-                                        <i class="far fa-clock"></i>
-                                    </span>
-                                    10:00
-                                </div>
-                                <div class="col-12 col-md-4 col-xl-2 location">
+                                <div class="col-12 location">
                                     <span>
                                         <i class="fas fa-map-marker-alt"></i>
                                     </span>
                                     Porto, Portugal
                                 </div>
+                                <div class="col-6 time">
+                                    <span>
+                                        <i class="far fa-clock"></i>
+                                    </span>
+                                    16:35
+                                </div>
+                                <div class="col-6 text-right timespan">[Day 2/2]</div>
                             </footer>
                         </article>
                         <article class="dashboard-day-item item-type-attendee">
                             <header class="row">
                                 <div class="col-12">
-                                    Lorem ipsum bacon cenas
+                                    London Security Meetup - The secret life of SQL Injections
                                 </div>
                             </header>
                             <footer class="row">
-                                <div class="col-6 col-md-6 col-xl-8 timespan">[Day 1/2]</div>
-                                <div class="col-6 col-md-2 col-xl-2 text-right time">
-                                    <span>
-                                        <i class="far fa-clock"></i>
-                                    </span>
-                                    10:00
-                                </div>
-                                <div class="col-12 col-md-4 col-xl-2 location">
+                                <div class="col-12 location">
                                     <span>
                                         <i class="fas fa-map-marker-alt"></i>
                                     </span>
-                                    Porto, Portugal
+                                    London, England
                                 </div>
-                            </footer>
-                        </article>
-                        <article class="dashboard-day-item item-type-attendee">
-                            <header class="row">
-                                <div class="col-12">
-                                    Lorem ipsum bacon cenas
-                                </div>
-                            </header>
-                            <footer class="row">
-                                <div class="col-6 col-md-6 col-xl-8 timespan">[Day 1/2]</div>
-                                <div class="col-6 col-md-2 col-xl-2 text-right time">
+                                <div class="col-6 time">
                                     <span>
                                         <i class="far fa-clock"></i>
                                     </span>
-                                    10:00
+                                    14:15
                                 </div>
-                                <div class="col-12 col-md-4 col-xl-2 location">
-                                    <span>
-                                        <i class="fas fa-map-marker-alt"></i>
-                                    </span>
-                                    Porto, Portugal
-                                </div>
-                            </footer>
-                        </article>
-                        <article class="dashboard-day-item item-type-attendee">
-                            <header class="row">
-                                <div class="col-12">
-                                    Lorem ipsum bacon cenas
-                                </div>
-                            </header>
-                            <footer class="row">
-                                <div class="col-6 col-md-6 col-xl-8 timespan">[Day 1/2]</div>
-                                <div class="col-6 col-md-2 col-xl-2 text-right time">
-                                    <span>
-                                        <i class="far fa-clock"></i>
-                                    </span>
-                                    10:00
-                                </div>
-                                <div class="col-12 col-md-4 col-xl-2 location">
-                                    <span>
-                                        <i class="fas fa-map-marker-alt"></i>
-                                    </span>
-                                    Porto, Portugal
-                                </div>
+                                <div class="col-6 text-right timespan"></div>
                             </footer>
                         </article>
                     </div>
@@ -314,350 +212,122 @@
                         <div class="item-day-week">FRI</div>
                     </div>
                     <div class="dashboard-day-items">
-                        <article class="dashboard-day-item item-type-attendee">
+                        <article class="dashboard-day-item item-type-organizer">
                             <header class="row">
                                 <div class="col-12">
-                                    Lorem ipsum bacon cenas
+                                    Functional Progamming using Phoenix + Elixir - The perks of being a Back End Developer
                                 </div>
                             </header>
                             <footer class="row">
-                                <div class="col-6 col-md-6 col-xl-8 timespan">[Day 1/2]</div>
-                                <div class="col-6 col-md-2 col-xl-2 text-right time">
-                                    <span>
-                                        <i class="far fa-clock"></i>
-                                    </span>
-                                    10:00
-                                </div>
-                                <div class="col-12 col-md-4 col-xl-2 location">
+                                <div class="col-12 location">
                                     <span>
                                         <i class="fas fa-map-marker-alt"></i>
                                     </span>
-                                    Porto, Portugal
+                                    Madrid, Spain
                                 </div>
+                                <div class="col-6 time">
+                                    <span>
+                                        <i class="far fa-clock"></i>
+                                    </span>
+                                    15:50
+                                </div>
+                                <div class="col-6 text-right timespan"></div>
                             </footer>
                         </article>
                         <article class="dashboard-day-item item-type-attendee">
                             <header class="row">
                                 <div class="col-12">
-                                    Lorem ipsum bacon cenas
+                                    Semana de Informática
                                 </div>
                             </header>
                             <footer class="row">
-                                <div class="col-6 col-md-6 col-xl-8 timespan">[Day 1/2]</div>
-                                <div class="col-6 col-md-2 col-xl-2 text-right time">
-                                    <span>
-                                        <i class="far fa-clock"></i>
-                                    </span>
-                                    10:00
-                                </div>
-                                <div class="col-12 col-md-4 col-xl-2 location">
+                                <div class="col-12 location">
                                     <span>
                                         <i class="fas fa-map-marker-alt"></i>
                                     </span>
                                     Porto, Portugal
                                 </div>
-                            </footer>
-                        </article>
-                        <article class="dashboard-day-item item-type-attendee">
-                            <header class="row">
-                                <div class="col-12">
-                                    Lorem ipsum bacon cenas
-                                </div>
-                            </header>
-                            <footer class="row">
-                                <div class="col-6 col-md-6 col-xl-8 timespan">[Day 1/2]</div>
-                                <div class="col-6 col-md-2 col-xl-2 text-right time">
+                                <div class="col-6 time">
                                     <span>
                                         <i class="far fa-clock"></i>
                                     </span>
-                                    10:00
+                                    09:15
                                 </div>
-                                <div class="col-12 col-md-4 col-xl-2 location">
-                                    <span>
-                                        <i class="fas fa-map-marker-alt"></i>
-                                    </span>
-                                    Porto, Portugal
-                                </div>
-                            </footer>
-                        </article>
-                        <article class="dashboard-day-item item-type-attendee">
-                            <header class="row">
-                                <div class="col-12">
-                                    Lorem ipsum bacon cenas
-                                </div>
-                            </header>
-                            <footer class="row">
-                                <div class="col-6 col-md-6 col-xl-8 timespan">[Day 1/2]</div>
-                                <div class="col-6 col-md-2 col-xl-2 text-right time">
-                                    <span>
-                                        <i class="far fa-clock"></i>
-                                    </span>
-                                    10:00
-                                </div>
-                                <div class="col-12 col-md-4 col-xl-2 location">
-                                    <span>
-                                        <i class="fas fa-map-marker-alt"></i>
-                                    </span>
-                                    Porto, Portugal
-                                </div>
-                            </footer>
-                        </article>
-                        <article class="dashboard-day-item item-type-attendee">
-                            <header class="row">
-                                <div class="col-12">
-                                    Lorem ipsum bacon cenas
-                                </div>
-                            </header>
-                            <footer class="row">
-                                <div class="col-6 col-md-6 col-xl-8 timespan">[Day 1/2]</div>
-                                <div class="col-6 col-md-2 col-xl-2 text-right time">
-                                    <span>
-                                        <i class="far fa-clock"></i>
-                                    </span>
-                                    10:00
-                                </div>
-                                <div class="col-12 col-md-4 col-xl-2 location">
-                                    <span>
-                                        <i class="fas fa-map-marker-alt"></i>
-                                    </span>
-                                    Porto, Portugal
-                                </div>
+                                <div class="col-6 text-right timespan">[Day 1/2]</div>
                             </footer>
                         </article>
                     </div>
                 </div>
                 <div class="dashboard-day-container sticky-container">
                     <div class="item-day sticky-item">
-                        <div class="item-day-number">23</div>
-                        <div class="item-day-week">SUN</div>
+                        <div class="item-day-number">22</div>
+                        <div class="item-day-week">SAT</div>
                     </div>
                     <div class="dashboard-day-items">
-                        <article class="dashboard-day-item item-type-attendee">
+                        <article class="dashboard-day-item item-type-organizer">
                             <header class="row">
                                 <div class="col-12">
-                                    Lorem ipsum bacon cenas
+                                    Politécnico Career Fest
                                 </div>
                             </header>
                             <footer class="row">
-                                <div class="col-6 col-md-6 col-xl-8 timespan">[Day 1/2]</div>
-                                <div class="col-6 col-md-2 col-xl-2 text-right time">
-                                    <span>
-                                        <i class="far fa-clock"></i>
-                                    </span>
-                                    10:00
-                                </div>
-                                <div class="col-12 col-md-4 col-xl-2 location">
+                                <div class="col-12 location">
                                     <span>
                                         <i class="fas fa-map-marker-alt"></i>
                                     </span>
-                                    Porto, Portugal
+                                    Lisboa, Portugal
                                 </div>
+                                <div class="col-6 time">
+                                    <span>
+                                        <i class="far fa-clock"></i>
+                                    </span>
+                                    08:30
+                                </div>
+                                <div class="col-6 text-right timespan"></div>
                             </footer>
                         </article>
                         <article class="dashboard-day-item item-type-attendee">
                             <header class="row">
                                 <div class="col-12">
-                                    Lorem ipsum bacon cenas
+                                    Semana de Informática
                                 </div>
                             </header>
                             <footer class="row">
-                                <div class="col-6 col-md-6 col-xl-8 timespan">[Day 1/2]</div>
-                                <div class="col-6 col-md-2 col-xl-2 text-right time">
-                                    <span>
-                                        <i class="far fa-clock"></i>
-                                    </span>
-                                    10:00
-                                </div>
-                                <div class="col-12 col-md-4 col-xl-2 location">
+                                <div class="col-12 location">
                                     <span>
                                         <i class="fas fa-map-marker-alt"></i>
                                     </span>
                                     Porto, Portugal
                                 </div>
+                                <div class="col-6 time">
+                                    <span>
+                                        <i class="far fa-clock"></i>
+                                    </span>
+                                    16:35
+                                </div>
+                                <div class="col-6 text-right timespan">[Day 2/2]</div>
                             </footer>
                         </article>
                         <article class="dashboard-day-item item-type-attendee">
                             <header class="row">
                                 <div class="col-12">
-                                    Lorem ipsum bacon cenas
+                                    London Security Meetup - The secret life of SQL Injections
                                 </div>
                             </header>
                             <footer class="row">
-                                <div class="col-6 col-md-6 col-xl-8 timespan">[Day 1/2]</div>
-                                <div class="col-6 col-md-2 col-xl-2 text-right time">
-                                    <span>
-                                        <i class="far fa-clock"></i>
-                                    </span>
-                                    10:00
-                                </div>
-                                <div class="col-12 col-md-4 col-xl-2 location">
+                                <div class="col-12 location">
                                     <span>
                                         <i class="fas fa-map-marker-alt"></i>
                                     </span>
-                                    Porto, Portugal
+                                    London, England
                                 </div>
-                            </footer>
-                        </article>
-                        <article class="dashboard-day-item item-type-attendee">
-                            <header class="row">
-                                <div class="col-12">
-                                    Lorem ipsum bacon cenas
-                                </div>
-                            </header>
-                            <footer class="row">
-                                <div class="col-6 col-md-6 col-xl-8 timespan">[Day 1/2]</div>
-                                <div class="col-6 col-md-2 col-xl-2 text-right time">
+                                <div class="col-6 time">
                                     <span>
                                         <i class="far fa-clock"></i>
                                     </span>
-                                    10:00
+                                    14:15
                                 </div>
-                                <div class="col-12 col-md-4 col-xl-2 location">
-                                    <span>
-                                        <i class="fas fa-map-marker-alt"></i>
-                                    </span>
-                                    Porto, Portugal
-                                </div>
-                            </footer>
-                        </article>
-                        <article class="dashboard-day-item item-type-attendee">
-                            <header class="row">
-                                <div class="col-12">
-                                    Lorem ipsum bacon cenas
-                                </div>
-                            </header>
-                            <footer class="row">
-                                <div class="col-6 col-md-6 col-xl-8 timespan">[Day 1/2]</div>
-                                <div class="col-6 col-md-2 col-xl-2 text-right time">
-                                    <span>
-                                        <i class="far fa-clock"></i>
-                                    </span>
-                                    10:00
-                                </div>
-                                <div class="col-12 col-md-4 col-xl-2 location">
-                                    <span>
-                                        <i class="fas fa-map-marker-alt"></i>
-                                    </span>
-                                    Porto, Portugal
-                                </div>
-                            </footer>
-                        </article>
-                    </div>
-                </div>
-                <div class="dashboard-day-container sticky-container">
-                    <div class="item-day sticky-item">
-                        <div class="item-day-number">24</div>
-                        <div class="item-day-week">MON</div>
-                    </div>
-                    <div class="dashboard-day-items">
-                        <article class="dashboard-day-item item-type-attendee">
-                            <header class="row">
-                                <div class="col-12">
-                                    Lorem ipsum bacon cenas
-                                </div>
-                            </header>
-                            <footer class="row">
-                                <div class="col-6 col-md-6 col-xl-8 timespan">[Day 1/2]</div>
-                                <div class="col-6 col-md-2 col-xl-2 text-right time">
-                                    <span>
-                                        <i class="far fa-clock"></i>
-                                    </span>
-                                    10:00
-                                </div>
-                                <div class="col-12 col-md-4 col-xl-2 location">
-                                    <span>
-                                        <i class="fas fa-map-marker-alt"></i>
-                                    </span>
-                                    Porto, Portugal
-                                </div>
-                            </footer>
-                        </article>
-                        <article class="dashboard-day-item item-type-attendee">
-                            <header class="row">
-                                <div class="col-12">
-                                    Lorem ipsum bacon cenas
-                                </div>
-                            </header>
-                            <footer class="row">
-                                <div class="col-6 col-md-6 col-xl-8 timespan">[Day 1/2]</div>
-                                <div class="col-6 col-md-2 col-xl-2 text-right time">
-                                    <span>
-                                        <i class="far fa-clock"></i>
-                                    </span>
-                                    10:00
-                                </div>
-                                <div class="col-12 col-md-4 col-xl-2 location">
-                                    <span>
-                                        <i class="fas fa-map-marker-alt"></i>
-                                    </span>
-                                    Porto, Portugal
-                                </div>
-                            </footer>
-                        </article>
-                        <article class="dashboard-day-item item-type-attendee">
-                            <header class="row">
-                                <div class="col-12">
-                                    Lorem ipsum bacon cenas
-                                </div>
-                            </header>
-                            <footer class="row">
-                                <div class="col-6 col-md-6 col-xl-8 timespan">[Day 1/2]</div>
-                                <div class="col-6 col-md-2 col-xl-2 text-right time">
-                                    <span>
-                                        <i class="far fa-clock"></i>
-                                    </span>
-                                    10:00
-                                </div>
-                                <div class="col-12 col-md-4 col-xl-2 location">
-                                    <span>
-                                        <i class="fas fa-map-marker-alt"></i>
-                                    </span>
-                                    Porto, Portugal
-                                </div>
-                            </footer>
-                        </article>
-                        <article class="dashboard-day-item item-type-attendee">
-                            <header class="row">
-                                <div class="col-12">
-                                    Lorem ipsum bacon cenas
-                                </div>
-                            </header>
-                            <footer class="row">
-                                <div class="col-6 col-md-6 col-xl-8 timespan">[Day 1/2]</div>
-                                <div class="col-6 col-md-2 col-xl-2 text-right time">
-                                    <span>
-                                        <i class="far fa-clock"></i>
-                                    </span>
-                                    10:00
-                                </div>
-                                <div class="col-12 col-md-4 col-xl-2 location">
-                                    <span>
-                                        <i class="fas fa-map-marker-alt"></i>
-                                    </span>
-                                    Porto, Portugal
-                                </div>
-                            </footer>
-                        </article>
-                        <article class="dashboard-day-item item-type-attendee">
-                            <header class="row">
-                                <div class="col-12">
-                                    Lorem ipsum bacon cenas
-                                </div>
-                            </header>
-                            <footer class="row">
-                                <div class="col-6 col-md-6 col-xl-8 timespan">[Day 1/2]</div>
-                                <div class="col-6 col-md-2 col-xl-2 text-right time">
-                                    <span>
-                                        <i class="far fa-clock"></i>
-                                    </span>
-                                    10:00
-                                </div>
-                                <div class="col-12 col-md-4 col-xl-2 location">
-                                    <span>
-                                        <i class="fas fa-map-marker-alt"></i>
-                                    </span>
-                                    Porto, Portugal
-                                </div>
+                                <div class="col-6 text-right timespan"></div>
                             </footer>
                         </article>
                     </div>
@@ -672,1188 +342,252 @@
             <div class="dashboard-day-containers">
                 <div class="dashboard-day-container sticky-container">
                     <div class="item-day sticky-item">
-                        <div class="item-day-number">18</div>
+                        <div class="item-day-number">14</div>
                         <div class="item-day-week">TUE</div>
                     </div>
                     <div class="dashboard-day-items">
-                        <article class="dashboard-day-item item-type-attendee">
+                        <article class="dashboard-day-item item-type-organizer">
                             <header class="row">
                                 <div class="col-12">
-                                    Lorem ipsum bacon cenas
+                                    Functional Progamming using Phoenix + Elixir - The perks of being a Back End Developer
                                 </div>
                             </header>
                             <footer class="row">
-                                <div class="col-6 col-md-6 col-xl-8 timespan">[Day 1/2]</div>
-                                <div class="col-6 col-md-2 col-xl-2 text-right time">
-                                    <span>
-                                        <i class="far fa-clock"></i>
-                                    </span>
-                                    10:00
-                                </div>
-                                <div class="col-12 col-md-4 col-xl-2 location">
+                                <div class="col-12 location">
                                     <span>
                                         <i class="fas fa-map-marker-alt"></i>
                                     </span>
-                                    Porto, Portugal
+                                    Madrid, Spain
                                 </div>
+                                <div class="col-6 time">
+                                    <span>
+                                        <i class="far fa-clock"></i>
+                                    </span>
+                                    15:50
+                                </div>
+                                <div class="col-6 text-right timespan"></div>
                             </footer>
                         </article>
                         <article class="dashboard-day-item item-type-attendee">
                             <header class="row">
                                 <div class="col-12">
-                                    Lorem ipsum bacon cenas
+                                    Semana de Informática
                                 </div>
                             </header>
                             <footer class="row">
-                                <div class="col-6 col-md-6 col-xl-8 timespan">[Day 1/2]</div>
-                                <div class="col-6 col-md-2 col-xl-2 text-right time">
-                                    <span>
-                                        <i class="far fa-clock"></i>
-                                    </span>
-                                    10:00
-                                </div>
-                                <div class="col-12 col-md-4 col-xl-2 location">
+                                <div class="col-12 location">
                                     <span>
                                         <i class="fas fa-map-marker-alt"></i>
                                     </span>
                                     Porto, Portugal
                                 </div>
-                            </footer>
-                        </article>
-                        <article class="dashboard-day-item item-type-attendee">
-                            <header class="row">
-                                <div class="col-12">
-                                    Lorem ipsum bacon cenas
-                                </div>
-                            </header>
-                            <footer class="row">
-                                <div class="col-6 col-md-6 col-xl-8 timespan">[Day 1/2]</div>
-                                <div class="col-6 col-md-2 col-xl-2 text-right time">
+                                <div class="col-6 time">
                                     <span>
                                         <i class="far fa-clock"></i>
                                     </span>
-                                    10:00
+                                    09:15
                                 </div>
-                                <div class="col-12 col-md-4 col-xl-2 location">
-                                    <span>
-                                        <i class="fas fa-map-marker-alt"></i>
-                                    </span>
-                                    Porto, Portugal
-                                </div>
-                            </footer>
-                        </article>
-                        <article class="dashboard-day-item item-type-attendee">
-                            <header class="row">
-                                <div class="col-12">
-                                    Lorem ipsum bacon cenas
-                                </div>
-                            </header>
-                            <footer class="row">
-                                <div class="col-6 col-md-6 col-xl-8 timespan">[Day 1/2]</div>
-                                <div class="col-6 col-md-2 col-xl-2 text-right time">
-                                    <span>
-                                        <i class="far fa-clock"></i>
-                                    </span>
-                                    10:00
-                                </div>
-                                <div class="col-12 col-md-4 col-xl-2 location">
-                                    <span>
-                                        <i class="fas fa-map-marker-alt"></i>
-                                    </span>
-                                    Porto, Portugal
-                                </div>
-                            </footer>
-                        </article>
-                        <article class="dashboard-day-item item-type-attendee">
-                            <header class="row">
-                                <div class="col-12">
-                                    Lorem ipsum bacon cenas
-                                </div>
-                            </header>
-                            <footer class="row">
-                                <div class="col-6 col-md-6 col-xl-8 timespan">[Day 1/2]</div>
-                                <div class="col-6 col-md-2 col-xl-2 text-right time">
-                                    <span>
-                                        <i class="far fa-clock"></i>
-                                    </span>
-                                    10:00
-                                </div>
-                                <div class="col-12 col-md-4 col-xl-2 location">
-                                    <span>
-                                        <i class="fas fa-map-marker-alt"></i>
-                                    </span>
-                                    Porto, Portugal
-                                </div>
+                                <div class="col-6 text-right timespan">[Day 1/2]</div>
                             </footer>
                         </article>
                     </div>
                 </div>
                 <div class="dashboard-day-container sticky-container">
                     <div class="item-day sticky-item">
-                        <div class="item-day-number">18</div>
-                        <div class="item-day-week">TUE</div>
+                        <div class="item-day-number">15</div>
+                        <div class="item-day-week">MON</div>
                     </div>
                     <div class="dashboard-day-items">
-                        <article class="dashboard-day-item item-type-attendee">
+                        <article class="dashboard-day-item item-type-organizer">
                             <header class="row">
                                 <div class="col-12">
-                                    Lorem ipsum bacon cenas
+                                    Politécnico Career Fest
                                 </div>
                             </header>
                             <footer class="row">
-                                <div class="col-6 col-md-6 col-xl-8 timespan">[Day 1/2]</div>
-                                <div class="col-6 col-md-2 col-xl-2 text-right time">
-                                    <span>
-                                        <i class="far fa-clock"></i>
-                                    </span>
-                                    10:00
-                                </div>
-                                <div class="col-12 col-md-4 col-xl-2 location">
+                                <div class="col-12 location">
                                     <span>
                                         <i class="fas fa-map-marker-alt"></i>
                                     </span>
-                                    Porto, Portugal
+                                    Lisboa, Portugal
                                 </div>
+                                <div class="col-6 time">
+                                    <span>
+                                        <i class="far fa-clock"></i>
+                                    </span>
+                                    08:30
+                                </div>
+                                <div class="col-6 text-right timespan"></div>
                             </footer>
                         </article>
                         <article class="dashboard-day-item item-type-attendee">
                             <header class="row">
                                 <div class="col-12">
-                                    Lorem ipsum bacon cenas
+                                    Semana de Informática
                                 </div>
                             </header>
                             <footer class="row">
-                                <div class="col-6 col-md-6 col-xl-8 timespan">[Day 1/2]</div>
-                                <div class="col-6 col-md-2 col-xl-2 text-right time">
-                                    <span>
-                                        <i class="far fa-clock"></i>
-                                    </span>
-                                    10:00
-                                </div>
-                                <div class="col-12 col-md-4 col-xl-2 location">
+                                <div class="col-12 location">
                                     <span>
                                         <i class="fas fa-map-marker-alt"></i>
                                     </span>
                                     Porto, Portugal
                                 </div>
+                                <div class="col-6 time">
+                                    <span>
+                                        <i class="far fa-clock"></i>
+                                    </span>
+                                    16:35
+                                </div>
+                                <div class="col-6 text-right timespan">[Day 2/2]</div>
                             </footer>
                         </article>
                         <article class="dashboard-day-item item-type-attendee">
                             <header class="row">
                                 <div class="col-12">
-                                    Lorem ipsum bacon cenas
+                                    London Security Meetup - The secret life of SQL Injections
                                 </div>
                             </header>
                             <footer class="row">
-                                <div class="col-6 col-md-6 col-xl-8 timespan">[Day 1/2]</div>
-                                <div class="col-6 col-md-2 col-xl-2 text-right time">
-                                    <span>
-                                        <i class="far fa-clock"></i>
-                                    </span>
-                                    10:00
-                                </div>
-                                <div class="col-12 col-md-4 col-xl-2 location">
+                                <div class="col-12 location">
                                     <span>
                                         <i class="fas fa-map-marker-alt"></i>
                                     </span>
-                                    Porto, Portugal
+                                    London, England
                                 </div>
-                            </footer>
-                        </article>
-                        <article class="dashboard-day-item item-type-attendee">
-                            <header class="row">
-                                <div class="col-12">
-                                    Lorem ipsum bacon cenas
-                                </div>
-                            </header>
-                            <footer class="row">
-                                <div class="col-6 col-md-6 col-xl-8 timespan">[Day 1/2]</div>
-                                <div class="col-6 col-md-2 col-xl-2 text-right time">
+                                <div class="col-6 time">
                                     <span>
                                         <i class="far fa-clock"></i>
                                     </span>
-                                    10:00
+                                    14:15
                                 </div>
-                                <div class="col-12 col-md-4 col-xl-2 location">
-                                    <span>
-                                        <i class="fas fa-map-marker-alt"></i>
-                                    </span>
-                                    Porto, Portugal
-                                </div>
-                            </footer>
-                        </article>
-                        <article class="dashboard-day-item item-type-attendee">
-                            <header class="row">
-                                <div class="col-12">
-                                    Lorem ipsum bacon cenas
-                                </div>
-                            </header>
-                            <footer class="row">
-                                <div class="col-6 col-md-6 col-xl-8 timespan">[Day 1/2]</div>
-                                <div class="col-6 col-md-2 col-xl-2 text-right time">
-                                    <span>
-                                        <i class="far fa-clock"></i>
-                                    </span>
-                                    10:00
-                                </div>
-                                <div class="col-12 col-md-4 col-xl-2 location">
-                                    <span>
-                                        <i class="fas fa-map-marker-alt"></i>
-                                    </span>
-                                    Porto, Portugal
-                                </div>
+                                <div class="col-6 text-right timespan"></div>
                             </footer>
                         </article>
                     </div>
                 </div>
                 <div class="dashboard-day-container sticky-container">
                     <div class="item-day sticky-item">
-                        <div class="item-day-number">18</div>
-                        <div class="item-day-week">TUE</div>
+                        <div class="item-day-number">22</div>
+                        <div class="item-day-week">MON</div>
                     </div>
                     <div class="dashboard-day-items">
-                        <article class="dashboard-day-item item-type-attendee">
+                        <article class="dashboard-day-item item-type-organizer">
                             <header class="row">
                                 <div class="col-12">
-                                    Lorem ipsum bacon cenas
+                                    Functional Progamming using Phoenix + Elixir - The perks of being a Back End Developer
                                 </div>
                             </header>
                             <footer class="row">
-                                <div class="col-6 col-md-6 col-xl-8 timespan">[Day 1/2]</div>
-                                <div class="col-6 col-md-2 col-xl-2 text-right time">
-                                    <span>
-                                        <i class="far fa-clock"></i>
-                                    </span>
-                                    10:00
-                                </div>
-                                <div class="col-12 col-md-4 col-xl-2 location">
+                                <div class="col-12 location">
                                     <span>
                                         <i class="fas fa-map-marker-alt"></i>
                                     </span>
-                                    Porto, Portugal
+                                    Madrid, Spain
                                 </div>
+                                <div class="col-6 time">
+                                    <span>
+                                        <i class="far fa-clock"></i>
+                                    </span>
+                                    15:50
+                                </div>
+                                <div class="col-6 text-right timespan"></div>
                             </footer>
                         </article>
                         <article class="dashboard-day-item item-type-attendee">
                             <header class="row">
                                 <div class="col-12">
-                                    Lorem ipsum bacon cenas
+                                    Semana de Informática
                                 </div>
                             </header>
                             <footer class="row">
-                                <div class="col-6 col-md-6 col-xl-8 timespan">[Day 1/2]</div>
-                                <div class="col-6 col-md-2 col-xl-2 text-right time">
-                                    <span>
-                                        <i class="far fa-clock"></i>
-                                    </span>
-                                    10:00
-                                </div>
-                                <div class="col-12 col-md-4 col-xl-2 location">
+                                <div class="col-12 location">
                                     <span>
                                         <i class="fas fa-map-marker-alt"></i>
                                     </span>
                                     Porto, Portugal
                                 </div>
-                            </footer>
-                        </article>
-                        <article class="dashboard-day-item item-type-attendee">
-                            <header class="row">
-                                <div class="col-12">
-                                    Lorem ipsum bacon cenas
-                                </div>
-                            </header>
-                            <footer class="row">
-                                <div class="col-6 col-md-6 col-xl-8 timespan">[Day 1/2]</div>
-                                <div class="col-6 col-md-2 col-xl-2 text-right time">
+                                <div class="col-6 time">
                                     <span>
                                         <i class="far fa-clock"></i>
                                     </span>
-                                    10:00
+                                    09:15
                                 </div>
-                                <div class="col-12 col-md-4 col-xl-2 location">
-                                    <span>
-                                        <i class="fas fa-map-marker-alt"></i>
-                                    </span>
-                                    Porto, Portugal
-                                </div>
-                            </footer>
-                        </article>
-                        <article class="dashboard-day-item item-type-attendee">
-                            <header class="row">
-                                <div class="col-12">
-                                    Lorem ipsum bacon cenas
-                                </div>
-                            </header>
-                            <footer class="row">
-                                <div class="col-6 col-md-6 col-xl-8 timespan">[Day 1/2]</div>
-                                <div class="col-6 col-md-2 col-xl-2 text-right time">
-                                    <span>
-                                        <i class="far fa-clock"></i>
-                                    </span>
-                                    10:00
-                                </div>
-                                <div class="col-12 col-md-4 col-xl-2 location">
-                                    <span>
-                                        <i class="fas fa-map-marker-alt"></i>
-                                    </span>
-                                    Porto, Portugal
-                                </div>
-                            </footer>
-                        </article>
-                        <article class="dashboard-day-item item-type-attendee">
-                            <header class="row">
-                                <div class="col-12">
-                                    Lorem ipsum bacon cenas
-                                </div>
-                            </header>
-                            <footer class="row">
-                                <div class="col-6 col-md-6 col-xl-8 timespan">[Day 1/2]</div>
-                                <div class="col-6 col-md-2 col-xl-2 text-right time">
-                                    <span>
-                                        <i class="far fa-clock"></i>
-                                    </span>
-                                    10:00
-                                </div>
-                                <div class="col-12 col-md-4 col-xl-2 location">
-                                    <span>
-                                        <i class="fas fa-map-marker-alt"></i>
-                                    </span>
-                                    Porto, Portugal
-                                </div>
+                                <div class="col-6 text-right timespan">[Day 1/2]</div>
                             </footer>
                         </article>
                     </div>
                 </div>
                 <div class="dashboard-day-container sticky-container">
                     <div class="item-day sticky-item">
-                        <div class="item-day-number">18</div>
-                        <div class="item-day-week">TUE</div>
+                        <div class="item-day-number">29</div>
+                        <div class="item-day-week">MON</div>
                     </div>
                     <div class="dashboard-day-items">
-                        <article class="dashboard-day-item item-type-attendee">
+                        <article class="dashboard-day-item item-type-organizer">
                             <header class="row">
                                 <div class="col-12">
-                                    Lorem ipsum bacon cenas
+                                    Politécnico Career Fest
                                 </div>
                             </header>
                             <footer class="row">
-                                <div class="col-6 col-md-6 col-xl-8 timespan">[Day 1/2]</div>
-                                <div class="col-6 col-md-2 col-xl-2 text-right time">
-                                    <span>
-                                        <i class="far fa-clock"></i>
-                                    </span>
-                                    10:00
-                                </div>
-                                <div class="col-12 col-md-4 col-xl-2 location">
+                                <div class="col-12 location">
                                     <span>
                                         <i class="fas fa-map-marker-alt"></i>
                                     </span>
-                                    Porto, Portugal
+                                    Lisboa, Portugal
                                 </div>
+                                <div class="col-6 time">
+                                    <span>
+                                        <i class="far fa-clock"></i>
+                                    </span>
+                                    08:30
+                                </div>
+                                <div class="col-6 text-right timespan"></div>
                             </footer>
                         </article>
                         <article class="dashboard-day-item item-type-attendee">
                             <header class="row">
                                 <div class="col-12">
-                                    Lorem ipsum bacon cenas
+                                    Semana de Informática
                                 </div>
                             </header>
                             <footer class="row">
-                                <div class="col-6 col-md-6 col-xl-8 timespan">[Day 1/2]</div>
-                                <div class="col-6 col-md-2 col-xl-2 text-right time">
-                                    <span>
-                                        <i class="far fa-clock"></i>
-                                    </span>
-                                    10:00
-                                </div>
-                                <div class="col-12 col-md-4 col-xl-2 location">
+                                <div class="col-12 location">
                                     <span>
                                         <i class="fas fa-map-marker-alt"></i>
                                     </span>
                                     Porto, Portugal
                                 </div>
+                                <div class="col-6 time">
+                                    <span>
+                                        <i class="far fa-clock"></i>
+                                    </span>
+                                    16:35
+                                </div>
+                                <div class="col-6 text-right timespan">[Day 2/2]</div>
                             </footer>
                         </article>
                         <article class="dashboard-day-item item-type-attendee">
                             <header class="row">
                                 <div class="col-12">
-                                    Lorem ipsum bacon cenas
+                                    London Security Meetup - The secret life of SQL Injections
                                 </div>
                             </header>
                             <footer class="row">
-                                <div class="col-6 col-md-6 col-xl-8 timespan">[Day 1/2]</div>
-                                <div class="col-6 col-md-2 col-xl-2 text-right time">
-                                    <span>
-                                        <i class="far fa-clock"></i>
-                                    </span>
-                                    10:00
-                                </div>
-                                <div class="col-12 col-md-4 col-xl-2 location">
+                                <div class="col-12 location">
                                     <span>
                                         <i class="fas fa-map-marker-alt"></i>
                                     </span>
-                                    Porto, Portugal
+                                    London, England
                                 </div>
-                            </footer>
-                        </article>
-                        <article class="dashboard-day-item item-type-attendee">
-                            <header class="row">
-                                <div class="col-12">
-                                    Lorem ipsum bacon cenas
-                                </div>
-                            </header>
-                            <footer class="row">
-                                <div class="col-6 col-md-6 col-xl-8 timespan">[Day 1/2]</div>
-                                <div class="col-6 col-md-2 col-xl-2 text-right time">
+                                <div class="col-6 time">
                                     <span>
                                         <i class="far fa-clock"></i>
                                     </span>
-                                    10:00
+                                    14:15
                                 </div>
-                                <div class="col-12 col-md-4 col-xl-2 location">
-                                    <span>
-                                        <i class="fas fa-map-marker-alt"></i>
-                                    </span>
-                                    Porto, Portugal
-                                </div>
-                            </footer>
-                        </article>
-                        <article class="dashboard-day-item item-type-attendee">
-                            <header class="row">
-                                <div class="col-12">
-                                    Lorem ipsum bacon cenas
-                                </div>
-                            </header>
-                            <footer class="row">
-                                <div class="col-6 col-md-6 col-xl-8 timespan">[Day 1/2]</div>
-                                <div class="col-6 col-md-2 col-xl-2 text-right time">
-                                    <span>
-                                        <i class="far fa-clock"></i>
-                                    </span>
-                                    10:00
-                                </div>
-                                <div class="col-12 col-md-4 col-xl-2 location">
-                                    <span>
-                                        <i class="fas fa-map-marker-alt"></i>
-                                    </span>
-                                    Porto, Portugal
-                                </div>
-                            </footer>
-                        </article>
-                    </div>
-                </div>
-                <div class="dashboard-day-container sticky-container">
-                    <div class="item-day sticky-item">
-                        <div class="item-day-number">18</div>
-                        <div class="item-day-week">TUE</div>
-                    </div>
-                    <div class="dashboard-day-items">
-                        <article class="dashboard-day-item item-type-attendee">
-                            <header class="row">
-                                <div class="col-12">
-                                    Lorem ipsum bacon cenas
-                                </div>
-                            </header>
-                            <footer class="row">
-                                <div class="col-6 col-md-6 col-xl-8 timespan">[Day 1/2]</div>
-                                <div class="col-6 col-md-2 col-xl-2 text-right time">
-                                    <span>
-                                        <i class="far fa-clock"></i>
-                                    </span>
-                                    10:00
-                                </div>
-                                <div class="col-12 col-md-4 col-xl-2 location">
-                                    <span>
-                                        <i class="fas fa-map-marker-alt"></i>
-                                    </span>
-                                    Porto, Portugal
-                                </div>
-                            </footer>
-                        </article>
-                        <article class="dashboard-day-item item-type-attendee">
-                            <header class="row">
-                                <div class="col-12">
-                                    Lorem ipsum bacon cenas
-                                </div>
-                            </header>
-                            <footer class="row">
-                                <div class="col-6 col-md-6 col-xl-8 timespan">[Day 1/2]</div>
-                                <div class="col-6 col-md-2 col-xl-2 text-right time">
-                                    <span>
-                                        <i class="far fa-clock"></i>
-                                    </span>
-                                    10:00
-                                </div>
-                                <div class="col-12 col-md-4 col-xl-2 location">
-                                    <span>
-                                        <i class="fas fa-map-marker-alt"></i>
-                                    </span>
-                                    Porto, Portugal
-                                </div>
-                            </footer>
-                        </article>
-                        <article class="dashboard-day-item item-type-attendee">
-                            <header class="row">
-                                <div class="col-12">
-                                    Lorem ipsum bacon cenas
-                                </div>
-                            </header>
-                            <footer class="row">
-                                <div class="col-6 col-md-6 col-xl-8 timespan">[Day 1/2]</div>
-                                <div class="col-6 col-md-2 col-xl-2 text-right time">
-                                    <span>
-                                        <i class="far fa-clock"></i>
-                                    </span>
-                                    10:00
-                                </div>
-                                <div class="col-12 col-md-4 col-xl-2 location">
-                                    <span>
-                                        <i class="fas fa-map-marker-alt"></i>
-                                    </span>
-                                    Porto, Portugal
-                                </div>
-                            </footer>
-                        </article>
-                        <article class="dashboard-day-item item-type-attendee">
-                            <header class="row">
-                                <div class="col-12">
-                                    Lorem ipsum bacon cenas
-                                </div>
-                            </header>
-                            <footer class="row">
-                                <div class="col-6 col-md-6 col-xl-8 timespan">[Day 1/2]</div>
-                                <div class="col-6 col-md-2 col-xl-2 text-right time">
-                                    <span>
-                                        <i class="far fa-clock"></i>
-                                    </span>
-                                    10:00
-                                </div>
-                                <div class="col-12 col-md-4 col-xl-2 location">
-                                    <span>
-                                        <i class="fas fa-map-marker-alt"></i>
-                                    </span>
-                                    Porto, Portugal
-                                </div>
-                            </footer>
-                        </article>
-                        <article class="dashboard-day-item item-type-attendee">
-                            <header class="row">
-                                <div class="col-12">
-                                    Lorem ipsum bacon cenas
-                                </div>
-                            </header>
-                            <footer class="row">
-                                <div class="col-6 col-md-6 col-xl-8 timespan">[Day 1/2]</div>
-                                <div class="col-6 col-md-2 col-xl-2 text-right time">
-                                    <span>
-                                        <i class="far fa-clock"></i>
-                                    </span>
-                                    10:00
-                                </div>
-                                <div class="col-12 col-md-4 col-xl-2 location">
-                                    <span>
-                                        <i class="fas fa-map-marker-alt"></i>
-                                    </span>
-                                    Porto, Portugal
-                                </div>
-                            </footer>
-                        </article>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="sticky-container">
-            <div class="item-year-month sticky-item">
-                <div class="item-month">Fev</div>
-                <div class="item-year">2019</div>
-            </div>
-            <div class="dashboard-day-containers">
-                <div class="dashboard-day-container sticky-container">
-                    <div class="item-day sticky-item">
-                        <div class="item-day-number">18</div>
-                        <div class="item-day-week">TUE</div>
-                    </div>
-                    <div class="dashboard-day-items">
-                        <article class="dashboard-day-item item-type-attendee">
-                            <header class="row">
-                                <div class="col-12">
-                                    Lorem ipsum bacon cenas
-                                </div>
-                            </header>
-                            <footer class="row">
-                                <div class="col-6 col-md-6 col-xl-8 timespan">[Day 1/2]</div>
-                                <div class="col-6 col-md-2 col-xl-2 text-right time">
-                                    <span>
-                                        <i class="far fa-clock"></i>
-                                    </span>
-                                    10:00
-                                </div>
-                                <div class="col-12 col-md-4 col-xl-2 location">
-                                    <span>
-                                        <i class="fas fa-map-marker-alt"></i>
-                                    </span>
-                                    Porto, Portugal
-                                </div>
-                            </footer>
-                        </article>
-                        <article class="dashboard-day-item item-type-attendee">
-                            <header class="row">
-                                <div class="col-12">
-                                    Lorem ipsum bacon cenas
-                                </div>
-                            </header>
-                            <footer class="row">
-                                <div class="col-6 col-md-6 col-xl-8 timespan">[Day 1/2]</div>
-                                <div class="col-6 col-md-2 col-xl-2 text-right time">
-                                    <span>
-                                        <i class="far fa-clock"></i>
-                                    </span>
-                                    10:00
-                                </div>
-                                <div class="col-12 col-md-4 col-xl-2 location">
-                                    <span>
-                                        <i class="fas fa-map-marker-alt"></i>
-                                    </span>
-                                    Porto, Portugal
-                                </div>
-                            </footer>
-                        </article>
-                        <article class="dashboard-day-item item-type-attendee">
-                            <header class="row">
-                                <div class="col-12">
-                                    Lorem ipsum bacon cenas
-                                </div>
-                            </header>
-                            <footer class="row">
-                                <div class="col-6 col-md-6 col-xl-8 timespan">[Day 1/2]</div>
-                                <div class="col-6 col-md-2 col-xl-2 text-right time">
-                                    <span>
-                                        <i class="far fa-clock"></i>
-                                    </span>
-                                    10:00
-                                </div>
-                                <div class="col-12 col-md-4 col-xl-2 location">
-                                    <span>
-                                        <i class="fas fa-map-marker-alt"></i>
-                                    </span>
-                                    Porto, Portugal
-                                </div>
-                            </footer>
-                        </article>
-                        <article class="dashboard-day-item item-type-attendee">
-                            <header class="row">
-                                <div class="col-12">
-                                    Lorem ipsum bacon cenas
-                                </div>
-                            </header>
-                            <footer class="row">
-                                <div class="col-6 col-md-6 col-xl-8 timespan">[Day 1/2]</div>
-                                <div class="col-6 col-md-2 col-xl-2 text-right time">
-                                    <span>
-                                        <i class="far fa-clock"></i>
-                                    </span>
-                                    10:00
-                                </div>
-                                <div class="col-12 col-md-4 col-xl-2 location">
-                                    <span>
-                                        <i class="fas fa-map-marker-alt"></i>
-                                    </span>
-                                    Porto, Portugal
-                                </div>
-                            </footer>
-                        </article>
-                        <article class="dashboard-day-item item-type-attendee">
-                            <header class="row">
-                                <div class="col-12">
-                                    Lorem ipsum bacon cenas
-                                </div>
-                            </header>
-                            <footer class="row">
-                                <div class="col-6 col-md-6 col-xl-8 timespan">[Day 1/2]</div>
-                                <div class="col-6 col-md-2 col-xl-2 text-right time">
-                                    <span>
-                                        <i class="far fa-clock"></i>
-                                    </span>
-                                    10:00
-                                </div>
-                                <div class="col-12 col-md-4 col-xl-2 location">
-                                    <span>
-                                        <i class="fas fa-map-marker-alt"></i>
-                                    </span>
-                                    Porto, Portugal
-                                </div>
-                            </footer>
-                        </article>
-                    </div>
-                </div>
-                <div class="dashboard-day-container sticky-container">
-                    <div class="item-day sticky-item">
-                        <div class="item-day-number">18</div>
-                        <div class="item-day-week">TUE</div>
-                    </div>
-                    <div class="dashboard-day-items">
-                        <article class="dashboard-day-item item-type-attendee">
-                            <header class="row">
-                                <div class="col-12">
-                                    Lorem ipsum bacon cenas
-                                </div>
-                            </header>
-                            <footer class="row">
-                                <div class="col-6 col-md-6 col-xl-8 timespan">[Day 1/2]</div>
-                                <div class="col-6 col-md-2 col-xl-2 text-right time">
-                                    <span>
-                                        <i class="far fa-clock"></i>
-                                    </span>
-                                    10:00
-                                </div>
-                                <div class="col-12 col-md-4 col-xl-2 location">
-                                    <span>
-                                        <i class="fas fa-map-marker-alt"></i>
-                                    </span>
-                                    Porto, Portugal
-                                </div>
-                            </footer>
-                        </article>
-                        <article class="dashboard-day-item item-type-attendee">
-                            <header class="row">
-                                <div class="col-12">
-                                    Lorem ipsum bacon cenas
-                                </div>
-                            </header>
-                            <footer class="row">
-                                <div class="col-6 col-md-6 col-xl-8 timespan">[Day 1/2]</div>
-                                <div class="col-6 col-md-2 col-xl-2 text-right time">
-                                    <span>
-                                        <i class="far fa-clock"></i>
-                                    </span>
-                                    10:00
-                                </div>
-                                <div class="col-12 col-md-4 col-xl-2 location">
-                                    <span>
-                                        <i class="fas fa-map-marker-alt"></i>
-                                    </span>
-                                    Porto, Portugal
-                                </div>
-                            </footer>
-                        </article>
-                        <article class="dashboard-day-item item-type-attendee">
-                            <header class="row">
-                                <div class="col-12">
-                                    Lorem ipsum bacon cenas
-                                </div>
-                            </header>
-                            <footer class="row">
-                                <div class="col-6 col-md-6 col-xl-8 timespan">[Day 1/2]</div>
-                                <div class="col-6 col-md-2 col-xl-2 text-right time">
-                                    <span>
-                                        <i class="far fa-clock"></i>
-                                    </span>
-                                    10:00
-                                </div>
-                                <div class="col-12 col-md-4 col-xl-2 location">
-                                    <span>
-                                        <i class="fas fa-map-marker-alt"></i>
-                                    </span>
-                                    Porto, Portugal
-                                </div>
-                            </footer>
-                        </article>
-                        <article class="dashboard-day-item item-type-attendee">
-                            <header class="row">
-                                <div class="col-12">
-                                    Lorem ipsum bacon cenas
-                                </div>
-                            </header>
-                            <footer class="row">
-                                <div class="col-6 col-md-6 col-xl-8 timespan">[Day 1/2]</div>
-                                <div class="col-6 col-md-2 col-xl-2 text-right time">
-                                    <span>
-                                        <i class="far fa-clock"></i>
-                                    </span>
-                                    10:00
-                                </div>
-                                <div class="col-12 col-md-4 col-xl-2 location">
-                                    <span>
-                                        <i class="fas fa-map-marker-alt"></i>
-                                    </span>
-                                    Porto, Portugal
-                                </div>
-                            </footer>
-                        </article>
-                        <article class="dashboard-day-item item-type-attendee">
-                            <header class="row">
-                                <div class="col-12">
-                                    Lorem ipsum bacon cenas
-                                </div>
-                            </header>
-                            <footer class="row">
-                                <div class="col-6 col-md-6 col-xl-8 timespan">[Day 1/2]</div>
-                                <div class="col-6 col-md-2 col-xl-2 text-right time">
-                                    <span>
-                                        <i class="far fa-clock"></i>
-                                    </span>
-                                    10:00
-                                </div>
-                                <div class="col-12 col-md-4 col-xl-2 location">
-                                    <span>
-                                        <i class="fas fa-map-marker-alt"></i>
-                                    </span>
-                                    Porto, Portugal
-                                </div>
-                            </footer>
-                        </article>
-                    </div>
-                </div>
-                <div class="dashboard-day-container sticky-container">
-                    <div class="item-day sticky-item">
-                        <div class="item-day-number">18</div>
-                        <div class="item-day-week">TUE</div>
-                    </div>
-                    <div class="dashboard-day-items">
-                        <article class="dashboard-day-item item-type-attendee">
-                            <header class="row">
-                                <div class="col-12">
-                                    Lorem ipsum bacon cenas
-                                </div>
-                            </header>
-                            <footer class="row">
-                                <div class="col-6 col-md-6 col-xl-8 timespan">[Day 1/2]</div>
-                                <div class="col-6 col-md-2 col-xl-2 text-right time">
-                                    <span>
-                                        <i class="far fa-clock"></i>
-                                    </span>
-                                    10:00
-                                </div>
-                                <div class="col-12 col-md-4 col-xl-2 location">
-                                    <span>
-                                        <i class="fas fa-map-marker-alt"></i>
-                                    </span>
-                                    Porto, Portugal
-                                </div>
-                            </footer>
-                        </article>
-                        <article class="dashboard-day-item item-type-attendee">
-                            <header class="row">
-                                <div class="col-12">
-                                    Lorem ipsum bacon cenas
-                                </div>
-                            </header>
-                            <footer class="row">
-                                <div class="col-6 col-md-6 col-xl-8 timespan">[Day 1/2]</div>
-                                <div class="col-6 col-md-2 col-xl-2 text-right time">
-                                    <span>
-                                        <i class="far fa-clock"></i>
-                                    </span>
-                                    10:00
-                                </div>
-                                <div class="col-12 col-md-4 col-xl-2 location">
-                                    <span>
-                                        <i class="fas fa-map-marker-alt"></i>
-                                    </span>
-                                    Porto, Portugal
-                                </div>
-                            </footer>
-                        </article>
-                        <article class="dashboard-day-item item-type-attendee">
-                            <header class="row">
-                                <div class="col-12">
-                                    Lorem ipsum bacon cenas
-                                </div>
-                            </header>
-                            <footer class="row">
-                                <div class="col-6 col-md-6 col-xl-8 timespan">[Day 1/2]</div>
-                                <div class="col-6 col-md-2 col-xl-2 text-right time">
-                                    <span>
-                                        <i class="far fa-clock"></i>
-                                    </span>
-                                    10:00
-                                </div>
-                                <div class="col-12 col-md-4 col-xl-2 location">
-                                    <span>
-                                        <i class="fas fa-map-marker-alt"></i>
-                                    </span>
-                                    Porto, Portugal
-                                </div>
-                            </footer>
-                        </article>
-                        <article class="dashboard-day-item item-type-attendee">
-                            <header class="row">
-                                <div class="col-12">
-                                    Lorem ipsum bacon cenas
-                                </div>
-                            </header>
-                            <footer class="row">
-                                <div class="col-6 col-md-6 col-xl-8 timespan">[Day 1/2]</div>
-                                <div class="col-6 col-md-2 col-xl-2 text-right time">
-                                    <span>
-                                        <i class="far fa-clock"></i>
-                                    </span>
-                                    10:00
-                                </div>
-                                <div class="col-12 col-md-4 col-xl-2 location">
-                                    <span>
-                                        <i class="fas fa-map-marker-alt"></i>
-                                    </span>
-                                    Porto, Portugal
-                                </div>
-                            </footer>
-                        </article>
-                        <article class="dashboard-day-item item-type-attendee">
-                            <header class="row">
-                                <div class="col-12">
-                                    Lorem ipsum bacon cenas
-                                </div>
-                            </header>
-                            <footer class="row">
-                                <div class="col-6 col-md-6 col-xl-8 timespan">[Day 1/2]</div>
-                                <div class="col-6 col-md-2 col-xl-2 text-right time">
-                                    <span>
-                                        <i class="far fa-clock"></i>
-                                    </span>
-                                    10:00
-                                </div>
-                                <div class="col-12 col-md-4 col-xl-2 location">
-                                    <span>
-                                        <i class="fas fa-map-marker-alt"></i>
-                                    </span>
-                                    Porto, Portugal
-                                </div>
-                            </footer>
-                        </article>
-                    </div>
-                </div>
-                <div class="dashboard-day-container sticky-container">
-                    <div class="item-day sticky-item">
-                        <div class="item-day-number">18</div>
-                        <div class="item-day-week">TUE</div>
-                    </div>
-                    <div class="dashboard-day-items">
-                        <article class="dashboard-day-item item-type-attendee">
-                            <header class="row">
-                                <div class="col-12">
-                                    Lorem ipsum bacon cenas
-                                </div>
-                            </header>
-                            <footer class="row">
-                                <div class="col-6 col-md-6 col-xl-8 timespan">[Day 1/2]</div>
-                                <div class="col-6 col-md-2 col-xl-2 text-right time">
-                                    <span>
-                                        <i class="far fa-clock"></i>
-                                    </span>
-                                    10:00
-                                </div>
-                                <div class="col-12 col-md-4 col-xl-2 location">
-                                    <span>
-                                        <i class="fas fa-map-marker-alt"></i>
-                                    </span>
-                                    Porto, Portugal
-                                </div>
-                            </footer>
-                        </article>
-                        <article class="dashboard-day-item item-type-attendee">
-                            <header class="row">
-                                <div class="col-12">
-                                    Lorem ipsum bacon cenas
-                                </div>
-                            </header>
-                            <footer class="row">
-                                <div class="col-6 col-md-6 col-xl-8 timespan">[Day 1/2]</div>
-                                <div class="col-6 col-md-2 col-xl-2 text-right time">
-                                    <span>
-                                        <i class="far fa-clock"></i>
-                                    </span>
-                                    10:00
-                                </div>
-                                <div class="col-12 col-md-4 col-xl-2 location">
-                                    <span>
-                                        <i class="fas fa-map-marker-alt"></i>
-                                    </span>
-                                    Porto, Portugal
-                                </div>
-                            </footer>
-                        </article>
-                        <article class="dashboard-day-item item-type-attendee">
-                            <header class="row">
-                                <div class="col-12">
-                                    Lorem ipsum bacon cenas
-                                </div>
-                            </header>
-                            <footer class="row">
-                                <div class="col-6 col-md-6 col-xl-8 timespan">[Day 1/2]</div>
-                                <div class="col-6 col-md-2 col-xl-2 text-right time">
-                                    <span>
-                                        <i class="far fa-clock"></i>
-                                    </span>
-                                    10:00
-                                </div>
-                                <div class="col-12 col-md-4 col-xl-2 location">
-                                    <span>
-                                        <i class="fas fa-map-marker-alt"></i>
-                                    </span>
-                                    Porto, Portugal
-                                </div>
-                            </footer>
-                        </article>
-                        <article class="dashboard-day-item item-type-attendee">
-                            <header class="row">
-                                <div class="col-12">
-                                    Lorem ipsum bacon cenas
-                                </div>
-                            </header>
-                            <footer class="row">
-                                <div class="col-6 col-md-6 col-xl-8 timespan">[Day 1/2]</div>
-                                <div class="col-6 col-md-2 col-xl-2 text-right time">
-                                    <span>
-                                        <i class="far fa-clock"></i>
-                                    </span>
-                                    10:00
-                                </div>
-                                <div class="col-12 col-md-4 col-xl-2 location">
-                                    <span>
-                                        <i class="fas fa-map-marker-alt"></i>
-                                    </span>
-                                    Porto, Portugal
-                                </div>
-                            </footer>
-                        </article>
-                        <article class="dashboard-day-item item-type-attendee">
-                            <header class="row">
-                                <div class="col-12">
-                                    Lorem ipsum bacon cenas
-                                </div>
-                            </header>
-                            <footer class="row">
-                                <div class="col-6 col-md-6 col-xl-8 timespan">[Day 1/2]</div>
-                                <div class="col-6 col-md-2 col-xl-2 text-right time">
-                                    <span>
-                                        <i class="far fa-clock"></i>
-                                    </span>
-                                    10:00
-                                </div>
-                                <div class="col-12 col-md-4 col-xl-2 location">
-                                    <span>
-                                        <i class="fas fa-map-marker-alt"></i>
-                                    </span>
-                                    Porto, Portugal
-                                </div>
-                            </footer>
-                        </article>
-                    </div>
-                </div>
-                <div class="dashboard-day-container sticky-container">
-                    <div class="item-day sticky-item">
-                        <div class="item-day-number">18</div>
-                        <div class="item-day-week">TUE</div>
-                    </div>
-                    <div class="dashboard-day-items">
-                        <article class="dashboard-day-item item-type-attendee">
-                            <header class="row">
-                                <div class="col-12">
-                                    Lorem ipsum bacon cenas
-                                </div>
-                            </header>
-                            <footer class="row">
-                                <div class="col-6 col-md-6 col-xl-8 timespan">[Day 1/2]</div>
-                                <div class="col-6 col-md-2 col-xl-2 text-right time">
-                                    <span>
-                                        <i class="far fa-clock"></i>
-                                    </span>
-                                    10:00
-                                </div>
-                                <div class="col-12 col-md-4 col-xl-2 location">
-                                    <span>
-                                        <i class="fas fa-map-marker-alt"></i>
-                                    </span>
-                                    Porto, Portugal
-                                </div>
-                            </footer>
-                        </article>
-                        <article class="dashboard-day-item item-type-attendee">
-                            <header class="row">
-                                <div class="col-12">
-                                    Lorem ipsum bacon cenas
-                                </div>
-                            </header>
-                            <footer class="row">
-                                <div class="col-6 col-md-6 col-xl-8 timespan">[Day 1/2]</div>
-                                <div class="col-6 col-md-2 col-xl-2 text-right time">
-                                    <span>
-                                        <i class="far fa-clock"></i>
-                                    </span>
-                                    10:00
-                                </div>
-                                <div class="col-12 col-md-4 col-xl-2 location">
-                                    <span>
-                                        <i class="fas fa-map-marker-alt"></i>
-                                    </span>
-                                    Porto, Portugal
-                                </div>
-                            </footer>
-                        </article>
-                        <article class="dashboard-day-item item-type-attendee">
-                            <header class="row">
-                                <div class="col-12">
-                                    Lorem ipsum bacon cenas
-                                </div>
-                            </header>
-                            <footer class="row">
-                                <div class="col-6 col-md-6 col-xl-8 timespan">[Day 1/2]</div>
-                                <div class="col-6 col-md-2 col-xl-2 text-right time">
-                                    <span>
-                                        <i class="far fa-clock"></i>
-                                    </span>
-                                    10:00
-                                </div>
-                                <div class="col-12 col-md-4 col-xl-2 location">
-                                    <span>
-                                        <i class="fas fa-map-marker-alt"></i>
-                                    </span>
-                                    Porto, Portugal
-                                </div>
-                            </footer>
-                        </article>
-                        <article class="dashboard-day-item item-type-attendee">
-                            <header class="row">
-                                <div class="col-12">
-                                    Lorem ipsum bacon cenas
-                                </div>
-                            </header>
-                            <footer class="row">
-                                <div class="col-6 col-md-6 col-xl-8 timespan">[Day 1/2]</div>
-                                <div class="col-6 col-md-2 col-xl-2 text-right time">
-                                    <span>
-                                        <i class="far fa-clock"></i>
-                                    </span>
-                                    10:00
-                                </div>
-                                <div class="col-12 col-md-4 col-xl-2 location">
-                                    <span>
-                                        <i class="fas fa-map-marker-alt"></i>
-                                    </span>
-                                    Porto, Portugal
-                                </div>
-                            </footer>
-                        </article>
-                        <article class="dashboard-day-item item-type-attendee">
-                            <header class="row">
-                                <div class="col-12">
-                                    Lorem ipsum bacon cenas
-                                </div>
-                            </header>
-                            <footer class="row">
-                                <div class="col-6 col-md-6 col-xl-8 timespan">[Day 1/2]</div>
-                                <div class="col-6 col-md-2 col-xl-2 text-right time">
-                                    <span>
-                                        <i class="far fa-clock"></i>
-                                    </span>
-                                    10:00
-                                </div>
-                                <div class="col-12 col-md-4 col-xl-2 location">
-                                    <span>
-                                        <i class="fas fa-map-marker-alt"></i>
-                                    </span>
-                                    Porto, Portugal
-                                </div>
+                                <div class="col-6 text-right timespan"></div>
                             </footer>
                         </article>
                     </div>

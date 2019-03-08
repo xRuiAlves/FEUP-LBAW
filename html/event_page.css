@@ -1,4 +1,4 @@
-.card-container {
+.card-container.event-card {
     background-color: #ededed;
     position: relative;
     top: 7em;

@@ -8,7 +8,6 @@
     box-shadow: 0px 0px 12px 0px rgba(0,0,0,0.75);
     padding: 2em 3em;
     color: var(--secondary-color-dark);
-    margin-top: 7em;
 }
 
 .card-container h1 {
@@ -46,20 +45,8 @@ body {
 }
 
 @media only screen and (max-width: 576px) {
-    .card-container {
-        border-radius: 0;
-        padding: 0.8em 0.8em;
-        margin-top: 0;
-        background-color: transparent;
-    }
-
     body {
         background-color: var(--color-grey-light);
-    }
-
-    .card-container h1 {
-        margin-bottom: 1.5em;
-        color: var(--secondary-color-dark);
     }
 
     #background_wave {
