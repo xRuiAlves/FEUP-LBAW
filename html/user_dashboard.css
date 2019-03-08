@@ -1,33 +1,33 @@
 @import "palette.css";
 @import "common.css";
 
-.user-events-container > header {
+.user-dashboard-container > header {
     max-width: 100%;
     margin-bottom: 2em;
 }
 
-.user-events-container > header .label {
+.user-dashboard-container > header .label {
     display: flex;
     justify-content: flex-end;
     align-items: center;
 }
 
-.user-events-container > header .label .label-color {
+.user-dashboard-container > header .label .label-color {
     width: 1em;
     height: 1em;
     border-radius: 0.2em;
     margin-left: 0.6em;
 }
 
-.user-events-container > header .label .label-color.label-attending {
+.user-dashboard-container > header .label .label-color.label-attending {
     background-color: var(--secondary-color-medium);
 }
 
-.user-events-container > header .label .label-color.label-organizing {
+.user-dashboard-container > header .label .label-color.label-organizing {
     background-color: var(--primary-color);
 }
 
-.card-container.user-events-container {
+.card-container.user-dashboard-container {
     position: relative;
     top: 7em;
     margin-bottom: 7em;
@@ -88,13 +88,14 @@
     text-align: center;
 }
 
-.dashboard-day-items .dashboard-day-item {
+.card-container.user-dashboard-container .dashboard-day-items a.dashboard-day-item {
+    display: block;
     color: var(--secondary-color-medium);
-    background-color: white;
     border-radius: 0.4em;
     padding: 0.5em 1em;
     flex-grow: 1;
     cursor: pointer;
+    text-decoration: none;
 }
 
 .dashboard-day-items .item-type-attendee {
@@ -126,7 +127,7 @@
 
 @media only screen and (max-width: 576px) {
 
-    .card-container.user-events-container {
+    .card-container.user-dashboard-container {
         -webkit-box-shadow: none;
         -moz-box-shadow: none;
         box-shadow: none;
@@ -142,27 +143,27 @@
         width: 3em;
     }
 
-    .card-container.user-events-container {
+    .card-container.user-dashboard-container {
         border-radius: 0;
         padding: 0.8em 0.8em;
         background-color: transparent;
     }
 
-    .card-container.user-events-container h1 {
-        margin-bottom: 1em;
+    .card-container.user-dashboard-container h1 {
+        margin-bottom: calc(7vh + 3vw);
         color: var(--secondary-color-medium-dark);
     }
 
-    .card-container.user-events-container header {
+    .card-container.user-dashboard-container header {
         margin-bottom: 1.5em;
     }
 
-    .user-events-container > header .label {
+    .user-dashboard-container > header .label {
         flex-direction: row-reverse;
         align-items: center;
     }
 
-    .user-events-container > header .label .label-color {
+    .user-dashboard-container > header .label .label-color {
         margin-right: 0.6em;
         margin-left: 0;
     }
