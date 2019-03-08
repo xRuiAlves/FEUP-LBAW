@@ -77,22 +77,11 @@
     margin-bottom: 0.5em;
 }
 
-.dashboard-day-items .dashboard-day-item > footer > div.time {
-    display: flex;
-    justify-content: flex-end;
-}
-
 .dashboard-day-items .dashboard-day-item > footer > div.time > span{
     padding: 0 0.25em;
 }
 
 @media only screen and (max-width: 576px) {
-    .dashboard-day-items .dashboard-day-item > footer > div.time {
-        display: flex;
-        flex-direction: row-reverse;
-        justify-content: flex-start;
-    }
-
     .dashboard-day-items .item-day {
         width: 3em;
     }
