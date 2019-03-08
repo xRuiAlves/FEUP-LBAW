@@ -1,6 +1,10 @@
 @import "palette.css";
 @import "common.css";
 
+.user-events-container > header {
+    max-width: 100%;
+}
+
 .user-events-container > header .label {
     display: flex;
     justify-content: flex-end;
@@ -128,7 +132,7 @@
 
     .card-container.user-events-container h1 {
         margin-bottom: 1em;
-        color: var(--secondary-color-dark);
+        color: var(--secondary-color-medium-dark);
     }
 
     .card-container.user-events-container header {
