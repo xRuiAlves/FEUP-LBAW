@@ -11,14 +11,14 @@
     align-items: center;
 }
 
-.navbar-nav .nav-item {
+.navbar-nav.nav-highlighted .nav-item {
     transition: border 0.4s;
     border-bottom: 1px solid transparent;
 }
 
 @media screen and (min-width: 992px) {
     /* Only adding the hover to >lg devices (equal to the configured collapse in the navbar) */
-    .navbar-nav .nav-item:hover {
+    .navbar-nav.nav-highlighted .nav-item:hover {
         border-color: white;
     }
 }
