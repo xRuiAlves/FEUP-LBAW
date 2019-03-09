@@ -112,6 +112,10 @@ a.my-btn {
     outline: none;
 }
 
+.modal-header button.close {
+    font-size: 2.5em;
+}
+
 /*********** other ************/
 
 @media only screen and (max-width: 576px) {
