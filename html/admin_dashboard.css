@@ -60,20 +60,15 @@ button.card-container.admin-action:focus {
     display: flex;
 } 
 
-.admin-dashboard-modal .issue .user {
-    font-weight: bold;
-    display: flex;
-} 
-
 .admin-dashboard-modal .searchbar-container {
     display: flex;
     align-items: center;
+    margin-bottom: 1em;
 }
 
 .admin-dashboard-modal .searchbar-container i {
     font-size: 1.2em;
     color: var(--color-grey-darker);
-    margin-bottom: 1em;
 }
 
 .admin-dashboard-modal input.searchbar {
