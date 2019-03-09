@@ -21,6 +21,14 @@
     border-bottom: 1px solid transparent;
 }
 
+.navbar .notifications-item {
+    cursor: pointer;
+}
+
+.navbar .issues-item {
+    cursor: pointer;
+}
+
 @media screen and (min-width: 992px) {
     /* Only adding the hover to >lg devices (equal to the configured collapse in the navbar) */
     .navbar-nav.nav-highlighted .nav-item:hover {

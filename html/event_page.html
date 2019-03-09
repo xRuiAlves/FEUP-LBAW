@@ -16,8 +16,6 @@
     <link rel="stylesheet" href="./common.css">
     <link rel="stylesheet" href="./navbar.css">
     <link rel="stylesheet" href="./event_page.css">
-
-
 </head>
 
 <body>
@@ -50,6 +48,16 @@
                         </a>
                     </li>
                     <li class="nav-item">
+                        <div class="nav-link notifications-item">
+                            <i class="fas fa-bell"></i>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <div title="Subit an Issue" class="nav-link issues-item" data-toggle="modal" data-target="#submit-issue-modal">
+                            <i class="fas fa-exclamation-triangle"></i>
+                        </div>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link" href="/logout.html">
                             <i class="fas fa-sign-out-alt"></i>
                         </a>
@@ -58,6 +66,28 @@
             </div>
         </div>
     </nav>
+
+    <div id="submit-issue-modal" class="modal fade font-content" tabindex="-1" role="dialog">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <div class="modal-title custom-modal-title">Submit an Issue</div>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <form>
+                    <div class="modal-body">
+                        <textarea name="announcement-content" placeholder="Tell us what's wrong ..."></textarea>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn publish-button" data-dismiss="modal">Submit</button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
 
     <div class="container card-container font-content event-card">
         <div class="event-brief">
