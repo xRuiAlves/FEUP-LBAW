@@ -14,6 +14,8 @@
 }
 
 .card-container h1 {
+    font-weight: bold;
+    color: var(--secondary-color-medium-dark);
     margin-bottom: 0.5em;
 }
 
