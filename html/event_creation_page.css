@@ -1,0 +1,8 @@
+@import "common.css";
+@import "palette.css";
+
+.card-container.event-creation-container {
+    position: relative;
+    top: 7em;
+    margin-bottom: 7em;
+}
