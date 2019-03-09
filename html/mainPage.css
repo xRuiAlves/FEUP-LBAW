@@ -4,6 +4,7 @@
 html {
     width: 100%;
     overflow-x: hidden;
+    scroll-behavior:smooth;
 }
 
 body {
@@ -14,9 +15,18 @@ body {
     width: 100%;
 }
 
-input {
+input, button:focus {
     outline: none;
 }
+
+a {
+    color: inherit;
+}
+
+a:hover {
+    color: inherit;
+}
+
 
 #banner-wrapper {
     height: 100vh;
@@ -61,13 +71,17 @@ input {
     font-size: Calc(1.5vw + 1.5vh);
 }
 
-#banner-about-text {
-    font-size: 1.15em;
-    text-align: justify;
-    padding: 1em 0;
-    font-family: Raleway, sans-serif;
+#banner-down-arrow {
+    position: absolute;
+    width: 100%;
+    bottom: 1em;
+    text-align: center;
 }
 
+#banner-down-arrow * {
+    margin: 0;
+    font-size: 1.2em;
+}
 
 /*********** BANNER BUTTONS *********/
 
@@ -99,23 +113,12 @@ input {
     color: var(--primary-color);
 }
 
-/************ BANNER ABOUT ***********/
-
-#banner-about {
-    position: absolute;
-    width: 100%;
-    bottom: 1em;
+#banner-about-text {
+    font-size: 1.15em;
+    text-align: justify;
+    padding: 2em 0;
+    font-family: Raleway, sans-serif;
 }
-
-#banner-about * {
-    margin: 0;
-}
-
-#banner-about p {
-    text-align: center;
-}
-
-
 
 /************* SEARCH BOX ************/
 

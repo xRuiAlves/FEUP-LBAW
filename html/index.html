@@ -50,13 +50,14 @@
                     <div class="container">
                         <div class="row">
                             <div class="col-12" id="banner-about-text">
-                                <p>Events made simple. Find out more about us! Events made simple. Find out more about us! Events made simple. Find out more about us! Events made simple. Find out more about us!</p>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam</p>
+                                <a href="#about">Find more about us!</a>
                             </div>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-12 col-md-6">
-                            <button class="find-events">Find Events</button>
+                            <button class="find-events" onclick="window.scrollTo(0, document.getElementById('search-box').offsetTop);">Find Events</button>
                         </div>
                         <div class="col-12 col-md-6">
                             <button class="host-event">Host an Event</button>
@@ -66,10 +67,10 @@
             </div>
         </div>
 
-        <div id="banner-about">
+        <div id="banner-down-arrow">
             <div class="row">
                 <div class="col-12">
-                    <p>About this site</p>
+                   <a href="#search-box"><i class="fas fa-angle-down"></i></a>
                 </div>
             </div>
         </div>
@@ -180,7 +181,78 @@
             </footer>
     </div>
 
-    <div class="container-fluid white-section">
+    <div class="container card-container event-card">
+            <header class="row">
+                    <div class="col-12">
+                        <h3>Semana de Informática</h3>
+                    </div>
+                </header>
+                <footer class="row">
+                    <div class="col-12 location">
+                        <span>
+                            <i class="fas fa-map-marker-alt"></i>
+                        </span>
+                    Porto, Portugal
+                </div>
+                <div class="col-6 time">
+                    <span>
+                    <i class="far fa-clock"></i>
+                </span>
+                    09:15
+                </div>
+                <div class="col-6 text-right">11/10/2019</div>
+            </footer>
+    </div>
+
+    <div class="container card-container event-card">
+            <header class="row">
+                    <div class="col-12">
+                        <h3>ENEI</h3>
+                    </div>
+                </header>
+                <footer class="row">
+                    <div class="col-12 location">
+                        <span>
+                            <i class="fas fa-map-marker-alt"></i>
+                        </span>
+                    Porto, Portugal
+                </div>
+                <div class="col-6 time">
+                    <span>
+                    <i class="far fa-clock"></i>
+                </span>
+                    09:15
+                </div>
+                <div class="col-6 text-right">11/04/2019</div>
+            </footer>
+    </div>
+
+    <div class="container card-container event-card">
+            <header class="row">
+                    <div class="col-12">
+                        <h3>Ed Sheeran Divide</h3>
+                    </div>
+                </header>
+                <footer class="row">
+                    <div class="col-12 location">
+                        <span>
+                            <i class="fas fa-map-marker-alt"></i>
+                        </span>
+                    Porto, Portugal
+                </div>
+                <div class="col-6 time">
+                    <span>
+                    <i class="far fa-clock"></i>
+                </span>
+                    09:15
+                </div>
+                <div class="col-6 text-right">
+                    01/06/2019
+                </div>
+            </footer>
+    </div>
+
+    <div class="container-fluid white-section" id="about">
         <div class="container">
             <div class="row">
                 <h4>About this site</h1>
