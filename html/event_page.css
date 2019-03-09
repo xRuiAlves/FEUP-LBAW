@@ -36,7 +36,7 @@
 }
 
 .event-card .attend-btn {
-    text-align: right;
+    margin-bottom: 2em;
 }
 
 .event-card .event-brief .attend-btn button i {
@@ -203,10 +203,6 @@
         color: var(--secondary-color-medium-dark);
     }
 
-    .card-container.event-card .attend-btn {
-        text-align: left;
-    }
-
     .event-card .nav-item.nav-link {
         font-size: 0.8em;
         width: 40%;
@@ -214,5 +210,16 @@
     
     .event-card .nav-item.nav-link.active {
         width: 60%;
+    }
+
+    .event-card .attend-btn {
+        margin-bottom: 0;
+    }
+}
+
+@media only screen and (min-width: 992px) {
+    .attend-btn {
+        text-align: right;
+        margin-bottom: 0;
     }
 }
