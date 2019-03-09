@@ -177,6 +177,7 @@ input {
 
     #search-box {
         margin: 0 0.5em;
+        margin-bottom: 3em;
         width: Calc(100% - 1em);
     }
 
