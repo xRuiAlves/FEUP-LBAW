@@ -22,8 +22,9 @@
     margin-bottom: 1em;
 }
 
-.event-card .event-details, .event-card .event-title {
+.event-card .event-details, .event-card .event-title h1 {
     font-weight: bold;
+    color: var(--secondary-color-medium-dark);
 }
 
 .event-card .event-map img {
@@ -32,6 +33,10 @@
 
 .event-card .event-map img:hover {
     width: 100%;
+}
+
+.event-card .attend-btn {
+    text-align: right;
 }
 
 .event-card .event-brief .attend-btn button i {
@@ -134,4 +139,33 @@
 
 .add-btn:hover, .post .content .comments-toggler:hover {
     color: var(--secondary-color-medium);
+}
+
+@media only screen and (max-width: 576px) {
+
+    .card-container.event-card, .event-card .event-brief {
+        -webkit-box-shadow: none;
+        -moz-box-shadow: none;
+        box-shadow: none;
+        top: 7em;
+        margin-bottom: 2em;
+        border-radius: 0;
+        padding: 1em 0.8em;
+        background-color: transparent;
+    }
+
+    .card-container.event-card h1 {
+        /* margin-bottom: calc(7vh + 3vw); */
+        font-size: 1.5em;
+        font-weight: bold;
+        color: var(--secondary-color-medium-dark);
+    }
+
+    .card-container.event-card .attend-btn {
+        text-align: left;
+    }
+
+    .card-container.event-card .main {
+        margin-bottom: 2em;
+    }
 }

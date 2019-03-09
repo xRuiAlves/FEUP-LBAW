@@ -14,6 +14,7 @@
 .navbar .navbar-toggler-icon {
     display: flex;
     align-items: center;
+    justify-content: center;
 }
 
 .navbar-nav.nav-highlighted .nav-item {
