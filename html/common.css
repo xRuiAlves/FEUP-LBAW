@@ -45,8 +45,9 @@ body {
 }
 
 /************ CUSTOM PRIMARY BTN *********/
-a.my-btn:hover {
-    color: unset;
+/* Fixing links */
+a.my-btn {
+    text-decoration: none;
 }
 
 .my-btn {
@@ -70,7 +71,7 @@ a.my-btn:hover {
     color: var(--primary-color);
 }
 
-.my-btn-borderless-secondary {
+.my-btn-borderless-secondary, .my-btn-borderless-secondary:hover {
     border: 0;
     background-color: transparent;
     color: var(--primary-color);
