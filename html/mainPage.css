@@ -234,6 +234,10 @@ input {
         margin: 1em;
         width: Calc(100% - 2em);
     }
+
+    .event-card:hover {
+        transform: none;
+    }
 }
 
 
