@@ -20,6 +20,29 @@ button.card-container.admin-action {
     cursor: pointer;
     height: 7.5em;
     border: none;
+    border-radius: 0.25em;
+    font-weight: bold;
+    color: var(--secondary-color-medium-dark);
+}
+
+button.card-container.admin-action#delete-user-action {
+    border-bottom: 4px solid #ad4949; 
+}
+
+button.card-container.admin-action#disable-event-action {
+    border-bottom: 4px solid #9549ad; 
+}
+
+button.card-container.admin-action#user-issues-action {
+    border-bottom: 4px solid #496cad; 
+}
+
+button.card-container.admin-action#admin-promotion-action {
+    border-bottom: 4px solid #49ad6d; 
+}
+
+button.card-container.admin-action#re-enable-event-action {
+    border-bottom: 4px solid #ad9d49;
 }
 
 button.card-container.admin-action:focus {
@@ -28,6 +51,10 @@ button.card-container.admin-action:focus {
 
 .admin-actions > .row {
     margin-top: 3em;
+}
+
+.admin-dashboard-modal .modal-title.custom-modal-title {
+    color: var(--secondary-color-medium-dark)
 }
 
 .admin-dashboard-modal .issue {
@@ -109,4 +136,59 @@ button.card-container.admin-action:focus {
 
 .admin-dashboard-modal .events-list .event .event-name {
     font-weight: bold;
+}
+
+@media only screen and (max-width: 576px) {
+    .card-container.admin-dashboard-container {
+        -webkit-box-shadow: none;
+        -moz-box-shadow: none;
+        box-shadow: none;
+        top: 0;
+        margin-bottom: 2em;
+        border-radius: 0;
+        padding: 0.8em 0.8em;
+        background-color: transparent;
+    }
+
+    .card-container.admin-dashboard-container .separator hr {
+        display: none;
+    }
+
+    .card-container.admin-dashboard-container header {
+        margin-bottom: 4em;
+    }
+
+    .admin-actions > .row {
+        margin-top: 0;
+    }
+
+    button.card-container.admin-action {
+        height: 6em;
+        margin-bottom: 2em;
+    }
+
+    button.card-container.admin-action#delete-user-action {
+        border-bottom: none; 
+        border-left: 4px solid #ad4949; 
+    }
+    
+    button.card-container.admin-action#disable-event-action {
+        border-bottom: none; 
+        border-left: 4px solid #9549ad; 
+    }
+    
+    button.card-container.admin-action#user-issues-action {
+        border-bottom: none; 
+        border-left: 4px solid #496cad; 
+    }
+    
+    button.card-container.admin-action#admin-promotion-action {
+        border-bottom: none; 
+        border-left: 4px solid #49ad6d; 
+    }
+    
+    button.card-container.admin-action#re-enable-event-action {
+        border-bottom: none; 
+        border-left: 4px solid #ad9d49;
+    }
 }
