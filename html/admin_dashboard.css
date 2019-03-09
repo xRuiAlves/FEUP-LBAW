@@ -29,3 +29,33 @@ button.card-container.admin-action:focus {
 .admin-actions > .row {
     margin-top: 3em;
 }
+
+.issue {
+    border-left: 5px solid var(--primary-color);
+    margin-bottom: 1em;
+    text-align: justify;
+    cursor: pointer;
+}
+
+.issue:hover {
+    -webkit-box-shadow: 0px 0px 2px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 0px 2px 0px rgba(0,0,0,0.75);
+    box-shadow: 0px 0px 2px 0px rgba(0,0,0,0.75);
+}
+
+.issue .content {
+    padding: 0 1em;
+}
+
+.issue .issue-description {
+    padding-bottom: 0.5em;
+}
+
+.issue .content header {
+    margin-bottom: 0.5em;
+}
+
+.issue .user {
+    font-weight: bold;
+    display: flex;
+} 
