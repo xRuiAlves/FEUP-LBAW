@@ -66,7 +66,7 @@
                     <h1>Semana de Informática 2019</h1>
                 </div>
                 <div class="col-2 attend-btn text-right">
-                    <button type="button" class="btn">
+                    <button type="button" class="btn" data-toggle="modal" data-target="#attend-event-modal">
                         <span>
                             <i class="fas fa-calendar-check icon-left"></i>
                         </span>
@@ -260,7 +260,7 @@
         </div>
     </div>
 
-    <div id="create-announcement-modal" class="modal fade" tabindex="-1" role="dialog">
+    <div id="create-announcement-modal" class="modal fade font-content" tabindex="-1" role="dialog">
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -282,7 +282,7 @@
         </div>
     </div>
 
-    <div id="create-post-modal" class="modal fade" tabindex="-1" role="dialog">
+    <div id="create-post-modal" class="modal fade font-content" tabindex="-1" role="dialog">
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -300,6 +300,26 @@
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                     </div>
                 </form>
+            </div>
+        </div>
+    </div>
+
+    <div id="attend-event-modal" class="modal fade font-content" tabindex="-1" role="dialog">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <div class="modal-title custom-modal-title">Ticket</div>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    Do you wish to obtain a free ticket to Semana de Informática 2019?
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn publish-button" data-dismiss="modal">Confirm</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
             </div>
         </div>
     </div>
