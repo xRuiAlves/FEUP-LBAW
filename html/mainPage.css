@@ -132,6 +132,10 @@ input {
     display: inline-block;
 }
 
+#search-box > .row > * ~ * {
+    border-left: 1px #ccc solid;
+}
+
 #search-box .search-field {
     font-size: 0.8em;
 }
@@ -147,11 +151,29 @@ input {
     justify-content: space-around;
 }
 
+#search-box .dropdown {
+    margin: 0em 1em;
+}
 
 #search-box i{
     padding: 0.5em;
 }
 
+@media only screen and (max-width: 768px) {
+
+    #search-box {
+        border-radius: 0;
+    }
+
+    #search-box  > .row >  * ~ * {
+        border-left: 0;
+        justify-content: start !important;
+    }
+
+    #search-box .dropdown {
+        margin: 0;
+    }
+}
 
 /******* DROPDOWNS *******/
 
