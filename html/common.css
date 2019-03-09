@@ -76,8 +76,8 @@ a.my-btn {
 }
 
 .my-btn-secondary:hover {
-    color: var(--primary-color-darker);
-    border-color: var(--primary-color-darker);
+    color: white;
+    background-color: var(--primary-color);
 }
 
 .my-btn-borderless-secondary, .my-btn-borderless-secondary:hover {
