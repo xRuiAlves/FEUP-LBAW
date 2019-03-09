@@ -229,10 +229,32 @@ a:hover {
     border-radius: 1em;
     margin-top: -1.5em;
     transition: transform 0.1s linear;
+    color: var(--secondary-color-medium);
+}
+
+.event-card h3 {
+    font-weight: bold;
 }
 
 .event-card:hover {
     transform: scale(1.05);
+}
+
+.event-card .price-tag {
+    color: white;
+    border-radius: 0.3em;
+    margin: 0em 1em;
+    padding: 0.2em 0.4em;
+    background-color: var(--primary-color);
+}
+
+.event-card .category {
+    padding: 0.2em;
+    color: var(--primary-color);
+}
+
+.event-card footer {
+    margin-top: 1em;
 }
 
 @media only screen and (max-width: 576px) {
