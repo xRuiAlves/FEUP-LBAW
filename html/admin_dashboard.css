@@ -101,3 +101,12 @@ button.card-container.admin-action:focus {
 .admin-dashboard-modal .users-list .user .user-name {
     font-weight: bold;
 }
+
+.admin-dashboard-modal .events-list .event {
+    display: flex;
+    margin: 1.5em 0;
+}
+
+.admin-dashboard-modal .events-list .event .event-name {
+    font-weight: bold;
+}
