@@ -4,7 +4,6 @@
 html {
     width: 100%;
     scroll-behavior:smooth;
-    overflow-x: hidden;
 }
 
 body {
@@ -12,7 +11,7 @@ body {
     color: white;
     background-color: var(--secondary-color-dark);
     width: 100%;
-    overflow-y: scroll !important;
+    overflow-x: hidden !important;
 }
 
 input, button:focus {
@@ -25,6 +24,11 @@ a {
 
 a:hover {
     color: inherit;
+}
+
+.row {
+    margin-right: 0px !important;
+    margin-left: 0px !important;
 }
 
 
