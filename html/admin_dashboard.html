@@ -66,26 +66,126 @@
         </div>
         <div class="admin-actions">
             <div class="row">
-                <div class="col-3 container card-container admin-action">
-                    Delete a User
-                </div>
-                <div class="col-3 container card-container admin-action">
-                    Disable an Event
-                </div>
-                <div class="col-3 container card-container admin-action">
+                <button class="col-3 container card-container admin-action" data-toggle="modal" data-target="#delete-user-modal">
+                    Delete User Account
+                </button>
+                <button class="col-3 container card-container admin-action" data-toggle="modal" data-target="#disable-event-modal">
+                    Disable Event
+                </button>
+                <button class="col-3 container card-container admin-action" data-toggle="modal" data-target="#user-issues-modal">
                     View User Issues
-                </div>
+                </button>
             </div>
 
             <div class="row">
-                <div class="col-3 container card-container admin-action">
+                <button class="col-3 container card-container admin-action" data-toggle="modal" data-target="#admin-promotion-modal">
                     Promote User to Administrator
-                </div>
-                <div class="col-3 container card-container admin-action">
-                    Re-enable an Event
-                </div>
-                <div class="col-3 container card-container admin-action">
+                </button>
+                <button class="col-3 container card-container admin-action" data-toggle="modal" data-target="#re-enable-event-modal">
+                    Re-enable Event
+                </button>
+                <button class="col-3 container card-container admin-action">
                     Action 6
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div id="delete-user-modal" class="modal fade font-content" tabindex="-1" role="dialog">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <div class="modal-title custom-modal-title">Delete User Account</div>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    PLACEHOLDER
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn publish-button" data-dismiss="modal">Publish</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="disable-event-modal" class="modal fade font-content" tabindex="-1" role="dialog">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <div class="modal-title custom-modal-title">Disable Event</div>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    PLACEHOLDER
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn publish-button" data-dismiss="modal">Publish</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="user-issues-modal" class="modal fade font-content" tabindex="-1" role="dialog">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <div class="modal-title custom-modal-title">User Issues</div>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    PLACEHOLDER
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn publish-button" data-dismiss="modal">Publish</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="admin-promotion-modal" class="modal fade font-content" tabindex="-1" role="dialog">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <div class="modal-title custom-modal-title">Promote User</div>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    PLACEHOLDER
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn publish-button" data-dismiss="modal">Publish</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="re-enable-event-modal" class="modal fade font-content" tabindex="-1" role="dialog">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <div class="modal-title custom-modal-title">Re-enable Event</div>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    PLACEHOLDER
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn publish-button" data-dismiss="modal">Publish</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                 </div>
             </div>
         </div>

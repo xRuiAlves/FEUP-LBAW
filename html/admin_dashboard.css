@@ -14,11 +14,16 @@
     border-top-width: 2px;
 }
 
-.card-container.admin-action {
+button.card-container.admin-action {
     padding: 2em;
     text-align: center;
     cursor: pointer;
     height: 7.5em;
+    border: none;
+}
+
+button.card-container.admin-action:focus {
+    outline: none;
 }
 
 .admin-actions > .row {

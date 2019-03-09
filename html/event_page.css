@@ -135,8 +135,3 @@
 .add-btn:hover, .post .content .comments-toggler:hover {
     color: var(--secondary-color-medium);
 }
-
-#create-announcement-modal button.publish-button, #create-post-modal button.publish-button, #attend-event-modal button.publish-button  {
-    background-color: var(--secondary-color-medium);
-    color: white;
-}
