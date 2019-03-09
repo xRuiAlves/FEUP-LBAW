@@ -53,6 +53,14 @@
     background-color: var(--secondary-color-medium-dark);
 }
 
+.card-container.event-card .attend-btn button.active {
+    background-color: var(--secondary-color-light);
+}
+
+.card-container.event-card .attend-btn button.active:hover {
+    background-color: var(--danger-red)
+}
+
 .event-card .separator hr {
     padding: 0;
     margin:0;
@@ -147,7 +155,7 @@
         -webkit-box-shadow: none;
         -moz-box-shadow: none;
         box-shadow: none;
-        top: 7em;
+        top: 0;
         margin-bottom: 2em;
         border-radius: 0;
         padding: 1em 0.8em;
@@ -167,5 +175,14 @@
 
     .card-container.event-card .main {
         margin-bottom: 2em;
+    }
+
+    .event-card .nav-item.nav-link {
+        font-size: 0.8em;
+        width: 40%;
+    }
+    
+    .event-card .nav-item.nav-link.active {
+        width: 60%;
     }
 }

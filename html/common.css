@@ -70,7 +70,7 @@ a.my-btn {
 }
 
 .my-btn-secondary {
-    border: 3px var(--primary-color) solid;
+    border: 2px var(--primary-color) solid;
     background-color: transparent;
     color: var(--primary-color);
 }
