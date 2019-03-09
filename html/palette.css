@@ -1,5 +1,6 @@
 :root {
     --primary-color: #ff8e00;
+    --primary-color-light: #ffb360;
     --primary-color-darker: #ca6f00;
     --primary-color-translucid: #ff88002e;
     --primary-color-dark-translucid: #ff88006b;
@@ -11,5 +12,6 @@
     --secondary-color-medium-translucid: #03a9f41f;
     --secondary-color-light: #84B9D8;
     --color-grey: #ddd;
+    --color-grey-dark: #888;
     --color-grey-light: #ededed;
 }

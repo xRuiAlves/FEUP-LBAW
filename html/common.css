@@ -99,7 +99,7 @@ a.my-btn {
 
 .modal-title.custom-modal-title {
     font-size: 2em;
-    color: var(--secondary-color-medium);
+    color: var(--color-grey-dark);
 } 
 
 .modal-body textarea {
@@ -114,6 +114,30 @@ a.my-btn {
 
 .modal-header button.close {
     font-size: 2.5em;
+}
+
+.modal-body input {
+    border:0;
+    border-radius: 0;
+    border-bottom: 2px solid var(--primary-color);
+}
+
+.modal-body input:focus {
+    outline: none;
+    box-shadow: none;
+    outline-color: transparent;
+    outline-style: none;
+    border-bottom: 2px solid var(--primary-color);
+}
+
+.modal-body input::placeholder {
+    font-weight: bold;
+    font-size: 1.1em;
+    color: var(--color-grey);
+}
+
+.modal-body input:focus::placeholder {
+    color: var(--primary-color-light);
 }
 
 /*********** other ************/
