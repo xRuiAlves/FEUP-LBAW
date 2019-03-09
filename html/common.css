@@ -65,10 +65,19 @@ a.my-btn {
     color: white;
 }
 
+.my-btn-primary:hover {
+    background-color: var(--primary-color-darker);
+}
+
 .my-btn-secondary {
     border: 3px var(--primary-color) solid;
     background-color: transparent;
     color: var(--primary-color);
+}
+
+.my-btn-secondary:hover {
+    color: var(--primary-color-darker);
+    border-color: var(--primary-color-darker);
 }
 
 .my-btn-borderless-secondary, .my-btn-borderless-secondary:hover {
