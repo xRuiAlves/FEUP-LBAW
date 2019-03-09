@@ -3,15 +3,14 @@
 
 html {
     width: 100%;
-    overflow-x: hidden;
     scroll-behavior:smooth;
+    overflow-x: hidden;
 }
 
 body {
     font-family: 'Montserrat', cursive;
     color: white;
     background-color: var(--secondary-color-dark);
-    overflow: hidden;
     width: 100%;
 }
 
@@ -179,8 +178,7 @@ a:hover {
 @media only screen and (max-width: 576px) {
 
     #search-box {
-        margin: 0 0.5em;
-        margin-bottom: 3em;
+        margin: 2em 0.5em;
         width: Calc(100% - 1em);
     }
 
@@ -252,10 +250,6 @@ a:hover {
     background-color: white;
     color: var(--secondary-color-dark);
 }
-
-
-
-
 
 
 /************* OTHER MEDIA QUERIES **************/

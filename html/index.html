@@ -20,6 +20,7 @@
         crossorigin="anonymous"></script>
 
     <link rel="stylesheet" href="mainPage.css" />
+    <link rel="stylesheet" href="navbar.css" />
     <link href="https://fonts.googleapis.com/css?family=Montserrat|Raleway" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
         integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
@@ -75,6 +76,52 @@
             </div>
         </div>
     </div>
+
+    <nav class="navbar navbar-expand-lg font-title">
+        <div class="container">
+            <a class="navbar-brand" href="/">Eventually</a>
+
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon">
+                    <i class="fas fa-bars"></i>
+                </span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav nav-highlighted mr-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/#search-box">Find</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/create_event.html">Host</a>
+                    </li>
+                </ul>
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/user_dashboard.html">
+                            John Doe
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <div class="nav-link notifications-item">
+                            <i class="fas fa-bell"></i>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <div title="Subit an Issue" class="nav-link issues-item" data-toggle="modal" data-target="#submit-issue-modal">
+                            <i class="fas fa-exclamation-triangle"></i>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/logout.html">
+                            <i class="fas fa-sign-out-alt"></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
 
     <div class="container" id="search-box">
         <div class="row">
