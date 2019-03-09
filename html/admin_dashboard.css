@@ -30,32 +30,79 @@ button.card-container.admin-action:focus {
     margin-top: 3em;
 }
 
-.issue {
+.admin-dashboard-modal .issue {
     border-left: 5px solid var(--primary-color);
     margin-bottom: 1em;
     text-align: justify;
     cursor: pointer;
 }
 
-.issue:hover {
+.admin-dashboard-modal .issue:hover {
     -webkit-box-shadow: 0px 0px 2px 0px rgba(0,0,0,0.75);
     -moz-box-shadow: 0px 0px 2px 0px rgba(0,0,0,0.75);
     box-shadow: 0px 0px 2px 0px rgba(0,0,0,0.75);
 }
 
-.issue .content {
+.admin-dashboard-modal .issue .content {
     padding: 0 1em;
 }
 
-.issue .issue-description {
+.admin-dashboard-modal .issue .issue-description {
     padding-bottom: 0.5em;
 }
 
-.issue .content header {
+.admin-dashboard-modal .issue .content header {
     margin-bottom: 0.5em;
 }
 
-.issue .user {
+.admin-dashboard-modal .issue .user {
     font-weight: bold;
     display: flex;
 } 
+
+.admin-dashboard-modal .issue .user {
+    font-weight: bold;
+    display: flex;
+} 
+
+.admin-dashboard-modal .searchbar-container {
+    display: flex;
+    align-items: center;
+}
+
+.admin-dashboard-modal .searchbar-container i {
+    font-size: 1.2em;
+    color: var(--color-grey-darker);
+    margin-bottom: 1em;
+}
+
+.admin-dashboard-modal input.searchbar {
+    border: 1px solid var(--color-grey-dark);
+    font-size: 1em;
+    padding: 0.2em 0.6em;
+    width: 100%; 
+    font-weight: 100;
+    color: var(--secondary-color-dark);
+}
+
+.admin-dashboard-modal input.searchbar:focus {
+    border-bottom: 1px solid var(--color-grey-dark);
+}
+
+.admin-dashboard-modal input.searchbar::placeholder {
+    color: var(--color-grey-dark);
+    font-weight: 100;
+}
+
+.admin-dashboard-modal input.searchbar:focus::placeholder {
+    color: var(--color-grey-dark);
+}
+
+.admin-dashboard-modal .users-list .user {
+    display: flex;
+    margin: 1.5em 0;
+}
+
+.admin-dashboard-modal .users-list .user .user-name {
+    font-weight: bold;
+}

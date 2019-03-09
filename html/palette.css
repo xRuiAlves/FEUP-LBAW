@@ -12,7 +12,8 @@
     --secondary-color-medium-translucid: #03a9f41f;
     --secondary-color-light: #84B9D8;
     --color-grey: #ddd;
-    --color-grey-dark: #888;
     --color-grey-light: #ededed;
+    --color-grey-dark: #888;
+    --color-grey-darker: #525252;
     --danger-red: #ee3333;
 }
