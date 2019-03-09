@@ -133,11 +133,11 @@
                 <div class="tab-content" id="nav-tabContent">
                     <div class="tab-pane fade show active" id="nav-announcements" role="tabpanel" aria-labelledby="nav-announcements-tab">
                         <div class="announcements-area">
-                            <div class="add-btn">
+                            <div class="add-btn" data-toggle="modal" data-target="#create-announcement-modal">
                                 <span>
                                     <i class="fas fa-bullhorn"></i>
                                 </span>
-                                New Announcement
+                                Publish Announcement
                             </div>
                             <div class="announcement">
                                 <div class="icon">
@@ -193,11 +193,11 @@
                     </div>
                     <div class="tab-pane fade" id="nav-discussion" role="tabpanel" aria-labelledby="nav-discussion-tab">
                         <div class="discussions-area">
-                            <div class="add-btn">
+                            <div class="add-btn" data-toggle="modal" data-target="#create-post-modal">
                                 <span>
                                     <i class="far fa-edit"></i>
                                 </span>
-                                New Post
+                                Create Post
                             </div>
                             <div class="post">
                                 <div class="icon">
@@ -227,7 +227,8 @@
                                         02.04.2019 | 08:12
                                     </div>
                                     <div class="text">
-                                        The amount of workshops that are taking place is actually amazing! As an attendee, may I attend whichever workshops I desire, or do I have some kind of limitation? Can't wait for this year's edition!
+                                        The amount of workshops that are taking place is actually amazing! As an attendee, may I attend whichever workshops I desire,
+                                        or do I have some kind of limitation? Can't wait for this year's edition!
                                     </div>
                                     <div class="comments-toggler">0 comments</div>
                                 </div>
@@ -255,6 +256,50 @@
                     </div>
                 </div>
 
+            </div>
+        </div>
+    </div>
+
+    <div id="create-announcement-modal" class="modal fade" tabindex="-1" role="dialog">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <div class="modal-title custom-modal-title">Publish Announcement</div>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <form>
+                    <div class="modal-body">
+                        <textarea name="announcement-content" placeholder="Annoucement content ..."></textarea>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn publish-button" data-dismiss="modal">Publish</button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div id="create-post-modal" class="modal fade" tabindex="-1" role="dialog">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <div class="modal-title custom-modal-title">Create Post</div>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <form>
+                    <div class="modal-body">
+                        <textarea name="announcement-content" placeholder="Post content ..."></textarea>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn publish-button" data-dismiss="modal">Create</button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    </div>
+                </form>
             </div>
         </div>
     </div>

@@ -8,10 +8,10 @@
     box-shadow: 0px 0px 12px 0px rgba(0,0,0,0.75);
     padding: 3em;
     background-color: white;
+    color: var(--secondary-color-medium-dark);
 }
 
 .card-container h1 {
-    /* color: var(--secondary-color-dark); */
     margin-bottom: 0.5em;
 }
 
@@ -20,6 +20,21 @@ body {
     /* background: var(--secondary-color-dark) repeat; */
     background: var(--secondary-color-dark) repeat;
     z-index: -2;
+}
+
+.modal-title.custom-modal-title {
+    font-size: 2em;
+    color: var(--secondary-color-medium);
+} 
+
+.modal-body textarea {
+    resize: none;
+    width: 100%;
+    border: none;
+}
+
+.modal-body textarea:focus {
+    outline: none;
 }
 
 
