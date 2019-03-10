@@ -17,6 +17,10 @@ input, button:focus {
     outline: none;
 }
 
+button {
+    background-color: transparent;
+}
+
 a {
     color: inherit;
 }
