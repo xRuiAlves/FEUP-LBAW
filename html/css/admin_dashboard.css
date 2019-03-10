@@ -23,6 +23,11 @@ button.card-container.admin-action {
     border-radius: 0.25em;
     font-weight: bold;
     color: var(--secondary-color-medium-dark);
+    transition: transform 0.1s linear;
+}
+
+button.card-container.admin-action:hover {
+    transform: scale(1.1);
 }
 
 button.card-container.admin-action#delete-user-action {
