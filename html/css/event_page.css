@@ -9,6 +9,14 @@
     overflow: hidden;
 }
 
+.card-container.event-card .admin-view-label h6 {
+    padding: 0.5em;
+    border: 1px solid var(--primary-color);
+    display: inline-block;
+    border-radius: 0.5rem;
+    color: var(--primary-color);
+}
+
 .event-card .event-category {
     text-align: right;
 } 
@@ -34,6 +42,12 @@
 .event-card .event-map img:hover {
     width: 100%;
 }
+
+.event-card .edit-btn {
+    text-align: right;
+    padding: 0.5em 0;
+}
+
 
 .event-card .attend-btn {
     margin-bottom: 2em;
@@ -165,6 +179,31 @@
     color: var(--primary-color);
 }
 
+#attendees-list-modal .modal-body{
+    max-height: 80vh;
+    overflow-y: auto;
+}
+
+#attendees-list-modal .attendees-list .user .user-name{
+    font-weight: bold;
+}
+
+#attendees-list-modal .attendees-list .user .user-email{
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+#attendees-list-modal .attendees-list .user {
+    padding: 0.5em 0.25em;
+    border-radius: 0.5rem;
+    background-color: var(--secondary-color-medium-translucid);
+    margin: 0.5em 0;
+}
+
+#attendees-list-modal .attendees-list .user span {
+    cursor: pointer;
+}
+
 @media only screen and (max-width: 576px) {
 
     .card-container.event-card .main {
@@ -174,8 +213,19 @@
         margin-bottom: 0;
     }
 
+    .card-container.event-card .admin-view-label h6 {
+        color: white;
+        border-color: white;
+        font-size: 0.8em;
+    }
+
     .card-container.event-card .event-brief .date > div:nth-child(2) {
         margin-left: 0;
+    }
+
+    .card-container.event-card .edit-btn a {
+        color: white;
+        padding-left: 0;
     }
 
     .event-card .separator.main-separator {
