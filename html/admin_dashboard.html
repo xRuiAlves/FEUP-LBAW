@@ -102,25 +102,21 @@
         </div>
         <div class="admin-actions">
             <div class="row">
-                <button id="user-issues-action" class="col-9 col-sm-3 container card-container admin-action" data-toggle="modal" data-target="#user-issues-modal">
+                <button id="user-issues-action" class="col-9 col-sm-4 container card-container admin-action" data-toggle="modal" data-target="#user-issues-modal">
                     View User Issues
                 </button>
-                <button id="disable-event-action" class="col-9 col-sm-3 container card-container admin-action" data-toggle="modal" data-target="#disable-event-modal">
-                    Disable Event
-                </button>
-                <button id="re-enable-event-action" class="col-9 col-sm-3 container card-container admin-action" data-toggle="modal" data-target="#re-enable-event-modal">
-                    Re-enable Event
+                <button id="enable-disable-action" class="col-9 col-sm-4 container card-container admin-action" data-toggle="modal" data-target="#enable-disable-modal">
+                    Enable/Disable Event
                 </button>
             </div>
 
             <div class="row">
-                <button id="delete-user-action" class="col-9 col-sm-3 container card-container admin-action" data-toggle="modal" data-target="#delete-user-modal">
+                <button id="delete-user-action" class="col-9 col-sm-4 container card-container admin-action" data-toggle="modal" data-target="#delete-user-modal">
                     Delete User Account
                 </button>
-                <button id="admin-promotion-action" class="col-9 col-sm-3 container card-container admin-action" data-toggle="modal" data-target="#admin-promotion-modal">
+                <button id="admin-promotion-action" class="col-9 col-sm-4 container card-container admin-action" data-toggle="modal" data-target="#admin-promotion-modal">
                     Promote User to Administrator
                 </button>
-                <div class="col-9 col-sm-3 container"></div>
             </div>
         </div>
     </div>
@@ -215,94 +211,6 @@
                                 </div>
                                 <div class="user-email">
                                     sarah_zone@cambridge.en
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div id="disable-event-modal" class="modal fade font-content admin-dashboard-modal" tabindex="-1" role="dialog">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <div class="modal-title custom-modal-title">Disable Event</div>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <div class="searchbar-container">
-                        <input class="searchbar" type="text" placeholder="Event name ..." />
-                        <i class="fas fa-search icon-right"></i>
-                    </div>
-                    <div class="events-list">
-                        <div class="event">
-                            <div class="icon icon-left">
-                                <i class="far fa-calendar-alt"></i>
-                            </div>
-                            <div class="event-info">
-                                <div class="event-name">
-                                    Semana de Informática 2019
-                                </div>
-                                <div class="event-date">
-                                    18.04.2019 - 19.04.2019
-                                </div>
-                                <div class="event-location">
-                                    Porto, Portugal
-                                </div>
-                            </div>
-                        </div>
-                        <div class="event">
-                            <div class="icon icon-left">
-                                <i class="far fa-calendar-alt"></i>
-                            </div>
-                            <div class="event-info">
-                                <div class="event-name">
-                                    Functional Progamming using Phoenix + Elixir - The perks of being a Back End Developer
-                                </div>
-                                <div class="event-date">
-                                    18.04.2019
-                                </div>
-                                <div class="event-location">
-                                    Madrid, Spain
-                                </div>
-                            </div>
-                        </div>
-                        <div class="event">
-                            <div class="icon icon-left">
-                                <i class="far fa-calendar-alt"></i>
-                            </div>
-                            <div class="event-info">
-                                <div class="event-name">
-                                    Politécnico Career Fest
-                                </div>
-                                <div class="event-date">
-                                    19.04.2019
-                                </div>
-                                <div class="event-location">
-                                    Lisboa, Portugal
-                                </div>
-                            </div>
-                        </div>
-                        <div class="event">
-                            <div class="icon icon-left">
-                                <i class="far fa-calendar-alt"></i>
-                            </div>
-                            <div class="event-info">
-                                <div class="event-name">
-                                    London Security Meetup - The secret life of SQL Injections
-                                </div>
-                                <div class="event-date">
-                                    19.04.2019
-                                </div>
-                                <div class="event-location">
-                                    London, England
                                 </div>
                             </div>
                         </div>
@@ -546,11 +454,11 @@
         </div>
     </div>
 
-    <div id="re-enable-event-modal" class="modal fade font-content admin-dashboard-modal" tabindex="-1" role="dialog">
+    <div id="enable-disable-modal" class="modal fade font-content admin-dashboard-modal" tabindex="-1" role="dialog">
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <div class="modal-title custom-modal-title">Re-enable Event</div>
+                    <div class="modal-title custom-modal-title">Enable/Disable Event</div>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -568,6 +476,7 @@
                             <div class="event-info">
                                 <div class="event-name">
                                     Beach Party @Braga Social Center
+                                    <button type="button" class="btn btn-secondary event-button re-enable-button">Enable</button>
                                 </div>
                                 <div class="event-date">
                                     17.05.2019
@@ -583,13 +492,82 @@
                             </div>
                             <div class="event-info">
                                 <div class="event-name">
+                                    Semana de Informática 2019
+                                    <button type="button" class="btn btn-secondary event-button disable-button">Disable</button>
+                                </div>
+                                <div class="event-date">
+                                    18.04.2019 - 19.04.2019
+                                </div>
+                                <div class="event-location">
+                                    Porto, Portugal
+                                </div>
+                            </div>
+                        </div>
+                        <div class="event">
+                            <div class="icon icon-left">
+                                <i class="far fa-calendar-alt"></i>
+                            </div>
+                            <div class="event-info">
+                                <div class="event-name">
                                     Traditionelle deutsche Tänze
+                                    <button type="button" class="btn btn-secondary event-button re-enable-button">Enable</button>
                                 </div>
                                 <div class="event-date">
                                     21.05.2019
                                 </div>
                                 <div class="event-location">
                                     Mannheim, Germany
+                                </div>
+                            </div>
+                        </div>
+                        <div class="event">
+                            <div class="icon icon-left">
+                                <i class="far fa-calendar-alt"></i>
+                            </div>
+                            <div class="event-info">
+                                <div class="event-name">
+                                    Functional Progamming using Phoenix + Elixir - The perks of being a Back End Developer
+                                    <button type="button" class="btn btn-secondary event-button disable-button">Disable</button>
+                                </div>
+                                <div class="event-date">
+                                    18.04.2019
+                                </div>
+                                <div class="event-location">
+                                    Madrid, Spain
+                                </div>
+                            </div>
+                        </div>
+                        <div class="event">
+                            <div class="icon icon-left">
+                                <i class="far fa-calendar-alt"></i>
+                            </div>
+                            <div class="event-info">
+                                <div class="event-name">
+                                    Politécnico Career Fest
+                                    <button type="button" class="btn btn-secondary event-button disable-button">Disable</button>
+                                </div>
+                                <div class="event-date">
+                                    19.04.2019
+                                </div>
+                                <div class="event-location">
+                                    Lisboa, Portugal
+                                </div>
+                            </div>
+                        </div>
+                        <div class="event">
+                            <div class="icon icon-left">
+                                <i class="far fa-calendar-alt"></i>
+                            </div>
+                            <div class="event-info">
+                                <div class="event-name">
+                                    London Security Meetup - The secret life of SQL Injections
+                                    <button type="button" class="btn btn-secondary event-button disable-button">Disable</button>
+                                </div>
+                                <div class="event-date">
+                                    19.04.2019
+                                </div>
+                                <div class="event-location">
+                                    London, England
                                 </div>
                             </div>
                         </div>

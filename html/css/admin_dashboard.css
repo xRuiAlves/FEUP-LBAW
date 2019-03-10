@@ -18,7 +18,7 @@ button.card-container.admin-action {
     padding: 2em;
     text-align: center;
     cursor: pointer;
-    height: 7.5em;
+    height: 10em;
     border: none;
     border-radius: 0.25em;
     font-weight: bold;
@@ -46,7 +46,7 @@ button.card-container.admin-action#admin-promotion-action {
     border-bottom: 4px solid #49ad6d; 
 }
 
-button.card-container.admin-action#re-enable-event-action {
+button.card-container.admin-action#enable-disable-action {
     border-bottom: 4px solid #ad9d49;
 }
 
@@ -139,11 +139,38 @@ button.card-container.admin-action:focus {
     margin: 1.5em 0;
 }
 
+.admin-dashboard-modal .events-list .event .event-info {
+    flex-grow: 1;
+}
+
 .admin-dashboard-modal .events-list .event .event-name {
     font-weight: bold;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.admin-dashboard-modal .events-list .event .event-name .event-button {
+    display: inline;
+    padding: 0 0.75em;
+    margin-left: 0.5em;
+    min-width: 6em;
+}
+
+.admin-dashboard-modal .events-list .event .event-name .event-button.re-enable-button {
+    background: green;
+}
+
+.admin-dashboard-modal .events-list .event .event-name .event-button.disable-button {
+    background: var(--danger-red);
+    border: 1px solid var(--danger-red-dark);
 }
 
 @media only screen and (max-width: 576px) {
+    button.card-container.admin-action {
+        height: 7.5em;
+    }
+
     .card-container.admin-dashboard-container {
         -webkit-box-shadow: none;
         -moz-box-shadow: none;
@@ -177,11 +204,6 @@ button.card-container.admin-action:focus {
         border-left: 4px solid #ad4949; 
     }
     
-    button.card-container.admin-action#disable-event-action {
-        border-bottom: none; 
-        border-left: 4px solid #9549ad; 
-    }
-    
     button.card-container.admin-action#user-issues-action {
         border-bottom: none; 
         border-left: 4px solid #496cad; 
@@ -192,7 +214,7 @@ button.card-container.admin-action:focus {
         border-left: 4px solid #49ad6d; 
     }
     
-    button.card-container.admin-action#re-enable-event-action {
+    button.card-container.admin-action#enable-disable-action {
         border-bottom: none; 
         border-left: 4px solid #ad9d49;
     }
