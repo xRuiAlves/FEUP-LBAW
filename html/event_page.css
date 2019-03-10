@@ -74,7 +74,7 @@
 
 .message-area {
     padding-bottom: 2em;
-    background-color: var(--color-grey)
+    background-color: var(--color-grey-light)
 }
 .message-area .nav-item {
     text-align: center;
