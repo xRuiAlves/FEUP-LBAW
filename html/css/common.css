@@ -94,7 +94,7 @@ a.my-btn {
     color: var(--secondary-color-medium-dark);
 }
 
-.modal .modal-footer button.publish-button {
+.modal .modal-footer button.publish-button, .modal .modal-footer a.publish-button {
     background-color: var(--secondary-color-medium);
     color: white;
 }
