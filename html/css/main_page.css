@@ -112,12 +112,14 @@ a:hover {
     border: 0;
     background-color: var(--primary-color);
     color: white;
+    cursor: pointer;
 }
 
 #banner-buttons button.host-event {
     border: 3px var(--primary-color) solid;
     background-color: transparent;
     color: var(--primary-color);
+    cursor: pointer;
 }
 
 #banner-about-text {
