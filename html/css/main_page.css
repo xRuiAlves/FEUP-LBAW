@@ -346,4 +346,5 @@ a:hover {
 .about-title {
     font-weight: bold;
     color: var(--secondary-color-medium-dark);
+    margin-bottom: 1em;
 }
