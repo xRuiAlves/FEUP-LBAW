@@ -78,7 +78,7 @@ a.my-btn {
 }
 
 .my-btn-secondary:hover {
-    color: white;
+    color: white !important; /* necessary because of some bootstrap overrides */
     background-color: var(--primary-color);
 }
 

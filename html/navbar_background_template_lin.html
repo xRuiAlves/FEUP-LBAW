@@ -48,8 +48,23 @@
                     </li>
                     <li class="nav-item">
                         <div title="Notifications" class="nav-link notifications-item">
-                            <i class="fas fa-bell nav-item-icon"></i>
-                            <span class="nav-item-label">Notifications</span>
+                            <a
+                                class="nav-item-icon"
+                                tabindex="0" role="button" data-toggle="popover" data-trigger="focus" title="Notifications"
+                                data-placement="bottom"
+                                data-content="You have just been invited to 'Semana de Informática 2019' by NIAEFEUP!"
+                                data-template='
+                                    <div class="popover" role="tooltip">
+                                        <div class="arrow"></div>
+                                        <h3 class="popover-header"></h3>
+                                        <div class="popover-body">
+                                            This content is always deleted
+                                        </div>
+                                    </div>''
+                            >
+                                <i class="fas fa-bell"></i>
+                                <span class="nav-item-label">Notifications</span>
+                            </a>
                         </div>
                     </li>
                     <li class="nav-item">
@@ -103,6 +118,13 @@
         crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
+
+    <script>
+    // Enabling popovers in page, see https://getbootstrap.com/docs/4.3/components/popovers/#example-enable-popovers-everywhere
+    $(function () {
+        $('[data-toggle="popover"]').popover()
+    })
+    </script>
 </body>
 
 </html>
