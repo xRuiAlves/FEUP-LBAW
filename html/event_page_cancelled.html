@@ -7,13 +7,11 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Event Page</title>
 
-    <link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css">
-    <script src="/bootstrap/jquery-3.3.1.min.js"></script>
-    <script src="/bootstrap/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" href="/fonts/Montserrat.css">
-    <link rel="stylesheet" href="/fonts/Raleway.css">
-    <link rel="stylesheet" href="/fontawesome/css/all.css">
-    
+    <link href="https://fonts.googleapis.com/css?family=Montserrat|Raleway" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
+        integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="./css/constants.css">
     <link rel="stylesheet" href="./css/common.css">
     <link rel="stylesheet" href="./css/navbar.css">
@@ -100,16 +98,18 @@
     <div class="container card-container font-content event-card">
         <div class="event-brief">
             <div class="row no-gutters main">
+                <div class="col-12 cancelled-label">
+                    <h6>Thist event was cancelled</h6>
+                </div>
                 <div class="col-12 col-lg-9 event-title font-title">
                     <h1>Semana de Informática 2019</h1>
                 </div>
-                <div class="col-12 col-lg-3 attend-btn cancel-ticket-btn alone-right">
-                    <button type="button" class="btn active" data-toggle="modal"
-                        data-target="#cancel-attend-event-modal">
+                <div class="col-12 col-lg-3 attend-btn alone-right">
+                    <button disabled type="button" class="btn" data-toggle="modal" data-target="#attend-event-modal">
                         <span>
                             <i class="fas fa-calendar-check icon-left"></i>
                         </span>
-                        Cancel Ticket
+                        Attend
                     </button>
                 </div>
             </div>
@@ -127,7 +127,8 @@
                         </div>
                         <div class="col-12 col-md-auto">
                             <span>
-                                <i class="fas fa-minus icon-left"></i></i>
+                                <i class="fas fa-minus icon-left"></i>
+                                </i>
                             </span> 19.04.2019
                         </div>
                     </div>
@@ -194,12 +195,7 @@
                     <div class="tab-pane fade show active" id="nav-announcements" role="tabpanel"
                         aria-labelledby="nav-announcements-tab">
                         <div class="announcements-area">
-                            <div class="add-btn" data-toggle="modal" data-target="#create-announcement-modal">
-                                <span>
-                                    <i class="fas fa-bullhorn"></i>
-                                </span>
-                                Publish Announcement
-                            </div>
+
                             <div class="announcement">
                                 <div class="icon">
                                     <span>
@@ -257,12 +253,12 @@
                     </div>
                     <div class="tab-pane fade" id="nav-discussion" role="tabpanel" aria-labelledby="nav-discussion-tab">
                         <div class="discussions-area">
-                            <div class="add-btn" data-toggle="modal" data-target="#create-post-modal">
+                            <!-- <div class="add-btn" data-toggle="modal" data-target="#create-post-modal">
                                 <span>
                                     <i class="far fa-edit"></i>
                                 </span>
                                 Create Post
-                            </div>
+                            </div> -->
                             <div class="post">
                                 <div class="icon">
                                     <span>
@@ -371,7 +367,7 @@
         </div>
     </div>
 
-    <div id="cancel-attend-event-modal" class="modal fade font-content" tabindex="-1" role="dialog">
+    <div id="attend-event-modal" class="modal fade font-content" tabindex="-1" role="dialog">
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -381,7 +377,7 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    Do you wish to cancel your participation in Semana de Informática 2019?
+                    Do you wish to obtain a free ticket to Semana de Informática 2019?
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn publish-button" data-dismiss="modal">Confirm</button>

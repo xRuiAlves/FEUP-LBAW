@@ -17,6 +17,11 @@
     color: var(--primary-color);
 }
 
+.card-container.event-card .cancelled-label h6 {
+    display: inline-block;
+    color: var(--danger-red);
+}
+
 .event-card .event-category {
     text-align: right;
 } 
@@ -218,6 +223,11 @@
         border-color: white;
         font-size: 0.8em;
     }
+    
+    .card-container.event-card .cancelled-label h6 {
+        color: var(--danger-red-dark);
+        font-size: 0.8em;
+    }
 
     .card-container.event-card .event-brief .date > div:nth-child(2) {
         margin-left: 0;
@@ -303,6 +313,12 @@
     
     .regular-wave#background_wave {
         display: none;
+    }
+}
+
+@media only screen and (min-width: 992px) {
+    .event-card .attend-btn.alone-right {
+        text-align: right;
     }
 }
 
