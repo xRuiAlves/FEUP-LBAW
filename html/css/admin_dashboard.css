@@ -47,7 +47,7 @@ button.card-container.admin-action#admin-promotion-action {
 }
 
 button.card-container.admin-action#enable-disable-action {
-    border-bottom: 4px solid #ad9d49;
+    border-bottom: 4px solid #ffd600;
 }
 
 button.card-container.admin-action:focus {
