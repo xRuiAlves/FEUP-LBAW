@@ -79,6 +79,7 @@
     padding-left: 0;
     font-weight: bold;
     color: var(--secondary-color-medium-dark);
+    background-color: white;
 }
 
 .card-container.event-creation-container .dropdown.category-picker button.btn.dropdown-toggle:focus{
