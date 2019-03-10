@@ -49,16 +49,17 @@
     padding: 0.5em 2em;
     font-weight: bold;
 }
+
 .event-card .event-brief .attend-btn button:hover {
     background-color: var(--secondary-color-medium-dark);
 }
 
 .card-container.event-card .attend-btn button.active {
-    background-color: var(--secondary-color-light);
+    background-color: var(--danger-red);
 }
 
 .card-container.event-card .attend-btn button.active:hover {
-    background-color: var(--danger-red)
+    background-color: var(--danger-red-dark);
 }
 
 .card-container.event-card .event-brief .date > div:nth-child(2) {
