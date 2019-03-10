@@ -27,8 +27,13 @@
 }
 
 .card-container.event-creation-container input[type="text"] {
-    color: var(--secondary-color-medium);
+    color: var(--secondary-color-medium-dark);
     border-bottom: 2px solid var(--secondary-color-medium);
+    background-color: transparent;
+
+}
+.card-container.event-creation-container input[type="text"]:focus::placeholder {
+    color: var(--primary-color-light);
 }
 
 .card-container.event-creation-container header input {
@@ -122,6 +127,10 @@
         width: 100%;
         max-width: 100%;
         margin-bottom: 0.5em;
+    }
+
+    .card-container.event-creation-container header input[type="text"]:focus::placeholder {
+        color: white;
     }
 
     .card-container.event-creation-container .event-details .location i {

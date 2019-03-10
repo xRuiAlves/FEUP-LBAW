@@ -226,6 +226,7 @@
     .card-container.event-card .edit-btn a {
         color: white;
         padding-left: 0;
+        font-size: 0.9em;
     }
 
     .event-card .separator.main-separator {
@@ -277,19 +278,16 @@
         width: 60%;
     }
 
+    
+
     .event-card .attend-btn {
         margin-bottom: 0;
     }
-}
-
-@media only screen and (min-width: 992px) {
-    .attend-btn {
-        text-align: right;
-        margin-bottom: 0;
+    
+    .event-card .attend-btn button {
+        font-size: 0.9em;
     }
-}
 
-@media only screen and (max-width: 576px) {
 
     .mobile-wave#background_wave {
         display: block;
@@ -305,6 +303,23 @@
     
     .regular-wave#background_wave {
         display: none;
+    }
+}
+
+@media only screen and (min-width: 1200px) {
+    .attend-btn {
+        text-align: right;
+        margin-bottom: 0;
+    }
+}
+
+@media only screen and (max-width: 1200px) {
+    .event-card .edit-btn {
+        text-align: left;
+    }
+    
+    .event-card .edit-btn a {
+        padding-left: 0;
     }
 }
 
