@@ -232,7 +232,11 @@
         display: none;
     }
 
-    #background_wave {
+    .mobile-wave#background_wave {
+        display: none;
+    }
+
+    .regular-wave#background_wave {
         top: 0;
         position: relative;
         height: 20vh;
@@ -284,3 +288,24 @@
         margin-bottom: 0;
     }
 }
+
+@media only screen and (max-width: 576px) {
+
+    .mobile-wave#background_wave {
+        display: block;
+        top: 0;
+        position: relative;
+        height: 20vh;
+        width: 100vw;
+        mask-size: cover;
+        mask-position: center;
+        -webkit-mask-size: cover;
+        -webkit-mask-position: center;
+    }
+    
+    .regular-wave#background_wave {
+        display: none;
+    }
+}
+
+
