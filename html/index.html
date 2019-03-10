@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css">
     <script src="/bootstrap/jquery-3.3.1.min.js"></script>
     <script src="/bootstrap/js/bootstrap.min.js"></script>
+    <script defer src="/js/form_verification_redirect_to.js"></script>
     <link rel="stylesheet" href="/fonts/Montserrat.css">
     <link rel="stylesheet" href="/fonts/Raleway.css">
     <link rel="stylesheet" href="/fontawesome/css/all.css">
@@ -75,6 +76,7 @@
     </div>
 
     <div id="search-box-anchor"></div>
+
     <nav class="navbar navbar-expand-lg font-title" id="navbar">
         <div class="container">
             <a class="navbar-brand" href="#">Eventually</a>
@@ -89,31 +91,21 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav nav-highlighted mr-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="#search-box-anchor">Find</a>
+                        <a class="nav-link" href="/#search-box-anchor">Find</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/create_event.html">Host</a>
+                        <a class="nav-link" href="" data-toggle="modal" data-target="#login_modal">Host</a>
                     </li>
                 </ul>
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="/user_dashboard.html">
-                            John Doe
+                        <a href="" title="Log In" class="nav-link" data-toggle="modal" data-target="#login_modal">
+                            Login
                         </a>
                     </li>
                     <li class="nav-item">
-                        <div class="nav-link notifications-item">
-                            <i class="fas fa-bell nav-item-icon"></i>
-                        </div>
-                    </li>
-                    <li class="nav-item">
-                        <div title="Subit an Issue" class="nav-link issues-item" data-toggle="modal" data-target="#submit-issue-modal">
-                            <i class="fas fa-exclamation-triangle"></i>
-                        </div>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/logout.html">
-                            <i class="fas fa-sign-out-alt"></i>
+                        <a href="" title="Register" class="nav-link" data-toggle="modal" data-target="#register_modal">
+                            Register
                         </a>
                     </li>
                 </ul>
@@ -357,7 +349,97 @@
         </div>
     </div>
 
+    <div id="login_modal" class="modal fade font-content" tabindex="-1" role="dialog">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <div class="modal-title custom-modal-title font-title">Login</div>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form novalidate class="needs-validation redirect-on-submit font-content" data-redirect-to="/index_lin.html">
+                        <div class="form-group">
+                            <input class="form-control" required type="email" name="email" placeholder="email">
+                            <div class="invalid-feedback">
+                                Please provide a valid email address
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <input class="form-control" required type="password" name="password" placeholder="password">
+                            <div class="invalid-feedback">
+                                Please type your password
+                            </div>
+                        </div>
+                        <div class="d-flex justify-content-center">
+                            <button class="my-btn my-btn-primary" type="submit">Login</button>
+                        </div>
+                    </form>
+                    <div class="d-flex justify-content-center">
+                        <a class="my-btn my-btn-borderless-secondary" href="/index_lin.html">
+                            <span class="nav-icon icon-left">
+                                <i class="fab fa-google" aria-hidden="true"></i>
+                            </span>
+                            Sign in with Google
+                        </a>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <span>Don't have an account yet? Register <a href="" onclick="$('#login_modal').modal('hide'); $('#register_modal').modal('show'); return false;">here!</a></span>
+                </div>
+            </div>
+        </div>
+    </div>
 
+    <div id="register_modal" class="modal fade font-content" tabindex="-1" role="dialog">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <div class="modal-title custom-modal-title">Register</div>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form novalidate class="needs-validation redirect-on-submit" data-redirect-to="/">
+                        <div class="form-group">
+                            <input class="form-control" required type="email" name="email" placeholder="email">
+                            <div class="invalid-feedback">
+                                Please provide a valid email address
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <input class="form-control" required type="password" name="password" placeholder="password">
+                            <div class="invalid-feedback">
+                                Please type your password
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <input class="form-control" required type="password" name="password_repeat" placeholder="repeat password">
+                            <div class="invalid-feedback">
+                                Please type your password again
+                            </div>
+                            </div>
+                        <div class="d-flex justify-content-center">
+                            <button class="my-btn my-btn-primary" type="submit">Register</button>
+                        </div>
+                    </form>
+                    <div class="d-flex justify-content-center">
+                        <a class="my-btn my-btn-borderless-secondary" href="/index_lin.html">
+                            <span class="icon-left">
+                                <i class="fab fa-google" aria-hidden="true"></i>
+                            </span>
+                            Sign in with Google
+                        </a>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <span>Already have an account? Login <a href="" onclick="$('#register_modal').modal('hide'); $('#login_modal').modal('show'); return false;">here!</a></span>
+                </div>
+            </div>
+        </div>
+    </div>
 
 </body>
 
