@@ -98,7 +98,7 @@
     text-decoration: none;
 }
 
-.card-container.user-dashboard-container .dashboard-day-items a.dashboard-day-item .disabled-event {
+.card-container.user-dashboard-container .dashboard-day-items a.dashboard-day-item .not-enabled-event {
     color: var(--danger-red);
 }
 
