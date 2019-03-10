@@ -154,6 +154,16 @@
     color: var(--secondary-color-medium);
 }
 
+.event-disabled-body {
+    font-size: 1.2em;
+    color: var(--secondary-color-medium-dark);
+}
+
+.event-disabled-body a {
+    font-weight: bold;
+    color: var(--primary-color);
+}
+
 @media only screen and (max-width: 576px) {
 
     .card-container.event-card .main {
