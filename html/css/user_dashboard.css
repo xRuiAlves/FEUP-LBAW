@@ -98,6 +98,10 @@
     text-decoration: none;
 }
 
+.card-container.user-dashboard-container .dashboard-day-items a.dashboard-day-item .disabled-event {
+    color: var(--danger-red);
+}
+
 .dashboard-day-items .item-type-attendee {
     transition-property: background-color;
     transition-duration: 0.2s;
