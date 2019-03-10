@@ -51,3 +51,33 @@
         min-width: 1.5em;
     }
 }
+
+/************** NOTIFICATIONS MODAL *****************/
+
+#notifications_modal .notifications-list .notification-item {
+    padding: 0.5em;
+}
+
+#notifications_modal .notifications-list .notification-item.unread {
+    background-color: var(--secondary-color-medium-translucid);
+}
+
+#notifications_modal .notifications-list .notification-item .header .title {
+    font-weight: bold;
+}
+
+#notifications_modal .notifications-list .notification-item .description {
+    font-size: 0.8em;
+}
+
+#notifications_modal .notifications-list .notification-item .actions span {
+    cursor: pointer;
+}
+
+#notifications_modal .notifications-list .notification-item:not(.unread) .actions .read .fa-eye {
+    display: none;
+}
+
+#notifications_modal .notifications-list .notification-item.unread .actions .read .fa-eye-slash {
+    display: none;
+}

@@ -47,24 +47,9 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <div title="Notifications" class="nav-link notifications-item">
-                            <a
-                                class="nav-item-icon"
-                                tabindex="0" role="button" data-toggle="popover" data-trigger="focus" title="Notifications"
-                                data-placement="bottom"
-                                data-content="You have just been invited to 'Semana de Informática 2019' by NIAEFEUP!"
-                                data-template='
-                                    <div class="popover" role="tooltip">
-                                        <div class="arrow"></div>
-                                        <h3 class="popover-header"></h3>
-                                        <div class="popover-body">
-                                            This content is always deleted
-                                        </div>
-                                    </div>''
-                            >
-                                <i class="fas fa-bell"></i>
-                                <span class="nav-item-label">Notifications</span>
-                            </a>
+                        <div title="Notifications" class="nav-link notifications-item" data-toggle="modal" data-target="#notifications_modal">
+                            <i class="fas fa-bell"></i>
+                            <span class="nav-item-label">Notifications</span>
                         </div>
                     </li>
                     <li class="nav-item">
@@ -108,6 +93,100 @@
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                     </div>
                 </form>
+            </div>
+        </div>
+    </div>
+
+    <div id="notifications_modal" class="modal fade font-content" tabindex="-1" role="dialog">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <div class="modal-title custom-modal-title">Notifications</div>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body container notifications-list">
+
+                    <div class="row notification-item" data-notif-id="1">
+                        <div class="col-12">
+                            <div class="row header">
+                                <div class="col-8 col-md-10 title font-title">
+                                    Invitation to attend
+                                </div>
+                                <div class="col-4 col-md-2 ml-auto actions d-flex justify-content-end">
+                                    <div class="row">
+                                        <span class="col-6 read">
+                                            <i class="fas fa-eye" onclick="$('.notification-item[data-notif-id=\'1\'').removeClass('unread')"></i>
+                                            <i class="fas fa-eye-slash" onclick="$('.notification-item[data-notif-id=\'1\'').addClass('unread')"></i>
+                                        </span>
+                                        <span class="col-6 delete">
+                                            <i class="fas fa-times"></i>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12 description">
+                                    You have been invited to attend Semana de Informática 2019
+                                </div>
+                            </div>
+                        </div>                        
+                    </div>
+
+                    <div class="row notification-item unread" data-notif-id="2">
+                        <div class="col-12">
+                            <div class="row header">
+                                <div class="col-8 col-md-10 title font-title">
+                                    Event Cancelled
+                                </div>
+                                <div class="col-4 col-md-2 ml-auto actions d-flex justify-content-end">
+                                    <div class="row">
+                                        <span class="col-6 read">
+                                            <i class="fas fa-eye" onclick="$('.notification-item[data-notif-id=\'2\'').removeClass('unread')"></i>
+                                            <i class="fas fa-eye-slash" onclick="$('.notification-item[data-notif-id=\'2\'').addClass('unread')"></i>
+                                        </span>
+                                        <span class="col-6 delete">
+                                            <i class="fas fa-times"></i>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12 description">
+                                    IEEE Code Week 2019 has been cancelled
+                                </div>
+                            </div>
+                        </div>                        
+                    </div>
+
+                    <div class="row notification-item" data-notif-id="3">
+                        <div class="col-12">
+                            <div class="row header">
+                                <div class="col-8 col-md-10 title font-title">
+                                    Removed from Event
+                                </div>
+                                <div class="col-4 col-md-2 ml-auto actions d-flex justify-content-end">
+                                    <div class="row">
+                                        <span class="col-6 read">
+                                            <i class="fas fa-eye" onclick="$('.notification-item[data-notif-id=\'3\'').removeClass('unread')"></i>
+                                            <i class="fas fa-eye-slash" onclick="$('.notification-item[data-notif-id=\'3\'').addClass('unread')"></i>
+                                        </span>
+                                        <span class="col-6 delete">
+                                            <i class="fas fa-times"></i>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12 description">
+                                    You have been removed from Eventually Organizers Day 2019
+                                </div>
+                            </div>
+                        </div>                        
+                    </div>
+
+                </div>
             </div>
         </div>
     </div>
