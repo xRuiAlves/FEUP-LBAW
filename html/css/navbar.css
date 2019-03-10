@@ -22,6 +22,11 @@
     border-bottom: 1px solid transparent;
 }
 
+.navbar-nav .nav-item .nav-link .nav-item-label {
+    margin-left: 0.5em;
+    display: none;
+}
+
 .navbar .notifications-item {
     cursor: pointer;
 }
@@ -34,5 +39,15 @@
     /* Only adding the hover to >lg devices (equal to the configured collapse in the navbar) */
     .navbar-nav.nav-highlighted .nav-item:hover {
         border-color: white;
+    }
+}
+
+@media only screen and (max-width: 576px) {
+    .navbar-nav .nav-item .nav-link .nav-item-label {
+        display: inline-block;
+    }
+
+    .navbar-nav .nav-item .nav-link .nav-item-icon {
+        min-width: 1.5em;
     }
 }
