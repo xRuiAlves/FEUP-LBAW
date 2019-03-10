@@ -225,22 +225,26 @@ a:hover {
 
 /********** EVENT CARD ***********/
 
-.event-card {
+.events a.event-card {
+    display: block;
     border-radius: 1em;
     margin-top: -1.5em;
     transition: transform 0.1s linear;
     color: var(--secondary-color-medium);
+    cursor: pointer;
 }
 
-.event-card h3 {
+.events a.event-card h3 {
     font-weight: bold;
 }
 
-.event-card:hover {
+.events a.event-card:hover {
     transform: scale(1.05);
+    color: var(--secondary-color-medium);
+    text-decoration: none;
 }
 
-.event-card .price-tag {
+.events a.event-card .price-tag {
     color: white;
     border-radius: 0.3em;
     margin: 0em 1em;
@@ -248,22 +252,22 @@ a:hover {
     background-color: var(--primary-color);
 }
 
-.event-card .category {
+.events a.event-card .category {
     padding: 0.2em;
     color: var(--primary-color);
 }
 
-.event-card footer {
+.events a.event-card footer {
     margin-top: 1em;
 }
 
 @media only screen and (max-width: 576px) {
-    .event-card {
+    .events a.event-card {
         margin: 1em;
         width: Calc(100% - 2em);
     }
 
-    .event-card:hover {
+    .events a.event-card:hover {
         transform: none;
     }
 }
