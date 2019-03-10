@@ -1,8 +1,140 @@
 @import "common.css";
 @import "palette.css";
 
-.card-container.event-creation-container {
+.card-container.event-creation-container input, .card-container.event-creation-container textarea {
+    border: none;
+}
+
+.card-container.event-creation-container input:focus, .card-container.event-creation-container textarea:focus {
+    outline: none;
+}
+
+.card-container.event-card.event-creation-container {
     position: relative;
     top: 7em;
     margin-bottom: 7em;
+    padding: 3em;
+    padding-bottom: 2em;
+    overflow: visible;
+}
+
+.card-container.event-creation-container header {
+    margin-bottom: 3em;
+}
+
+.card-container.event-creation-container footer {
+    margin-top: 1em;
+}
+
+.card-container.event-creation-container input[type="text"] {
+    color: var(--secondary-color-medium);
+    border-bottom: 2px solid var(--secondary-color-medium);
+}
+
+.card-container.event-creation-container header input {
+    width: 100%;
+    font-weight: bold;
+    font-size: 2.5em;
+}
+
+.card-container.event-creation-container header input::placeholder {
+    font-weight: 100;
+}
+
+.card-container.event-creation-container textarea {
+    color: var(--secondary-color-medium-dark);
+    border: 1px solid var(--color-grey);
+    border-radius: 0.2em;
+    margin-top: 2em;
+    resize: none;
+    width: 100%;
+    height: 20vh;
+    padding: 0.5em 0.75em;
+}
+
+.card-container.event-creation-container .event-details input {
+    color: var(--secondary-color-medium-dark);
+}
+
+.card-container.event-creation-container .event-details .price input {
+    max-width: 10em;
+    text-align: right;
+}
+
+.card-container.event-creation-container .event-details .date .date-picker {
+    cursor: pointer;
+}
+
+.card-container.event-creation-container .event-details .date .date-picker:hover {
+    text-decoration: underline;
+}
+
+.card-container.event-creation-container .dropdown.category-picker button.btn.dropdown-toggle {
+    padding-right: 0;
+    padding-left: 0;
+    font-weight: bold;
+    color: var(--secondary-color-medium-dark);
+}
+
+.card-container.event-creation-container .dropdown.category-picker button.btn.dropdown-toggle:focus{
+    box-shadow: none;
+}
+
+.card-container.event-creation-container .create-btn button i {
+    font-size: 1.25em;
+}
+
+.card-container.event-creation-container .create-btn button {
+    background-color: var(--secondary-color-medium);
+    color: white;
+    padding: 0.5em 2em;
+    font-weight: bold;
+}
+
+.card-container.event-creation-container .create-btn button:hover {
+    background-color: var(--secondary-color-medium-dark);
+}
+
+.card-container.event-creation-container .create-btn button.active {
+    background-color: var(--secondary-color-light);
+}
+
+.card-container.event-creation-container .create-btn button.active:hover {
+    background-color: var(--danger-red)
+}
+
+@media only screen and (max-width: 576px) {
+
+    .card-container.event-card.event-creation-container {
+        padding: 1.5em;
+        -webkit-box-shadow: none;
+        -moz-box-shadow: none;
+        box-shadow: none;
+        top: 0;
+        margin-bottom: 2em;
+    }
+
+    .card-container.event-card.event-creation-container .event-category {
+        text-align: left;
+    }
+
+    .card-container.event-creation-container .event-details .location input {
+        width: 100%;
+        max-width: 100%;
+        margin-bottom: 0.5em;
+    }
+
+    .card-container.event-creation-container .event-details .location i {
+        display: none;
+    }
+
+    .card-container.event-creation-container .event-details .event-field {
+        margin: 0.3em 0;
+    }
+
+    .card-container.event-creation-container .event-details .price input {
+        text-align: left;
+        width: 100%;
+        max-width: 100%;
+    }
 }

@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Create Event</title>
 
@@ -13,9 +13,10 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
         crossorigin="anonymous">
     <link rel="stylesheet" href="./css/constants.css">
-    <link rel="stylesheet" href="./css/common.css">
     <link rel="stylesheet" href="./css/navbar.css">
     <link rel="stylesheet" href="./css/event_creation_page.css">
+    <link rel="stylesheet" href="./css/common.css">
+    <link rel="stylesheet" href="./css/event_page.css">
 </head>
 
 <body>
@@ -94,10 +95,68 @@
         </div>
     </div>
 
-    <div class="container card-container font-content event-creation-container">
+    <div class="container card-container font-content event-card event-creation-container">
         <header>
-            <h1>PLACEHOLDER</h1>
+            <input type="text" name="title" placeholder="Title"></input>
         </header>
+        <div class="row event-details font-title">
+            <div class="col-12 col-sm-6 event-spacetime">
+                <div class="row mb-1 no-gutters date event-field">
+                    <span>
+                        <i class="far fa-calendar-alt icon-left"></i>
+                    </span>
+                    <div class="date-picker">
+                        Pick a date
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 location event-field">
+                        <span>
+                            <i class="fas fa-map-marker-alt icon-left"></i>
+                        </span>
+                        <input type="text" name="location" placeholder="Location"></input>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-sm-6 event-category">
+                <div class="row mb-1">
+                    <div class="col-12 price event-field">
+                        <input type="text" name="price" placeholder="Pricing $"></input>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 event-field">
+                        <div class="dropdown category-picker">
+                            <span>
+                                <i class="fas fa-tag"></i>
+                            </span>
+                            <button class="btn dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown">
+                                Pick a category
+                            </button>
+                            <div class="dropdown-menu scrollable-menu">
+                                <a class="dropdown-item" href="#">Sports</a>
+                                <a class="dropdown-item" href="#">Arts</a>
+                                <a class="dropdown-item" href="#">Technology</a>
+                                <a class="dropdown-item" href="#">Animals</a>
+                                <a class="dropdown-item" href="#">Learning</a>
+                                <a class="dropdown-item" href="#">Politics</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <textarea name="description" placeholder="Event description"></textarea>
+        <footer div="row">
+            <div class="col-12 text-right create-btn">
+                <button type="button" class="btn" data-toggle="modal" data-target="#attend-event-modal">
+                    Create
+                    <span>
+                        <i class="fas fa-check icon-right"></i>
+                    </span>
+                </button>
+            </div>
+        </footer>
     </div>
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"

@@ -265,6 +265,7 @@ a:hover {
     .events a.event-card {
         margin: 1em;
         width: Calc(100% - 2em);
+        padding: 1.5em 1em;
     }
 
     .events a.event-card:hover {
