@@ -243,21 +243,6 @@
         display: none;
     }
 
-    .mobile-wave#background_wave {
-        display: none;
-    }
-
-    .regular-wave#background_wave {
-        top: 0;
-        position: relative;
-        height: 20vh;
-        width: 100vw;
-        mask-size: cover;
-        mask-position: center;
-        -webkit-mask-size: cover;
-        -webkit-mask-position: center;
-    }
-
     .card-container.event-card, .event-card .event-brief {
         -webkit-box-shadow: none;
         -moz-box-shadow: none;

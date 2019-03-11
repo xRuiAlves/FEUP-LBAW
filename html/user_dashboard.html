@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="/fonts/Fonts.css">
     <link rel="stylesheet" href="/fontawesome/css/all.css">
-    
+
     <link rel="stylesheet" href="./css/constants.css">
     <link rel="stylesheet" href="./css/navbar.css">
     <link rel="stylesheet" href="./css/user_dashboard.css">
@@ -22,14 +22,14 @@
 </head>
 
 <body>
-    <div id="background_wave"></div>
+    <div class="regular-wave" id="background_wave"></div>
 
     <nav class="navbar navbar-expand-lg font-title">
         <div class="container">
             <a class="navbar-brand" href="/index_lin.html">Eventually</a>
 
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon">
                     <i class="fas fa-bars"></i>
                 </span>
@@ -51,13 +51,15 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <div title="Notifications" class="nav-link notifications-item" data-toggle="modal" data-target="#notifications_modal">
+                        <div title="Notifications" class="nav-link notifications-item" data-toggle="modal"
+                            data-target="#notifications_modal">
                             <i class="fas fa-bell nav-item-icon"></i>
                             <span class="nav-item-label">Notifications</span>
                         </div>
                     </li>
                     <li class="nav-item">
-                        <div title="Submit an Issue" class="nav-link issues-item" data-toggle="modal" data-target="#submit-issue-modal">
+                        <div title="Submit an Issue" class="nav-link issues-item" data-toggle="modal"
+                            data-target="#submit-issue-modal">
                             <i class="fas fa-exclamation-triangle nav-item-icon"></i>
                             <span class="nav-item-label">Submit an Issue</span>
                         </div>
@@ -121,11 +123,14 @@
                                 <div class="col-4 col-md-2 ml-auto actions d-flex justify-content-end">
                                     <div class="row">
                                         <span class="col-6 read">
-                                            <i class="fas fa-eye" onclick="$('.notification-item[data-notif-id=\'1\'').removeClass('unread')"></i>
-                                            <i class="fas fa-eye-slash" onclick="$('.notification-item[data-notif-id=\'1\'').addClass('unread')"></i>
+                                            <i class="fas fa-eye"
+                                                onclick="$('.notification-item[data-notif-id=\'1\'').removeClass('unread')"></i>
+                                            <i class="fas fa-eye-slash"
+                                                onclick="$('.notification-item[data-notif-id=\'1\'').addClass('unread')"></i>
                                         </span>
                                         <span class="col-6 delete">
-                                            <i class="fas fa-times" onclick="$('.notification-item[data-notif-id=\'1\'').remove()"></i>
+                                            <i class="fas fa-times"
+                                                onclick="$('.notification-item[data-notif-id=\'1\'').remove()"></i>
                                         </span>
                                     </div>
                                 </div>
@@ -135,7 +140,7 @@
                                     You have been invited to attend Semana de Informática 2019
                                 </div>
                             </div>
-                        </div>                        
+                        </div>
                     </div>
 
                     <div class="row notification-item unread" data-notif-id="2">
@@ -147,11 +152,14 @@
                                 <div class="col-4 col-md-2 ml-auto actions d-flex justify-content-end">
                                     <div class="row">
                                         <span class="col-6 read">
-                                            <i class="fas fa-eye" onclick="$('.notification-item[data-notif-id=\'2\'').removeClass('unread')"></i>
-                                            <i class="fas fa-eye-slash" onclick="$('.notification-item[data-notif-id=\'2\'').addClass('unread')"></i>
+                                            <i class="fas fa-eye"
+                                                onclick="$('.notification-item[data-notif-id=\'2\'').removeClass('unread')"></i>
+                                            <i class="fas fa-eye-slash"
+                                                onclick="$('.notification-item[data-notif-id=\'2\'').addClass('unread')"></i>
                                         </span>
                                         <span class="col-6 delete">
-                                            <i class="fas fa-times" onclick="$('.notification-item[data-notif-id=\'2\'').remove()"></i>
+                                            <i class="fas fa-times"
+                                                onclick="$('.notification-item[data-notif-id=\'2\'').remove()"></i>
                                         </span>
                                     </div>
                                 </div>
@@ -161,7 +169,7 @@
                                     IEEE Code Week 2019 has been cancelled
                                 </div>
                             </div>
-                        </div>                        
+                        </div>
                     </div>
 
                     <div class="row notification-item" data-notif-id="3">
@@ -173,11 +181,14 @@
                                 <div class="col-4 col-md-2 ml-auto actions d-flex justify-content-end">
                                     <div class="row">
                                         <span class="col-6 read">
-                                            <i class="fas fa-eye" onclick="$('.notification-item[data-notif-id=\'3\'').removeClass('unread')"></i>
-                                            <i class="fas fa-eye-slash" onclick="$('.notification-item[data-notif-id=\'3\'').addClass('unread')"></i>
+                                            <i class="fas fa-eye"
+                                                onclick="$('.notification-item[data-notif-id=\'3\'').removeClass('unread')"></i>
+                                            <i class="fas fa-eye-slash"
+                                                onclick="$('.notification-item[data-notif-id=\'3\'').addClass('unread')"></i>
                                         </span>
                                         <span class="col-6 delete">
-                                            <i class="fas fa-times" onclick="$('.notification-item[data-notif-id=\'3\'').remove()"></i>
+                                            <i class="fas fa-times"
+                                                onclick="$('.notification-item[data-notif-id=\'3\'').remove()"></i>
                                         </span>
                                     </div>
                                 </div>
@@ -187,7 +198,7 @@
                                     You have been removed from Eventually Organizers Day 2019
                                 </div>
                             </div>
-                        </div>                        
+                        </div>
                     </div>
 
                     <div class="row notification-item" data-notif-id="4">
@@ -199,18 +210,22 @@
                                 <div class="col-4 col-md-2 ml-auto actions d-flex justify-content-end">
                                     <div class="row">
                                         <span class="col-6 read">
-                                            <i class="fas fa-eye" onclick="$('.notification-item[data-notif-id=\'4\'').removeClass('unread')"></i>
-                                            <i class="fas fa-eye-slash" onclick="$('.notification-item[data-notif-id=\'4\'').addClass('unread')"></i>
+                                            <i class="fas fa-eye"
+                                                onclick="$('.notification-item[data-notif-id=\'4\'').removeClass('unread')"></i>
+                                            <i class="fas fa-eye-slash"
+                                                onclick="$('.notification-item[data-notif-id=\'4\'').addClass('unread')"></i>
                                         </span>
                                         <span class="col-6 delete">
-                                            <i class="fas fa-times" onclick="$('.notification-item[data-notif-id=\'4\'').remove()"></i>
+                                            <i class="fas fa-times"
+                                                onclick="$('.notification-item[data-notif-id=\'4\'').remove()"></i>
                                         </span>
                                     </div>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-12 description">
-                                    Fishing Workshop - HDNV Student Association has been disabled by a Platform Administrator
+                                    Fishing Workshop - HDNV Student Association has been disabled by a Platform
+                                    Administrator
                                 </div>
                             </div>
                         </div>
@@ -223,10 +238,11 @@
 
     <div class="container card-container font-content user-dashboard-container">
         <header class="row no-gutters">
-            <div class="col-12 col-sm-8 font-title">
+            <div class="col-12 col-sm-8 title font-title">
                 <h1>Your Events</h1>
             </div>
-            <div class="col-12 col-sm-4">
+            <div class="mobile-wave" id="background_wave"></div>
+            <div class="col-12 col-sm-4 labels">
                 <div class="label">Organizing
                     <div class="label-color label-organizing">&nbsp;</div>
                 </div>
@@ -235,568 +251,575 @@
                 </div>
             </div>
         </header>
-        <div class="sticky-container">
-            <div class="item-year-month sticky-item">
-                <div class="item-month">Apr</div>
-                <div class="item-year">2019</div>
+        <div class="timeline">
+            
+            <div class="sticky-container">
+                <div class="item-year-month sticky-item">
+                    <div class="item-month">Apr</div>
+                    <div class="item-year">2019</div>
+                </div>
+                <div class="dashboard-day-containers">
+                    <div class="dashboard-day-container sticky-container">
+                        <div class="item-day sticky-item">
+                            <div class="item-day-number">18</div>
+                            <div class="item-day-week">TUE</div>
+                        </div>
+                        <div class="dashboard-day-items">
+                            <a class="dashboard-day-item item-type-organizer" href="/event_page_admin.html">
+                                <header class="row">
+                                    <div class="col-12">
+                                        Functional Progamming using Phoenix + Elixir - The perks of being a Back End
+                                        Developer
+                                    </div>
+                                </header>
+                                <footer class="row">
+                                    <div class="col-12 location">
+                                        <span>
+                                            <i class="fas fa-map-marker-alt"></i>
+                                        </span>
+                                        Madrid, Spain
+                                    </div>
+                                    <div class="col-6 time">
+                                        <span>
+                                            <i class="far fa-clock"></i>
+                                        </span>
+                                        15:50
+                                    </div>
+                                    <div class="col-6 text-right timespan"></div>
+                                </footer>
+                            </a>
+                            <a class="dashboard-day-item item-type-attendee" href="/event_page_attendee.html">
+                                <header class="row">
+                                    <div class="col-12">
+                                        Semana de Informática
+                                    </div>
+                                </header>
+                                <footer class="row">
+                                    <div class="col-12 location">
+                                        <span>
+                                            <i class="fas fa-map-marker-alt"></i>
+                                        </span>
+                                        Porto, Portugal
+                                    </div>
+                                    <div class="col-6 time">discretizado?
+                                        <span>
+                                            <i class="far fa-clock"></i>
+                                        </span>
+                                        09:15
+                                    </div>
+                                    <div class="col-6 text-right timespan">[Day 1/2]</div>
+                                </footer>
+                            </a>
+                            <a class="dashboard-day-item item-type-attendee" href="/event_page_disabled.html">
+                                <header class="row">
+                                    <div class="col-12">
+                                        Fishing Workshop - HDNV Student Association
+                                        <span class="not-enabled-event">[Disabled]</span>
+                                    </div>
+                                </header>
+                                <footer class="row">
+                                    <div class="col-12 location">
+                                        <span>
+                                            <i class="fas fa-map-marker-alt"></i>
+                                        </span>
+                                        Paris, France
+                                    </div>
+                                    <div class="col-6 time">
+                                        <span>
+                                            <i class="far fa-clock"></i>
+                                        </span>
+                                        18:30
+                                    </div>
+                                    <div class="col-6 text-right timespan"></div>
+                                </footer>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="dashboard-day-container sticky-container">
+                        <div class="item-day sticky-item">
+                            <div class="item-day-number">19</div>
+                            <div class="item-day-week">WED</div>
+                        </div>
+                        <div class="dashboard-day-items">
+                            <a class="dashboard-day-item item-type-organizer" href="/event_page_admin.html">
+                                <header class="row">
+                                    <div class="col-12">
+                                        Politécnico Career Fest
+                                    </div>
+                                </header>
+                                <footer class="row">
+                                    <div class="col-12 location">
+                                        <span>
+                                            <i class="fas fa-map-marker-alt"></i>
+                                        </span>
+                                        Lisboa, Portugal
+                                    </div>
+                                    <div class="col-6 time">
+                                        <span>
+                                            <i class="far fa-clock"></i>
+                                        </span>
+                                        08:30
+                                    </div>
+                                    <div class="col-6 text-right timespan"></div>
+                                </footer>
+                            </a>
+                            <a class="dashboard-day-item item-type-attendee" href="/event_page_cancelled.html">
+                                <header class="row">
+                                    <div class="col-12">
+                                        Parkour @Miami Beach
+                                        <span class="not-enabled-event">[Canceled]</span>
+                                    </div>
+                                </header>
+                                <footer class="row">
+                                    <div class="col-12 location">
+                                        <span>
+                                            <i class="fas fa-map-marker-alt"></i>
+                                        </span>
+                                        Miami, United States
+                                    </div>
+                                    <div class="col-6 time">
+                                        <span>
+                                            <i class="far fa-clock"></i>
+                                        </span>
+                                        10:00
+                                    </div>
+                                    <div class="col-6 text-right timespan"></div>
+                                </footer>
+                            </a>
+                            <a class="dashboard-day-item item-type-attendee" href="/event_page_attendee.html">
+                                <header class="row">
+                                    <div class="col-12">
+                                        Semana de Informática
+                                    </div>
+                                </header>
+                                <footer class="row">
+                                    <div class="col-12 location">
+                                        <span>
+                                            <i class="fas fa-map-marker-alt"></i>
+                                        </span>
+                                        Porto, Portugal
+                                    </div>
+                                    <div class="col-6 time">
+                                        <span>
+                                            <i class="far fa-clock"></i>
+                                        </span>
+                                        16:35
+                                    </div>
+                                    <div class="col-6 text-right timespan">[Day 2/2]</div>
+                                </footer>
+                            </a>
+                            <a class="dashboard-day-item item-type-attendee" href="/event_page_attendee.html">
+                                <header class="row">
+                                    <div class="col-12">
+                                        London Security Meetup - The secret life of SQL Injections
+                                    </div>
+                                </header>
+                                <footer class="row">
+                                    <div class="col-12 location">
+                                        <span>
+                                            <i class="fas fa-map-marker-alt"></i>
+                                        </span>
+                                        London, England
+                                    </div>
+                                    <div class="col-6 time">
+                                        <span>
+                                            <i class="far fa-clock"></i>
+                                        </span>
+                                        14:15
+                                    </div>
+                                    <div class="col-6 text-right timespan"></div>
+                                </footer>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="dashboard-day-container sticky-container">
+                        <div class="item-day sticky-item">
+                            <div class="item-day-number">21</div>
+                            <div class="item-day-week">FRI</div>
+                        </div>
+                        <div class="dashboard-day-items">
+                            <a class="dashboard-day-item item-type-organizer" href="/event_page_admin.html">
+                                <header class="row">
+                                    <div class="col-12">
+                                        Functional Progamming using Phoenix + Elixir - The perks of being a Back End
+                                        Developer
+                                    </div>
+                                </header>
+                                <footer class="row">
+                                    <div class="col-12 location">
+                                        <span>
+                                            <i class="fas fa-map-marker-alt"></i>
+                                        </span>
+                                        Madrid, Spain
+                                    </div>
+                                    <div class="col-6 time">
+                                        <span>
+                                            <i class="far fa-clock"></i>
+                                        </span>
+                                        15:50
+                                    </div>
+                                    <div class="col-6 text-right timespan"></div>
+                                </footer>
+                            </a>
+                            <a class="dashboard-day-item item-type-attendee" href="/event_page_attendee.html">
+                                <header class="row">
+                                    <div class="col-12">
+                                        Semana de Informática
+                                    </div>
+                                </header>
+                                <footer class="row">
+                                    <div class="col-12 location">
+                                        <span>
+                                            <i class="fas fa-map-marker-alt"></i>
+                                        </span>
+                                        Porto, Portugal
+                                    </div>
+                                    <div class="col-6 time">
+                                        <span>
+                                            <i class="far fa-clock"></i>
+                                        </span>
+                                        09:15
+                                    </div>
+                                    <div class="col-6 text-right timespan">[Day 1/2]</div>
+                                </footer>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="dashboard-day-container sticky-container">
+                        <div class="item-day sticky-item">
+                            <div class="item-day-number">22</div>
+                            <div class="item-day-week">SAT</div>
+                        </div>
+                        <div class="dashboard-day-items">
+                            <a class="dashboard-day-item item-type-organizer" href="/event_page_admin.html">
+                                <header class="row">
+                                    <div class="col-12">
+                                        Politécnico Career Fest
+                                    </div>
+                                </header>
+                                <footer class="row">
+                                    <div class="col-12 location">
+                                        <span>
+                                            <i class="fas fa-map-marker-alt"></i>
+                                        </span>
+                                        Lisboa, Portugal
+                                    </div>
+                                    <div class="col-6 time">
+                                        <span>
+                                            <i class="far fa-clock"></i>
+                                        </span>
+                                        08:30
+                                    </div>
+                                    <div class="col-6 text-right timespan"></div>
+                                </footer>
+                            </a>
+                            <a class="dashboard-day-item item-type-attendee" href="/event_page_attendee.html">
+                                <header class="row">
+                                    <div class="col-12">
+                                        Semana de Informática
+                                    </div>
+                                </header>
+                                <footer class="row">
+                                    <div class="col-12 location">
+                                        <span>
+                                            <i class="fas fa-map-marker-alt"></i>
+                                        </span>
+                                        Porto, Portugal
+                                    </div>
+                                    <div class="col-6 time">
+                                        <span>
+                                            <i class="far fa-clock"></i>
+                                        </span>
+                                        16:35
+                                    </div>
+                                    <div class="col-6 text-right timespan">[Day 2/2]</div>
+                                </footer>
+                            </a>
+                            <a class="dashboard-day-item item-type-attendee" href="/event_page_attendee.html">
+                                <header class="row">
+                                    <div class="col-12">
+                                        London Security Meetup - The secret life of SQL Injections
+                                    </div>
+                                </header>
+                                <footer class="row">
+                                    <div class="col-12 location">
+                                        <span>
+                                            <i class="fas fa-map-marker-alt"></i>
+                                        </span>
+                                        London, England
+                                    </div>
+                                    <div class="col-6 time">
+                                        <span>
+                                            <i class="far fa-clock"></i>
+                                        </span>
+                                        14:15
+                                    </div>
+                                    <div class="col-6 text-right timespan"></div>
+                                </footer>
+                            </a>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="dashboard-day-containers">
-                <div class="dashboard-day-container sticky-container">
-                    <div class="item-day sticky-item">
-                        <div class="item-day-number">18</div>
-                        <div class="item-day-week">TUE</div>
-                    </div>
-                    <div class="dashboard-day-items">
-                        <a class="dashboard-day-item item-type-organizer" href="/event_page_admin.html">
-                            <header class="row">
-                                <div class="col-12">
-                                    Functional Progamming using Phoenix + Elixir - The perks of being a Back End Developer
-                                </div>
-                            </header>
-                            <footer class="row">
-                                <div class="col-12 location">
-                                    <span>
-                                        <i class="fas fa-map-marker-alt"></i>
-                                    </span>
-                                    Madrid, Spain
-                                </div>
-                                <div class="col-6 time">
-                                    <span>
-                                        <i class="far fa-clock"></i>
-                                    </span>
-                                    15:50
-                                </div>
-                                <div class="col-6 text-right timespan"></div>
-                            </footer>
-                        </a>
-                        <a class="dashboard-day-item item-type-attendee" href="/event_page_attendee.html">
-                            <header class="row">
-                                <div class="col-12">
-                                    Semana de Informática
-                                </div>
-                            </header>
-                            <footer class="row">
-                                <div class="col-12 location">
-                                    <span>
-                                        <i class="fas fa-map-marker-alt"></i>
-                                    </span>
-                                    Porto, Portugal
-                                </div>
-                                <div class="col-6 time">discretizado?
-                                    <span>
-                                        <i class="far fa-clock"></i>
-                                    </span>
-                                    09:15
-                                </div>
-                                <div class="col-6 text-right timespan">[Day 1/2]</div>
-                            </footer>
-                        </a>
-                        <a class="dashboard-day-item item-type-attendee" href="/event_page_disabled.html">
-                            <header class="row">
-                                <div class="col-12">
-                                    Fishing Workshop - HDNV Student Association
-                                    <span class="not-enabled-event">[Disabled]</span>
-                                </div>
-                            </header>
-                            <footer class="row">
-                                <div class="col-12 location">
-                                    <span>
-                                        <i class="fas fa-map-marker-alt"></i>
-                                    </span>
-                                    Paris, France
-                                </div>
-                                <div class="col-6 time">
-                                    <span>
-                                        <i class="far fa-clock"></i>
-                                    </span>
-                                    18:30
-                                </div>
-                                <div class="col-6 text-right timespan"></div>
-                            </footer>
-                        </a>
-                    </div>
+            <div class="sticky-container">
+                <div class="item-year-month sticky-item">
+                    <div class="item-month">May</div>
+                    <div class="item-year">2019</div>
                 </div>
-                <div class="dashboard-day-container sticky-container">
-                    <div class="item-day sticky-item">
-                        <div class="item-day-number">19</div>
-                        <div class="item-day-week">WED</div>
+                <div class="dashboard-day-containers">
+                    <div class="dashboard-day-container sticky-container">
+                        <div class="item-day sticky-item">
+                            <div class="item-day-number">14</div>
+                            <div class="item-day-week">TUE</div>
+                        </div>
+                        <div class="dashboard-day-items">
+                            <a class="dashboard-day-item item-type-organizer" href="/event_page_admin.html">
+                                <header class="row">
+                                    <div class="col-12">
+                                        Functional Progamming using Phoenix + Elixir - The perks of being a Back End
+                                        Developer
+                                    </div>
+                                </header>
+                                <footer class="row">
+                                    <div class="col-12 location">
+                                        <span>
+                                            <i class="fas fa-map-marker-alt"></i>
+                                        </span>
+                                        Madrid, Spain
+                                    </div>
+                                    <div class="col-6 time">
+                                        <span>
+                                            <i class="far fa-clock"></i>
+                                        </span>
+                                        15:50
+                                    </div>
+                                    <div class="col-6 text-right timespan"></div>
+                                </footer>
+                            </a>
+                            <a class="dashboard-day-item item-type-attendee" href="/event_page_attendee.html">
+                                <header class="row">
+                                    <div class="col-12">
+                                        Semana de Informática
+                                    </div>
+                                </header>
+                                <footer class="row">
+                                    <div class="col-12 location">
+                                        <span>
+                                            <i class="fas fa-map-marker-alt"></i>
+                                        </span>
+                                        Porto, Portugal
+                                    </div>
+                                    <div class="col-6 time">
+                                        <span>
+                                            <i class="far fa-clock"></i>
+                                        </span>
+                                        09:15
+                                    </div>
+                                    <div class="col-6 text-right timespan">[Day 1/2]</div>
+                                </footer>
+                            </a>
+                        </div>
                     </div>
-                    <div class="dashboard-day-items">
-                        <a class="dashboard-day-item item-type-organizer" href="/event_page_admin.html">
-                            <header class="row">
-                                <div class="col-12">
-                                    Politécnico Career Fest
-                                </div>
-                            </header>
-                            <footer class="row">
-                                <div class="col-12 location">
-                                    <span>
-                                        <i class="fas fa-map-marker-alt"></i>
-                                    </span>
-                                    Lisboa, Portugal
-                                </div>
-                                <div class="col-6 time">
-                                    <span>
-                                        <i class="far fa-clock"></i>
-                                    </span>
-                                    08:30
-                                </div>
-                                <div class="col-6 text-right timespan"></div>
-                            </footer>
-                        </a>
-                        <a class="dashboard-day-item item-type-attendee" href="/event_page_cancelled.html">
-                            <header class="row">
-                                <div class="col-12">
-                                    Parkour @Miami Beach 
-                                    <span class="not-enabled-event">[Canceled]</span>
-                                </div>
-                            </header>
-                            <footer class="row">
-                                <div class="col-12 location">
-                                    <span>
-                                        <i class="fas fa-map-marker-alt"></i>
-                                    </span>
-                                    Miami, United States
-                                </div>
-                                <div class="col-6 time">
-                                    <span>
-                                        <i class="far fa-clock"></i>
-                                    </span>
-                                    10:00
-                                </div>
-                                <div class="col-6 text-right timespan"></div>
-                            </footer>
-                        </a>
-                        <a class="dashboard-day-item item-type-attendee" href="/event_page_attendee.html">
-                            <header class="row">
-                                <div class="col-12">
-                                    Semana de Informática
-                                </div>
-                            </header>
-                            <footer class="row">
-                                <div class="col-12 location">
-                                    <span>
-                                        <i class="fas fa-map-marker-alt"></i>
-                                    </span>
-                                    Porto, Portugal
-                                </div>
-                                <div class="col-6 time">
-                                    <span>
-                                        <i class="far fa-clock"></i>
-                                    </span>
-                                    16:35
-                                </div>
-                                <div class="col-6 text-right timespan">[Day 2/2]</div>
-                            </footer>
-                        </a>
-                        <a class="dashboard-day-item item-type-attendee" href="/event_page_attendee.html">
-                            <header class="row">
-                                <div class="col-12">
-                                    London Security Meetup - The secret life of SQL Injections
-                                </div>
-                            </header>
-                            <footer class="row">
-                                <div class="col-12 location">
-                                    <span>
-                                        <i class="fas fa-map-marker-alt"></i>
-                                    </span>
-                                    London, England
-                                </div>
-                                <div class="col-6 time">
-                                    <span>
-                                        <i class="far fa-clock"></i>
-                                    </span>
-                                    14:15
-                                </div>
-                                <div class="col-6 text-right timespan"></div>
-                            </footer>
-                        </a>
+                    <div class="dashboard-day-container sticky-container">
+                        <div class="item-day sticky-item">
+                            <div class="item-day-number">15</div>
+                            <div class="item-day-week">MON</div>
+                        </div>
+                        <div class="dashboard-day-items">
+                            <a class="dashboard-day-item item-type-organizer" href="/event_page_admin.html">
+                                <header class="row">
+                                    <div class="col-12">
+                                        Politécnico Career Fest
+                                    </div>
+                                </header>
+                                <footer class="row">
+                                    <div class="col-12 location">
+                                        <span>
+                                            <i class="fas fa-map-marker-alt"></i>
+                                        </span>
+                                        Lisboa, Portugal
+                                    </div>
+                                    <div class="col-6 time">
+                                        <span>
+                                            <i class="far fa-clock"></i>
+                                        </span>
+                                        08:30
+                                    </div>
+                                    <div class="col-6 text-right timespan"></div>
+                                </footer>
+                            </a>
+                            <a class="dashboard-day-item item-type-attendee" href="/event_page_attendee.html">
+                                <header class="row">
+                                    <div class="col-12">
+                                        Semana de Informática
+                                    </div>
+                                </header>
+                                <footer class="row">
+                                    <div class="col-12 location">
+                                        <span>
+                                            <i class="fas fa-map-marker-alt"></i>
+                                        </span>
+                                        Porto, Portugal
+                                    </div>
+                                    <div class="col-6 time">
+                                        <span>
+                                            <i class="far fa-clock"></i>
+                                        </span>
+                                        16:35
+                                    </div>
+                                    <div class="col-6 text-right timespan">[Day 2/2]</div>
+                                </footer>
+                            </a>
+                            <a class="dashboard-day-item item-type-attendee" href="/event_page_attendee.html">
+                                <header class="row">
+                                    <div class="col-12">
+                                        London Security Meetup - The secret life of SQL Injections
+                                    </div>
+                                </header>
+                                <footer class="row">
+                                    <div class="col-12 location">
+                                        <span>
+                                            <i class="fas fa-map-marker-alt"></i>
+                                        </span>
+                                        London, England
+                                    </div>
+                                    <div class="col-6 time">
+                                        <span>
+                                            <i class="far fa-clock"></i>
+                                        </span>
+                                        14:15
+                                    </div>
+                                    <div class="col-6 text-right timespan"></div>
+                                </footer>
+                            </a>
+                        </div>
                     </div>
-                </div>
-                <div class="dashboard-day-container sticky-container">
-                    <div class="item-day sticky-item">
-                        <div class="item-day-number">21</div>
-                        <div class="item-day-week">FRI</div>
+                    <div class="dashboard-day-container sticky-container">
+                        <div class="item-day sticky-item">
+                            <div class="item-day-number">22</div>
+                            <div class="item-day-week">MON</div>
+                        </div>
+                        <div class="dashboard-day-items">
+                            <a class="dashboard-day-item item-type-organizer" href="/event_page_admin.html">
+                                <header class="row">
+                                    <div class="col-12">
+                                        Functional Progamming using Phoenix + Elixir - The perks of being a Back End
+                                        Developer
+                                    </div>
+                                </header>
+                                <footer class="row">
+                                    <div class="col-12 location">
+                                        <span>
+                                            <i class="fas fa-map-marker-alt"></i>
+                                        </span>
+                                        Madrid, Spain
+                                    </div>
+                                    <div class="col-6 time">
+                                        <span>
+                                            <i class="far fa-clock"></i>
+                                        </span>
+                                        15:50
+                                    </div>
+                                    <div class="col-6 text-right timespan"></div>
+                                </footer>
+                            </a>
+                            <a class="dashboard-day-item item-type-attendee" href="/event_page_attendee.html">
+                                <header class="row">
+                                    <div class="col-12">
+                                        Semana de Informática
+                                    </div>
+                                </header>
+                                <footer class="row">
+                                    <div class="col-12 location">
+                                        <span>
+                                            <i class="fas fa-map-marker-alt"></i>
+                                        </span>
+                                        Porto, Portugal
+                                    </div>
+                                    <div class="col-6 time">
+                                        <span>
+                                            <i class="far fa-clock"></i>
+                                        </span>
+                                        09:15
+                                    </div>
+                                    <div class="col-6 text-right timespan">[Day 1/2]</div>
+                                </footer>
+                            </a>
+                        </div>
                     </div>
-                    <div class="dashboard-day-items">
-                        <a class="dashboard-day-item item-type-organizer" href="/event_page_admin.html">
-                            <header class="row">
-                                <div class="col-12">
-                                    Functional Progamming using Phoenix + Elixir - The perks of being a Back End Developer
-                                </div>
-                            </header>
-                            <footer class="row">
-                                <div class="col-12 location">
-                                    <span>
-                                        <i class="fas fa-map-marker-alt"></i>
-                                    </span>
-                                    Madrid, Spain
-                                </div>
-                                <div class="col-6 time">
-                                    <span>
-                                        <i class="far fa-clock"></i>
-                                    </span>
-                                    15:50
-                                </div>
-                                <div class="col-6 text-right timespan"></div>
-                            </footer>
-                        </a>
-                        <a class="dashboard-day-item item-type-attendee" href="/event_page_attendee.html">
-                            <header class="row">
-                                <div class="col-12">
-                                    Semana de Informática
-                                </div>
-                            </header>
-                            <footer class="row">
-                                <div class="col-12 location">
-                                    <span>
-                                        <i class="fas fa-map-marker-alt"></i>
-                                    </span>
-                                    Porto, Portugal
-                                </div>
-                                <div class="col-6 time">
-                                    <span>
-                                        <i class="far fa-clock"></i>
-                                    </span>
-                                    09:15
-                                </div>
-                                <div class="col-6 text-right timespan">[Day 1/2]</div>
-                            </footer>
-                        </a>
-                    </div>
-                </div>
-                <div class="dashboard-day-container sticky-container">
-                    <div class="item-day sticky-item">
-                        <div class="item-day-number">22</div>
-                        <div class="item-day-week">SAT</div>
-                    </div>
-                    <div class="dashboard-day-items">
-                        <a class="dashboard-day-item item-type-organizer" href="/event_page_admin.html">
-                            <header class="row">
-                                <div class="col-12">
-                                    Politécnico Career Fest
-                                </div>
-                            </header>
-                            <footer class="row">
-                                <div class="col-12 location">
-                                    <span>
-                                        <i class="fas fa-map-marker-alt"></i>
-                                    </span>
-                                    Lisboa, Portugal
-                                </div>
-                                <div class="col-6 time">
-                                    <span>
-                                        <i class="far fa-clock"></i>
-                                    </span>
-                                    08:30
-                                </div>
-                                <div class="col-6 text-right timespan"></div>
-                            </footer>
-                        </a>
-                        <a class="dashboard-day-item item-type-attendee" href="/event_page_attendee.html">
-                            <header class="row">
-                                <div class="col-12">
-                                    Semana de Informática
-                                </div>
-                            </header>
-                            <footer class="row">
-                                <div class="col-12 location">
-                                    <span>
-                                        <i class="fas fa-map-marker-alt"></i>
-                                    </span>
-                                    Porto, Portugal
-                                </div>
-                                <div class="col-6 time">
-                                    <span>
-                                        <i class="far fa-clock"></i>
-                                    </span>
-                                    16:35
-                                </div>
-                                <div class="col-6 text-right timespan">[Day 2/2]</div>
-                            </footer>
-                        </a>
-                        <a class="dashboard-day-item item-type-attendee" href="/event_page_attendee.html">
-                            <header class="row">
-                                <div class="col-12">
-                                    London Security Meetup - The secret life of SQL Injections
-                                </div>
-                            </header>
-                            <footer class="row">
-                                <div class="col-12 location">
-                                    <span>
-                                        <i class="fas fa-map-marker-alt"></i>
-                                    </span>
-                                    London, England
-                                </div>
-                                <div class="col-6 time">
-                                    <span>
-                                        <i class="far fa-clock"></i>
-                                    </span>
-                                    14:15
-                                </div>
-                                <div class="col-6 text-right timespan"></div>
-                            </footer>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="sticky-container">
-            <div class="item-year-month sticky-item">
-                <div class="item-month">May</div>
-                <div class="item-year">2019</div>
-            </div>
-            <div class="dashboard-day-containers">
-                <div class="dashboard-day-container sticky-container">
-                    <div class="item-day sticky-item">
-                        <div class="item-day-number">14</div>
-                        <div class="item-day-week">TUE</div>
-                    </div>
-                    <div class="dashboard-day-items">
-                        <a class="dashboard-day-item item-type-organizer" href="/event_page_admin.html">
-                            <header class="row">
-                                <div class="col-12">
-                                    Functional Progamming using Phoenix + Elixir - The perks of being a Back End Developer
-                                </div>
-                            </header>
-                            <footer class="row">
-                                <div class="col-12 location">
-                                    <span>
-                                        <i class="fas fa-map-marker-alt"></i>
-                                    </span>
-                                    Madrid, Spain
-                                </div>
-                                <div class="col-6 time">
-                                    <span>
-                                        <i class="far fa-clock"></i>
-                                    </span>
-                                    15:50
-                                </div>
-                                <div class="col-6 text-right timespan"></div>
-                            </footer>
-                        </a>
-                        <a class="dashboard-day-item item-type-attendee" href="/event_page_attendee.html">
-                            <header class="row">
-                                <div class="col-12">
-                                    Semana de Informática
-                                </div>
-                            </header>
-                            <footer class="row">
-                                <div class="col-12 location">
-                                    <span>
-                                        <i class="fas fa-map-marker-alt"></i>
-                                    </span>
-                                    Porto, Portugal
-                                </div>
-                                <div class="col-6 time">
-                                    <span>
-                                        <i class="far fa-clock"></i>
-                                    </span>
-                                    09:15
-                                </div>
-                                <div class="col-6 text-right timespan">[Day 1/2]</div>
-                            </footer>
-                        </a>
-                    </div>
-                </div>
-                <div class="dashboard-day-container sticky-container">
-                    <div class="item-day sticky-item">
-                        <div class="item-day-number">15</div>
-                        <div class="item-day-week">MON</div>
-                    </div>
-                    <div class="dashboard-day-items">
-                        <a class="dashboard-day-item item-type-organizer" href="/event_page_admin.html">
-                            <header class="row">
-                                <div class="col-12">
-                                    Politécnico Career Fest
-                                </div>
-                            </header>
-                            <footer class="row">
-                                <div class="col-12 location">
-                                    <span>
-                                        <i class="fas fa-map-marker-alt"></i>
-                                    </span>
-                                    Lisboa, Portugal
-                                </div>
-                                <div class="col-6 time">
-                                    <span>
-                                        <i class="far fa-clock"></i>
-                                    </span>
-                                    08:30
-                                </div>
-                                <div class="col-6 text-right timespan"></div>
-                            </footer>
-                        </a>
-                        <a class="dashboard-day-item item-type-attendee" href="/event_page_attendee.html">
-                            <header class="row">
-                                <div class="col-12">
-                                    Semana de Informática
-                                </div>
-                            </header>
-                            <footer class="row">
-                                <div class="col-12 location">
-                                    <span>
-                                        <i class="fas fa-map-marker-alt"></i>
-                                    </span>
-                                    Porto, Portugal
-                                </div>
-                                <div class="col-6 time">
-                                    <span>
-                                        <i class="far fa-clock"></i>
-                                    </span>
-                                    16:35
-                                </div>
-                                <div class="col-6 text-right timespan">[Day 2/2]</div>
-                            </footer>
-                        </a>
-                        <a class="dashboard-day-item item-type-attendee" href="/event_page_attendee.html">
-                            <header class="row">
-                                <div class="col-12">
-                                    London Security Meetup - The secret life of SQL Injections
-                                </div>
-                            </header>
-                            <footer class="row">
-                                <div class="col-12 location">
-                                    <span>
-                                        <i class="fas fa-map-marker-alt"></i>
-                                    </span>
-                                    London, England
-                                </div>
-                                <div class="col-6 time">
-                                    <span>
-                                        <i class="far fa-clock"></i>
-                                    </span>
-                                    14:15
-                                </div>
-                                <div class="col-6 text-right timespan"></div>
-                            </footer>
-                        </a>
-                    </div>
-                </div>
-                <div class="dashboard-day-container sticky-container">
-                    <div class="item-day sticky-item">
-                        <div class="item-day-number">22</div>
-                        <div class="item-day-week">MON</div>
-                    </div>
-                    <div class="dashboard-day-items">
-                        <a class="dashboard-day-item item-type-organizer" href="/event_page_admin.html">
-                            <header class="row">
-                                <div class="col-12">
-                                    Functional Progamming using Phoenix + Elixir - The perks of being a Back End Developer
-                                </div>
-                            </header>
-                            <footer class="row">
-                                <div class="col-12 location">
-                                    <span>
-                                        <i class="fas fa-map-marker-alt"></i>
-                                    </span>
-                                    Madrid, Spain
-                                </div>
-                                <div class="col-6 time">
-                                    <span>
-                                        <i class="far fa-clock"></i>
-                                    </span>
-                                    15:50
-                                </div>
-                                <div class="col-6 text-right timespan"></div>
-                            </footer>
-                        </a>
-                        <a class="dashboard-day-item item-type-attendee" href="/event_page_attendee.html">
-                            <header class="row">
-                                <div class="col-12">
-                                    Semana de Informática
-                                </div>
-                            </header>
-                            <footer class="row">
-                                <div class="col-12 location">
-                                    <span>
-                                        <i class="fas fa-map-marker-alt"></i>
-                                    </span>
-                                    Porto, Portugal
-                                </div>
-                                <div class="col-6 time">
-                                    <span>
-                                        <i class="far fa-clock"></i>
-                                    </span>
-                                    09:15
-                                </div>
-                                <div class="col-6 text-right timespan">[Day 1/2]</div>
-                            </footer>
-                        </a>
-                    </div>
-                </div>
-                <div class="dashboard-day-container sticky-container">
-                    <div class="item-day sticky-item">
-                        <div class="item-day-number">29</div>
-                        <div class="item-day-week">MON</div>
-                    </div>
-                    <div class="dashboard-day-items">
-                        <a class="dashboard-day-item item-type-organizer" href="/event_page_admin.html">
-                            <header class="row">
-                                <div class="col-12">
-                                    Politécnico Career Fest
-                                </div>
-                            </header>
-                            <footer class="row">
-                                <div class="col-12 location">
-                                    <span>
-                                        <i class="fas fa-map-marker-alt"></i>
-                                    </span>
-                                    Lisboa, Portugal
-                                </div>
-                                <div class="col-6 time">
-                                    <span>
-                                        <i class="far fa-clock"></i>
-                                    </span>
-                                    08:30
-                                </div>
-                                <div class="col-6 text-right timespan"></div>
-                            </footer>
-                        </a>
-                        <a class="dashboard-day-item item-type-attendee" href="/event_page_attendee.html">
-                            <header class="row">
-                                <div class="col-12">
-                                    Semana de Informática
-                                </div>
-                            </header>
-                            <footer class="row">
-                                <div class="col-12 location">
-                                    <span>
-                                        <i class="fas fa-map-marker-alt"></i>
-                                    </span>
-                                    Porto, Portugal
-                                </div>
-                                <div class="col-6 time">
-                                    <span>
-                                        <i class="far fa-clock"></i>
-                                    </span>
-                                    16:35
-                                </div>
-                                <div class="col-6 text-right timespan">[Day 2/2]</div>
-                            </footer>
-                        </a>
-                        <a class="dashboard-day-item item-type-attendee" href="/event_page_attendee.html">
-                            <header class="row">
-                                <div class="col-12">
-                                    London Security Meetup - The secret life of SQL Injections
-                                </div>
-                            </header>
-                            <footer class="row">
-                                <div class="col-12 location">
-                                    <span>
-                                        <i class="fas fa-map-marker-alt"></i>
-                                    </span>
-                                    London, England
-                                </div>
-                                <div class="col-6 time">
-                                    <span>
-                                        <i class="far fa-clock"></i>
-                                    </span>
-                                    14:15
-                                </div>
-                                <div class="col-6 text-right timespan"></div>
-                            </footer>
-                        </a>
+                    <div class="dashboard-day-container sticky-container">
+                        <div class="item-day sticky-item">
+                            <div class="item-day-number">29</div>
+                            <div class="item-day-week">MON</div>
+                        </div>
+                        <div class="dashboard-day-items">
+                            <a class="dashboard-day-item item-type-organizer" href="/event_page_admin.html">
+                                <header class="row">
+                                    <div class="col-12">
+                                        Politécnico Career Fest
+                                    </div>
+                                </header>
+                                <footer class="row">
+                                    <div class="col-12 location">
+                                        <span>
+                                            <i class="fas fa-map-marker-alt"></i>
+                                        </span>
+                                        Lisboa, Portugal
+                                    </div>
+                                    <div class="col-6 time">
+                                        <span>
+                                            <i class="far fa-clock"></i>
+                                        </span>
+                                        08:30
+                                    </div>
+                                    <div class="col-6 text-right timespan"></div>
+                                </footer>
+                            </a>
+                            <a class="dashboard-day-item item-type-attendee" href="/event_page_attendee.html">
+                                <header class="row">
+                                    <div class="col-12">
+                                        Semana de Informática
+                                    </div>
+                                </header>
+                                <footer class="row">
+                                    <div class="col-12 location">
+                                        <span>
+                                            <i class="fas fa-map-marker-alt"></i>
+                                        </span>
+                                        Porto, Portugal
+                                    </div>
+                                    <div class="col-6 time">
+                                        <span>
+                                            <i class="far fa-clock"></i>
+                                        </span>
+                                        16:35
+                                    </div>
+                                    <div class="col-6 text-right timespan">[Day 2/2]</div>
+                                </footer>
+                            </a>
+                            <a class="dashboard-day-item item-type-attendee" href="/event_page_attendee.html">
+                                <header class="row">
+                                    <div class="col-12">
+                                        London Security Meetup - The secret life of SQL Injections
+                                    </div>
+                                </header>
+                                <footer class="row">
+                                    <div class="col-12 location">
+                                        <span>
+                                            <i class="fas fa-map-marker-alt"></i>
+                                        </span>
+                                        London, England
+                                    </div>
+                                    <div class="col-6 time">
+                                        <span>
+                                            <i class="far fa-clock"></i>
+                                        </span>
+                                        14:15
+                                    </div>
+                                    <div class="col-6 text-right timespan"></div>
+                                </footer>
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>

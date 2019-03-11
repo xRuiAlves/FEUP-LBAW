@@ -131,6 +131,22 @@
 
 @media only screen and (max-width: 576px) {
 
+    .mobile-wave#background_wave {
+        display: block;
+        top: 0;
+        position: relative;
+        height: 20vh;
+        width: 100vw;
+        mask-size: cover;
+        mask-position: center;
+        -webkit-mask-size: cover;
+        -webkit-mask-position: center;
+    }
+    
+    .regular-wave#background_wave {
+        display: none;
+    }
+
     .card-container.user-dashboard-container {
         -webkit-box-shadow: none;
         -moz-box-shadow: none;
@@ -149,7 +165,7 @@
 
     .card-container.user-dashboard-container {
         border-radius: 0;
-        padding: 0.8em 0.8em;
+        padding: 0;
         background-color: transparent;
     }
 
@@ -160,6 +176,20 @@
 
     .card-container.user-dashboard-container header {
         margin-bottom: 1.5em;
+    }
+    
+    .card-container.user-dashboard-container header .title {
+        background-color: var(--primary-color);
+        padding: 0 2em;
+        padding-top: 2em;
+    }
+
+    .card-container.user-dashboard-container header .labels {
+        padding: 0 2em;
+    }
+    
+    .card-container.user-dashboard-container .timeline {
+        padding: 0 0.8em;
     }
 
     .user-dashboard-container > header .label {

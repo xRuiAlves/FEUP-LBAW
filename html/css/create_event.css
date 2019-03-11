@@ -111,8 +111,29 @@
 
 @media only screen and (max-width: 576px) {
 
+    .mobile-wave#background_wave {
+        display: block;
+        top: 0;
+        position: relative;
+        height: 20vh;
+        width: 100vw;
+        mask-size: cover;
+        mask-position: center;
+        -webkit-mask-size: cover;
+        -webkit-mask-position: center;
+    }
+    
+    .regular-wave#background_wave {
+        display: none;
+    }
+
+    .card-container.event-card.event-creation-container header{
+        background-color: var(--primary-color);
+        padding: 2em;
+        margin-bottom: 0;
+    }
     .card-container.event-card.event-creation-container {
-        padding: 1.5em;
+        padding: 0;
         -webkit-box-shadow: none;
         -moz-box-shadow: none;
         box-shadow: none;
@@ -124,14 +145,30 @@
         text-align: left;
     }
 
+    .card-container.event-card.event-creation-container .event-details {
+        max-width: 100%;
+        padding: 0 2em;
+        margin:0;
+    }
+    
+    .card-container.event-card.event-creation-container .event-description {
+        max-width: 100%;
+        padding: 0 2em;
+        margin:0;
+    }
+
     .card-container.event-creation-container .event-details .location input {
         width: 100%;
         max-width: 100%;
         margin-bottom: 0.5em;
     }
 
-    .card-container.event-creation-container header input[type="text"]:focus::placeholder {
+    .card-container.event-creation-container header input[type="text"]::placeholder {
         color: white;
+    }
+    
+    .card-container.event-creation-container header input[type="text"]:focus::placeholder {
+        color: var(--secondary-color-medium);
     }
 
     .card-container.event-creation-container .event-details .location i {
@@ -146,5 +183,10 @@
         text-align: left;
         width: 100%;
         max-width: 100%;
+    }
+
+    .card-container.event-creation-container footer {
+        max-width: 100%;
+        padding: 0 2em;
     }
 }
