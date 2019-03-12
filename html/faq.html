@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>FAQ - Frequently Asked Questions</title>
+
+    <script src="/bootstrap/jquery-3.3.1.min.js" defer></script>
+    <script src="/bootstrap/popper.min.js" defer></script>
+    <script src="/bootstrap/js/bootstrap.min.js" defer></script>
+    <script src="/js/form_verification_redirect_to.js" defer></script>
+    <link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/fonts/Fonts.css">
+    <link rel="stylesheet" href="/fontawesome/css/all.css">
+
+    <link rel="stylesheet" href="./css/constants.css">
+    <link rel="stylesheet" href="./css/common.css">
+    <link rel="stylesheet" href="./css/navbar.css">
+    <link rel="stylesheet" href="./css/faq.css">
+</head>
+
+<body>
+    <div class="regular-wave" id="background_wave"></div>
+
+    <nav class="navbar navbar-expand-lg font-title">
+        <div class="container">
+            <a class="navbar-brand" href="/">Eventually</a>
+
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon">
+                    <i class="fas fa-bars"></i>
+                </span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav nav-highlighted mr-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/#search-box-anchor">Find</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="" data-toggle="modal" data-target="#login_modal">Host</a>
+                    </li>
+                </ul>
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a href="" title="Log In" class="nav-link" data-toggle="modal" data-target="#login_modal">
+                            Login
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="" title="Register" class="nav-link" data-toggle="modal" data-target="#register_modal">
+                            Register
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div id="login_modal" class="modal fade font-content" tabindex="-1" role="dialog">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <div class="modal-title custom-modal-title font-title">Login</div>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form novalidate class="needs-validation redirect-on-submit font-content" data-redirect-to="/event_page_lin.html">
+                        <div class="form-group">
+                            <input class="form-control" required type="email" name="email" placeholder="email">
+                            <div class="invalid-feedback">
+                                Please provide a valid email address
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <input class="form-control" required type="password" name="password" placeholder="password">
+                            <div class="invalid-feedback">
+                                Please type your password
+                            </div>
+                        </div>
+                        <div class="d-flex justify-content-center">
+                            <button class="my-btn my-btn-primary" type="submit">Login</button>
+                        </div>
+                    </form>
+                    <div class="d-flex justify-content-center">
+                        <a class="my-btn my-btn-borderless-secondary" href="/event_page_lin.html">
+                            <span class="nav-icon icon-left">
+                                <i class="fab fa-google" aria-hidden="true"></i>
+                            </span>
+                            Sign in with Google
+                        </a>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <span>Don't have an account yet? Register
+                        <a href="" onclick="$('#login_modal').modal('hide'); $('#register_modal').modal('show'); return false;">here!</a>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="register_modal" class="modal fade font-content" tabindex="-1" role="dialog">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <div class="modal-title custom-modal-title">Register</div>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form novalidate class="needs-validation redirect-on-submit" data-redirect-to="/">
+                        <div class="form-group">
+                            <input class="form-control" required type="email" name="email" placeholder="email">
+                            <div class="invalid-feedback">
+                                Please provide a valid email address
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <input class="form-control" required type="password" name="password" placeholder="password">
+                            <div class="invalid-feedback">
+                                Please type your password
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <input class="form-control" required type="password" name="password_repeat" placeholder="repeat password">
+                            <div class="invalid-feedback">
+                                Please type your password again
+                            </div>
+                        </div>
+                        <div class="d-flex justify-content-center">
+                            <button class="my-btn my-btn-primary" type="submit">Register</button>
+                        </div>
+                    </form>
+                    <div class="d-flex justify-content-center">
+                        <a class="my-btn my-btn-borderless-secondary" href="/event_page_lin.html">
+                            <span class="icon-left">
+                                <i class="fab fa-google" aria-hidden="true"></i>
+                            </span>
+                            Sign in with Google
+                        </a>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <span>Already have an account? Login
+                        <a href="" onclick="$('#register_modal').modal('hide'); $('#login_modal').modal('show'); return false;">here!</a>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container card-container font-content faq-container">
+        <header>
+            <h1>FAQ - Frequently Asked Questions</h1>
+        </header>
+        <div class="qa-container">
+            <div class="qa-item">
+                <div class="question" data-toggle="collapse" data-target="#answer_1">
+                    Q: How many events can I organize at the same time using this application?
+                </div>
+                <div class="collapse answer" id="answer_1">
+                    A: Using Eventually, you may organize any number of events at the same time at any given time, free of charge.
+                </div>
+            </div>
+            <div class="qa-item">
+                <div class="question" data-toggle="collapse" data-target="#answer_2">
+                    Q: I don't want to organize an event by myself. Can I get help from other users?
+                </div>
+                <div class="collapse answer" id="answer_2">
+                    A: Yes. Eventually offers a collaborative way to manage your events. You need only to search for other users in your event's page and invite them to assist you in the organization process. Once they accept your invitation, they will be able to emit vouchers, check-in attendees, create annoucements and edit the event's data.
+                </div>
+            </div>
+            <div class="qa-item">
+                <div class="question" data-toggle="collapse" data-target="#answer_3">
+                    Q: I want to contact an administrator. How may I do so?
+                </div>
+                <div class="collapse answer" id="answer_3">
+                    A: In order to contact one of the administrators, you need only to click the "Submit an Issue" button on your navigation bar, at the top of the page. The most common usage of this tool is to report an event, report antoher user's behavior and ask questions about the application.
+                </div>
+            </div>
+            <div class="qa-item">
+                <div class="question" data-toggle="collapse" data-target="#answer_4">
+                    Q: I want to communicate with the event organizers. How may I do so?
+                </div>
+                <div class="collapse answer" id="answer_4">
+                    A: In order to contact the event organizers, you need only to visit the event's page and scroll down to the "Discussion" section. In this section, you are able to create a post asking a question and see others matters related to the event. 
+                </div>
+            </div>
+            <div class="qa-item">
+                <div class="question" data-toggle="collapse" data-target="#answer_5">
+                    Q: I'm used to using Google™ Calendar in order to manage my affairs. Can I integrate my events with it?
+                </div>
+                <div class="collapse answer" id="answer_5">
+                    A: Yes. Eventually allows the possibility of exporting an event to your own Google™ Calendar. To do so, you need only to access the event's page and click the "Export to Google Calender" button.
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="create-post-modal" class="modal fade font-content" tabindex="-1" role="dialog">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <div class="modal-title custom-modal-title">Create Post</div>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <form>
+                    <div class="modal-body">
+                        <textarea name="announcement-content" placeholder="Post content ..."></textarea>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn publish-button" data-dismiss="modal">Create</button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div id="attend-event-modal" class="modal fade font-content" tabindex="-1" role="dialog">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <div class="modal-title custom-modal-title">Ticket</div>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    Do you wish to obtain a free ticket to Semana de Informática 2019?
+                </div>
+                <div class="modal-footer">
+                    <a href="/event_page_attendee.html" class="btn publish-button">Confirm</a>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

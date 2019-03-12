@@ -1,0 +1,30 @@
+@import "palette.css";
+@import "common.css";
+
+.card-container.faq-container {
+    position: relative;
+    top: 7em;
+    margin-bottom: 7em;
+}
+
+.qa-container {
+    font-size: 1.2em;
+}
+
+.qa-container .qa-item {
+    background-color: var(--secondary-color-medium-translucid);
+    border-radius: 0.5em;
+    padding: 0.75em 1em;
+    margin: 1em 0;
+} 
+
+.qa-container .qa-item .question {
+    font-weight: bold;
+    color: var(--secondary-color-medium);
+    cursor: pointer;
+} 
+
+.qa-container .qa-item .answer {
+    color: var(--secondary-color-dark);
+} 
+
