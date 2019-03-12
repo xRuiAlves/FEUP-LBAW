@@ -178,16 +178,24 @@ button.card-container.admin-action:focus {
         top: 0;
         margin-bottom: 2em;
         border-radius: 0;
-        padding: 0.8em 0.8em;
+        padding: 0;
         background-color: transparent;
+    }
+
+    .card-container.admin-dashboard-container .admin-actions {
+        padding: 1em;
+        padding-top: 0;
+    }
+
+    .card-container.admin-dashboard-container header h1 {
+        padding-left: 0.5em;
+        padding-top: 0.5em;
+        background-color: var(--primary-color);
+        margin-bottom: 0;
     }
 
     .card-container.admin-dashboard-container .separator hr {
         display: none;
-    }
-
-    .card-container.admin-dashboard-container header {
-        margin-bottom: 4em;
     }
 
     .admin-actions > .row {
