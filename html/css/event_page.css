@@ -259,7 +259,6 @@
     }
 
     .card-container.event-card h1 {
-        font-size: 1.5em;
         font-weight: bold;
         color: var(--secondary-color-medium-dark);
     }
@@ -273,31 +272,12 @@
         width: 60%;
     }
 
-    
-
     .event-card .attend-btn {
         margin-bottom: 0;
     }
     
     .event-card .attend-btn button {
         font-size: 0.9em;
-    }
-
-
-    .mobile-wave#background_wave {
-        display: block;
-        top: 0;
-        position: relative;
-        height: 20vh;
-        width: 100vw;
-        mask-size: cover;
-        mask-position: center;
-        -webkit-mask-size: cover;
-        -webkit-mask-position: center;
-    }
-    
-    .regular-wave#background_wave {
-        display: none;
     }
 }
 

@@ -111,22 +111,6 @@
 
 @media only screen and (max-width: 576px) {
 
-    .mobile-wave#background_wave {
-        display: block;
-        top: 0;
-        position: relative;
-        height: 20vh;
-        width: 100vw;
-        mask-size: cover;
-        mask-position: center;
-        -webkit-mask-size: cover;
-        -webkit-mask-position: center;
-    }
-    
-    .regular-wave#background_wave {
-        display: none;
-    }
-
     .card-container.event-card.event-creation-container header{
         background-color: var(--primary-color);
         padding: 2em;

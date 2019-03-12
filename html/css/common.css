@@ -16,7 +16,6 @@
 .card-container h1 {
     font-weight: bold;
     color: var(--secondary-color-medium-dark);
-    margin-bottom: 0.5em;
 }
 
 /************ BACKGROUND ************/
@@ -44,6 +43,10 @@ body {
     -webkit-mask-repeat: no-repeat;
     -webkit-mask-size: 100% 300vw;
     -webkit-mask-position: center calc(45% - 4.5vw);
+}
+
+.mobile-wave#background_wave {
+    display: none;
 }
 
 /************ CUSTOM PRIMARY BTN *********/
@@ -149,8 +152,28 @@ a.my-btn {
         background-color: white;
     }
 
+    .card-container h1 {
+        font-size: 2rem;
+    }
+
     #background_wave {
         top: -28%;
+    }
+
+    .mobile-wave#background_wave {
+        display: block;
+        top: 0;
+        position: relative;
+        height: 20vh;
+        width: 100vw;
+        mask-size: cover;
+        mask-position: center;
+        -webkit-mask-size: cover;
+        -webkit-mask-position: center;
+    }
+    
+    .regular-wave#background_wave {
+        display: none;
     }
 }
 

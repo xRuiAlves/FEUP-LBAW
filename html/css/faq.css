@@ -6,6 +6,10 @@
     top: 7em;
     margin-bottom: 7em;
 }
+    
+.card-container.faq-container header h1 {
+    margin-bottom: 1em;
+}
 
 .qa-container {
     font-size: 1.2em;
@@ -27,4 +31,21 @@
 .qa-container .qa-item .answer {
     color: var(--secondary-color-dark);
 } 
+
+@media only screen and (max-width: 576px) {
+    .card-container.faq-container {
+        -webkit-box-shadow: none;
+        -moz-box-shadow: none;
+        box-shadow: none;
+        top: 0;
+        padding: 1em;
+        margin-bottom: 2em;
+        border-radius: 0;
+        background: transparent;    
+    }
+
+    .card-container.faq-container header h1 {
+        margin-bottom: 3.5em; 
+    }
+}
 
