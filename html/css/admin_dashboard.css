@@ -14,96 +14,91 @@
     border-top-width: 2px;
 }
 
-button.card-container.admin-action {
-    padding: 2em;
+button.admin-action {
+    background-color: white;
+    padding: 0.5em;
     text-align: center;
     cursor: pointer;
-    height: 10em;
+    height: 4em;
     border: none;
+    border-top: 1px solid var(--color-grey);
+    border-bottom: 1px solid var(--color-grey);
     border-radius: 0.25em;
     font-weight: bold;
     color: var(--secondary-color-medium-dark);
     transition: transform 0.1s linear;
 }
 
-button.card-container.admin-action:hover {
-    transform: scale(1.1);
+button.admin-action:hover {
+    transform: scale(1.05);
 }
 
-button.card-container.admin-action#delete-user-action {
-    border-bottom: 4px solid #ad4949; 
+button.admin-action#delete-user-action {
+    border-left: 4px solid #ad4949; 
 }
 
-button.card-container.admin-action#disable-event-action {
-    border-bottom: 4px solid #9549ad; 
+button.admin-action#enable-disable-action {
+    border-left: 4px solid #9549ad; 
 }
 
-button.card-container.admin-action#user-issues-action {
-    border-bottom: 4px solid #496cad; 
+button.admin-action#user-issues-action {
+    border-left: 4px solid #496cad; 
 }
 
-button.card-container.admin-action#admin-promotion-action {
-    border-bottom: 4px solid #49ad6d; 
+button.admin-action#admin-promotion-action {
+    border-left: 4px solid #49ad6d; 
 }
 
-button.card-container.admin-action#enable-disable-action {
-    border-bottom: 4px solid #ffd600;
-}
-
-button.card-container.admin-action:focus {
+button.admin-action:focus {
     outline: none;
 }
 
-.admin-actions > .row {
-    margin-top: 3em;
-}
-
-.admin-dashboard-modal .modal-title.custom-modal-title {
+.admin-dashboard-collapse .collapse-title.custom-collapse-title {
     color: var(--secondary-color-medium-dark)
 }
 
-.admin-dashboard-modal .issue {
+.admin-dashboard-collapse .issue {
     border-left: 5px solid var(--primary-color);
     margin-bottom: 1em;
     text-align: justify;
     cursor: pointer;
 }
 
-.admin-dashboard-modal .issue:hover {
+.admin-dashboard-collapse .issue:hover {
     -webkit-box-shadow: 0px 0px 2px 0px rgba(0,0,0,0.75);
     -moz-box-shadow: 0px 0px 2px 0px rgba(0,0,0,0.75);
     box-shadow: 0px 0px 2px 0px rgba(0,0,0,0.75);
 }
 
-.admin-dashboard-modal .issue .content {
+.admin-dashboard-collapse .issue .content {
     padding: 0 1em;
 }
 
-.admin-dashboard-modal .issue .issue-description {
+.admin-dashboard-collapse .issue .issue-description {
     padding-bottom: 0.5em;
 }
 
-.admin-dashboard-modal .issue .content header {
+.admin-dashboard-collapse .issue .content header {
     margin-bottom: 0.5em;
 }
 
-.admin-dashboard-modal .issue .user {
+.admin-dashboard-collapse .issue .user {
     font-weight: bold;
     display: flex;
 } 
 
-.admin-dashboard-modal .searchbar-container {
+.admin-dashboard-collapse .searchbar-container {
     display: flex;
     align-items: center;
     margin-bottom: 1em;
 }
 
-.admin-dashboard-modal .searchbar-container i {
+.admin-dashboard-collapse .searchbar-container i {
     font-size: 1.2em;
     color: var(--color-grey-darker);
 }
 
-.admin-dashboard-modal input.searchbar {
+.admin-dashboard-collapse input.searchbar {
     border: 1px solid var(--color-grey-dark);
     font-size: 1em;
     padding: 0.2em 0.6em;
@@ -112,66 +107,63 @@ button.card-container.admin-action:focus {
     color: var(--secondary-color-dark);
 }
 
-.admin-dashboard-modal input.searchbar:focus {
+.admin-dashboard-collapse input.searchbar:focus {
     border-bottom: 1px solid var(--color-grey-dark);
 }
 
-.admin-dashboard-modal input.searchbar::placeholder {
+.admin-dashboard-collapse input.searchbar::placeholder {
     color: var(--color-grey-dark);
     font-weight: 100;
 }
 
-.admin-dashboard-modal input.searchbar:focus::placeholder {
+.admin-dashboard-collapse input.searchbar:focus::placeholder {
     color: var(--color-grey-dark);
 }
 
-.admin-dashboard-modal .users-list .user {
+.admin-dashboard-collapse .users-list .user {
     display: flex;
     margin: 1.5em 0;
 }
 
-.admin-dashboard-modal .users-list .user .user-name {
+.admin-dashboard-collapse .users-list .user .user-name {
     font-weight: bold;
 }
 
-.admin-dashboard-modal .events-list .event {
+.admin-dashboard-collapse .events-list .event {
     display: flex;
     margin: 1.5em 0;
 }
 
-.admin-dashboard-modal .events-list .event .event-info {
+.admin-dashboard-collapse .events-list .event .event-info {
     flex-grow: 1;
 }
 
-.admin-dashboard-modal .events-list .event .event-name {
+.admin-dashboard-collapse .events-list .event .event-name {
     font-weight: bold;
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
 }
 
-.admin-dashboard-modal .events-list .event .event-name .event-button {
+.admin-dashboard-collapse .events-list .event .event-name .event-button {
     display: inline;
     padding: 0 0.75em;
     margin-left: 0.5em;
     min-width: 6em;
 }
 
-.admin-dashboard-modal .events-list .event .event-name .event-button.re-enable-button {
+.admin-dashboard-collapse .events-list .event .event-name .event-button.re-enable-button {
     background: green;
 }
 
-.admin-dashboard-modal .events-list .event .event-name .event-button.disable-button {
+.admin-dashboard-collapse .events-list .event .event-name .event-button.disable-button {
     background: var(--danger-red);
     border: 1px solid var(--danger-red-dark);
 }
 
 @media only screen and (max-width: 576px) {
-    button.card-container.admin-action {
-        height: 7.5em;
-    }
 
-    .card-container.admin-dashboard-container {
+    .admin-dashboard-container {
         -webkit-box-shadow: none;
         -moz-box-shadow: none;
         box-shadow: none;
@@ -182,48 +174,19 @@ button.card-container.admin-action:focus {
         background-color: transparent;
     }
 
-    .card-container.admin-dashboard-container .admin-actions {
+    .admin-dashboard-container .admin-actions {
         padding: 1em;
         padding-top: 0;
     }
 
-    .card-container.admin-dashboard-container header h1 {
+    .admin-dashboard-container header h1 {
         padding-left: 0.5em;
         padding-top: 0.5em;
         background-color: var(--primary-color);
         margin-bottom: 0;
     }
 
-    .card-container.admin-dashboard-container .separator hr {
+    .admin-dashboard-container .separator hr {
         display: none;
-    }
-
-    .admin-actions > .row {
-        margin-top: 0;
-    }
-
-    button.card-container.admin-action {
-        height: 6em;
-        margin-bottom: 2em;
-    }
-
-    button.card-container.admin-action#delete-user-action {
-        border-bottom: none; 
-        border-left: 4px solid #ad4949; 
-    }
-    
-    button.card-container.admin-action#user-issues-action {
-        border-bottom: none; 
-        border-left: 4px solid #496cad; 
-    }
-    
-    button.card-container.admin-action#admin-promotion-action {
-        border-bottom: none; 
-        border-left: 4px solid #49ad6d; 
-    }
-    
-    button.card-container.admin-action#enable-disable-action {
-        border-bottom: none; 
-        border-left: 4px solid #ad9d49;
     }
 }
