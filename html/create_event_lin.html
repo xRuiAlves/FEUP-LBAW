@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Eventually</title>
+    <title>Create Event</title>
 
     <script src="/bootstrap/jquery-3.3.1.min.js" defer></script>
     <script src="/bootstrap/popper.min.js" defer></script>
@@ -15,74 +15,19 @@
     <link rel="stylesheet" href="/fonts/Fonts.css">
     <link rel="stylesheet" href="/fontawesome/css/all.css">
 
-    <link rel="stylesheet" href="css/main_page.css" />
-    <link rel="stylesheet" href="css/navbar.css" />
-    <script src="js/main_page.js" defer></script>
+    <link rel="stylesheet" href="./css/constants.css">
+    <link rel="stylesheet" href="./css/navbar.css">
+    <link rel="stylesheet" href="./css/create_event.css">
+    <link rel="stylesheet" href="./css/common.css">
+    <link rel="stylesheet" href="./css/event_page.css">
 </head>
 
 <body>
-    <div id="banner-wrapper">
-        <div id="banner-image-container">
-            <img src="images/concert2.jpg" />
-            <img src="images/concert1.jpg" />
-        </div>
-        <div id="page-title">
-            <div class="row text-right">
-                <div class="col-12">
-                    <h1>Eventually</h1>
-                </div>
-            </div>
-            <div class="row text-right">
-                <div class="col-12">
-                    <h2>Create. Attend. Organize.</h2>
-                </div>
-            </div>
-        </div>
+    <div class="regular-wave" id="background_wave"></div>
 
-        <div id="banner-buttons">
-            <div class="row">
-                <div class="col-sm-12 col-md-8 col-lg-6 col-xl-4">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-12" id="banner-about-text">
-                                <p>Create amazing experiences for everyone. Attend your favorite events. Organize easily
-                                    and
-                                    collaboratively.
-                                </p>
-                                <a href="#about">Find more about us!</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-12 col-md-6">
-                            <button class="find-events"
-                                onclick="window.scrollTo(0, document.getElementById('navbar').offsetTop);">Find
-                                Events</button>
-                        </div>
-                        <div class="col-12 col-md-6">
-                            <button class="host-event" onclick="window.location.href='/create_event_lin.html'">Host an Event</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div id="banner-down-arrow">
-            <div class="row">
-                <div class="col-12">
-                    <a href="#navbar">
-                        <i class="fas fa-angle-down"></i>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div id="search-box-anchor"></div>
-
-    <nav class="navbar navbar-expand-lg font-title" id="navbar">
+    <nav class="navbar navbar-expand-lg font-title">
         <div class="container">
-            <a class="navbar-brand" href="#">Eventually</a>
+            <a class="navbar-brand" href="/index_lin.html">Eventually</a>
 
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -94,7 +39,7 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav nav-highlighted mr-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="#search-box-anchor">Find</a>
+                        <a class="nav-link" href="/#search-box-anchor">Find</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/create_event.html">Host</a>
@@ -127,7 +72,7 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a title="Exit" class="nav-link" href="/">
+                        <a title="Exit" class="nav-link" href="/create_event.html">
                             <i class="fas fa-sign-out-alt nav-item-icon"></i>
                             <span class="nav-item-label">Exit</span>
                         </a>
@@ -136,247 +81,6 @@
             </div>
         </div>
     </nav>
-
-    <div class="container" id="search-box">
-        <div class="row">
-            <div class="col-12 col-lg-4">
-                <i class="fas fa-search"></i>
-                <input type="text" placeholder="Search" class="search-field" />
-            </div>
-            <div class="col-12 col-sm-3 col-lg-2">
-                <i class="fas fa-map-marker-alt"></i>
-                <input type="text" placeholder="Location" />
-            </div>
-            <div class="col-12 col-sm-3 col-lg-2">
-                <div class="dropdown">
-                    <button class="btn dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown">
-                        Category
-                    </button>
-                    <div class="dropdown-menu scrollable-menu">
-                        <a class="dropdown-item" href="#">Sports</a>
-                        <a class="dropdown-item" href="#">Arts</a>
-                        <a class="dropdown-item" href="#">Technology</a>
-                        <a class="dropdown-item" href="#">Animals</a>
-                        <a class="dropdown-item" href="#">Learning</a>
-                        <a class="dropdown-item" href="#">Politics</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-12 col-sm-3 col-lg-2">
-                <button class="btn date">Start
-                    <span>
-                        <i class="far fa-calendar-alt"></i>
-                    </span>
-                </button>
-            </div>
-            <div class="col-12 col-sm-3 col-lg-2">
-                <button class="btn date">End
-                    <span>
-                        <i class="far fa-calendar-alt"></i>
-                    </span>
-                </button>
-            </div>
-        </div>
-    </div>
-
-    <div class="events">
-        <a class="container card-container event-card" href="/event_page_lin.html">
-            <header class="row">
-                <div class="col-12">
-                    <h3>Semana de Informática</h3>
-                </div>
-                <div class="price-tag col-auto">Free</div>
-                <div class="col-auto category">
-                    <span>
-                        <i class="fas fa-tag"></i>
-                    </span>
-                    Technology
-                </div>
-            </header>
-            <footer class="row">
-                <div class="col-12 location">
-                    <span>
-                        <i class="fas fa-map-marker-alt"></i>
-                    </span>
-                    Porto, Portugal
-                </div>
-                <div class="col-7">
-                    <span>
-                        <i class="far fa-calendar-alt"></i>
-                    </span>
-                    18.04.2019
-                </div>
-                <div class="col-5 text-right">
-                    09:15
-                    <span>
-                        <i class="far fa-clock"></i>
-                    </span>
-                </div>
-            </footer>
-        </a>
-
-        <a class="container card-container event-card" href="/event_page_lin.html">
-            <header class="row">
-                <div class="col-12">
-                    <h3>Functional Progamming using Phoenix + Elixir - The perks of being a Back End Developer</h3>
-                </div>
-                <div class="price-tag col-auto">5.00€</div>
-                <div class="col-auto category">
-                    <span>
-                        <i class="fas fa-tag"></i>
-                    </span>
-                    Learning
-                </div>
-            </header>
-            <footer class="row">
-                <div class="col-12 location">
-                    <span>
-                        <i class="fas fa-map-marker-alt"></i>
-                    </span>
-                    Madrid, Spain
-                </div>
-                <div class="col-7">
-                    <span>
-                        <i class="far fa-calendar-alt"></i>
-                    </span>
-                    18.04.2019
-                </div>
-                <div class="col-5 text-right">
-                    15:50
-                    <span>
-                        <i class="far fa-clock"></i>
-                    </span>
-                </div>
-            </footer>
-        </a>
-
-        <a class="container card-container event-card" href="/event_page_lin.html">
-            <header class="row">
-                <div class="col-12">
-                    <h3>Mannheim fußball treffen</h3>
-                </div>
-                <div class="price-tag col-auto">Free</div>
-                <div class="col-auto category">
-                    <span>
-                        <i class="fas fa-tag"></i>
-                    </span>
-                    Sports
-                </div>
-            </header>
-            <footer class="row">
-                <div class="col-12 location">
-                    <span>
-                        <i class="fas fa-map-marker-alt"></i>
-                    </span>
-                    Mannheim, Germany
-                </div>
-                <div class="col-7">
-                    <span>
-                        <i class="far fa-calendar-alt"></i>
-                    </span>
-                    19.04.2019
-                </div>
-                <div class="col-5 text-right">
-                    08:00
-                    <span>
-                        <i class="far fa-clock"></i>
-                    </span>
-                </div>
-            </footer>
-        </a>
-
-        <a class="container card-container event-card" href="/event_page_lin.html">
-            <header class="row">
-                <div class="col-12">
-                    <h3>London Security Meetup - The secret life of SQL Injections</h3>
-                </div>
-                <div class="price-tag col-auto">7.50€</div>
-                <div class="col-auto category">
-                    <span>
-                        <i class="fas fa-tag"></i>
-                    </span>
-                    Learning
-                </div>
-            </header>
-            <footer class="row">
-                <div class="col-12 location">
-                    <span>
-                        <i class="fas fa-map-marker-alt"></i>
-                    </span>
-                    London, England
-                </div>
-                <div class="col-7">
-                    <span>
-                        <i class="far fa-calendar-alt"></i>
-                    </span>
-                    20.04.2019
-                </div>
-                <div class="col-5 text-right">
-                    14:15
-                    <span>
-                        <i class="far fa-clock"></i>
-                    </span>
-                </div>
-            </footer>
-        </a>
-
-        <a class="container card-container event-card" href="/event_page_lin.html">
-            <header class="row">
-                <div class="col-12">
-                    <h3>Politécnico Career Fest</h3>
-                </div>
-                <div class="price-tag col-auto">12.00€</div>
-                <div class="col-auto category">
-                    <span>
-                        <i class="fas fa-tag"></i>
-                    </span>
-                    Technology
-                </div>
-            </header>
-            <footer class="row">
-                <div class="col-12 location">
-                    <span>
-                        <i class="fas fa-map-marker-alt"></i>
-                    </span>
-                    Lisboa, Portugal
-                </div>
-                <div class="col-7">
-                    <span>
-                        <i class="far fa-calendar-alt"></i>
-                    </span>
-                    20.04.2019
-                </div>
-                <div class="col-5 text-right">
-                    08:30
-                    <span>
-                        <i class="far fa-clock"></i>
-                    </span>
-                </div>
-            </footer>
-        </a>
-    </div>
-
-    <div class="container-fluid white-section" id="about">
-        <div class="container">
-            <div class="row">
-                <h4 class="about-title">About Eventually</h1>
-            </div>
-            <div class="row text-justify">
-                <p>Eventually is the solution to find and host events online, all over the world.</p>
-                <p>The platform allows you to find all kinds of events of your interest, allowing you to specify when,
-                    where
-                    and what you want to participate in. You can also manage your tickets and export your favorite
-                    events
-                    to Google™ Calendar.</p>
-                <p>In our website, you can also create and manage any number of events you want, public or private, free
-                    of
-                    charge - no matter what its scale is. You may invite your friends to help you organize it
-                    collaboratively,
-                    making the organizing process easy and smooth.</p>
-                <p>Have a question? Visit our <a class="faq-link" href="/faq_lin.html">FAQs.</a></p>
-            </div>
-        </div>
-    </div>
 
     <div id="submit-issue-modal" class="modal fade font-content" tabindex="-1" role="dialog">
         <div class="modal-dialog modal-dialog-centered" role="document">
@@ -533,6 +237,76 @@
         </div>
     </div>
 
+    <div class="container card-container font-content event-card event-creation-container">
+        <header class="row no-gutters">
+            <div class="col-12">
+                <input type="text" name="title" placeholder="Title"></input>
+            </div>
+        </header>
+        <div class="mobile-wave" id="background_wave"></div>
+        <div class="row no-gutters event-details font-title">
+            <div class="col-12 col-sm-6 event-spacetime">
+                <div class="row no-gutters mb-1 date event-field">
+                    <span>
+                        <i class="far fa-calendar-alt icon-left"></i>
+                    </span>
+                    <div class="date-picker">
+                        Pick a date
+                    </div>
+                </div>
+                <div class="row no-gutters">
+                    <div class="col-12 location event-field">
+                        <span>
+                            <i class="fas fa-map-marker-alt icon-left"></i>
+                        </span>
+                        <input type="text" name="location" placeholder="Location"></input>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-sm-6 event-category">
+                <div class="row no-gutters mb-1">
+                    <div class="col-12 price event-field">
+                        <input type="text" name="price" placeholder="Pricing $"></input>
+                    </div>
+                </div>
+                <div class="row no-gutters">
+                    <div class="col-12 event-field">
+                        <div class="dropdown category-picker">
+                            <span>
+                                <i class="fas fa-tag"></i>
+                            </span>
+                            <button class="btn dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown">
+                                Pick a category
+                            </button>
+                            <div class="dropdown-menu scrollable-menu">
+                                <a class="dropdown-item" href="#">Sports</a>
+                                <a class="dropdown-item" href="#">Arts</a>
+                                <a class="dropdown-item" href="#">Technology</a>
+                                <a class="dropdown-item" href="#">Animals</a>
+                                <a class="dropdown-item" href="#">Learning</a>
+                                <a class="dropdown-item" href="#">Politics</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row no-gutters event-description">
+            <div class="col-12">
+                <textarea name="description" placeholder="Event description"></textarea>
+            </div>
+        </div>
+        <footer class="row no-gutters">
+            <div class="col-12 create-btn">
+                <button type="button" class="btn" data-toggle="modal" data-target="#attend-event-modal">
+                    Create
+                    <span>
+                        <i class="fas fa-check icon-right"></i>
+                    </span>
+                </button>
+            </div>
+        </footer>
+    </div>
 </body>
 
 </html>
