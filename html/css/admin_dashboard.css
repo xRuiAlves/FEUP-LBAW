@@ -1,9 +1,14 @@
 @import "palette.css";
 @import "common.css";
 
-.card-container.admin-dashboard-container {
+body {
+    background-color:white;
+}
+
+.admin-dashboard-container {
     position: relative;
-    top: 7em;
+    top: 2em;
+    padding: 2em;
     margin-bottom: 7em;
 }
 
@@ -14,42 +19,44 @@
     border-top-width: 2px;
 }
 
-button.admin-action {
+button.admin-tab {
     background-color: white;
     padding: 0.5em;
     text-align: center;
     cursor: pointer;
     height: 4em;
-    border: none;
-    border-top: 1px solid var(--color-grey);
-    border-bottom: 1px solid var(--color-grey);
+    border: 1px solid var(--color-grey);
     border-radius: 0.25em;
     font-weight: bold;
     color: var(--secondary-color-medium-dark);
     transition: transform 0.1s linear;
 }
 
-button.admin-action:hover {
+.content-table > .row {
+    margin: 1em 0;
+}
+
+button.admin-tab:hover {
     transform: scale(1.05);
 }
 
-button.admin-action#delete-user-action {
-    border-left: 4px solid #ad4949; 
+button.admin-tab#delete-user-tab {
+    border-bottom: 4px solid #ad4949; 
 }
 
-button.admin-action#enable-disable-action {
-    border-left: 4px solid #9549ad; 
+button.admin-tab#enable-disable-tab {
+    border-bottom: 4px solid #9549ad; 
 }
 
-button.admin-action#user-issues-action {
-    border-left: 4px solid #496cad; 
+button.admin-tab#user-issues-tab {
+    border-bottom: 4px solid #496cad; 
 }
 
-button.admin-action#admin-promotion-action {
-    border-left: 4px solid #49ad6d; 
+button.admin-tab#admin-promotion-tab {
+    border-bottom: 4px solid #49ad6d; 
 }
 
-button.admin-action:focus {
+button.admin-tab:focus {
     outline: none;
 }
 
@@ -125,10 +132,6 @@ button.admin-action:focus {
     margin: 1.5em 0;
 }
 
-.admin-dashboard-collapse .users-list .user .user-name {
-    font-weight: bold;
-}
-
 .admin-dashboard-collapse .events-list .event {
     display: flex;
     margin: 1.5em 0;
@@ -161,6 +164,13 @@ button.admin-action:focus {
     border: 1px solid var(--danger-red-dark);
 }
 
+@media only screen and (max-width: 768px) {
+    
+    .admin-dashboard-container .admin-tabs {
+        margin-bottom: 2em;
+    }
+}
+
 @media only screen and (max-width: 576px) {
 
     .admin-dashboard-container {
@@ -174,7 +184,7 @@ button.admin-action:focus {
         background-color: transparent;
     }
 
-    .admin-dashboard-container .admin-actions {
+    .admin-dashboard-container .admin-tabs {
         padding: 1em;
         padding-top: 0;
     }
@@ -188,5 +198,21 @@ button.admin-action:focus {
 
     .admin-dashboard-container .separator hr {
         display: none;
+    }
+
+    button.admin-tab#delete-user-tab {
+        border-left: 4px solid #ad4949; 
+    }
+    
+    button.admin-tab#enable-disable-tab {
+        border-left: 4px solid #9549ad; 
+    }
+    
+    button.admin-tab#user-issues-tab {
+        border-left: 4px solid #496cad; 
+    }
+    
+    button.admin-tab#admin-promotion-tab {
+        border-left: 4px solid #49ad6d; 
     }
 }

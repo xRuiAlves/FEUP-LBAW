@@ -17,12 +17,11 @@
     
     <link rel="stylesheet" href="./css/constants.css">
     <link rel="stylesheet" href="./css/navbar.css">
-    <link rel="stylesheet" href="./css/admin_dashboard.css">
     <link rel="stylesheet" href="./css/common.css">
+    <link rel="stylesheet" href="./css/admin_dashboard.css">
 </head>
 
 <body>
-    <div class="regular-wave" id="background_wave"></div>
 
     <nav class="navbar navbar-expand-lg font-title">
         <div class="container">
@@ -221,7 +220,7 @@
         </div>
     </div>
 
-    <div class="container card-container font-content admin-dashboard-container">
+    <div class="font-content admin-dashboard-container">
         <header class="font-title">
             <h1>Administration Dashboard</h1>
         </header>
@@ -229,134 +228,201 @@
         <div class="separator">
             <hr>
         </div>
-        <div class="row" id="admin-actions">
-            <div class="col-4 admin-actions">
+        <div class="row" id="admin-tabs">
+            <div class="col-12 col-md-2 admin-tabs">
                 <div class="row">
-                    <button id="user-issues-action" class="container admin-action" data-toggle="collapse" data-parent="#admin-actions" data-target="#user-issues-collapse">
-                        View User Issues
+                    <button id="user-tab" class="col-6 col-md-12 container admin-tab" data-toggle="collapse" data-parent="#admin-tabs" data-target="#user-collapse">
+                        Users
                     </button>
-                </div>
-                <div class="row">
-                    <button id="enable-disable-action" class="container admin-action" data-toggle="collapse" data-parent="#admin-actions" data-target="#enable-disable-collapse">
-                        Enable/Disable Event
+                    <button id="events-tab" class="col-6 col-md-12 container admin-tab" data-toggle="collapse" data-parent="#admin-tabs" data-target="#enable-disable-collapse">
+                        Events
                     </button>
-                </div>
-                <div class="row">
-                    <button id="delete-user-action" class="container admin-action" data-toggle="collapse" data-parent="#admin-actions" data-target="#delete-user-collapse">
-                        Delete User Account
-                    </button>
-                </div>
-                <div class="row">
-                    <button id="admin-promotion-action" class="container admin-action" data-toggle="collapse" data-parent="#admin-actions" data-target="#admin-promotion-collapse">
-                        Promote User to Administrator
+                    <button id="issues-tab" class="col-6 col-md-12 container admin-tab" data-toggle="collapse" data-parent="#admin-tabs" data-target="#issues-collapse">
+                        Issues
                     </button>
                 </div>
             </div>
-            <div class="col-8 admin-action-content">
-                <div id="delete-user-collapse" data-parent="#admin-actions" class="collapse fade font-content admin-dashboard-collapse" tabindex="-1" role="dialog">
+            <div class="col-12 col-md-10 admin-tab-content">
+                <div id="user-collapse" data-parent="#admin-tabs" class="collapse fade font-content admin-dashboard-collapse" tabindex="-1" role="dialog">
                         <div class="collapse-dialog collapse-dialog-centered" role="document">
                             <div class="collapse-content">
                                 <div class="collapse-header">
-                                    <div class="collapse-title custom-collapse-title">Delete User Account</div>
+                                    <div class="collapse-title custom-collapse-title">Users</div>
                                     <button type="button" class="close" data-dismiss="collapse" aria-label="Close">
                                         <span aria-hidden="true">&times;</span>
                                     </button>
                                 </div>
                                 <div class="collapse-body">
                                     <div class="searchbar-container">
-                                        <input class="searchbar" type="text" placeholder="User name ..." />
+                                        <input class="searchbar" type="text" placeholder="User name, email, ..." />
                                         <i class="fas fa-search icon-right"></i>
                                     </div>
-                                    <div class="users-list">
-                                        <div class="user">
-                                            <div class="icon icon-left">
-                                                <i class="fas fa-user"></i>
-                                            </div>
-                                            <div class="user-info">
-                                                <div class="user-name">
-                                                    Diego de los Santos
-                                                </div>
-                                                <div class="user-email">
-                                                    di.santos_upc@flash.mail.com
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="user">
-                                            <div class="icon icon-left">
-                                                <i class="fas fa-user"></i>
-                                            </div>
-                                            <div class="user-info">
-                                                <div class="user-name">
-                                                    Henrique Soares Neto
-                                                </div>
-                                                <div class="user-email">
-                                                    hneto.lol.99@amazon.mail.com
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="user">
-                                            <div class="icon icon-left">
-                                                <i class="fas fa-user"></i>
-                                            </div>
-                                            <div class="user-info">
-                                                <div class="user-name">
-                                                    Mario Lopes
-                                                </div>
-                                                <div class="user-email">
-                                                    doc_iz_here@flash.mail.com
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="user">
-                                            <div class="icon icon-left">
-                                                <i class="fas fa-user"></i>
-                                            </div>
-                                            <div class="user-info">
-                                                <div class="user-name">
-                                                    Marta Teixeira Sousa
-                                                </div>
-                                                <div class="user-email">
-                                                    mts.96@tuga.mail.pt
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="user">
-                                            <div class="icon icon-left">
-                                                <i class="fas fa-user"></i>
-                                            </div>
-                                            <div class="user-info">
-                                                <div class="user-name">
-                                                    Ricardo Dias
-                                                </div>
-                                                <div class="user-email">
-                                                    rickydias.84@utad.pt
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="user">
-                                            <div class="icon icon-left">
-                                                <i class="fas fa-user"></i>
-                                            </div>
-                                            <div class="user-info">
-                                                <div class="user-name">
-                                                    Sarah van Peterson
-                                                </div>
-                                                <div class="user-email">
-                                                    sarah_zone@cambridge.en
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="collapse-footer">
-                                    <button type="button" class="btn btn-secondary" data-dismiss="collapse">Close</button>
+                                    <table class="table content-table">
+                                        <thead>
+                                            <tr>
+                                                <th>Nome</th>
+                                                <th>Email</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <th>Diego de los Santos</th>
+                                                <th>di.santos_upc@flash.mail.com</th>
+                                            </tr>
+                                            <tr>
+                                                <th>Henrique Soares Neto</th>
+                                                <th>hneto.lol.99@amazon.mail.com</th>
+                                            </tr>
+                                            <tr>
+                                                <th>Mario Lopes</th>
+                                                <th>doc_iz_here@flash.mail.com</th>
+                                            </tr>
+                                            <tr>
+                                                <th>Marta Teixeira Sousa</th>
+                                                <th>mts.96@tuga.mail.pt</th>
+                                            </tr>
+                                            <tr>
+                                                <th>Ricardo Dias</th>
+                                                <th>rickydias.84@utad.pt</th>
+                                            </tr>
+                                            <tr>
+                                                <th>Sarah van Peterson</th>
+                                                <th>sarah_zone@cambridge.en</th>
+                                            </tr>
+                                        </tbody>
+                                    </table>
                                 </div>
                             </div>
                         </div>
                     </div>
                 
-                    <div id="user-issues-collapse" data-parent="#admin-actions" class="collapse fade font-content admin-dashboard-collapse" tabindex="-1" role="dialog">
+                    <div id="issues-collapse" data-parent="#admin-tabs" class="collapse fade font-content admin-dashboard-collapse" tabindex="-1" role="dialog">
                         <div class="collapse-dialog collapse-dialog-centered" role="document">
+                            
+                                <div class="collapse-content">
+                                        <div class="collapse-header">
+                                            <div class="collapse-title custom-collapse-title">Issues</div>
+                                            <button type="button" class="close" data-dismiss="collapse" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <div class="collapse-body">
+                                            <div class="issue">
+                                                <div class="content">
+                                                    <header data-toggle="collapse" data-target="#issue-1">
+                                                        <div class="user">
+                                                            <div class="icon icon-left">
+                                                                <i class="fas fa-exclamation"></i>
+                                                            </div>
+                                                            Ricardo Dias
+                                                        </div>
+                                                        <div class="date">
+                                                            17.04.2019 | 15:30
+                                                        </div>
+                                                    </header>
+                                                    <div class="collapse issue-description" id="issue-1">
+                                                        I was recently removed from the "Corrida 25 Abril" event. I contacted the event administrators, and they reported that they
+                                                        had not removed me. Was this an application error?
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="issue">
+                                                <div class="content">
+                                                    <header data-toggle="collapse" data-target="#issue-2">
+                                                        <div class="user">
+                                                            <div class="icon icon-left">
+                                                                <i class="fas fa-exclamation"></i>
+                                                            </div>
+                                                            Marta Teixeira Sousa
+                                                        </div>
+                                                        <div class="date">
+                                                            13.03.2019 | 08:57
+                                                        </div>
+                                                    </header>
+                                                    <div class="collapse issue-description" id="issue-2">
+                                                        Hello, my name is Marta. I recently joined your application and I want to organize an event. Is the organization really tax
+                                                        free?
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="issue">
+                                                <div class="content">
+                                                    <header data-toggle="collapse" data-target="#issue-3">
+                                                        <div class="user">
+                                                            <div class="icon icon-left">
+                                                                <i class="fas fa-exclamation"></i>
+                                                            </div>
+                                                            Henrique Soares Neto
+                                                        </div>
+                                                        <div class="date">
+                                                            07.03.2019 | 16:32
+                                                        </div>
+                                                    </header>
+                                                    <div class="collapse issue-description" id="issue-3">
+                                                        Hello, my name is Henrique. I recently joined your application and I want to organize an event. Is the organization really
+                                                        tax free?
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="issue">
+                                                <div class="content">
+                                                    <header data-toggle="collapse" data-target="#issue-4">
+                                                        <div class="user">
+                                                            <div class="icon icon-left">
+                                                                <i class="fas fa-exclamation"></i>
+                                                            </div>
+                                                            Mario Lopes
+                                                        </div>
+                                                        <div class="date">
+                                                            19.02.2019 | 13:45
+                                                        </div>
+                                                    </header>
+                                                    <div class="collapse issue-description" id="issue-4">
+                                                        I removed event by mistake please help?
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="issue">
+                                                <div class="content">
+                                                    <header data-toggle="collapse" data-target="#issue-5">
+                                                        <div class="user">
+                                                            <div class="icon icon-left">
+                                                                <i class="fas fa-exclamation"></i>
+                                                            </div>
+                                                            Diego de los Santos
+                                                        </div>
+                                                        <div class="date">
+                                                            19.02.2019 | 13:12
+                                                        </div>
+                                                    </header>
+                                                    <div class="collapse issue-description" id="issue-5">
+                                                        Was the "Oporto Beer Festival" event closed?
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="issue">
+                                                <div class="content">
+                                                    <header data-toggle="collapse" data-target="#issue-6">
+                                                        <div class="user">
+                                                            <div class="icon icon-left">
+                                                                <i class="fas fa-exclamation"></i>
+                                                            </div>
+                                                            Sarah van Peterson
+                                                        </div>
+                                                        <div class="date">
+                                                            02.01.2019 | 09:51
+                                                        </div>
+                                                    </header>
+                                                    <div class="collapse issue-description" id="issue-6">
+                                                        Do I have any event creation limitation? Or am I free to organize as many events as I desire?
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="collapse-footer">
+                                            <button type="button" class="btn btn-secondary" data-dismiss="collapse">Close</button>
+                                        </div>
+                                    </div>
                             <div class="collapse-content">
                                 <div class="collapse-header">
                                     <div class="collapse-title custom-collapse-title">User Issues</div>
@@ -365,117 +431,7 @@
                                     </button>
                                 </div>
                                 <div class="collapse-body issues-container">
-                                    <div class="issue">
-                                        <div class="content">
-                                            <header data-toggle="collapse" data-target="#issue-1">
-                                                <div class="user">
-                                                    <div class="icon icon-left">
-                                                        <i class="fas fa-exclamation"></i>
-                                                    </div>
-                                                    Ricardo Dias
-                                                </div>
-                                                <div class="date">
-                                                    17.04.2019 | 15:30
-                                                </div>
-                                            </header>
-                                            <div class="collapse issue-description" id="issue-1">
-                                                I was recently removed from the "Corrida 25 Abril" event. I contacted the event administrators, and they reported that they
-                                                had not removed me. Was this an application error?
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="issue">
-                                        <div class="content">
-                                            <header data-toggle="collapse" data-target="#issue-2">
-                                                <div class="user">
-                                                    <div class="icon icon-left">
-                                                        <i class="fas fa-exclamation"></i>
-                                                    </div>
-                                                    Marta Teixeira Sousa
-                                                </div>
-                                                <div class="date">
-                                                    13.03.2019 | 08:57
-                                                </div>
-                                            </header>
-                                            <div class="collapse issue-description" id="issue-2">
-                                                Hello, my name is Marta. I recently joined your application and I want to organize an event. Is the organization really tax
-                                                free?
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="issue">
-                                        <div class="content">
-                                            <header data-toggle="collapse" data-target="#issue-3">
-                                                <div class="user">
-                                                    <div class="icon icon-left">
-                                                        <i class="fas fa-exclamation"></i>
-                                                    </div>
-                                                    Henrique Soares Neto
-                                                </div>
-                                                <div class="date">
-                                                    07.03.2019 | 16:32
-                                                </div>
-                                            </header>
-                                            <div class="collapse issue-description" id="issue-3">
-                                                Hello, my name is Henrique. I recently joined your application and I want to organize an event. Is the organization really
-                                                tax free?
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="issue">
-                                        <div class="content">
-                                            <header data-toggle="collapse" data-target="#issue-4">
-                                                <div class="user">
-                                                    <div class="icon icon-left">
-                                                        <i class="fas fa-exclamation"></i>
-                                                    </div>
-                                                    Mario Lopes
-                                                </div>
-                                                <div class="date">
-                                                    19.02.2019 | 13:45
-                                                </div>
-                                            </header>
-                                            <div class="collapse issue-description" id="issue-4">
-                                                I removed event by mistake please help?
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="issue">
-                                        <div class="content">
-                                            <header data-toggle="collapse" data-target="#issue-5">
-                                                <div class="user">
-                                                    <div class="icon icon-left">
-                                                        <i class="fas fa-exclamation"></i>
-                                                    </div>
-                                                    Diego de los Santos
-                                                </div>
-                                                <div class="date">
-                                                    19.02.2019 | 13:12
-                                                </div>
-                                            </header>
-                                            <div class="collapse issue-description" id="issue-5">
-                                                Was the "Oporto Beer Festival" event closed?
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="issue">
-                                        <div class="content">
-                                            <header data-toggle="collapse" data-target="#issue-6">
-                                                <div class="user">
-                                                    <div class="icon icon-left">
-                                                        <i class="fas fa-exclamation"></i>
-                                                    </div>
-                                                    Sarah van Peterson
-                                                </div>
-                                                <div class="date">
-                                                    02.01.2019 | 09:51
-                                                </div>
-                                            </header>
-                                            <div class="collapse issue-description" id="issue-6">
-                                                Do I have any event creation limitation? Or am I free to organize as many events as I desire?
-                                            </div>
-                                        </div>
-                                    </div>
+                                    
                                 </div>
                                 <div class="collapse-footer">
                                     <button type="button" class="btn btn-secondary" data-dismiss="collapse">Close</button>
@@ -484,113 +440,11 @@
                         </div>
                     </div>
                 
-                    <div id="admin-promotion-collapse" data-parent="#admin-actions" class="collapse fade font-content admin-dashboard-collapse" tabindex="-1" role="dialog">
+                    <div id="enable-disable-collapse" data-parent="#admin-tabs" class="collapse fade font-content admin-dashboard-collapse" tabindex="-1" role="dialog">
                         <div class="collapse-dialog collapse-dialog-centered" role="document">
                             <div class="collapse-content">
                                 <div class="collapse-header">
-                                    <div class="collapse-title custom-collapse-title">Promote User</div>
-                                    <button type="button" class="close" data-dismiss="collapse" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
-                                </div>
-                                <div class="collapse-body">
-                                    <div class="searchbar-container">
-                                        <input class="searchbar" type="text" placeholder="User name ..." />
-                                        <i class="fas fa-search icon-right"></i>
-                                    </div>
-                                    <div class="users-list">
-                                        <div class="user">
-                                            <div class="icon icon-left">
-                                                <i class="fas fa-user"></i>
-                                            </div>
-                                            <div class="user-info">
-                                                <div class="user-name">
-                                                    Diego de los Santos
-                                                </div>
-                                                <div class="user-email">
-                                                    di.santos_upc@flash.mail.com
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="user">
-                                            <div class="icon icon-left">
-                                                <i class="fas fa-user"></i>
-                                            </div>
-                                            <div class="user-info">
-                                                <div class="user-name">
-                                                    Henrique Soares Neto
-                                                </div>
-                                                <div class="user-email">
-                                                    hneto.lol.99@amazon.mail.com
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="user">
-                                            <div class="icon icon-left">
-                                                <i class="fas fa-user"></i>
-                                            </div>
-                                            <div class="user-info">
-                                                <div class="user-name">
-                                                    Mario Lopes
-                                                </div>
-                                                <div class="user-email">
-                                                    doc_iz_here@flash.mail.com
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="user">
-                                            <div class="icon icon-left">
-                                                <i class="fas fa-user"></i>
-                                            </div>
-                                            <div class="user-info">
-                                                <div class="user-name">
-                                                    Marta Teixeira Sousa
-                                                </div>
-                                                <div class="user-email">
-                                                    mts.96@tuga.mail.pt
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="user">
-                                            <div class="icon icon-left">
-                                                <i class="fas fa-user"></i>
-                                            </div>
-                                            <div class="user-info">
-                                                <div class="user-name">
-                                                    Ricardo Dias
-                                                </div>
-                                                <div class="user-email">
-                                                    rickydias.84@utad.pt
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="user">
-                                            <div class="icon icon-left">
-                                                <i class="fas fa-user"></i>
-                                            </div>
-                                            <div class="user-info">
-                                                <div class="user-name">
-                                                    Sarah van Peterson
-                                                </div>
-                                                <div class="user-email">
-                                                    sarah_zone@cambridge.en
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="collapse-footer">
-                                    <button type="button" class="btn btn-secondary" data-dismiss="collapse">Close</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                
-                    <div id="enable-disable-collapse" data-parent="#admin-actions" class="collapse fade font-content admin-dashboard-collapse" tabindex="-1" role="dialog">
-                        <div class="collapse-dialog collapse-dialog-centered" role="document">
-                            <div class="collapse-content">
-                                <div class="collapse-header">
-                                    <div class="collapse-title custom-collapse-title">Enable/Disable Event</div>
+                                    <div class="collapse-title custom-collapse-title">Events</div>
                                     <button type="button" class="close" data-dismiss="collapse" aria-label="Close">
                                         <span aria-hidden="true">&times;</span>
                                     </button>
@@ -600,110 +454,68 @@
                                         <input class="searchbar" type="text" placeholder="Event name ..." />
                                         <i class="fas fa-search icon-right"></i>
                                     </div>
-                                    <div class="events-list">
-                                        <div class="event">
-                                            <div class="icon icon-left">
-                                                <i class="far fa-calendar-alt"></i>
-                                            </div>
-                                            <div class="event-info">
-                                                <div class="event-name">
-                                                    Beach Party @Braga Social Center
-                                                    <button type="button" class="btn btn-secondary event-button re-enable-button">Enable</button>
-                                                </div>
-                                                <div class="event-date">
-                                                    17.05.2019
-                                                </div>
-                                                <div class="event-location">
-                                                    Braga, Portugal
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="event">
-                                            <div class="icon icon-left">
-                                                <i class="far fa-calendar-alt"></i>
-                                            </div>
-                                            <div class="event-info">
-                                                <div class="event-name">
-                                                    Semana de Informática 2019
-                                                    <button type="button" class="btn btn-secondary event-button disable-button">Disable</button>
-                                                </div>
-                                                <div class="event-date">
-                                                    18.04.2019 - 19.04.2019
-                                                </div>
-                                                <div class="event-location">
-                                                    Porto, Portugal
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="event">
-                                            <div class="icon icon-left">
-                                                <i class="far fa-calendar-alt"></i>
-                                            </div>
-                                            <div class="event-info">
-                                                <div class="event-name">
-                                                    Traditionelle deutsche Tänze
-                                                    <button type="button" class="btn btn-secondary event-button re-enable-button">Enable</button>
-                                                </div>
-                                                <div class="event-date">
-                                                    21.05.2019
-                                                </div>
-                                                <div class="event-location">
-                                                    Mannheim, Germany
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="event">
-                                            <div class="icon icon-left">
-                                                <i class="far fa-calendar-alt"></i>
-                                            </div>
-                                            <div class="event-info">
-                                                <div class="event-name">
-                                                    Functional Progamming using Phoenix + Elixir - The perks of being a Back End Developer
-                                                    <button type="button" class="btn btn-secondary event-button disable-button">Disable</button>
-                                                </div>
-                                                <div class="event-date">
-                                                    18.04.2019
-                                                </div>
-                                                <div class="event-location">
-                                                    Madrid, Spain
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="event">
-                                            <div class="icon icon-left">
-                                                <i class="far fa-calendar-alt"></i>
-                                            </div>
-                                            <div class="event-info">
-                                                <div class="event-name">
-                                                    Politécnico Career Fest
-                                                    <button type="button" class="btn btn-secondary event-button disable-button">Disable</button>
-                                                </div>
-                                                <div class="event-date">
-                                                    19.04.2019
-                                                </div>
-                                                <div class="event-location">
-                                                    Lisboa, Portugal
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="event">
-                                            <div class="icon icon-left">
-                                                <i class="far fa-calendar-alt"></i>
-                                            </div>
-                                            <div class="event-info">
-                                                <div class="event-name">
-                                                    London Security Meetup - The secret life of SQL Injections
-                                                    <button type="button" class="btn btn-secondary event-button disable-button">Disable</button>
-                                                </div>
-                                                <div class="event-date">
-                                                    19.04.2019
-                                                </div>
-                                                <div class="event-location">
-                                                    London, England
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
+                                    <table class="table content-table">
+                                        <thead>
+                                            <tr>
+                                                <th>Title</th>
+                                                <th>Status</th>
+                                                <th>Start Date</th>
+                                                <th>End Date</th>
+                                                <th>Location</th>
+                                                <th>Pricing</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>                
+                                            <tr>
+                                                <th>Beach Party @Braga Social Center</th>
+                                                <th>Active</th>
+                                                <th>17.05.2019</th>
+                                                <th>-</th>
+                                                <th>Braga, Portugal</th>
+                                                <th>10.00€</th>
+                                            </tr>
+                                            <tr>
+                                                <th>Semana de Informática 2019</th>
+                                                <th>Disabled</th>
+                                                <th>18.04.2019</th>
+                                                <th>19.04.2019</th>
+                                                <th>Porto, Portugal</th>
+                                                <th>25.17€</th>
+                                            </tr>
+                                            <tr>
+                                                <th>Traditionelle deutsche Tänze</th>
+                                                <th>Cancelled</th>
+                                                <th>21.05.2019</th>
+                                                <th>-</th>
+                                                <th>Mannheim, Germany</th>
+                                                <th>3.50€</th>
+                                            </tr>
+                                            <tr>
+                                                <th>Functional Progamming using Phoenix + Elixir - The perks of being a Back End Developer</th>
+                                                <th>Active</th>
+                                                <th>18.04.2019</th>
+                                                <th>-</th>
+                                                <th>Madrid, Spain</th>
+                                                <th>12.00€</th>
+                                            </tr>
+                                            <tr>
+                                                <th>Politécnico Career Fest</th>
+                                                <th>Disabled</th>
+                                                <th>19.04.2019</th>
+                                                <th>-</th>
+                                                <th>Lisboa, Portugal</th>
+                                                <th>FREE</th>
+                                            </tr>
+                                            <tr>
+                                                <th>London Security Meetup - The secret life of SQL Injections</th>
+                                                <th>Disabled</th>
+                                                <th>19.04.2019</th>
+                                                <th>-</th>
+                                                <th>London, England</th>
+                                                <th>3.50€</th>
+                                            </tr>
+                                        </tbody>
+                                    </table>
                                 </div>
                                 <div class="collapse-footer">
                                     <button type="button" class="btn btn-secondary" data-dismiss="collapse">Close</button>
