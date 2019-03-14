@@ -32,6 +32,10 @@ button.admin-tab {
     transition: transform 0.1s linear;
 }
 
+button.admin-tab.nav-link.active {
+    background-color: var(--secondary-color-light);
+}
+
 .content-table > .row {
     margin: 1em 0;
 }
