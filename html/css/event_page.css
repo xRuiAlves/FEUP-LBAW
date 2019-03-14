@@ -145,12 +145,10 @@
     font-weight: 600;
 }
 
-.announcement .content .text, .post .content .text {
-    text-align: justify;
-} 
-
-.announcement .content .date, .post .content .date {
+.announcement .content .date, .post .content .date,
+.announcement .content .name, .post .content .name {
     font-weight: 100;
+    display: inline-block;
 }
 
 .add-btn {
@@ -207,6 +205,32 @@
 
 #attendees-list-modal .attendees-list .user span {
     cursor: pointer;
+}
+
+.post .comment {
+    margin: 0.5em 0 0.5em 2em;
+    padding: 0.5em 0 0.5em 1em;
+    border-left: 3px solid var(--secondary-color-medium-dark);
+}
+
+.post .add-comment {
+    margin: 1em 0 0.5em 2em;
+}
+
+.post .add-comment textarea {
+    padding: 0.5em 1em;
+    outline:none;
+    resize: none;
+    -webkit-box-sizing: border-box;
+       -moz-box-sizing: border-box;
+            box-sizing: border-box;
+    width: 100%; 
+}
+
+.post .add-comment::after {
+    content: 'Enter to submit. Shift + Enter to add new line.';
+    font-size: 0.8em;
+    color: var(--color-grey);
 }
 
 @media only screen and (max-width: 576px) {
