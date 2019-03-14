@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="/fonts/Fonts.css">
     <link rel="stylesheet" href="/fontawesome/css/all.css">
-    
+
     <link rel="stylesheet" href="./css/constants.css">
     <link rel="stylesheet" href="./css/common.css">
     <link rel="stylesheet" href="./css/navbar.css">
@@ -28,8 +28,8 @@
         <div class="container">
             <a class="navbar-brand" href="/index_lin.html">Eventually</a>
 
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon">
                     <i class="fas fa-bars"></i>
                 </span>
@@ -37,12 +37,17 @@
 
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav nav-highlighted mr-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="/#search-box-anchor">Find</a>
+                    <li class="nav-item search-mobile">
+                        <a class="nav-link" href="/#search-box-anchor">Search</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/create_event.html">Host</a>
                     </li>
+
+                    <form class="form-inline nav-item ml-2 my-2 my-lg-0">
+                        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                        <button class="btn submit-search my-2 my-sm-0" type="submit">Search</button>
+                    </form>
                 </ul>
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
@@ -51,13 +56,15 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <div title="Notifications" class="nav-link notifications-item" data-toggle="modal" data-target="#notifications_modal">
+                        <div title="Notifications" class="nav-link notifications-item" data-toggle="modal"
+                            data-target="#notifications_modal">
                             <i class="fas fa-bell nav-item-icon"></i>
                             <span class="nav-item-label">Notifications</span>
                         </div>
                     </li>
                     <li class="nav-item">
-                        <div title="Submit an Issue" class="nav-link issues-item" data-toggle="modal" data-target="#submit-issue-modal">
+                        <div title="Submit an Issue" class="nav-link issues-item" data-toggle="modal"
+                            data-target="#submit-issue-modal">
                             <i class="fas fa-exclamation-triangle nav-item-icon"></i>
                             <span class="nav-item-label">Submit an Issue</span>
                         </div>
@@ -121,11 +128,14 @@
                                 <div class="col-4 col-md-2 ml-auto actions d-flex justify-content-end">
                                     <div class="row">
                                         <span class="col-6 read">
-                                            <i class="fas fa-eye" onclick="$('.notification-item[data-notif-id=\'1\'').removeClass('unread')"></i>
-                                            <i class="fas fa-eye-slash" onclick="$('.notification-item[data-notif-id=\'1\'').addClass('unread')"></i>
+                                            <i class="fas fa-eye"
+                                                onclick="$('.notification-item[data-notif-id=\'1\'').removeClass('unread')"></i>
+                                            <i class="fas fa-eye-slash"
+                                                onclick="$('.notification-item[data-notif-id=\'1\'').addClass('unread')"></i>
                                         </span>
                                         <span class="col-6 delete">
-                                            <i class="fas fa-times" onclick="$('.notification-item[data-notif-id=\'1\'').remove()"></i>
+                                            <i class="fas fa-times"
+                                                onclick="$('.notification-item[data-notif-id=\'1\'').remove()"></i>
                                         </span>
                                     </div>
                                 </div>
@@ -135,7 +145,7 @@
                                     You have been invited to attend Semana de Informática 2019
                                 </div>
                             </div>
-                        </div>                        
+                        </div>
                     </div>
 
                     <div class="row notification-item unread" data-notif-id="2">
@@ -147,11 +157,14 @@
                                 <div class="col-4 col-md-2 ml-auto actions d-flex justify-content-end">
                                     <div class="row">
                                         <span class="col-6 read">
-                                            <i class="fas fa-eye" onclick="$('.notification-item[data-notif-id=\'2\'').removeClass('unread')"></i>
-                                            <i class="fas fa-eye-slash" onclick="$('.notification-item[data-notif-id=\'2\'').addClass('unread')"></i>
+                                            <i class="fas fa-eye"
+                                                onclick="$('.notification-item[data-notif-id=\'2\'').removeClass('unread')"></i>
+                                            <i class="fas fa-eye-slash"
+                                                onclick="$('.notification-item[data-notif-id=\'2\'').addClass('unread')"></i>
                                         </span>
                                         <span class="col-6 delete">
-                                            <i class="fas fa-times" onclick="$('.notification-item[data-notif-id=\'2\'').remove()"></i>
+                                            <i class="fas fa-times"
+                                                onclick="$('.notification-item[data-notif-id=\'2\'').remove()"></i>
                                         </span>
                                     </div>
                                 </div>
@@ -161,7 +174,7 @@
                                     IEEE Code Week 2019 has been cancelled
                                 </div>
                             </div>
-                        </div>                        
+                        </div>
                     </div>
 
                     <div class="row notification-item" data-notif-id="3">
@@ -173,11 +186,14 @@
                                 <div class="col-4 col-md-2 ml-auto actions d-flex justify-content-end">
                                     <div class="row">
                                         <span class="col-6 read">
-                                            <i class="fas fa-eye" onclick="$('.notification-item[data-notif-id=\'3\'').removeClass('unread')"></i>
-                                            <i class="fas fa-eye-slash" onclick="$('.notification-item[data-notif-id=\'3\'').addClass('unread')"></i>
+                                            <i class="fas fa-eye"
+                                                onclick="$('.notification-item[data-notif-id=\'3\'').removeClass('unread')"></i>
+                                            <i class="fas fa-eye-slash"
+                                                onclick="$('.notification-item[data-notif-id=\'3\'').addClass('unread')"></i>
                                         </span>
                                         <span class="col-6 delete">
-                                            <i class="fas fa-times" onclick="$('.notification-item[data-notif-id=\'3\'').remove()"></i>
+                                            <i class="fas fa-times"
+                                                onclick="$('.notification-item[data-notif-id=\'3\'').remove()"></i>
                                         </span>
                                     </div>
                                 </div>
@@ -187,7 +203,7 @@
                                     You have been removed from Eventually Organizers Day 2019
                                 </div>
                             </div>
-                        </div>                        
+                        </div>
                     </div>
 
                     <div class="row notification-item" data-notif-id="4">
@@ -199,21 +215,25 @@
                                 <div class="col-4 col-md-2 ml-auto actions d-flex justify-content-end">
                                     <div class="row">
                                         <span class="col-6 read">
-                                            <i class="fas fa-eye" onclick="$('.notification-item[data-notif-id=\'4\'').removeClass('unread')"></i>
-                                            <i class="fas fa-eye-slash" onclick="$('.notification-item[data-notif-id=\'4\'').addClass('unread')"></i>
+                                            <i class="fas fa-eye"
+                                                onclick="$('.notification-item[data-notif-id=\'4\'').removeClass('unread')"></i>
+                                            <i class="fas fa-eye-slash"
+                                                onclick="$('.notification-item[data-notif-id=\'4\'').addClass('unread')"></i>
                                         </span>
                                         <span class="col-6 delete">
-                                            <i class="fas fa-times" onclick="$('.notification-item[data-notif-id=\'4\'').remove()"></i>
+                                            <i class="fas fa-times"
+                                                onclick="$('.notification-item[data-notif-id=\'4\'').remove()"></i>
                                         </span>
                                     </div>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-12 description">
-                                    Fishing Workshop - HDNV Student Association has been disabled by a Platform Administrator
+                                    Fishing Workshop - HDNV Student Association has been disabled by a Platform
+                                    Administrator
                                 </div>
                             </div>
-                        </div>                        
+                        </div>
                     </div>
 
                 </div>
@@ -232,7 +252,8 @@
                     Q: How many events can I organize at the same time using this application?
                 </div>
                 <div class="collapse answer" id="answer_1">
-                    A: Using Eventually, you may organize any number of events at the same time at any given time, free of charge.
+                    A: Using Eventually, you may organize any number of events at the same time at any given time, free
+                    of charge.
                 </div>
             </div>
             <div class="qa-item">
@@ -240,7 +261,10 @@
                     Q: I don't want to organize an event by myself. Can I get help from other users?
                 </div>
                 <div class="collapse answer" id="answer_2">
-                    A: Yes. Eventually offers a collaborative way to manage your events. You need only to search for other users in your event's page and invite them to assist you in the organization process. Once they accept your invitation, they will be able to emit vouchers, check-in attendees, create annoucements and edit the event's data.
+                    A: Yes. Eventually offers a collaborative way to manage your events. You need only to search for
+                    other users in your event's page and invite them to assist you in the organization process. Once
+                    they accept your invitation, they will be able to emit vouchers, check-in attendees, create
+                    annoucements and edit the event's data.
                 </div>
             </div>
             <div class="qa-item">
@@ -248,7 +272,9 @@
                     Q: I want to contact an administrator. How may I do so?
                 </div>
                 <div class="collapse answer" id="answer_3">
-                    A: In order to contact one of the administrators, you need only click the "Submit an Issue" button on your navigation bar, at the top of the page. The most common usage of this tool is for reporting an event, reporting another user's behavior or asking questions about the application.
+                    A: In order to contact one of the administrators, you need only click the "Submit an Issue" button
+                    on your navigation bar, at the top of the page. The most common usage of this tool is for reporting
+                    an event, reporting another user's behavior or asking questions about the application.
                 </div>
             </div>
             <div class="qa-item">
@@ -256,15 +282,19 @@
                     Q: I want to communicate with the event organizers. How may I do so?
                 </div>
                 <div class="collapse answer" id="answer_4">
-                    A: In order to contact the event organizers, you can visit the event's page and scroll down to the "Discussion" section. In this section, you are able to create a post asking a question and observe other matters related to the event. 
+                    A: In order to contact the event organizers, you can visit the event's page and scroll down to the
+                    "Discussion" section. In this section, you are able to create a post asking a question and observe
+                    other matters related to the event.
                 </div>
             </div>
             <div class="qa-item">
                 <div class="question" data-toggle="collapse" data-target="#answer_5">
-                    Q: I'm used to using Google™ Calendar for managing my appointments. Can I integrate my events with it?
+                    Q: I'm used to using Google™ Calendar for managing my appointments. Can I integrate my events with
+                    it?
                 </div>
                 <div class="collapse answer" id="answer_5">
-                    A: Yes. Eventually allows the possibility of exporting an event to your own Google™ Calendar. To do so, you need only to access the event's page and click the "Export to Google Calender" button.
+                    A: Yes. Eventually allows the possibility of exporting an event to your own Google™ Calendar. To do
+                    so, you need only to access the event's page and click the "Export to Google Calender" button.
                 </div>
             </div>
         </div>
