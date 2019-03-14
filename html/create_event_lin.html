@@ -238,74 +238,77 @@
     </div>
 
     <div class="container card-container font-content event-card event-creation-container">
-        <header class="row no-gutters">
-            <div class="col-12">
-                <input type="text" name="title" placeholder="Title"></input>
-            </div>
-        </header>
-        <div class="mobile-wave" id="background_wave"></div>
-        <div class="row no-gutters event-details font-title">
-            <div class="col-12 col-sm-6 event-spacetime">
-                <div class="row no-gutters mb-1 date event-field">
-                    <span>
-                        <i class="far fa-calendar-alt icon-left"></i>
-                    </span>
-                    <div class="date-picker">
-                        Pick a date
-                    </div>
+        <form>
+            <header class="row no-gutters">
+                <div class="col-12">
+                    <input required type="text" name="title" placeholder="Title"></input>
                 </div>
-                <div class="row no-gutters">
-                    <div class="col-12 location event-field">
+            </header>
+            <div class="mobile-wave" id="background_wave"></div>
+            <div class="row no-gutters event-details font-title">
+                <div class="col-12 col-sm-6 event-spacetime">
+                    <div class="row no-gutters date event-field">
                         <span>
-                            <i class="fas fa-map-marker-alt icon-left"></i>
+                            <i class="far fa-calendar-alt icon-left"></i>
                         </span>
-                        <input type="text" name="location" placeholder="Location"></input>
+                        <div class="date-picker">
+                            Pick a date
+                        </div>
                     </div>
-                </div>
-            </div>
-            <div class="col-12 col-sm-6 event-category">
-                <div class="row no-gutters mb-1">
-                    <div class="col-12 price event-field">
-                        <input type="text" name="price" placeholder="Pricing $"></input>
-                    </div>
-                </div>
-                <div class="row no-gutters">
-                    <div class="col-12 event-field">
-                        <div class="dropdown category-picker">
+                    <div class="row no-gutters">
+                        <div class="col-12 location event-field">
                             <span>
-                                <i class="fas fa-tag"></i>
+                                <i class="fas fa-map-marker-alt icon-left"></i>
                             </span>
-                            <button class="btn dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown">
-                                Pick a category
-                            </button>
-                            <div class="dropdown-menu scrollable-menu">
-                                <a class="dropdown-item" href="#">Sports</a>
-                                <a class="dropdown-item" href="#">Arts</a>
-                                <a class="dropdown-item" href="#">Technology</a>
-                                <a class="dropdown-item" href="#">Animals</a>
-                                <a class="dropdown-item" href="#">Learning</a>
-                                <a class="dropdown-item" href="#">Politics</a>
+                            <input required type="text" name="location" placeholder="Location"></input>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-sm-6 event-category">
+                    <div class="row no-gutters">
+                        <div class="col-12 price event-field">
+                            <input required type="text" name="price" placeholder="0.00"></input>
+                            <span class="currency">€</span>
+                        </div>
+                    </div>
+                    <div class="row no-gutters">
+                        <div class="col-12 event-field">
+                            <div class="dropdown category-picker">
+                                <span>
+                                    <i class="fas fa-tag"></i>
+                                </span>
+                                <button class="btn dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown">
+                                    Pick a category
+                                </button>
+                                <div class="dropdown-menu scrollable-menu">
+                                    <a class="dropdown-item" href="#">Sports</a>
+                                    <a class="dropdown-item" href="#">Arts</a>
+                                    <a class="dropdown-item" href="#">Technology</a>
+                                    <a class="dropdown-item" href="#">Animals</a>
+                                    <a class="dropdown-item" href="#">Learning</a>
+                                    <a class="dropdown-item" href="#">Politics</a>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="row no-gutters event-description">
-            <div class="col-12">
-                <textarea name="description" placeholder="Event description"></textarea>
+            <div class="row no-gutters event-description">
+                <div class="col-12">
+                    <textarea required name="description" placeholder="Event description"></textarea>
+                </div>
             </div>
-        </div>
-        <footer class="row no-gutters">
-            <div class="col-12 create-btn">
-                <button type="button" class="btn" data-toggle="modal" data-target="#attend-event-modal">
-                    Create
-                    <span>
-                        <i class="fas fa-check icon-right"></i>
-                    </span>
-                </button>
-            </div>
-        </footer>
+            <footer class="row no-gutters">
+                <div class="col-12 create-btn">
+                    <button type="submit" class="btn">
+                        Create
+                        <span>
+                            <i class="fas fa-check icon-right"></i>
+                        </span>
+                    </button>
+                </div>
+            </footer>
+        </form>
     </div>
 </body>
 
