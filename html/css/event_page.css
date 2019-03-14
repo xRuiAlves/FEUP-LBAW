@@ -228,9 +228,15 @@
 }
 
 .post .add-comment::after {
-    content: 'Enter to submit. Shift + Enter to add new line.';
+    content: 'Enter to submit. Ctrl + Enter to add new line.';
     font-size: 0.8em;
     color: var(--color-grey);
+}
+
+@media only screen and (min-width: 576px) {
+    .post .name::after {
+        content: ' - '
+    }
 }
 
 @media only screen and (max-width: 576px) {
