@@ -231,13 +231,13 @@
         <div class="row" id="admin-tabs">
             <div class="col-12 col-md-1 admin-tabs">
                 <div class="row nav nav-pills" role="tablist">
-                    <button id="user-tab" class="col-6 col-md-12 container admin-tab nav-link active" data-toggle="pill" role="tab" data-parent="#admin-tabs" data-target="#user-collapse">
+                    <button id="user-tab" class="col-4 col-md-12 container admin-tab nav-link active" data-toggle="pill" role="tab" data-parent="#admin-tabs" data-target="#user-collapse">
                         Users
                     </button>
-                    <button id="events-tab" class="col-6 col-md-12 container admin-tab nav-link" data-toggle="pill" role="tab" data-parent="#admin-tabs" data-target="#enable-disable-collapse">
+                    <button id="events-tab" class="col-4 col-md-12 container admin-tab nav-link" data-toggle="pill" role="tab" data-parent="#admin-tabs" data-target="#enable-disable-collapse">
                         Events
                     </button>
-                    <button id="issues-tab" class="col-6 col-md-12 container admin-tab nav-link" data-toggle="pill" role="tab" data-parent="#admin-tabs" data-target="#issues-collapse">
+                    <button id="issues-tab" class="col-4 col-md-12 container admin-tab nav-link" data-toggle="pill" role="tab" data-parent="#admin-tabs" data-target="#issues-collapse">
                         Issues
                     </button>
                 </div>
@@ -253,6 +253,12 @@
                                 <div class="searchbar-container">
                                     <input class="searchbar" type="text" placeholder="User name, email, ..." />
                                     <i class="fas fa-search icon-right"></i>
+                                </div>
+                                <div class="row">
+                                    <div class="col-12">
+                                        <button class="btn action-btn">Ban selected users</button>
+                                        <button class="btn action-btn">Un-Ban selected users</button>
+                                    </div>
                                 </div>
                                 <table class="table content-table">
                                     <thead>
@@ -331,20 +337,20 @@
                                 <input class="searchbar" type="text" placeholder="Event, user, issue id, ..." />
                                 <i class="fas fa-search icon-right"></i>
                             </div>
+                            
                             <table class="table">
                                 <thead>
                                     <tr>
-                                        <th></th>
                                         <th>Id</th>
                                         <th>Name</th>
                                         <th>Date</th>
                                         <th>Time</th>
                                         <th>Content</th>
+                                        <th></th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <tr>
-                                        <th><input type="checkbox"/></th>
                                         <th>1</th>
                                         <th>Ricardo Dias</th>
                                         <th>17.04.2019</th>
@@ -353,9 +359,9 @@
                                             I was recently removed from the "Corrida 25 Abril" event. I contacted the event administrators, and they reported that they
                                             had not removed me. Was this an application error?
                                         </th>
+                                        <th><button class="btn action-btn">Close</button></th>
                                     </tr>
                                     <tr>
-                                        <th><input type="checkbox"/></th>
                                         <th>2</th>
                                         <th>Marta Teixeira Sousa</th>
                                         <th>13.03.2019</th>
@@ -364,9 +370,9 @@
                                             Hello, my name is Marta. I recently joined your application and I want to organize an event. Is the organization really tax
                                             free?
                                         </th>
+                                        <th><button class="btn action-btn">Close</button></th>
                                     </tr>
                                     <tr>
-                                        <th><input type="checkbox"/></th>
                                         <th>3</th>
                                         <th>Henrique Soares Neto</th>
                                         <th>07.03.2019</th>
@@ -375,30 +381,31 @@
                                             Hello, my name is Henrique. I recently joined your application and I want to organize an event. Is the organization really
                                             tax free?
                                         </th>
+                                        <th><button class="btn action-btn">Close</button></th>
                                     </tr>
                                     <tr>
-                                        <th><input type="checkbox"/></th>
                                         <th>4</th>
                                         <th>Mario Lopes</th>
                                         <th>19.02.2019</th>
                                         <th>13:45</th>
                                         <th>I removed event by mistake please help?</th>
+                                        <th><button class="btn action-btn">Close</button></th>
                                     </tr>
                                     <tr>
-                                        <th><input type="checkbox"/></th>
                                         <th>5</th>
                                         <th>Diego de los Santos</th>
                                         <th>19.02.2019</th>
                                         <th>13:12</th>
                                         <th>Was the "Oporto Beer Festival" event closed?</th>
+                                        <th><button class="btn action-btn">Close</button></th>
                                     </tr>
                                     <tr>
-                                        <th><input type="checkbox"/></th>
                                         <th>6</th>
                                         <th>Sarah van Peterson</th>
                                         <th>02.01.2019</th>
                                         <th>09:51</th>
                                         <th>Do I have any event creation limitation? Or am I free to organize as many events as I desire?</th>
+                                        <th><button class="btn action-btn">Close</button></th>
                                     </tr>
                                 </tbody>
                             </table>
@@ -430,6 +437,12 @@
                                 <div class="searchbar-container">
                                     <input class="searchbar" type="text" placeholder="Event name, location, ..." />
                                     <i class="fas fa-search icon-right"></i>
+                                </div>
+                                <div class="row">
+                                    <div class="col-12">
+                                        <button class="btn action-btn">Disable selected events</button>
+                                        <button class="btn action-btn">Enable selected events</button>
+                                    </div>
                                 </div>
                                 <table class="table content-table">
                                     <thead>

@@ -5,6 +5,16 @@ body {
     background-color:white;
 }
 
+button {
+    background-color: white;
+}
+
+button.action-btn {
+    color: var(--secondary-color-medium);
+    background-color: var(--color-grey-light);
+    margin-bottom: 0.5em;
+}
+
 .admin-dashboard-container {
     position: relative;
     top: 2em;
@@ -20,7 +30,6 @@ body {
 }
 
 button.admin-tab {
-    background-color: white;
     padding: 0.5em;
     text-align: center;
     cursor: pointer;
@@ -166,10 +175,6 @@ button.admin-tab:focus {
 .admin-dashboard-collapse .events-list .event .event-name .event-button.disable-button {
     background: var(--danger-red);
     border: 1px solid var(--danger-red-dark);
-}
-
-.page-selectors button {
-    background-color: white;
 }
 
 @media only screen and (max-width: 768px) {
