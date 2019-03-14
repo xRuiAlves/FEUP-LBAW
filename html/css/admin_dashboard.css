@@ -168,6 +168,10 @@ button.admin-tab:focus {
     border: 1px solid var(--danger-red-dark);
 }
 
+.page-selectors button {
+    background-color: white;
+}
+
 @media only screen and (max-width: 768px) {
     
     .admin-dashboard-container .admin-tabs {
