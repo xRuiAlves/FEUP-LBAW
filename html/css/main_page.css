@@ -348,3 +348,8 @@ a:hover {
     color: var(--secondary-color-medium-dark);
     margin-bottom: 1em;
 }
+
+.faq-link, .faq-link:hover {
+    color: var(--secondary-color-medium);
+    font-weight: bold;
+}
