@@ -111,6 +111,7 @@
     border-bottom: 3px solid var(--secondary-color-light);
     border-radius: 0;
     color: var(--secondary-color-light);
+    font-size: 1.2em;
 }
 
 .event-card .nav-item.active, .card-container .nav-item.active:hover {
@@ -264,12 +265,18 @@
     }
 
     .event-card .nav-item.nav-link {
-        font-size: 0.8em;
-        width: 40%;
+        width: 100%;
+        margin-top: 1px;
+        color: var(--color-grey-dark);
+        border-color: var(--color-grey-dark);
     }
     
     .event-card .nav-item.nav-link.active {
-        width: 60%;
+        width: 100%;
+        font-weight: bold;
+        background-color: white;
+        color: var(--secondary-color-medium);
+        border-color: var(--secondary-color-medium);
     }
 
     .event-card .attend-btn {
