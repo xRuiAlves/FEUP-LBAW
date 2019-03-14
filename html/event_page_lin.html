@@ -364,69 +364,188 @@
                             </div>
                         </div>
                     </div>
+
                     <div class="tab-pane fade" id="nav-discussion" role="tabpanel" aria-labelledby="nav-discussion-tab">
-                        <div class="discussions-area">
-                            <div class="add-btn" data-toggle="modal" data-target="#create-post-modal">
-                                <span>
-                                    <i class="far fa-edit"></i>
-                                </span>
-                                Create Post
-                            </div>
-                            <div class="post">
-                                <div class="icon">
+                            <div class="discussions-area">
+                                <div class="add-btn" data-toggle="modal" data-target="#login_modal">
                                     <span>
-                                        <i class="fas fa-reply"></i>
+                                        <i class="far fa-edit"></i>
                                     </span>
+                                    Create Post
                                 </div>
-                                <div class="content">
-                                    <div class="date">
-                                        08.04.2019 | 14:21
+                                <div class="post">
+                                    <div class="icon">
+                                        <span>
+                                            <i class="fas fa-reply"></i>
+                                        </span>
                                     </div>
-                                    <div class="text">
-                                        Really glad that Núcleo de Informática (NIAEFEUP) is responsible of organizing this year's edition! The last edition was
-                                        a lot of fun, and I'm sure they'll have a lot of great surprises expecting us.
+                                    <div class="content">
+                                        <div class="name">
+                                            A User's Name
+                                        </div>
+                                        <div class="date">
+                                            08.04.2019 14:21
+                                        </div>
+                                        <div class="text">
+                                            Really glad that Núcleo de Informática (NIAEFEUP) is responsible of organizing
+                                            this year's edition! The last edition was
+                                            a lot of fun, and I'm sure they'll have a lot of great surprises expecting us.
+                                        </div>
+                                        <a class="comments-toggler" data-toggle="collapse" href="#comments_section_1"
+                                            role="button" aria-expanded="false" aria-controls="comments_section_1">
+                                            2 comments
+                                        </a>
+                                        <div class="collapse" id="comments_section_1">
+                                            <div class="comment">
+                                                <div class="name">
+                                                    Random User's Name
+                                                </div>
+                                                <div class="date">
+                                                    08.04.2019 14:22
+                                                </div>
+                                                <div class="text">
+                                                    Really glad, and now I'm just going to write a super long comment for no
+                                                    reason at all, just so I can test this UI thoroughly. And it seems the
+                                                    last sentence was not enough so I just added this one.
+                                                </div>
+    
+                                            </div>
+                                            <div class="comment">
+                                                <div class="name">
+                                                    Another User's Name
+                                                </div>
+                                                <div class="date">
+                                                    08.04.2019 14:23
+                                                </div>
+                                                <div class="text">
+                                                    Really glad, and now I'm just going to write a super long comment for no
+                                                    reason at all, just so I can test this UI thoroughly. And it seems the
+                                                    last sentence was not enough so I just added this one.
+                                                </div>
+    
+                                            </div>
+                                            <div class="add-comment">
+                                                <textarea name="comment" placeholder="Add a comment..."></textarea>
+                                            </div>
+                                        </div>
                                     </div>
-                                    <div class="comments-toggler">0 comments</div>
                                 </div>
-                            </div>
-                            <div class="post">
-                                <div class="icon">
-                                    <span>
-                                        <i class="fas fa-reply"></i>
-                                    </span>
+                                <div class="post">
+                                    <div class="icon">
+                                        <span>
+                                            <i class="fas fa-reply"></i>
+                                        </span>
+                                    </div>
+                                    <div class="content">
+                                        <div class="name">
+                                            A User's Name
+                                        </div>
+                                        <div class="date">
+                                            02.04.2019 08:12
+                                        </div>
+                                        <div class="text">
+                                            The amount of workshops that are taking place is actually amazing! As an
+                                            attendee, may I attend whichever workshops I desire,
+                                            or do I have some kind of limitation? Can't wait for this year's edition!
+                                        </div>
+                                        <a class="comments-toggler" data-toggle="collapse" href="#comments_section_2"
+                                            role="button" aria-expanded="false" aria-controls="comments_section_2">
+                                            2 comments
+                                        </a>
+                                        <div class="collapse" id="comments_section_2">
+                                            <div class="comment">
+                                                <div class="name">
+                                                    Random User's Name
+                                                </div>
+                                                <div class="date">
+                                                    08.04.2019 14:22
+                                                </div>
+                                                <div class="text">
+                                                    Really glad, and now I'm just going to write a super long comment for no
+                                                    reason at all, just so I can test this UI thoroughly. And it seems the
+                                                    last sentence was not enough so I just added this one.
+                                                </div>
+    
+                                            </div>
+                                            <div class="comment">
+                                                <div class="name">
+                                                    Another User's Name
+                                                </div>
+                                                <div class="date">
+                                                    08.04.2019 14:23
+                                                </div>
+                                                <div class="text">
+                                                    Really glad, and now I'm just going to write a super long comment for no
+                                                    reason at all, just so I can test this UI thoroughly. And it seems the
+                                                    last sentence was not enough so I just added this one.
+                                                </div>
+    
+                                            </div>
+                                            <div class="add-comment">
+                                                <textarea name="comment" placeholder="Add a comment..."></textarea>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class="content">
-                                    <div class="date">
-                                        02.04.2019 | 08:12
+                                <div class="post">
+                                    <div class="icon">
+                                        <span>
+                                            <i class="fas fa-reply"></i>
+                                            </i>
+                                        </span>
                                     </div>
-                                    <div class="text">
-                                        The amount of workshops that are taking place is actually amazing! As an attendee, may I attend whichever workshops I desire,
-                                        or do I have some kind of limitation? Can't wait for this year's edition!
-                                    </div>
-                                    <div class="comments-toggler">0 comments</div>
-                                </div>
-                            </div>
-                            <div class="post">
-                                <div class="icon">
-                                    <span>
-                                        <i class="fas fa-reply"></i>
-                                        </i>
-                                    </span>
-                                </div>
-                                <div class="content">
-                                    <div class="date">
-                                        30.03.2019 | 13:30
-                                    </div>
-                                    <div class="text">
-                                        Well, this year's ticketing option seems like a much better aproach than Eventbrite.
-                                    </div>
-                                    <div class="comments-toggler">
-                                        0 comments
+                                    <div class="content">
+                                        <div class="name">
+                                            A User's Name
+                                        </div>
+                                        <div class="date">
+                                            30.03.2019 13:30
+                                        </div>
+                                        <div class="text">
+                                            Well, this year's ticketing option seems like a much better aproach than
+                                            Eventbrite.
+                                        </div>
+                                        <a class="comments-toggler" data-toggle="collapse" href="#comments_section_3"
+                                            role="button" aria-expanded="false" aria-controls="comments_section_3">
+                                            2 comments
+                                        </a>
+                                        <div class="collapse" id="comments_section_3">
+                                            <div class="comment">
+                                                <div class="name">
+                                                    Random User's Name
+                                                </div>
+                                                <div class="date">
+                                                    08.04.2019 14:22
+                                                </div>
+                                                <div class="text">
+                                                    Really glad, and now I'm just going to write a super long comment for no
+                                                    reason at all, just so I can test this UI thoroughly. And it seems the
+                                                    last sentence was not enough so I just added this one.
+                                                </div>
+    
+                                            </div>
+                                            <div class="comment">
+                                                <div class="name">
+                                                    Another User's Name
+                                                </div>
+                                                <div class="date">
+                                                    08.04.2019 14:23
+                                                </div>
+                                                <div class="text">
+                                                    Really glad, and now I'm just going to write a super long comment for no
+                                                    reason at all, just so I can test this UI thoroughly. And it seems the
+                                                    last sentence was not enough so I just added this one.
+                                                </div>
+    
+                                            </div>
+                                            <div class="add-comment">
+                                                <textarea name="comment" placeholder="Add a comment..."></textarea>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
                 </div>
 
             </div>
