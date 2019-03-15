@@ -53,13 +53,18 @@
     padding: 0.5em 0;
 }
 
+.event-card .btn.voucher-btn {
+    padding: 0;
+    margin-bottom: 1em;
+    background-color: transparent;
+    font-size: 1.2em;
+    color: var(--primary-color);
+    font-weight: bold;
+}
+
 /* Fixing disabled button styling */
 .attend-btn button:disabled, .attend-btn button:disabled:hover {
    background-color: var(--secondary-color-medium);
-}
-
-.event-card .attend-btn {
-    margin-bottom: 2em;
 }
 
 .attend-btn button i {
@@ -240,6 +245,17 @@
     .card-container.event-card .edit-btn a {
         color: white;
         padding-left: 0;
+        font-size: 0.9em;
+    }
+
+    .event-card .voucher-btn-container {
+        background-color: var(--primary-color);
+    }
+
+    .event-card .btn.voucher-btn {
+        margin-top: 0.5em;
+        margin-bottom: 0;
+        color: white;
         font-size: 0.9em;
     }
 
