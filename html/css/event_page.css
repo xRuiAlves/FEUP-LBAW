@@ -218,6 +218,11 @@
     cursor: pointer;
 }
 
+#voucher-modal .voucher-code {
+    font-weight: bold;
+    font-size: 0.9em;
+}
+
 @media only screen and (max-width: 576px) {
 
     .card-container.event-card .main {
