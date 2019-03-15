@@ -228,7 +228,7 @@ a:hover {
 .events a.event-card {
     display: block;
     border-radius: 1em;
-    margin-top: -1.5em;
+    margin-top: 1em;
     transition: transform 0.1s linear;
     color: var(--secondary-color-medium);
     cursor: pointer;
@@ -263,7 +263,6 @@ a:hover {
 
 @media only screen and (max-width: 576px) {
     .events a.event-card {
-        margin: 1em;
         width: Calc(100% - 2em);
         padding: 1.5em 1em;
     }
