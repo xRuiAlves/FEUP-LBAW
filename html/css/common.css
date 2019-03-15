@@ -2,6 +2,10 @@
 
 /************ CARD CONTAINER **************/
 
+#page-card {
+    margin-bottom: 35vh;
+}
+
 .card-container {
     background-color: var(--color-grey-light);
     border-radius: 0.5em;
@@ -183,4 +187,11 @@ a.my-btn {
 
 .icon-right {
     margin-left: 0.5em;
+}
+
+footer.page-footer {
+    padding: 4em;
+    padding-bottom: 1em;
+    color: var(--secondary-color-medium);
+    background-color: white;
 }

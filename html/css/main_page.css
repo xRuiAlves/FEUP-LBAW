@@ -283,7 +283,7 @@ a:hover {
 
 .white-section {
     margin-top: 10em;
-    padding: 6em 2em;
+    padding: 6em 5em 0em 5em;
     background-color: white;
     color: var(--secondary-color-dark);
 }
