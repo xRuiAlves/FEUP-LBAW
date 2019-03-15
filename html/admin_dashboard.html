@@ -27,7 +27,7 @@
         <div class="container">
             <a class="navbar-brand" href="/index_lin.html">Eventually</a>
 
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+            <button class="navbar-toggler " type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                 aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon">
                     <i class="fas fa-bars"></i>
@@ -56,7 +56,7 @@
                         </div>
                     </li>
                     <li class="nav-item">
-                        <div title="Submit an Issue" class="nav-link issues-item" data-toggle="collapse" data-target="#submit-issue-collapse">
+                        <div title="Submit an Issue" class="nav-link issues-item" data-toggle="collapse" data-target="#submit-issue">
                             <i class="fas fa-exclamation-triangle nav-item-icon"></i>
                             <span class="nav-item-label">Submit an Issue</span>
                         </div>
@@ -78,11 +78,11 @@
         </div>
     </nav>
 
-    <div id="submit-issue-collapse" class="collapse fade font-content" tabindex="-1" role="dialog">
+    <div id="submit-issue" class="collapse fade font-content" tabindex="-1" role="dialog">
         <div class="collapse-dialog collapse-dialog-centered" role="document">
             <div class="collapse-content">
                 <div class="collapse-header">
-                    <div class="collapse-title custom-collapse-title">Submit an Issue</div>
+                    <div class="collapse-title custom-title">Submit an Issue</div>
                     <button type="button" class="close" data-dismiss="collapse" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -104,7 +104,7 @@
         <div class="collapse-dialog collapse-dialog-centered" role="document">
             <div class="collapse-content">
                 <div class="collapse-header">
-                    <div class="collapse-title custom-collapse-title">Notifications</div>
+                    <div class="collapse-title custom-title">Notifications</div>
                     <button type="button" class="close" data-dismiss="collapse" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -229,90 +229,92 @@
             <hr>
         </div>
         <div class="row" id="admin-tabs">
-            <div class="col-12 col-md-1 admin-tabs">
-                <div class="row nav nav-pills" role="tablist">
-                    <button id="user-tab" class="col-4 col-md-12 container admin-tab nav-link active" data-toggle="pill" role="tab" data-parent="#admin-tabs" data-target="#user-collapse">
+            <div class="col-12 col-md-1">
+                <div class="row no-guters nav nav-pills" role="tablist">
+                    <button id="user-tab" class="col-4 col-md-12 container admin-tab nav-link active" data-toggle="pill" role="tab" data-parent="#admin-tabs" data-target="#user-table">
                         Users
                     </button>
-                    <button id="events-tab" class="col-4 col-md-12 container admin-tab nav-link" data-toggle="pill" role="tab" data-parent="#admin-tabs" data-target="#enable-disable-collapse">
+                    <button id="events-tab" class="col-4 col-md-12 container admin-tab nav-link" data-toggle="pill" role="tab" data-parent="#admin-tabs" data-target="#events-table">
                         Events
                     </button>
-                    <button id="issues-tab" class="col-4 col-md-12 container admin-tab nav-link" data-toggle="pill" role="tab" data-parent="#admin-tabs" data-target="#issues-collapse">
+                    <button id="issues-tab" class="col-4 col-md-12 container admin-tab nav-link" data-toggle="pill" role="tab" data-parent="#admin-tabs" data-target="#issues-table">
                         Issues
                     </button>
                 </div>
             </div>
             <div class="col-12 col-md-11 admin-tab-content tab-content">
-                <div id="user-collapse" data-parent="#admin-tabs" class="tab-pane fade show active admin-dashboard-collapse" tabindex="-1" role="tabpanel">
+                <div id="user-table" data-parent="#admin-tabs" class="tab-pane fade show active admin-dashboard" tabindex="-1" role="tabpanel">
                     <div class="collapse-dialog collapse-dialog-centered" role="document">
                         <div class="collapse-content">
                             <div class="collapse-header">
-                                <div class="collapse-title custom-collapse-title">Users</div>
+                                <div class="collapse-title custom-title">Users</div>
                             </div>
                             <div class="collapse-body">
                                 <div class="searchbar-container">
                                     <input class="searchbar" type="text" placeholder="User name, email, ..." />
                                     <i class="fas fa-search icon-right"></i>
                                 </div>
-                                <div class="row">
+                                <div class="row no-gutters">
                                     <div class="col-12">
                                         <button class="btn action-btn">Ban selected users</button>
                                         <button class="btn action-btn">Un-Ban selected users</button>
                                     </div>
                                 </div>
-                                <table class="table content-table">
-                                    <thead>
-                                        <tr>
-                                            <th></th>
-                                            <th>Nome</th>
-                                            <th>Email</th>
-                                            <th>Was banned</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <th><input type="checkbox"></th>
-                                            <th>Diego de los Santos</th>
-                                            <th>di.santos_upc@flash.mail.com</th>
-                                            <th>No</th>
-                                        </tr>
-                                        <tr>
-                                            <th><input type="checkbox"></th>
-                                            <th>Henrique Soares Neto</th>
-                                            <th>hneto.lol.99@amazon.mail.com</th>
-                                            <th>Yes</th>
-                                        </tr>
-                                        <tr>
-                                            <th><input type="checkbox"></th>
-                                            <th>Mario Lopes</th>
-                                            <th>doc_iz_here@flash.mail.com</th>
-                                            <th>No</th>
-                                        </tr>
-                                        <tr>
-                                            <th><input type="checkbox"></th>
-                                            <th>Marta Teixeira Sousa</th>
-                                            <th>mts.96@tuga.mail.pt</th>
-                                            <th>No</th>
-                                        </tr>
-                                        <tr>
-                                            <th><input type="checkbox"></th>
-                                            <th>Ricardo Dias</th>
-                                            <th>rickydias.84@utad.pt</th>
-                                            <th>Yes</th>
-                                        </tr>
-                                        <tr>
-                                            <th><input type="checkbox"></th>
-                                            <th>Sarah van Peterson</th>
-                                            <th>sarah_zone@cambridge.en</th>
-                                            <th>No</th>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                                <div class="row page-selectors">
-                                    <div class="col-4"></div>
-                                    <div class="col-4">
+                                <div class="content-table">
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+                                                <th></th>
+                                                <th>Nome</th>
+                                                <th>Email</th>
+                                                <th>Was banned</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td><input type="checkbox"></td>
+                                                <td>Diego de los Santos</td>
+                                                <td>di.santos_upc@flash.mail.com</td>
+                                                <td>No</td>
+                                            </tr>
+                                            <tr>
+                                                <td><input type="checkbox"></td>
+                                                <td>Henrique Soares Neto</td>
+                                                <td>hneto.lol.99@amazon.mail.com</td>
+                                                <td>Yes</td>
+                                            </tr>
+                                            <tr>
+                                                <td><input type="checkbox"></td>
+                                                <td>Mario Lopes</td>
+                                                <td>doc_iz_here@flash.mail.com</td>
+                                                <td>No</td>
+                                            </tr>
+                                            <tr>
+                                                <td><input type="checkbox"></td>
+                                                <td>Marta Teixeira Sousa</td>
+                                                <td>mts.96@tuga.mail.pt</td>
+                                                <td>No</td>
+                                            </tr>
+                                            <tr>
+                                                <td><input type="checkbox"></td>
+                                                <td>Ricardo Dias</td>
+                                                <td>rickydias.84@utad.pt</td>
+                                                <td>Yes</td>
+                                            </tr>
+                                            <tr>
+                                                <td><input type="checkbox"></td>
+                                                <td>Sarah van Peterson</td>
+                                                <td>sarah_zone@cambridge.en</td>
+                                                <td>No</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class="row no-gutters page-selectors">
+                                    <div class="col-3 col-md-4"></div>
+                                    <div class="col-6 col-md-4">
                                         <div class="row">
-                                            <button class="btn col-2 font-weight-bold">1</button>
+                                            <button class="btn col-2 font-weight-bold selected-page">1</button>
                                             <button class="btn col-2">2</button>
                                             <button class="btn col-2">3</button>
                                             <button class="btn col-2">4</button>
@@ -320,100 +322,114 @@
                                             <button class="btn col-2">999</button>
                                         </div>
                                     </div>
-                                    <div class="col-4"></div>
+                                    <div class="col-3 col-md-4"></div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
                 
-                <div id="issues-collapse" data-parent="#admin-tabs" class="tab-pane fade font-content admin-dashboard-collapse" tabindex="-1" role="tabpanel">
+                <div id="issues-table" data-parent="#admin-tabs" class="tab-pane fade font-content admin-dashboard" tabindex="-1" role="tabpanel">
                     <div class="collapse-dialog collapse-dialog-centered" role="document">
                         <div class="collapse-content">
                             <div class="collapse-header">
-                                <div class="collapse-title custom-collapse-title">Issues</div>
+                                <div class="collapse-title custom-title">Issues</div>
                             </div>
                             <div class="searchbar-container">
                                 <input class="searchbar" type="text" placeholder="Event, user, issue id, ..." />
                                 <i class="fas fa-search icon-right"></i>
                             </div>
-                            
-                            <table class="table">
-                                <thead>
-                                    <tr>
-                                        <th>Id</th>
-                                        <th>Name</th>
-                                        <th>Date</th>
-                                        <th>Time</th>
-                                        <th>Content</th>
-                                        <th></th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <th>1</th>
-                                        <th>Ricardo Dias</th>
-                                        <th>17.04.2019</th>
-                                        <th>15:30</th>
-                                        <th>
-                                            I was recently removed from the "Corrida 25 Abril" event. I contacted the event administrators, and they reported that they
-                                            had not removed me. Was this an application error?
-                                        </th>
-                                        <th><button class="btn action-btn">Close</button></th>
-                                    </tr>
-                                    <tr>
-                                        <th>2</th>
-                                        <th>Marta Teixeira Sousa</th>
-                                        <th>13.03.2019</th>
-                                        <th>08:57</th>
-                                        <th>
-                                            Hello, my name is Marta. I recently joined your application and I want to organize an event. Is the organization really tax
-                                            free?
-                                        </th>
-                                        <th><button class="btn action-btn">Close</button></th>
-                                    </tr>
-                                    <tr>
-                                        <th>3</th>
-                                        <th>Henrique Soares Neto</th>
-                                        <th>07.03.2019</th>
-                                        <th>16:32</th>
-                                        <th>
-                                            Hello, my name is Henrique. I recently joined your application and I want to organize an event. Is the organization really
-                                            tax free?
-                                        </th>
-                                        <th><button class="btn action-btn">Close</button></th>
-                                    </tr>
-                                    <tr>
-                                        <th>4</th>
-                                        <th>Mario Lopes</th>
-                                        <th>19.02.2019</th>
-                                        <th>13:45</th>
-                                        <th>I removed event by mistake please help?</th>
-                                        <th><button class="btn action-btn">Close</button></th>
-                                    </tr>
-                                    <tr>
-                                        <th>5</th>
-                                        <th>Diego de los Santos</th>
-                                        <th>19.02.2019</th>
-                                        <th>13:12</th>
-                                        <th>Was the "Oporto Beer Festival" event closed?</th>
-                                        <th><button class="btn action-btn">Close</button></th>
-                                    </tr>
-                                    <tr>
-                                        <th>6</th>
-                                        <th>Sarah van Peterson</th>
-                                        <th>02.01.2019</th>
-                                        <th>09:51</th>
-                                        <th>Do I have any event creation limitation? Or am I free to organize as many events as I desire?</th>
-                                        <th><button class="btn action-btn">Close</button></th>
-                                    </tr>
-                                </tbody>
-                            </table>
-                            <div class="row page-selectors">
-                                <div class="col-4"></div>
-                                <div class="col-4">
+                            <div class="row no-gutters">
+                                <div class="col-12">
+                                    <button class="btn action-btn">Close selected issues</button>
+                                    <button class="btn float-right">Show closed issues</button>
+                                </div>
+                            </div>
+                            <div class="content-table">
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th></th>
+                                            <th>Id</th>
+                                            <th>Name</th>
+                                            <th>Date</th>
+                                            <th>Time</th>
+                                            <th>Content</th>
+                                            <th></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td><input type="checkbox"/></td>
+                                            <td>1</td>
+                                            <td>Ricardo Dias</td>
+                                            <td>17.04.2019</td>
+                                            <td>15:30</td>
+                                            <td>
+                                                I was recently removed from tde "Corrida 25 Abril" event. I contacted tde event administrators, and tdey reported tdat tdey
+                                                had not removed me. Was tdis an application error?
+                                            </td>
+                                            <td><button class="btn action-btn">Close</button></td>
+                                        </tr>
+                                        <tr>
+                                            <td><input type="checkbox"/></td>
+                                            <td>2</td>
+                                            <td>Marta Teixeira Sousa</td>
+                                            <td>13.03.2019</td>
+                                            <td>08:57</td>
+                                            <td>
+                                                Hello, my name is Marta. I recently joined your application and I want to organize an event. Is tde organization really tax
+                                                free?
+                                            </td>
+                                            <td><button class="btn action-btn">Close</button></td>
+                                        </tr>
+                                        <tr>
+                                            <td><input type="checkbox"/></td>
+                                            <td>3</td>
+                                            <td>Henrique Soares Neto</td>
+                                            <td>07.03.2019</td>
+                                            <td>16:32</td>
+                                            <td>
+                                                Hello, my name is Henrique. I recently joined your application and I want to organize an event. Is tde organization really
+                                                tax free?
+                                            </td>
+                                            <td><button class="btn action-btn">Close</button></td>
+                                        </tr>
+                                        <tr>
+                                            <td><input type="checkbox"/></td>
+                                            <td>4</td>
+                                            <td>Mario Lopes</td>
+                                            <td>19.02.2019</td>
+                                            <td>13:45</td>
+                                            <td>I removed event by mistake please help?</td>
+                                            <td><button class="btn action-btn">Close</button></td>
+                                        </tr>
+                                        <tr>
+                                            <td><input type="checkbox"/></td>
+                                            <td>5</td>
+                                            <td>Diego de los Santos</td>
+                                            <td>19.02.2019</td>
+                                            <td>13:12</td>
+                                            <td>Was tde "Oporto Beer Festival" event closed?</td>
+                                            <td><button class="btn action-btn">Close</button></td>
+                                        </tr>
+                                        <tr>
+                                            <td><input type="checkbox"/></td>
+                                            <td>6</td>
+                                            <td>Sarah van Peterson</td>
+                                            <td>02.01.2019</td>
+                                            <td>09:51</td>
+                                            <td>Do I have any event creation limitation? Or am I free to organize as many events as I desire?</td>
+                                            <td><button class="btn action-btn">Close</button></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="row no-gutters page-selectors">
+                                <div class="col-3 col-md-4"></div>
+                                <div class="col-6 col-md-4">
                                     <div class="row">
-                                        <button class="btn col-2 font-weight-bold">1</button>
+                                        <button class="btn col-2 font-weight-bold selected-page">1</button>
                                         <button class="btn col-2">2</button>
                                         <button class="btn col-2">3</button>
                                         <button class="btn col-2">4</button>
@@ -421,103 +437,105 @@
                                         <button class="btn col-2">999</button>
                                     </div>
                                 </div>
-                                <div class="col-4"></div>
+                                <div class="col-3 col-md-4"></div>
                             </div>
                         </div>
                     </div>
                 </div>
             
-                <div id="enable-disable-collapse" data-parent="#admin-tabs" class="tab-pane fade font-content admin-dashboard-collapse" tabindex="-1" role="tabpanel">
+                <div id="events-table" data-parent="#admin-tabs" class="tab-pane fade font-content admin-dashboard" tabindex="-1" role="tabpanel">
                     <div class="collapse-dialog collapse-dialog-centered" role="document">
                         <div class="collapse-content">
                             <div class="collapse-header">
-                                <div class="collapse-title custom-collapse-title">Events</div>
+                                <div class="collapse-title custom-title">Events</div>
                             </div>
                             <div class="collapse-body">
                                 <div class="searchbar-container">
                                     <input class="searchbar" type="text" placeholder="Event name, location, ..." />
                                     <i class="fas fa-search icon-right"></i>
                                 </div>
-                                <div class="row">
+                                <div class="row no-gutters">
                                     <div class="col-12">
                                         <button class="btn action-btn">Disable selected events</button>
                                         <button class="btn action-btn">Enable selected events</button>
                                     </div>
                                 </div>
-                                <table class="table content-table">
-                                    <thead>
-                                        <tr>
-                                            <th></th>
-                                            <th>Title</th>
-                                            <th>Status</th>
-                                            <th>Start Date</th>
-                                            <th>End Date</th>
-                                            <th>Location</th>
-                                            <th>Pricing</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>                
-                                        <tr>
-                                            <th><input type="checkbox"/></th>
-                                            <th>Beach Party @Braga Social Center</th>
-                                            <th>Active</th>
-                                            <th>17.05.2019</th>
-                                            <th>-</th>
-                                            <th>Braga, Portugal</th>
-                                            <th>10.00€</th>
-                                        </tr>
-                                        <tr>
-                                            <th><input type="checkbox"/></th>
-                                            <th>Semana de Informática 2019</th>
-                                            <th>Disabled</th>
-                                            <th>18.04.2019</th>
-                                            <th>19.04.2019</th>
-                                            <th>Porto, Portugal</th>
-                                            <th>25.17€</th>
-                                        </tr>
-                                        <tr>
-                                            <th><input type="checkbox"/></th>
-                                            <th>Traditionelle deutsche Tänze</th>
-                                            <th>Cancelled</th>
-                                            <th>21.05.2019</th>
-                                            <th>-</th>
-                                            <th>Mannheim, Germany</th>
-                                            <th>3.50€</th>
-                                        </tr>
-                                        <tr>
-                                            <th><input type="checkbox"/></th>
-                                            <th>Functional Progamming using Phoenix + Elixir - The perks of being a Back End Developer</th>
-                                            <th>Active</th>
-                                            <th>18.04.2019</th>
-                                            <th>-</th>
-                                            <th>Madrid, Spain</th>
-                                            <th>12.00€</th>
-                                        </tr>
-                                        <tr>
-                                            <th><input type="checkbox"/></th>
-                                            <th>Politécnico Career Fest</th>
-                                            <th>Disabled</th>
-                                            <th>19.04.2019</th>
-                                            <th>-</th>
-                                            <th>Lisboa, Portugal</th>
-                                            <th>FREE</th>
-                                        </tr>
-                                        <tr>
-                                            <th><input type="checkbox"/></th>
-                                            <th>London Security Meetup - The secret life of SQL Injections</th>
-                                            <th>Disabled</th>
-                                            <th>19.04.2019</th>
-                                            <th>-</th>
-                                            <th>London, England</th>
-                                            <th>3.50€</th>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                                <div class="row page-selectors">
-                                    <div class="col-4"></div>
-                                    <div class="col-4">
+                                <div class="content-table">
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+                                                <th></th>
+                                                <th>Title</th>
+                                                <th>Status</th>
+                                                <th>Start Date</th>
+                                                <th>End Date</th>
+                                                <th>Location</th>
+                                                <th>Pricing</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>                
+                                            <tr>
+                                                <td><input type="checkbox"/></td>
+                                                <td>Beach Party @Braga Social Center</td>
+                                                <td>Active</td>
+                                                <td>17.05.2019</td>
+                                                <td>-</td>
+                                                <td>Braga, Portugal</td>
+                                                <td>10.00€</td>
+                                            </tr>
+                                            <tr>
+                                                <td><input type="checkbox"/></td>
+                                                <td>Semana de Informática 2019</td>
+                                                <td>Disabled</td>
+                                                <td>18.04.2019</td>
+                                                <td>19.04.2019</td>
+                                                <td>Porto, Portugal</td>
+                                                <td>25.17€</td>
+                                            </tr>
+                                            <tr>
+                                                <td><input type="checkbox"/></td>
+                                                <td>Traditionelle deutsche Tänze</td>
+                                                <td>Cancelled</td>
+                                                <td>21.05.2019</td>
+                                                <td>-</td>
+                                                <td>Mannheim, Germany</td>
+                                                <td>3.50€</td>
+                                            </tr>
+                                            <tr>
+                                                <td><input type="checkbox"/></td>
+                                                <td>Functional Progamming using Phoenix + Elixir - Tde perks of being a Back End Developer</td>
+                                                <td>Active</td>
+                                                <td>18.04.2019</td>
+                                                <td>-</td>
+                                                <td>Madrid, Spain</td>
+                                                <td>12.00€</td>
+                                            </tr>
+                                            <tr>
+                                                <td><input type="checkbox"/></td>
+                                                <td>Politécnico Career Fest</td>
+                                                <td>Disabled</td>
+                                                <td>19.04.2019</td>
+                                                <td>-</td>
+                                                <td>Lisboa, Portugal</td>
+                                                <td>FREE</td>
+                                            </tr>
+                                            <tr>
+                                                <td><input type="checkbox"/></td>
+                                                <td>London Security Meetup - Tde secret life of SQL Injections</td>
+                                                <td>Disabled</td>
+                                                <td>19.04.2019</td>
+                                                <td>-</td>
+                                                <td>London, England</td>
+                                                <td>3.50€</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class="row no-gutters page-selectors">
+                                    <div class="col-3 col-md-4"></div>
+                                    <div class="col-6 col-md-4">
                                         <div class="row">
-                                            <button class="btn col-2 font-weight-bold">1</button>
+                                            <button class="btn col-2 font-weight-bold selected-page">1</button>
                                             <button class="btn col-2">2</button>
                                             <button class="btn col-2">3</button>
                                             <button class="btn col-2">4</button>
@@ -525,7 +543,7 @@
                                             <button class="btn col-2">999</button>
                                         </div>
                                     </div>
-                                    <div class="col-4"></div>
+                                    <div class="col-3 col-md-4"></div>
                                 </div>
                             </div>
                         </div>
