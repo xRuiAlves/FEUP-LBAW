@@ -17,18 +17,17 @@
     
     <link rel="stylesheet" href="./css/constants.css">
     <link rel="stylesheet" href="./css/navbar.css">
-    <link rel="stylesheet" href="./css/admin_dashboard.css">
     <link rel="stylesheet" href="./css/common.css">
+    <link rel="stylesheet" href="./css/admin_dashboard.css">
 </head>
 
 <body>
-    <div class="regular-wave" id="background_wave"></div>
 
     <nav class="navbar navbar-expand-lg font-title">
         <div class="container">
             <a class="navbar-brand" href="/index_lin.html">Eventually</a>
 
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+            <button class="navbar-toggler " type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                 aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon">
                     <i class="fas fa-bars"></i>
@@ -57,7 +56,7 @@
                         </div>
                     </li>
                     <li class="nav-item">
-                        <div title="Submit an Issue" class="nav-link issues-item" data-toggle="collapse" data-target="#submit-issue-collapse">
+                        <div title="Submit an Issue" class="nav-link issues-item" data-toggle="collapse" data-target="#submit-issue">
                             <i class="fas fa-exclamation-triangle nav-item-icon"></i>
                             <span class="nav-item-label">Submit an Issue</span>
                         </div>
@@ -79,11 +78,11 @@
         </div>
     </nav>
 
-    <div id="submit-issue-collapse" class="collapse fade font-content" tabindex="-1" role="dialog">
+    <div id="submit-issue" class="collapse fade font-content" tabindex="-1" role="dialog">
         <div class="collapse-dialog collapse-dialog-centered" role="document">
             <div class="collapse-content">
                 <div class="collapse-header">
-                    <div class="collapse-title custom-collapse-title">Submit an Issue</div>
+                    <div class="collapse-title custom-title">Submit an Issue</div>
                     <button type="button" class="close" data-dismiss="collapse" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -105,7 +104,7 @@
         <div class="collapse-dialog collapse-dialog-centered" role="document">
             <div class="collapse-content">
                 <div class="collapse-header">
-                    <div class="collapse-title custom-collapse-title">Notifications</div>
+                    <div class="collapse-title custom-title">Notifications</div>
                     <button type="button" class="close" data-dismiss="collapse" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -221,7 +220,7 @@
         </div>
     </div>
 
-    <div id="page-card" class="container card-container font-content admin-dashboard-container">
+    <div class="font-content admin-dashboard-container">
         <header class="font-title">
             <h1>Administration Dashboard</h1>
         </header>
@@ -229,488 +228,327 @@
         <div class="separator">
             <hr>
         </div>
-        <div class="row" id="admin-actions">
-            <div class="col-4 admin-actions">
-                <div class="row">
-                    <button id="user-issues-action" class="container admin-action" data-toggle="collapse" data-parent="#admin-actions" data-target="#user-issues-collapse">
-                        View User Issues
+        <div class="row" id="admin-tabs">
+            <div class="col-12 col-md-1">
+                <div class="row no-guters nav nav-pills" role="tablist">
+                    <button id="user-tab" class="col-4 col-md-12 container admin-tab nav-link active" data-toggle="pill" role="tab" data-parent="#admin-tabs" data-target="#user-table">
+                        Users
                     </button>
-                </div>
-                <div class="row">
-                    <button id="enable-disable-action" class="container admin-action" data-toggle="collapse" data-parent="#admin-actions" data-target="#enable-disable-collapse">
-                        Enable/Disable Event
+                    <button id="events-tab" class="col-4 col-md-12 container admin-tab nav-link" data-toggle="pill" role="tab" data-parent="#admin-tabs" data-target="#events-table">
+                        Events
                     </button>
-                </div>
-                <div class="row">
-                    <button id="delete-user-action" class="container admin-action" data-toggle="collapse" data-parent="#admin-actions" data-target="#delete-user-collapse">
-                        Delete User Account
-                    </button>
-                </div>
-                <div class="row">
-                    <button id="admin-promotion-action" class="container admin-action" data-toggle="collapse" data-parent="#admin-actions" data-target="#admin-promotion-collapse">
-                        Promote User to Administrator
+                    <button id="issues-tab" class="col-4 col-md-12 container admin-tab nav-link" data-toggle="pill" role="tab" data-parent="#admin-tabs" data-target="#issues-table">
+                        Issues
                     </button>
                 </div>
             </div>
-            <div class="col-8 admin-action-content">
-                <div id="delete-user-collapse" data-parent="#admin-actions" class="collapse fade font-content admin-dashboard-collapse" tabindex="-1" role="dialog">
-                        <div class="collapse-dialog collapse-dialog-centered" role="document">
-                            <div class="collapse-content">
-                                <div class="collapse-header">
-                                    <div class="collapse-title custom-collapse-title">Delete User Account</div>
-                                    <button type="button" class="close" data-dismiss="collapse" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
+            <div class="col-12 col-md-11 admin-tab-content tab-content">
+                <div id="user-table" data-parent="#admin-tabs" class="tab-pane fade show active admin-dashboard" tabindex="-1" role="tabpanel">
+                    <div class="collapse-dialog collapse-dialog-centered" role="document">
+                        <div class="collapse-content">
+                            <div class="collapse-header">
+                                <div class="collapse-title custom-title">Users</div>
+                            </div>
+                            <div class="collapse-body">
+                                <div class="searchbar-container">
+                                    <input class="searchbar" type="text" placeholder="User name, email, ..." />
+                                    <i class="fas fa-search icon-right"></i>
                                 </div>
-                                <div class="collapse-body">
-                                    <div class="searchbar-container">
-                                        <input class="searchbar" type="text" placeholder="User name ..." />
-                                        <i class="fas fa-search icon-right"></i>
-                                    </div>
-                                    <div class="users-list">
-                                        <div class="user">
-                                            <div class="icon icon-left">
-                                                <i class="fas fa-user"></i>
-                                            </div>
-                                            <div class="user-info">
-                                                <div class="user-name">
-                                                    Diego de los Santos
-                                                </div>
-                                                <div class="user-email">
-                                                    di.santos_upc@flash.mail.com
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="user">
-                                            <div class="icon icon-left">
-                                                <i class="fas fa-user"></i>
-                                            </div>
-                                            <div class="user-info">
-                                                <div class="user-name">
-                                                    Henrique Soares Neto
-                                                </div>
-                                                <div class="user-email">
-                                                    hneto.lol.99@amazon.mail.com
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="user">
-                                            <div class="icon icon-left">
-                                                <i class="fas fa-user"></i>
-                                            </div>
-                                            <div class="user-info">
-                                                <div class="user-name">
-                                                    Mario Lopes
-                                                </div>
-                                                <div class="user-email">
-                                                    doc_iz_here@flash.mail.com
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="user">
-                                            <div class="icon icon-left">
-                                                <i class="fas fa-user"></i>
-                                            </div>
-                                            <div class="user-info">
-                                                <div class="user-name">
-                                                    Marta Teixeira Sousa
-                                                </div>
-                                                <div class="user-email">
-                                                    mts.96@tuga.mail.pt
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="user">
-                                            <div class="icon icon-left">
-                                                <i class="fas fa-user"></i>
-                                            </div>
-                                            <div class="user-info">
-                                                <div class="user-name">
-                                                    Ricardo Dias
-                                                </div>
-                                                <div class="user-email">
-                                                    rickydias.84@utad.pt
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="user">
-                                            <div class="icon icon-left">
-                                                <i class="fas fa-user"></i>
-                                            </div>
-                                            <div class="user-info">
-                                                <div class="user-name">
-                                                    Sarah van Peterson
-                                                </div>
-                                                <div class="user-email">
-                                                    sarah_zone@cambridge.en
-                                                </div>
-                                            </div>
-                                        </div>
+                                <div class="row no-gutters">
+                                    <div class="col-12">
+                                        <button class="btn action-btn">Ban selected users</button>
+                                        <button class="btn action-btn">Un-Ban selected users</button>
                                     </div>
                                 </div>
-                                <div class="collapse-footer">
-                                    <button type="button" class="btn btn-secondary" data-dismiss="collapse">Close</button>
+                                <div class="content-table">
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+                                                <th></th>
+                                                <th>Nome</th>
+                                                <th>Email</th>
+                                                <th>Status</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td><input type="checkbox"></td>
+                                                <td>Diego de los Santos</td>
+                                                <td>di.santos_upc@flash.mail.com</td>
+                                                <td>Active</td>
+                                            </tr>
+                                            <tr>
+                                                <td><input type="checkbox"></td>
+                                                <td>Henrique Soares Neto</td>
+                                                <td>hneto.lol.99@amazon.mail.com</td>
+                                                <td>Banned</td>
+                                            </tr>
+                                            <tr>
+                                                <td><input type="checkbox"></td>
+                                                <td>Mario Lopes</td>
+                                                <td>doc_iz_here@flash.mail.com</td>
+                                                <td>Active</td>
+                                            </tr>
+                                            <tr>
+                                                <td><input type="checkbox"></td>
+                                                <td>Marta Teixeira Sousa</td>
+                                                <td>mts.96@tuga.mail.pt</td>
+                                                <td>Active</td>
+                                            </tr>
+                                            <tr>
+                                                <td><input type="checkbox"></td>
+                                                <td>Ricardo Dias</td>
+                                                <td>rickydias.84@utad.pt</td>
+                                                <td>Active</td>
+                                            </tr>
+                                            <tr>
+                                                <td><input type="checkbox"></td>
+                                                <td>Sarah van Peterson</td>
+                                                <td>sarah_zone@cambridge.en</td>
+                                                <td>Banned</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class="row no-gutters page-selectors">
+                                    <div class="col-3 col-md-4"></div>
+                                    <div class="col-6 col-md-4">
+                                        <div class="row">
+                                            <button class="btn col-2 font-weight-bold selected-page">1</button>
+                                            <button class="btn col-2">2</button>
+                                            <button class="btn col-2">3</button>
+                                            <button class="btn col-2">4</button>
+                                            <button class="btn col-2">...</button>
+                                            <button class="btn col-2">999</button>
+                                        </div>
+                                    </div>
+                                    <div class="col-3 col-md-4"></div>
                                 </div>
                             </div>
                         </div>
                     </div>
+                </div>
                 
-                    <div id="user-issues-collapse" data-parent="#admin-actions" class="collapse fade font-content admin-dashboard-collapse" tabindex="-1" role="dialog">
-                        <div class="collapse-dialog collapse-dialog-centered" role="document">
-                            <div class="collapse-content">
-                                <div class="collapse-header">
-                                    <div class="collapse-title custom-collapse-title">User Issues</div>
-                                    <button type="button" class="close" data-dismiss="collapse" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
+                <div id="issues-table" data-parent="#admin-tabs" class="tab-pane fade font-content admin-dashboard" tabindex="-1" role="tabpanel">
+                    <div class="collapse-dialog collapse-dialog-centered" role="document">
+                        <div class="collapse-content">
+                            <div class="collapse-header">
+                                <div class="collapse-title custom-title">Issues</div>
+                            </div>
+                            <div class="searchbar-container">
+                                <input class="searchbar" type="text" placeholder="Event, user, issue id, ..." />
+                                <i class="fas fa-search icon-right"></i>
+                            </div>
+                            <div class="row no-gutters">
+                                <div class="col-12">
+                                    <button class="btn action-btn">Close selected issues</button>
+                                    <button class="btn float-right">Show closed issues</button>
                                 </div>
-                                <div class="collapse-body issues-container">
-                                    <div class="issue">
-                                        <div class="content">
-                                            <header data-toggle="collapse" data-target="#issue-1">
-                                                <div class="user">
-                                                    <div class="icon icon-left">
-                                                        <i class="fas fa-exclamation"></i>
-                                                    </div>
-                                                    Ricardo Dias
-                                                </div>
-                                                <div class="date">
-                                                    17.04.2019 | 15:30
-                                                </div>
-                                            </header>
-                                            <div class="collapse issue-description" id="issue-1">
-                                                I was recently removed from the "Corrida 25 Abril" event. I contacted the event administrators, and they reported that they
-                                                had not removed me. Was this an application error?
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="issue">
-                                        <div class="content">
-                                            <header data-toggle="collapse" data-target="#issue-2">
-                                                <div class="user">
-                                                    <div class="icon icon-left">
-                                                        <i class="fas fa-exclamation"></i>
-                                                    </div>
-                                                    Marta Teixeira Sousa
-                                                </div>
-                                                <div class="date">
-                                                    13.03.2019 | 08:57
-                                                </div>
-                                            </header>
-                                            <div class="collapse issue-description" id="issue-2">
-                                                Hello, my name is Marta. I recently joined your application and I want to organize an event. Is the organization really tax
+                            </div>
+                            <div class="content-table">
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th></th>
+                                            <th>Id</th>
+                                            <th>Name</th>
+                                            <th>Date</th>
+                                            <th>Time</th>
+                                            <th>Content</th>
+                                            <th></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td><input type="checkbox"/></td>
+                                            <td>1</td>
+                                            <td>Ricardo Dias</td>
+                                            <td>17.04.2019</td>
+                                            <td>15:30</td>
+                                            <td>
+                                                I was recently removed from tde "Corrida 25 Abril" event. I contacted tde event administrators, and tdey reported tdat tdey
+                                                had not removed me. Was tdis an application error?
+                                            </td>
+                                            <td><button class="btn action-btn">Close</button></td>
+                                        </tr>
+                                        <tr>
+                                            <td><input type="checkbox"/></td>
+                                            <td>2</td>
+                                            <td>Marta Teixeira Sousa</td>
+                                            <td>13.03.2019</td>
+                                            <td>08:57</td>
+                                            <td>
+                                                Hello, my name is Marta. I recently joined your application and I want to organize an event. Is tde organization really tax
                                                 free?
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="issue">
-                                        <div class="content">
-                                            <header data-toggle="collapse" data-target="#issue-3">
-                                                <div class="user">
-                                                    <div class="icon icon-left">
-                                                        <i class="fas fa-exclamation"></i>
-                                                    </div>
-                                                    Henrique Soares Neto
-                                                </div>
-                                                <div class="date">
-                                                    07.03.2019 | 16:32
-                                                </div>
-                                            </header>
-                                            <div class="collapse issue-description" id="issue-3">
-                                                Hello, my name is Henrique. I recently joined your application and I want to organize an event. Is the organization really
+                                            </td>
+                                            <td><button class="btn action-btn">Close</button></td>
+                                        </tr>
+                                        <tr>
+                                            <td><input type="checkbox"/></td>
+                                            <td>3</td>
+                                            <td>Henrique Soares Neto</td>
+                                            <td>07.03.2019</td>
+                                            <td>16:32</td>
+                                            <td>
+                                                Hello, my name is Henrique. I recently joined your application and I want to organize an event. Is tde organization really
                                                 tax free?
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="issue">
-                                        <div class="content">
-                                            <header data-toggle="collapse" data-target="#issue-4">
-                                                <div class="user">
-                                                    <div class="icon icon-left">
-                                                        <i class="fas fa-exclamation"></i>
-                                                    </div>
-                                                    Mario Lopes
-                                                </div>
-                                                <div class="date">
-                                                    19.02.2019 | 13:45
-                                                </div>
-                                            </header>
-                                            <div class="collapse issue-description" id="issue-4">
-                                                I removed event by mistake please help?
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="issue">
-                                        <div class="content">
-                                            <header data-toggle="collapse" data-target="#issue-5">
-                                                <div class="user">
-                                                    <div class="icon icon-left">
-                                                        <i class="fas fa-exclamation"></i>
-                                                    </div>
-                                                    Diego de los Santos
-                                                </div>
-                                                <div class="date">
-                                                    19.02.2019 | 13:12
-                                                </div>
-                                            </header>
-                                            <div class="collapse issue-description" id="issue-5">
-                                                Was the "Oporto Beer Festival" event closed?
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="issue">
-                                        <div class="content">
-                                            <header data-toggle="collapse" data-target="#issue-6">
-                                                <div class="user">
-                                                    <div class="icon icon-left">
-                                                        <i class="fas fa-exclamation"></i>
-                                                    </div>
-                                                    Sarah van Peterson
-                                                </div>
-                                                <div class="date">
-                                                    02.01.2019 | 09:51
-                                                </div>
-                                            </header>
-                                            <div class="collapse issue-description" id="issue-6">
-                                                Do I have any event creation limitation? Or am I free to organize as many events as I desire?
-                                            </div>
-                                        </div>
+                                            </td>
+                                            <td><button class="btn action-btn">Close</button></td>
+                                        </tr>
+                                        <tr>
+                                            <td><input type="checkbox"/></td>
+                                            <td>4</td>
+                                            <td>Mario Lopes</td>
+                                            <td>19.02.2019</td>
+                                            <td>13:45</td>
+                                            <td>I removed event by mistake please help?</td>
+                                            <td><button class="btn action-btn">Close</button></td>
+                                        </tr>
+                                        <tr>
+                                            <td><input type="checkbox"/></td>
+                                            <td>5</td>
+                                            <td>Diego de los Santos</td>
+                                            <td>19.02.2019</td>
+                                            <td>13:12</td>
+                                            <td>Was tde "Oporto Beer Festival" event closed?</td>
+                                            <td><button class="btn action-btn">Close</button></td>
+                                        </tr>
+                                        <tr>
+                                            <td><input type="checkbox"/></td>
+                                            <td>6</td>
+                                            <td>Sarah van Peterson</td>
+                                            <td>02.01.2019</td>
+                                            <td>09:51</td>
+                                            <td>Do I have any event creation limitation? Or am I free to organize as many events as I desire?</td>
+                                            <td><button class="btn action-btn">Close</button></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="row no-gutters page-selectors">
+                                <div class="col-3 col-md-4"></div>
+                                <div class="col-6 col-md-4">
+                                    <div class="row">
+                                        <button class="btn col-2 font-weight-bold selected-page">1</button>
+                                        <button class="btn col-2">2</button>
+                                        <button class="btn col-2">3</button>
+                                        <button class="btn col-2">4</button>
+                                        <button class="btn col-2">...</button>
+                                        <button class="btn col-2">999</button>
                                     </div>
                                 </div>
-                                <div class="collapse-footer">
-                                    <button type="button" class="btn btn-secondary" data-dismiss="collapse">Close</button>
+                                <div class="col-3 col-md-4"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            
+                <div id="events-table" data-parent="#admin-tabs" class="tab-pane fade font-content admin-dashboard" tabindex="-1" role="tabpanel">
+                    <div class="collapse-dialog collapse-dialog-centered" role="document">
+                        <div class="collapse-content">
+                            <div class="collapse-header">
+                                <div class="collapse-title custom-title">Events</div>
+                            </div>
+                            <div class="collapse-body">
+                                <div class="searchbar-container">
+                                    <input class="searchbar" type="text" placeholder="Event name, location, ..." />
+                                    <i class="fas fa-search icon-right"></i>
+                                </div>
+                                <div class="row no-gutters">
+                                    <div class="col-12">
+                                        <button class="btn action-btn">Disable selected events</button>
+                                        <button class="btn action-btn">Enable selected events</button>
+                                    </div>
+                                </div>
+                                <div class="content-table">
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+                                                <th></th>
+                                                <th>Title</th>
+                                                <th>Status</th>
+                                                <th>Start Date</th>
+                                                <th>End Date</th>
+                                                <th>Location</th>
+                                                <th>Pricing</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>                
+                                            <tr>
+                                                <td><input type="checkbox"/></td>
+                                                <td>Beach Party @Braga Social Center</td>
+                                                <td>Active</td>
+                                                <td>17.05.2019</td>
+                                                <td>-</td>
+                                                <td>Braga, Portugal</td>
+                                                <td>10.00€</td>
+                                            </tr>
+                                            <tr>
+                                                <td><input type="checkbox"/></td>
+                                                <td>Semana de Informática 2019</td>
+                                                <td>Disabled</td>
+                                                <td>18.04.2019</td>
+                                                <td>19.04.2019</td>
+                                                <td>Porto, Portugal</td>
+                                                <td>25.17€</td>
+                                            </tr>
+                                            <tr>
+                                                <td><input type="checkbox"/></td>
+                                                <td>Traditionelle deutsche Tänze</td>
+                                                <td>Cancelled</td>
+                                                <td>21.05.2019</td>
+                                                <td>-</td>
+                                                <td>Mannheim, Germany</td>
+                                                <td>3.50€</td>
+                                            </tr>
+                                            <tr>
+                                                <td><input type="checkbox"/></td>
+                                                <td>Functional Progamming using Phoenix + Elixir - Tde perks of being a Back End Developer</td>
+                                                <td>Active</td>
+                                                <td>18.04.2019</td>
+                                                <td>-</td>
+                                                <td>Madrid, Spain</td>
+                                                <td>12.00€</td>
+                                            </tr>
+                                            <tr>
+                                                <td><input type="checkbox"/></td>
+                                                <td>Politécnico Career Fest</td>
+                                                <td>Disabled</td>
+                                                <td>19.04.2019</td>
+                                                <td>-</td>
+                                                <td>Lisboa, Portugal</td>
+                                                <td>FREE</td>
+                                            </tr>
+                                            <tr>
+                                                <td><input type="checkbox"/></td>
+                                                <td>London Security Meetup - Tde secret life of SQL Injections</td>
+                                                <td>Disabled</td>
+                                                <td>19.04.2019</td>
+                                                <td>-</td>
+                                                <td>London, England</td>
+                                                <td>3.50€</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class="row no-gutters page-selectors">
+                                    <div class="col-3 col-md-4"></div>
+                                    <div class="col-6 col-md-4">
+                                        <div class="row">
+                                            <button class="btn col-2 font-weight-bold selected-page">1</button>
+                                            <button class="btn col-2">2</button>
+                                            <button class="btn col-2">3</button>
+                                            <button class="btn col-2">4</button>
+                                            <button class="btn col-2">...</button>
+                                            <button class="btn col-2">999</button>
+                                        </div>
+                                    </div>
+                                    <div class="col-3 col-md-4"></div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                
-                    <div id="admin-promotion-collapse" data-parent="#admin-actions" class="collapse fade font-content admin-dashboard-collapse" tabindex="-1" role="dialog">
-                        <div class="collapse-dialog collapse-dialog-centered" role="document">
-                            <div class="collapse-content">
-                                <div class="collapse-header">
-                                    <div class="collapse-title custom-collapse-title">Promote User</div>
-                                    <button type="button" class="close" data-dismiss="collapse" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
-                                </div>
-                                <div class="collapse-body">
-                                    <div class="searchbar-container">
-                                        <input class="searchbar" type="text" placeholder="User name ..." />
-                                        <i class="fas fa-search icon-right"></i>
-                                    </div>
-                                    <div class="users-list">
-                                        <div class="user">
-                                            <div class="icon icon-left">
-                                                <i class="fas fa-user"></i>
-                                            </div>
-                                            <div class="user-info">
-                                                <div class="user-name">
-                                                    Diego de los Santos
-                                                </div>
-                                                <div class="user-email">
-                                                    di.santos_upc@flash.mail.com
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="user">
-                                            <div class="icon icon-left">
-                                                <i class="fas fa-user"></i>
-                                            </div>
-                                            <div class="user-info">
-                                                <div class="user-name">
-                                                    Henrique Soares Neto
-                                                </div>
-                                                <div class="user-email">
-                                                    hneto.lol.99@amazon.mail.com
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="user">
-                                            <div class="icon icon-left">
-                                                <i class="fas fa-user"></i>
-                                            </div>
-                                            <div class="user-info">
-                                                <div class="user-name">
-                                                    Mario Lopes
-                                                </div>
-                                                <div class="user-email">
-                                                    doc_iz_here@flash.mail.com
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="user">
-                                            <div class="icon icon-left">
-                                                <i class="fas fa-user"></i>
-                                            </div>
-                                            <div class="user-info">
-                                                <div class="user-name">
-                                                    Marta Teixeira Sousa
-                                                </div>
-                                                <div class="user-email">
-                                                    mts.96@tuga.mail.pt
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="user">
-                                            <div class="icon icon-left">
-                                                <i class="fas fa-user"></i>
-                                            </div>
-                                            <div class="user-info">
-                                                <div class="user-name">
-                                                    Ricardo Dias
-                                                </div>
-                                                <div class="user-email">
-                                                    rickydias.84@utad.pt
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="user">
-                                            <div class="icon icon-left">
-                                                <i class="fas fa-user"></i>
-                                            </div>
-                                            <div class="user-info">
-                                                <div class="user-name">
-                                                    Sarah van Peterson
-                                                </div>
-                                                <div class="user-email">
-                                                    sarah_zone@cambridge.en
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="collapse-footer">
-                                    <button type="button" class="btn btn-secondary" data-dismiss="collapse">Close</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                
-                    <div id="enable-disable-collapse" data-parent="#admin-actions" class="collapse fade font-content admin-dashboard-collapse" tabindex="-1" role="dialog">
-                        <div class="collapse-dialog collapse-dialog-centered" role="document">
-                            <div class="collapse-content">
-                                <div class="collapse-header">
-                                    <div class="collapse-title custom-collapse-title">Enable/Disable Event</div>
-                                    <button type="button" class="close" data-dismiss="collapse" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
-                                </div>
-                                <div class="collapse-body">
-                                    <div class="searchbar-container">
-                                        <input class="searchbar" type="text" placeholder="Event name ..." />
-                                        <i class="fas fa-search icon-right"></i>
-                                    </div>
-                                    <div class="events-list">
-                                        <div class="event">
-                                            <div class="icon icon-left">
-                                                <i class="far fa-calendar-alt"></i>
-                                            </div>
-                                            <div class="event-info">
-                                                <div class="event-name">
-                                                    Beach Party @Braga Social Center
-                                                    <button type="button" class="btn btn-secondary event-button re-enable-button">Enable</button>
-                                                </div>
-                                                <div class="event-date">
-                                                    17.05.2019
-                                                </div>
-                                                <div class="event-location">
-                                                    Braga, Portugal
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="event">
-                                            <div class="icon icon-left">
-                                                <i class="far fa-calendar-alt"></i>
-                                            </div>
-                                            <div class="event-info">
-                                                <div class="event-name">
-                                                    Semana de Informática 2019
-                                                    <button type="button" class="btn btn-secondary event-button disable-button">Disable</button>
-                                                </div>
-                                                <div class="event-date">
-                                                    18.04.2019 - 19.04.2019
-                                                </div>
-                                                <div class="event-location">
-                                                    Porto, Portugal
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="event">
-                                            <div class="icon icon-left">
-                                                <i class="far fa-calendar-alt"></i>
-                                            </div>
-                                            <div class="event-info">
-                                                <div class="event-name">
-                                                    Traditionelle deutsche Tänze
-                                                    <button type="button" class="btn btn-secondary event-button re-enable-button">Enable</button>
-                                                </div>
-                                                <div class="event-date">
-                                                    21.05.2019
-                                                </div>
-                                                <div class="event-location">
-                                                    Mannheim, Germany
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="event">
-                                            <div class="icon icon-left">
-                                                <i class="far fa-calendar-alt"></i>
-                                            </div>
-                                            <div class="event-info">
-                                                <div class="event-name">
-                                                    Functional Progamming using Phoenix + Elixir - The perks of being a Back End Developer
-                                                    <button type="button" class="btn btn-secondary event-button disable-button">Disable</button>
-                                                </div>
-                                                <div class="event-date">
-                                                    18.04.2019
-                                                </div>
-                                                <div class="event-location">
-                                                    Madrid, Spain
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="event">
-                                            <div class="icon icon-left">
-                                                <i class="far fa-calendar-alt"></i>
-                                            </div>
-                                            <div class="event-info">
-                                                <div class="event-name">
-                                                    Politécnico Career Fest
-                                                    <button type="button" class="btn btn-secondary event-button disable-button">Disable</button>
-                                                </div>
-                                                <div class="event-date">
-                                                    19.04.2019
-                                                </div>
-                                                <div class="event-location">
-                                                    Lisboa, Portugal
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="event">
-                                            <div class="icon icon-left">
-                                                <i class="far fa-calendar-alt"></i>
-                                            </div>
-                                            <div class="event-info">
-                                                <div class="event-name">
-                                                    London Security Meetup - The secret life of SQL Injections
-                                                    <button type="button" class="btn btn-secondary event-button disable-button">Disable</button>
-                                                </div>
-                                                <div class="event-date">
-                                                    19.04.2019
-                                                </div>
-                                                <div class="event-location">
-                                                    London, England
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="collapse-footer">
-                                    <button type="button" class="btn btn-secondary" data-dismiss="collapse">Close</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                </div>
             </div>
         </div>
     </div>

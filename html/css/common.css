@@ -170,7 +170,6 @@ a.my-btn {
         top: 0;
         position: relative;
         height: 20vh;
-        width: 100vw;
         mask-size: cover;
         mask-position: center;
         -webkit-mask-size: cover;
