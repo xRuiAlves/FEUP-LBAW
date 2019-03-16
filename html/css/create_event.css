@@ -26,12 +26,36 @@
     margin-top: 1em;
 }
 
-.card-container.event-creation-container input[type="text"] {
-    color: var(--secondary-color-medium-dark);
-    border-bottom: 2px solid var(--secondary-color-medium);
-    background-color: transparent;
-
+/* SCOPED BOOTSTRAP OVERRIDES START :( */
+.card-container.event-creation-container input.form-control {
+    width: unset;
+    display: unset;
+    padding: unset;
 }
+
+.card-container.event-creation-container .form-group {
+    margin-bottom: unset;
+}
+
+/* green in form was too much, removing it */
+.card-container.event-creation-container .custom-select.is-valid,
+.card-container.event-creation-container .form-control.is-valid,
+.card-container.event-creation-container .was-validated .custom-select:valid,
+.card-container.event-creation-container .was-validated .form-control:valid {
+    border-color: var(--secondary-color-medium);
+}
+/* SCOPED BOOTSTRAP OVERRIDES END :( */
+
+/* This selector must not be too specific so that bootstrap can change the color when invalid */
+.event-creation-container input[type="text"] {
+    color: var(--secondary-color-medium-dark);
+    background-color: transparent;
+    
+    border: 0;
+    border-radius: 0;
+    border-bottom: 2px solid var(--secondary-color-medium);
+}
+
 .card-container.event-creation-container input[type="text"]:focus::placeholder {
     color: var(--primary-color-light);
 }
@@ -104,6 +128,14 @@
     background-color: var(--danger-red)
 }
 
+.card-container.event-creation-container .event-details {
+    font-weight: unset;
+}
+
+.card-container.event-creation-container .event-details .event-field.date {
+    font-weight: bold;
+}
+
 .card-container.event-creation-container .event-details .event-field {
     margin-bottom: 1em;
 }
@@ -132,6 +164,7 @@
         padding: 2em;
         margin-bottom: 0;
     }
+    
     .card-container.event-card.event-creation-container {
         padding: 0;
         -webkit-box-shadow: none;

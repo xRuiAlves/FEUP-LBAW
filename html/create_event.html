@@ -158,13 +158,18 @@
     </div>
 
     <div id="page-card" class="container card-container font-content event-card event-creation-container">
-        <form>
+        <form novalidate class="needs-validation redirect-on-submit" data-redirect-to="/event_page_admin.html">
             <header class="row no-gutters">
                 <div class="col-12">
-                    <input required type="text" name="title" placeholder="Title"></input>
+                    <div class="form-group">
+                        <input class="form-control" required type="text" name="title" placeholder="Title"></input>
+                        <div class="invalid-feedback">
+                            Please provide a title for the event
+                        </div>
+                    </div>
                 </div>
             </header>
-            <div class="mobile-wave" id="background_wave"></div>
+            <div class="mobile-wave" id="background_wave"></div> <!-- why tho -->
             <div class="row no-gutters event-details font-title">
                 <div class="col-12 col-sm-6 event-spacetime">
                     <div class="row no-gutters date event-field">
@@ -177,17 +182,23 @@
                     </div>
                     <div class="row no-gutters">
                         <div class="col-12 location event-field">
-                            <span>
-                                <i class="fas fa-map-marker-alt icon-left"></i>
-                            </span>
-                            <input required type="text" name="location" placeholder="Location"></input>
+                            <div class="form-group">
+                                <span>
+                                    <i class="fas fa-map-marker-alt icon-left"></i>
+                                </span>
+                                <input class="form-control" required type="text" name="location" placeholder="Location"></input>
+                                <div class="invalid-feedback">Please provide a valid location for the event</div>
+                            </div>
                         </div>
                     </div>
                 </div>
                 <div class="col-12 col-sm-6 event-category">
                     <div class="row no-gutters">
                         <div class="col-12 price event-field">
-                            <input required type="text" name="price" placeholder="0.00"></input>
+                            <div class="form-group">
+                                <input class="form-control" required type="text" name="price" placeholder="0.00"></input>
+                                <div class="invalid-feedback">Please provide a valid price for the event</div>
+                            </div>
                             <span class="currency">€</span>
                         </div>
                     </div>
@@ -215,7 +226,10 @@
             </div>
             <div class="row no-gutters event-description">
                 <div class="col-12">
-                    <textarea required name="description" placeholder="Event description"></textarea>
+                    <div class="form-group">
+                        <textarea class="form-control" required name="description" placeholder="Event description"></textarea>
+                        <div class="invalid-feedback">Please provide a description for the event</div>
+                    </div>
                 </div>
             </div>
             <footer class="row no-gutters">
