@@ -187,8 +187,13 @@ button.admin-tab:focus {
     box-shadow: none;
 }
 
+.page-selectors button.btn {
+    border-radius: 0;
+}
+
 .page-selectors button.btn:hover {
     background-color: var(--color-grey-light);
+    border-radius: 5px;
 }
 
 @media only screen and (max-width: 768px) {
