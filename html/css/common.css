@@ -3,7 +3,7 @@
 /************ CARD CONTAINER **************/
 
 #page-card {
-    margin-bottom: 35vh;
+    margin-bottom: 15em;
 }
 
 .card-container {
@@ -26,6 +26,7 @@
 body {
     background: var(--secondary-color-dark) repeat;
     z-index: -2;
+    min-height: 100vh;
 }
 
 #background_wave {
@@ -190,8 +191,22 @@ a.my-btn {
 }
 
 footer.page-footer {
+    position: sticky;
+    top: Calc(100vh - 23em);
+    font-family: 'Montserrat', cursive;
     padding: 4em;
     padding-bottom: 1em;
-    color: var(--secondary-color-medium);
+    color: var(--secondary-color-dark);
     background-color: white;
+}
+
+.footer-link, .footer-link:hover {
+    color: var(--secondary-color-medium);
+    font-weight: bold;
+}
+
+.footer-title {
+    font-weight: bold;
+    color: var(--secondary-color-medium-dark);
+    margin-bottom: 1em;
 }
