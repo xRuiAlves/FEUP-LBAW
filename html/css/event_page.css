@@ -22,6 +22,11 @@
     color: var(--danger-red);
 }
 
+.card-container.event-card .hosted-by-label h6 {
+    color: var(--secondary-color-medium);
+    font-style: italic;
+}
+
 .event-card .event-category {
     text-align: right;
 } 
@@ -56,10 +61,6 @@
 /* Fixing disabled button styling */
 .attend-btn button:disabled, .attend-btn button:disabled:hover {
    background-color: var(--secondary-color-medium);
-}
-
-.event-card .attend-btn {
-    margin-bottom: 2em;
 }
 
 .attend-btn button i {
@@ -188,16 +189,16 @@
     color: var(--primary-color);
 }
 
-#attendees-list-modal .modal-body{
+#attendees-list-modal .modal-body {
     max-height: 80vh;
     overflow-y: auto;
 }
 
-#attendees-list-modal .attendees-list .user .user-name{
+#attendees-list-modal .attendees-list .user .user-name {
     font-weight: bold;
 }
 
-#attendees-list-modal .attendees-list .user .user-email{
+#attendees-list-modal .attendees-list .user .user-email {
     text-overflow: ellipsis;
     overflow: hidden;
 }
@@ -275,10 +276,6 @@
     .event-card .nav-item.nav-link.active {
         width: 60%;
     }
-
-    .event-card .attend-btn {
-        margin-bottom: 0;
-    }
     
     .event-card .attend-btn button {
         font-size: 0.9em;
@@ -288,13 +285,6 @@
 @media only screen and (min-width: 992px) {
     .event-card .attend-btn.alone-right {
         text-align: right;
-    }
-}
-
-@media only screen and (min-width: 1200px) {
-    .attend-btn {
-        text-align: right;
-        margin-bottom: 0;
     }
 }
 
