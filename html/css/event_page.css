@@ -228,7 +228,7 @@
 }
 
 .post .add-comment::after {
-    content: 'Enter to submit. Ctrl + Enter to add new line.';
+    content: 'Enter to add new line, Ctrl + Enter to submit.';
     font-size: 0.8em;
     color: var(--color-grey);
 }
