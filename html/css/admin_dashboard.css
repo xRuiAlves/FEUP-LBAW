@@ -186,6 +186,15 @@ button.admin-tab:focus {
     border-bottom: 1px var(--secondary-color-light) solid;
 }
 
+.page-selectors button.btn:focus {
+    outline: none;
+    box-shadow: none;
+}
+
+.page-selectors button.btn:hover {
+    background-color: var(--color-grey-light);
+}
+
 @media only screen and (max-width: 768px) {
     
     #admin-tabs {
