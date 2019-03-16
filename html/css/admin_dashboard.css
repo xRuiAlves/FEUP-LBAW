@@ -228,20 +228,4 @@ button.admin-tab:focus {
     .admin-dashboard-container .separator hr {
         display: none;
     }
-
-    button.admin-tab#delete-user-tab {
-        border-left: 4px solid #ad4949; 
-    }
-    
-    button.admin-tab#enable-disable-tab {
-        border-left: 4px solid #9549ad; 
-    }
-    
-    button.admin-tab#user-issues-tab {
-        border-left: 4px solid #496cad; 
-    }
-    
-    button.admin-tab#admin-promotion-tab {
-        border-left: 4px solid #49ad6d; 
-    }
 }

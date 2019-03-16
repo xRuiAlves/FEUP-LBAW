@@ -53,35 +53,39 @@
     padding: 0.5em 0;
 }
 
+/* Fixing disabled button styling */
+.attend-btn button:disabled, .attend-btn button:disabled:hover {
+   background-color: var(--secondary-color-medium);
+}
 
 .event-card .attend-btn {
     margin-bottom: 2em;
 }
 
-.event-card .event-brief .attend-btn button i {
+.attend-btn button i {
     font-size: 1.25em;
 }
 
-.event-card .event-brief .attend-btn button {
+.attend-btn button {
     background-color: var(--secondary-color-medium);
     color: white;
     padding: 0.5em 2em;
     font-weight: bold;
 }
 
-.event-card .event-brief .attend-btn button:hover {
+.attend-btn button:hover {
     background-color: var(--secondary-color-medium-dark);
 }
 
-.card-container.event-card .attend-btn button.active {
+.attend-btn button.active {
     background-color: var(--danger-red);
 }
 
-.card-container.event-card .attend-btn button.active:hover {
+.attend-btn button.active:hover {
     background-color: var(--danger-red-dark);
 }
 
-.card-container.event-card .event-brief .date > div:nth-child(2) {
+.event-brief .date > div:nth-child(2) {
     margin-left: 1em;
 }
 

@@ -3,9 +3,9 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Event Page</title>
+    <title>Create Event</title>
 
     <script src="/bootstrap/jquery-3.3.1.min.js" defer></script>
     <script src="/bootstrap/popper.min.js" defer></script>
@@ -14,10 +14,11 @@
     <link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="/fonts/Fonts.css">
     <link rel="stylesheet" href="/fontawesome/css/all.css">
-    
+
     <link rel="stylesheet" href="./css/constants.css">
-    <link rel="stylesheet" href="./css/common.css">
     <link rel="stylesheet" href="./css/navbar.css">
+    <link rel="stylesheet" href="./css/create_event.css">
+    <link rel="stylesheet" href="./css/common.css">
     <link rel="stylesheet" href="./css/event_page.css">
 </head>
 
@@ -28,8 +29,8 @@
         <div class="container">
             <a class="navbar-brand" href="/index_lin.html">Eventually</a>
 
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon">
                     <i class="fas fa-bars"></i>
                 </span>
@@ -51,13 +52,15 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <div title="Notifications" class="nav-link notifications-item" data-toggle="modal" data-target="#notifications_modal">
+                        <div title="Notifications" class="nav-link notifications-item" data-toggle="modal"
+                            data-target="#notifications_modal">
                             <i class="fas fa-bell nav-item-icon"></i>
                             <span class="nav-item-label">Notifications</span>
                         </div>
                     </li>
                     <li class="nav-item">
-                        <div title="Submit an Issue" class="nav-link issues-item" data-toggle="modal" data-target="#submit-issue-modal">
+                        <div title="Submit an Issue" class="nav-link issues-item" data-toggle="modal"
+                            data-target="#submit-issue-modal">
                             <i class="fas fa-exclamation-triangle nav-item-icon"></i>
                             <span class="nav-item-label">Submit an Issue</span>
                         </div>
@@ -69,7 +72,7 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a title="Exit" class="nav-link" href="/">
+                        <a title="Exit" class="nav-link" href="/create_event.html">
                             <i class="fas fa-sign-out-alt nav-item-icon"></i>
                             <span class="nav-item-label">Exit</span>
                         </a>
@@ -121,11 +124,14 @@
                                 <div class="col-4 col-md-2 ml-auto actions d-flex justify-content-end">
                                     <div class="row">
                                         <span class="col-6 read">
-                                            <i class="fas fa-eye" onclick="$('.notification-item[data-notif-id=\'1\'').removeClass('unread')"></i>
-                                            <i class="fas fa-eye-slash" onclick="$('.notification-item[data-notif-id=\'1\'').addClass('unread')"></i>
+                                            <i class="fas fa-eye"
+                                                onclick="$('.notification-item[data-notif-id=\'1\'').removeClass('unread')"></i>
+                                            <i class="fas fa-eye-slash"
+                                                onclick="$('.notification-item[data-notif-id=\'1\'').addClass('unread')"></i>
                                         </span>
                                         <span class="col-6 delete">
-                                            <i class="fas fa-times" onclick="$('.notification-item[data-notif-id=\'1\'').remove()"></i>
+                                            <i class="fas fa-times"
+                                                onclick="$('.notification-item[data-notif-id=\'1\'').remove()"></i>
                                         </span>
                                     </div>
                                 </div>
@@ -135,7 +141,7 @@
                                     You have been invited to attend Semana de Informática 2019
                                 </div>
                             </div>
-                        </div>                        
+                        </div>
                     </div>
 
                     <div class="row notification-item unread" data-notif-id="2">
@@ -147,11 +153,14 @@
                                 <div class="col-4 col-md-2 ml-auto actions d-flex justify-content-end">
                                     <div class="row">
                                         <span class="col-6 read">
-                                            <i class="fas fa-eye" onclick="$('.notification-item[data-notif-id=\'2\'').removeClass('unread')"></i>
-                                            <i class="fas fa-eye-slash" onclick="$('.notification-item[data-notif-id=\'2\'').addClass('unread')"></i>
+                                            <i class="fas fa-eye"
+                                                onclick="$('.notification-item[data-notif-id=\'2\'').removeClass('unread')"></i>
+                                            <i class="fas fa-eye-slash"
+                                                onclick="$('.notification-item[data-notif-id=\'2\'').addClass('unread')"></i>
                                         </span>
                                         <span class="col-6 delete">
-                                            <i class="fas fa-times" onclick="$('.notification-item[data-notif-id=\'2\'').remove()"></i>
+                                            <i class="fas fa-times"
+                                                onclick="$('.notification-item[data-notif-id=\'2\'').remove()"></i>
                                         </span>
                                     </div>
                                 </div>
@@ -161,7 +170,7 @@
                                     IEEE Code Week 2019 has been cancelled
                                 </div>
                             </div>
-                        </div>                        
+                        </div>
                     </div>
 
                     <div class="row notification-item" data-notif-id="3">
@@ -173,11 +182,14 @@
                                 <div class="col-4 col-md-2 ml-auto actions d-flex justify-content-end">
                                     <div class="row">
                                         <span class="col-6 read">
-                                            <i class="fas fa-eye" onclick="$('.notification-item[data-notif-id=\'3\'').removeClass('unread')"></i>
-                                            <i class="fas fa-eye-slash" onclick="$('.notification-item[data-notif-id=\'3\'').addClass('unread')"></i>
+                                            <i class="fas fa-eye"
+                                                onclick="$('.notification-item[data-notif-id=\'3\'').removeClass('unread')"></i>
+                                            <i class="fas fa-eye-slash"
+                                                onclick="$('.notification-item[data-notif-id=\'3\'').addClass('unread')"></i>
                                         </span>
                                         <span class="col-6 delete">
-                                            <i class="fas fa-times" onclick="$('.notification-item[data-notif-id=\'3\'').remove()"></i>
+                                            <i class="fas fa-times"
+                                                onclick="$('.notification-item[data-notif-id=\'3\'').remove()"></i>
                                         </span>
                                     </div>
                                 </div>
@@ -187,7 +199,7 @@
                                     You have been removed from Eventually Organizers Day 2019
                                 </div>
                             </div>
-                        </div>                        
+                        </div>
                     </div>
 
                     <div class="row notification-item" data-notif-id="4">
@@ -199,21 +211,25 @@
                                 <div class="col-4 col-md-2 ml-auto actions d-flex justify-content-end">
                                     <div class="row">
                                         <span class="col-6 read">
-                                            <i class="fas fa-eye" onclick="$('.notification-item[data-notif-id=\'4\'').removeClass('unread')"></i>
-                                            <i class="fas fa-eye-slash" onclick="$('.notification-item[data-notif-id=\'4\'').addClass('unread')"></i>
+                                            <i class="fas fa-eye"
+                                                onclick="$('.notification-item[data-notif-id=\'4\'').removeClass('unread')"></i>
+                                            <i class="fas fa-eye-slash"
+                                                onclick="$('.notification-item[data-notif-id=\'4\'').addClass('unread')"></i>
                                         </span>
                                         <span class="col-6 delete">
-                                            <i class="fas fa-times" onclick="$('.notification-item[data-notif-id=\'4\'').remove()"></i>
+                                            <i class="fas fa-times"
+                                                onclick="$('.notification-item[data-notif-id=\'4\'').remove()"></i>
                                         </span>
                                     </div>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-12 description">
-                                    Fishing Workshop - HDNV Student Association has been disabled by a Platform Administrator
+                                    Fishing Workshop - HDNV Student Association has been disabled by a Platform
+                                    Administrator
                                 </div>
                             </div>
-                        </div>                        
+                        </div>
                     </div>
 
                 </div>
@@ -221,24 +237,92 @@
         </div>
     </div>
 
-    <div id="page-card" class="container card-container font-content event-card">
-        <div class="event-brief">
-            <div class="row no-gutters main">
-                <div class="col-12 event-title font-title">
-                    <h1>Fishing Workshop - HDNV Student Association</h1>
+    <div id="page-card" class="container card-container font-content event-card event-creation-container">
+        <form novalidate class="needs-validation redirect-on-submit" data-redirect-to="/event_page_admin.html">
+            <header class="row no-gutters">
+                <div class="col-12">
+                    <div class="form-group">
+                        <input class="form-control" required type="text" name="title" placeholder="Title"></input>
+                        <div class="invalid-feedback">
+                            Please provide a title for the event
+                        </div>
+                    </div>
+                </div>
+            </header>
+            <div class="mobile-wave" id="background_wave"></div> <!-- why tho -->
+            <div class="row no-gutters event-details font-title">
+                <div class="col-12 col-sm-6 event-spacetime">
+                    <div class="row no-gutters date event-field">
+                        <span>
+                            <i class="far fa-calendar-alt icon-left"></i>
+                        </span>
+                        <div class="date-picker">
+                            Pick a date
+                        </div>
+                    </div>
+                    <div class="row no-gutters">
+                        <div class="col-12 location event-field">
+                            <div class="form-group">
+                                <span>
+                                    <i class="fas fa-map-marker-alt icon-left"></i>
+                                </span>
+                                <input class="form-control" required type="text" name="location" placeholder="Location"></input>
+                                <div class="invalid-feedback">Please provide a valid location for the event</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-sm-6 event-category">
+                    <div class="row no-gutters">
+                        <div class="col-12 price event-field">
+                            <div class="form-group">
+                                <input class="form-control" required type="text" name="price" placeholder="0.00"></input>
+                                <div class="invalid-feedback">Please provide a valid price for the event</div>
+                            </div>
+                            <span class="currency">€</span>
+                        </div>
+                    </div>
+                    <div class="row no-gutters">
+                        <div class="col-12 event-field">
+                            <div class="dropdown category-picker">
+                                <span>
+                                    <i class="fas fa-tag"></i>
+                                </span>
+                                <button class="btn dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown">
+                                    Pick a category
+                                </button>
+                                <div class="dropdown-menu scrollable-menu">
+                                    <a class="dropdown-item" href="#">Sports</a>
+                                    <a class="dropdown-item" href="#">Arts</a>
+                                    <a class="dropdown-item" href="#">Technology</a>
+                                    <a class="dropdown-item" href="#">Animals</a>
+                                    <a class="dropdown-item" href="#">Learning</a>
+                                    <a class="dropdown-item" href="#">Politics</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="mobile-wave" id="background_wave"></div>
-            <div class="event-disabled-body">
-                <p>
-                    This event has been disabled by the application administrators.
-                </p>
-                <p>
-                    To search for more events click
-                    <a href="/#search-box-anchor">here</a>.
-                </p>
+            <div class="row no-gutters event-description">
+                <div class="col-12">
+                    <div class="form-group">
+                        <textarea class="form-control" required name="description" placeholder="Event description"></textarea>
+                        <div class="invalid-feedback">Please provide a description for the event</div>
+                    </div>
+                </div>
             </div>
-        </div>
+            <footer class="row no-gutters">
+                <div class="col-12 create-btn">
+                    <button type="submit" class="btn">
+                        Create
+                        <span>
+                            <i class="fas fa-check icon-right"></i>
+                        </span>
+                    </button>
+                </div>
+            </footer>
+        </form>
     </div>
     <footer class="container-fluid page-footer">
             <div class="container">

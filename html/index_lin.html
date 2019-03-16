@@ -45,7 +45,8 @@
                     <div class="container">
                         <div class="row">
                             <div class="col-12" id="banner-about-text">
-                                <p>Create amazing experiences for everyone. Attend your favorite events. Organize easily and
+                                <p>Create amazing experiences for everyone. Attend your favorite events. Organize easily
+                                    and
                                     collaboratively.
                                 </p>
                                 <a href="#about">Find more about us!</a>
@@ -54,10 +55,12 @@
                     </div>
                     <div class="row">
                         <div class="col-12 col-md-6">
-                            <button class="find-events" onclick="window.scrollTo(0, document.getElementById('navbar').offsetTop);">Find Events</button>
+                            <button class="find-events"
+                                onclick="window.scrollTo(0, document.getElementById('navbar').offsetTop);">Find
+                                Events</button>
                         </div>
                         <div class="col-12 col-md-6">
-                            <button class="host-event" onclick="window.location.href='/create_event.html'">Host an Event</button>
+                            <button class="host-event" onclick="window.location.href='/create_event_lin.html'">Host an Event</button>
                         </div>
                     </div>
                 </div>
@@ -81,8 +84,8 @@
         <div class="container">
             <a class="navbar-brand" href="#">Eventually</a>
 
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon">
                     <i class="fas fa-bars"></i>
                 </span>
@@ -104,13 +107,15 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <div title="Notifications" class="nav-link notifications-item" data-toggle="modal" data-target="#notifications_modal">
+                        <div title="Notifications" class="nav-link notifications-item" data-toggle="modal"
+                            data-target="#notifications_modal">
                             <i class="fas fa-bell nav-item-icon"></i>
                             <span class="nav-item-label">Notifications</span>
                         </div>
                     </li>
                     <li class="nav-item">
-                        <div title="Submit an Issue" class="nav-link issues-item" data-toggle="modal" data-target="#submit-issue-modal">
+                        <div title="Submit an Issue" class="nav-link issues-item" data-toggle="modal"
+                            data-target="#submit-issue-modal">
                             <i class="fas fa-exclamation-triangle nav-item-icon"></i>
                             <span class="nav-item-label">Submit an Issue</span>
                         </div>
@@ -175,7 +180,7 @@
     </div>
 
     <div class="events">
-        <a class="container card-container event-card"  href="/event_page_lin.html">
+        <a class="container card-container event-card" href="/event_page_lin.html">
             <header class="row">
                 <div class="col-12">
                     <h3>Semana de Informática</h3>
@@ -210,7 +215,7 @@
             </footer>
         </a>
 
-        <a class="container card-container event-card"  href="/event_page_lin.html">
+        <a class="container card-container event-card" href="/event_page_lin.html">
             <header class="row">
                 <div class="col-12">
                     <h3>Functional Progamming using Phoenix + Elixir - The perks of being a Back End Developer</h3>
@@ -245,7 +250,7 @@
             </footer>
         </a>
 
-        <a class="container card-container event-card"  href="/event_page_lin.html">
+        <a class="container card-container event-card" href="/event_page_lin.html">
             <header class="row">
                 <div class="col-12">
                     <h3>Mannheim fußball treffen</h3>
@@ -280,7 +285,7 @@
             </footer>
         </a>
 
-        <a class="container card-container event-card"  href="/event_page_lin.html">
+        <a class="container card-container event-card" href="/event_page_lin.html">
             <header class="row">
                 <div class="col-12">
                     <h3>London Security Meetup - The secret life of SQL Injections</h3>
@@ -315,7 +320,7 @@
             </footer>
         </a>
 
-        <a class="container card-container event-card"  href="/event_page_lin.html">
+        <a class="container card-container event-card" href="/event_page_lin.html">
             <header class="row">
                 <div class="col-12">
                     <h3>Politécnico Career Fest</h3>
@@ -354,16 +359,20 @@
     <div class="container-fluid white-section" id="about">
         <div class="container">
             <div class="row">
-                <h4 class="about-title">About Eventually</h1>
+                <div class="col-12">
+                    <h4 class="footer-title">About Eventually</h4>
+                </div>
             </div>
             <div class="row text-justify">
-                <p>Eventually is the solution to find and host events online, all over the world.</p>
-                <p>The platform allows you to find all kinds of events of your interest, allowing you to specify when, where
-                    and what you want to participate in. You can also manage your tickets and export your favorite events
-                    to Google™ Calendar.</p>
-                <p>In our website, you can also create and manage any number of events you want, public or private, free of
-                    charge - no matter what its scale is. You may invite your friends to help you organize it collaboratively,
-                    making the organizing process easy and smooth.</p>
+                <div class="col-12">
+                    <p>Eventually is the solution for finding and hosting events online, all over the world.</p>
+                    <p>This platform lets you easily find all kinds of events of your interest, allowing you to specify when,
+                        where and what you want to participate in.
+                        You can also manage your tickets and export your favorite events to Google™ Calendar for better organization.</p>
+                    <p>In our website, you can also create and manage any number of events you want, public or private, free
+                        of charge - no matter what their scale is. Additionally, you may invite other users to help in their organization,
+                        making the whole process easier.</p>
+                </div>
             </div>
         </div>
     </div>
@@ -410,11 +419,14 @@
                                 <div class="col-4 col-md-2 ml-auto actions d-flex justify-content-end">
                                     <div class="row">
                                         <span class="col-6 read">
-                                            <i class="fas fa-eye" onclick="$('.notification-item[data-notif-id=\'1\'').removeClass('unread')"></i>
-                                            <i class="fas fa-eye-slash" onclick="$('.notification-item[data-notif-id=\'1\'').addClass('unread')"></i>
+                                            <i class="fas fa-eye"
+                                                onclick="$('.notification-item[data-notif-id=\'1\'').removeClass('unread')"></i>
+                                            <i class="fas fa-eye-slash"
+                                                onclick="$('.notification-item[data-notif-id=\'1\'').addClass('unread')"></i>
                                         </span>
                                         <span class="col-6 delete">
-                                            <i class="fas fa-times" onclick="$('.notification-item[data-notif-id=\'1\'').remove()"></i>
+                                            <i class="fas fa-times"
+                                                onclick="$('.notification-item[data-notif-id=\'1\'').remove()"></i>
                                         </span>
                                     </div>
                                 </div>
@@ -424,7 +436,7 @@
                                     You have been invited to attend Semana de Informática 2019
                                 </div>
                             </div>
-                        </div>                        
+                        </div>
                     </div>
 
                     <div class="row notification-item unread" data-notif-id="2">
@@ -436,11 +448,14 @@
                                 <div class="col-4 col-md-2 ml-auto actions d-flex justify-content-end">
                                     <div class="row">
                                         <span class="col-6 read">
-                                            <i class="fas fa-eye" onclick="$('.notification-item[data-notif-id=\'2\'').removeClass('unread')"></i>
-                                            <i class="fas fa-eye-slash" onclick="$('.notification-item[data-notif-id=\'2\'').addClass('unread')"></i>
+                                            <i class="fas fa-eye"
+                                                onclick="$('.notification-item[data-notif-id=\'2\'').removeClass('unread')"></i>
+                                            <i class="fas fa-eye-slash"
+                                                onclick="$('.notification-item[data-notif-id=\'2\'').addClass('unread')"></i>
                                         </span>
                                         <span class="col-6 delete">
-                                            <i class="fas fa-times" onclick="$('.notification-item[data-notif-id=\'2\'').remove()"></i>
+                                            <i class="fas fa-times"
+                                                onclick="$('.notification-item[data-notif-id=\'2\'').remove()"></i>
                                         </span>
                                     </div>
                                 </div>
@@ -450,7 +465,7 @@
                                     IEEE Code Week 2019 has been cancelled
                                 </div>
                             </div>
-                        </div>                        
+                        </div>
                     </div>
 
                     <div class="row notification-item" data-notif-id="3">
@@ -462,11 +477,14 @@
                                 <div class="col-4 col-md-2 ml-auto actions d-flex justify-content-end">
                                     <div class="row">
                                         <span class="col-6 read">
-                                            <i class="fas fa-eye" onclick="$('.notification-item[data-notif-id=\'3\'').removeClass('unread')"></i>
-                                            <i class="fas fa-eye-slash" onclick="$('.notification-item[data-notif-id=\'3\'').addClass('unread')"></i>
+                                            <i class="fas fa-eye"
+                                                onclick="$('.notification-item[data-notif-id=\'3\'').removeClass('unread')"></i>
+                                            <i class="fas fa-eye-slash"
+                                                onclick="$('.notification-item[data-notif-id=\'3\'').addClass('unread')"></i>
                                         </span>
                                         <span class="col-6 delete">
-                                            <i class="fas fa-times" onclick="$('.notification-item[data-notif-id=\'3\'').remove()"></i>
+                                            <i class="fas fa-times"
+                                                onclick="$('.notification-item[data-notif-id=\'3\'').remove()"></i>
                                         </span>
                                     </div>
                                 </div>
@@ -476,7 +494,7 @@
                                     You have been removed from Eventually Organizers Day 2019
                                 </div>
                             </div>
-                        </div>                        
+                        </div>
                     </div>
 
                     <div class="row notification-item" data-notif-id="4">
@@ -488,18 +506,22 @@
                                 <div class="col-4 col-md-2 ml-auto actions d-flex justify-content-end">
                                     <div class="row">
                                         <span class="col-6 read">
-                                            <i class="fas fa-eye" onclick="$('.notification-item[data-notif-id=\'4\'').removeClass('unread')"></i>
-                                            <i class="fas fa-eye-slash" onclick="$('.notification-item[data-notif-id=\'4\'').addClass('unread')"></i>
+                                            <i class="fas fa-eye"
+                                                onclick="$('.notification-item[data-notif-id=\'4\'').removeClass('unread')"></i>
+                                            <i class="fas fa-eye-slash"
+                                                onclick="$('.notification-item[data-notif-id=\'4\'').addClass('unread')"></i>
                                         </span>
                                         <span class="col-6 delete">
-                                            <i class="fas fa-times" onclick="$('.notification-item[data-notif-id=\'4\'').remove()"></i>
+                                            <i class="fas fa-times"
+                                                onclick="$('.notification-item[data-notif-id=\'4\'').remove()"></i>
                                         </span>
                                     </div>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-12 description">
-                                    Fishing Workshop - HDNV Student Association has been disabled by a Platform Administrator
+                                    Fishing Workshop - HDNV Student Association has been disabled by a Platform
+                                    Administrator
                                 </div>
                             </div>
                         </div>
@@ -509,7 +531,25 @@
             </div>
         </div>
     </div>
-
+    <footer class="container-fluid page-footer">
+            <div class="container">
+                <div class="row">
+                    <h4 class="col-12 footer-title">Contacts</h1>
+                    <div class="col-12">
+                        <p>Rua de Dr José Fictício, nº 145, Porto, Portugal</p>
+                        <p>+351 999 999 999</p>
+                        <p>it.will.happen@eventual.ly</p>
+                    <p>Have a question? Visit our <a class="footer-link" href="/faq.html">FAQs</a> or see our <a class="footer-link" href="#about">about</a> page.</p>
+                    </div>
+                </div>
+                <br><br>
+                <div class="row">
+                    <div class="col-12 text-center">
+                        <p>Copyright 2019. All rights eventually reserved</p>
+                    </div>
+                </div>
+            </div>
+        </footer>
 </body>
 
 </html>

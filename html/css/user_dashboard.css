@@ -53,6 +53,7 @@
 
 .dashboard-day-items {
     width: 100%;
+    margin-bottom: 2em;
 }
 
 .dashboard-day-item + .dashboard-day-item {

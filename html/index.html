@@ -38,14 +38,22 @@
                 </div>
             </div>
         </div>
-
+        <div class="banner-corner-actions">
+            <a href="" title="Log In" data-toggle="modal" data-target="#login_modal">
+                Login
+            </a>
+            <a href="" title="Register" data-toggle="modal" data-target="#register_modal">
+                Register
+            </a>
+        </div>
         <div id="banner-buttons">
             <div class="row">
                 <div class="col-sm-12 col-md-8 col-lg-6 col-xl-4">
                     <div class="container">
                         <div class="row">
                             <div class="col-12" id="banner-about-text">
-                                <p>Create amazing experiences for everyone. Attend your favorite events. Organize easily and
+                                <p>Create amazing experiences for everyone. Attend your favorite events. Organize easily
+                                    and
                                     collaboratively.
                                 </p>
                                 <a href="#about">Find more about us!</a>
@@ -54,10 +62,12 @@
                     </div>
                     <div class="row">
                         <div class="col-12 col-md-6">
-                            <button class="find-events" onclick="window.scrollTo(0, document.getElementById('navbar').offsetTop);">Find Events</button>
+                            <button class="find-events"
+                                onclick="window.scrollTo(0, document.getElementById('navbar').offsetTop);">Find
+                                Events</button>
                         </div>
                         <div class="col-12 col-md-6">
-                            <button class="host-event" data-toggle="modal" data-target="#login_modal">Host an Event</button>
+                            <button class="host-event" onclick="window.location.href='/create_event.html'">Host an Event</button>
                         </div>
                     </div>
                 </div>
@@ -81,8 +91,8 @@
         <div class="container">
             <a class="navbar-brand" href="#">Eventually</a>
 
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon">
                     <i class="fas fa-bars"></i>
                 </span>
@@ -94,7 +104,7 @@
                         <a class="nav-link" href="/#search-box-anchor">Find</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="" data-toggle="modal" data-target="#login_modal">Host</a>
+                        <a class="nav-link" href="/create_event.html">Host</a>
                     </li>
                 </ul>
                 <ul class="navbar-nav ml-auto">
@@ -156,7 +166,7 @@
     </div>
 
     <div class="events">
-        <a class="container card-container event-card"  href="/event_page.html">
+        <a class="container card-container event-card" href="/event_page.html">
             <header class="row">
                 <div class="col-12">
                     <h3>Semana de Informática</h3>
@@ -191,7 +201,7 @@
             </footer>
         </a>
 
-        <a class="container card-container event-card"  href="/event_page.html">
+        <a class="container card-container event-card" href="/event_page.html">
             <header class="row">
                 <div class="col-12">
                     <h3>Functional Progamming using Phoenix + Elixir - The perks of being a Back End Developer</h3>
@@ -226,7 +236,7 @@
             </footer>
         </a>
 
-        <a class="container card-container event-card"  href="/event_page.html">
+        <a class="container card-container event-card" href="/event_page.html">
             <header class="row">
                 <div class="col-12">
                     <h3>Mannheim fußball treffen</h3>
@@ -261,7 +271,7 @@
             </footer>
         </a>
 
-        <a class="container card-container event-card"  href="/event_page.html">
+        <a class="container card-container event-card" href="/event_page.html">
             <header class="row">
                 <div class="col-12">
                     <h3>London Security Meetup - The secret life of SQL Injections</h3>
@@ -296,7 +306,7 @@
             </footer>
         </a>
 
-        <a class="container card-container event-card"  href="/event_page.html">
+        <a class="container card-container event-card" href="/event_page.html">
             <header class="row">
                 <div class="col-12">
                     <h3>Politécnico Career Fest</h3>
@@ -335,16 +345,20 @@
     <div class="container-fluid white-section" id="about">
         <div class="container">
             <div class="row">
-                <h4 class="about-title">About Eventually</h1>
+                <div class="col-12">
+                    <h4 class="footer-title">About Eventually</h4>
+                </div>
             </div>
             <div class="row text-justify">
-                <p>Eventually is the solution to find and host events online, all over the world.</p>
-                <p>The platform allows you to find all kinds of events of your interest, allowing you to specify when, where
-                    and what you want to participate in. You can also manage your tickets and export your favorite events
-                    to Google™ Calendar.</p>
-                <p>In our website, you can also create and manage any number of events you want, public or private, free of
-                    charge - no matter what its scale is. You may invite your friends to help you organize it collaboratively,
-                    making the organizing process easy and smooth.</p>
+                <div class="col-12">
+                    <p>Eventually is the solution for finding and hosting events online, all over the world.</p>
+                    <p>This platform lets you easily find all kinds of events of your interest, allowing you to specify when,
+                        where and what you want to participate in.
+                        You can also manage your tickets and export your favorite events to Google™ Calendar for better organization.</p>
+                    <p>In our website, you can also create and manage any number of events you want, public or private, free
+                        of charge - no matter what their scale is. Additionally, you may invite other users to help in their organization,
+                        making the whole process easier.</p>
+                </div>
             </div>
         </div>
     </div>
@@ -359,7 +373,8 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <form novalidate class="needs-validation redirect-on-submit font-content" data-redirect-to="/index_lin.html">
+                    <form novalidate class="needs-validation redirect-on-submit font-content"
+                        data-redirect-to="/index_lin.html">
                         <div class="form-group">
                             <input class="form-control" required type="email" name="email" placeholder="email">
                             <div class="invalid-feedback">
@@ -386,7 +401,8 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <span>Don't have an account yet? Register <a href="" onclick="$('#login_modal').modal('hide'); $('#register_modal').modal('show'); return false;">here!</a></span>
+                    <span>Don't have an account yet? Register <a href=""
+                            onclick="$('#login_modal').modal('hide'); $('#register_modal').modal('show'); return false;">here!</a></span>
                 </div>
             </div>
         </div>
@@ -416,11 +432,12 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <input class="form-control" required type="password" name="password_repeat" placeholder="repeat password">
+                            <input class="form-control" required type="password" name="password_repeat"
+                                placeholder="repeat password">
                             <div class="invalid-feedback">
                                 Please type your password again
                             </div>
-                            </div>
+                        </div>
                         <div class="d-flex justify-content-center">
                             <button class="my-btn my-btn-primary" type="submit">Register</button>
                         </div>
@@ -435,11 +452,32 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <span>Already have an account? Login <a href="" onclick="$('#register_modal').modal('hide'); $('#login_modal').modal('show'); return false;">here!</a></span>
+                    <span>Already have an account? Login <a href=""
+                            onclick="$('#register_modal').modal('hide'); $('#login_modal').modal('show'); return false;">here!</a></span>
                 </div>
             </div>
         </div>
     </div>
+
+    <footer class="container-fluid page-footer">
+        <div class="container">
+            <div class="row">
+                <h4 class="col-12 footer-title">Contacts</h4>
+                <div class="col-12">
+                    <p>Rua de Dr José Fictício, nº 145, Porto, Portugal</p>
+                    <p>+351 999 999 999</p>
+                    <p>it.will.happen@eventual.ly</p>
+                    <p>Have a question? Visit our <a class="footer-link" href="/faq.html">FAQs</a> or see our <a class="footer-link" href="#about">about</a> page.</p>
+                </div>
+            </div>
+            <br><br>
+            <div class="row">
+                <div class="col-12 text-center">
+                    <p>Copyright 2019. All rights eventually reserved</p>
+                </div>
+            </div>
+        </div>
+    </footer>
 
 </body>
 

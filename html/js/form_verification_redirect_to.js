@@ -3,9 +3,9 @@
 'use strict';
 window.addEventListener('load', () => {
     // Fetch all the forms we want to apply custom Bootstrap validation styles to
-    var forms = document.getElementsByClassName('needs-validation');
+    const forms = document.getElementsByClassName('needs-validation');
     // Loop over them and prevent submission
-    var validation = Array.prototype.filter.call(forms, (form) => {
+    Array.prototype.filter.call(forms, (form) => {
         form.addEventListener('submit', (event) => {
             if (form.checkValidity() === false) {
                 event.preventDefault();
