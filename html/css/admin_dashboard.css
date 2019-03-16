@@ -53,10 +53,6 @@ button.admin-tab.nav-link.active {
     margin: 1em 0;
 }
 
-button.admin-tab:hover {
-    transform: scale(1.05);
-}
-
 button.admin-tab#delete-user-tab {
     border-bottom: 4px solid #ad4949; 
 }
