@@ -199,6 +199,11 @@ a:hover {
 
 @media only screen and (max-width: 576px) {
 
+    .row {
+        margin-left: inherit; 
+        margin-right: inherit; 
+    }
+
     #search-box {
         margin: 2em 0.5em;
         width: Calc(100% - 1em);
