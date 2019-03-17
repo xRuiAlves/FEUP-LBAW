@@ -28,8 +28,8 @@
         <div class="container">
             <a class="navbar-brand" href="/">Eventually</a>
 
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon">
                     <i class="fas fa-bars"></i>
                 </span>
@@ -37,12 +37,24 @@
 
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav nav-highlighted mr-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="/#search-box-anchor">Find</a>
+                    <li class="nav-item search-mobile">
+                        <a class="nav-link" href="/#search-box-anchor">Search</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/create_event.html">Host</a>
                     </li>
+
+                    <form class=" nav-item ml-2 my-2 my-lg-0">
+                        <div class="input-group">
+                            <input type="text" class="form-control" placeholder="Search" aria-label="Search"
+                                aria-describedby="basic-addon2">
+                            <div class="input-group-append">
+                                <button class="btn submit-search" type="button">
+                                    <i class="fas fa-search"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </form>
                 </ul>
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
@@ -70,7 +82,8 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <form novalidate class="needs-validation redirect-on-submit font-content" data-redirect-to="/faq_lin.html">
+                    <form novalidate class="needs-validation redirect-on-submit font-content"
+                        data-redirect-to="/faq_lin.html">
                         <div class="form-group">
                             <input class="form-control" required type="email" name="email" placeholder="email">
                             <div class="invalid-feedback">
@@ -98,7 +111,8 @@
                 </div>
                 <div class="modal-footer">
                     <span>Don't have an account yet? Register
-                        <a href="" onclick="$('#login_modal').modal('hide'); $('#register_modal').modal('show'); return false;">here!</a>
+                        <a href=""
+                            onclick="$('#login_modal').modal('hide'); $('#register_modal').modal('show'); return false;">here!</a>
                     </span>
                 </div>
             </div>
@@ -129,7 +143,8 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <input class="form-control" required type="password" name="password_repeat" placeholder="repeat password">
+                            <input class="form-control" required type="password" name="password_repeat"
+                                placeholder="repeat password">
                             <div class="invalid-feedback">
                                 Please type your password again
                             </div>
@@ -149,7 +164,8 @@
                 </div>
                 <div class="modal-footer">
                     <span>Already have an account? Login
-                        <a href="" onclick="$('#register_modal').modal('hide'); $('#login_modal').modal('show'); return false;">here!</a>
+                        <a href=""
+                            onclick="$('#register_modal').modal('hide'); $('#login_modal').modal('show'); return false;">here!</a>
                     </span>
                 </div>
             </div>
@@ -167,7 +183,8 @@
                     Q: How many events can I organize at the same time using this application?
                 </div>
                 <div class="collapse answer" id="answer_1">
-                    A: Using Eventually, you may organize any number of events at the same time at any given time, free of charge.
+                    A: Using Eventually, you may organize any number of events at the same time at any given time, free
+                    of charge.
                 </div>
             </div>
             <div class="qa-item">
@@ -175,7 +192,10 @@
                     Q: I don't want to organize an event by myself. Can I get help from other users?
                 </div>
                 <div class="collapse answer" id="answer_2">
-                    A: Yes. Eventually offers a collaborative way to manage your events. You need only to search for other users in your event's page and invite them to assist you in the organization process. Once they accept your invitation, they will be able to emit vouchers, check-in attendees, create annoucements and edit the event's data.
+                    A: Yes. Eventually offers a collaborative way to manage your events. You need only to search for
+                    other users in your event's page and invite them to assist you in the organization process. Once
+                    they accept your invitation, they will be able to emit vouchers, check-in attendees, create
+                    annoucements and edit the event's data.
                 </div>
             </div>
             <div class="qa-item">
@@ -183,7 +203,9 @@
                     Q: I want to contact an administrator. How may I do so?
                 </div>
                 <div class="collapse answer" id="answer_3">
-                    A: In order to contact one of the administrators, you need only click the "Submit an Issue" button on your navigation bar, at the top of the page. The most common usage of this tool is for reporting an event, reporting another user's behavior or asking questions about the application.
+                    A: In order to contact one of the administrators, you need only click the "Submit an Issue" button
+                    on your navigation bar, at the top of the page. The most common usage of this tool is for reporting
+                    an event, reporting another user's behavior or asking questions about the application.
                 </div>
             </div>
             <div class="qa-item">
@@ -191,15 +213,19 @@
                     Q: I want to communicate with the event organizers. How may I do so?
                 </div>
                 <div class="collapse answer" id="answer_4">
-                    A: In order to contact the event organizers, you can visit the event's page and scroll down to the "Discussion" section. In this section, you are able to create a post asking a question and observe other matters related to the event. 
+                    A: In order to contact the event organizers, you can visit the event's page and scroll down to the
+                    "Discussion" section. In this section, you are able to create a post asking a question and observe
+                    other matters related to the event.
                 </div>
             </div>
             <div class="qa-item">
                 <div class="question" data-toggle="collapse" data-target="#answer_5">
-                    Q: I'm used to using Google™ Calendar for managing my appointments. Can I integrate my events with it?
+                    Q: I'm used to using Google™ Calendar for managing my appointments. Can I integrate my events with
+                    it?
                 </div>
                 <div class="collapse answer" id="answer_5">
-                    A: Yes. Eventually allows the possibility of exporting an event to your own Google™ Calendar. To do so, you need only to access the event's page and click the "Export to Google Calender" button.
+                    A: Yes. Eventually allows the possibility of exporting an event to your own Google™ Calendar. To do
+                    so, you need only to access the event's page and click the "Export to Google Calender" button.
                 </div>
             </div>
         </div>
