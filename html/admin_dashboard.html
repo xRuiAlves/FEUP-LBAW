@@ -27,7 +27,7 @@
         <div class="container">
             <a class="navbar-brand" href="/index_lin.html">Eventually</a>
 
-            <button class="navbar-toggler " type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                 aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon">
                     <i class="fas fa-bars"></i>
@@ -50,13 +50,13 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <div title="Notifications" class="nav-link notifications-item" data-toggle="collapse" data-target="#notifications_collapse">
+                        <div title="Notifications" class="nav-link notifications-item" data-toggle="modal" data-target="#notifications_modal">
                             <i class="fas fa-bell nav-item-icon"></i>
                             <span class="nav-item-label">Notifications</span>
                         </div>
                     </li>
                     <li class="nav-item">
-                        <div title="Submit an Issue" class="nav-link issues-item" data-toggle="collapse" data-target="#submit-issue">
+                        <div title="Submit an Issue" class="nav-link issues-item" data-toggle="modal" data-target="#submit-issue-modal">
                             <i class="fas fa-exclamation-triangle nav-item-icon"></i>
                             <span class="nav-item-label">Submit an Issue</span>
                         </div>
@@ -68,7 +68,7 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a title="Exit" class="nav-link" href="/">
+                        <a title="Exit" class="nav-link" href="/logout.html">
                             <i class="fas fa-sign-out-alt nav-item-icon"></i>
                             <span class="nav-item-label">Exit</span>
                         </a>
@@ -78,38 +78,38 @@
         </div>
     </nav>
 
-    <div id="submit-issue" class="collapse fade font-content" tabindex="-1" role="dialog">
-        <div class="collapse-dialog collapse-dialog-centered" role="document">
-            <div class="collapse-content">
-                <div class="collapse-header">
-                    <div class="collapse-title custom-title">Submit an Issue</div>
-                    <button type="button" class="close" data-dismiss="collapse" aria-label="Close">
+    <div id="submit-issue-modal" class="modal fade font-content" tabindex="-1" role="dialog">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <div class="modal-title custom-modal-title">Submit an Issue</div>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
                 <form>
-                    <div class="collapse-body">
+                    <div class="modal-body">
                         <textarea name="announcement-content" placeholder="Tell us what's wrong ..."></textarea>
                     </div>
-                    <div class="collapse-footer">
-                        <button type="button" class="btn publish-button" data-dismiss="collapse">Submit</button>
-                        <button type="button" class="btn btn-secondary" data-dismiss="collapse">Close</button>
+                    <div class="modal-footer">
+                        <button type="button" class="btn publish-button" data-dismiss="modal">Submit</button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                     </div>
                 </form>
             </div>
         </div>
     </div>
 
-    <div id="notifications_collapse" class="collapse fade font-content" tabindex="-1" role="dialog">
-        <div class="collapse-dialog collapse-dialog-centered" role="document">
-            <div class="collapse-content">
-                <div class="collapse-header">
-                    <div class="collapse-title custom-title">Notifications</div>
-                    <button type="button" class="close" data-dismiss="collapse" aria-label="Close">
+    <div id="notifications_modal" class="modal fade font-content" tabindex="-1" role="dialog">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <div class="modal-title custom-modal-title">Notifications</div>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                <div class="collapse-body container notifications-list">
+                <div class="modal-body container notifications-list">
 
                     <div class="row notification-item" data-notif-id="1">
                         <div class="col-12">
