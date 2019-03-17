@@ -152,35 +152,6 @@ a.my-btn {
 
 /*********** other ************/
 
-@media only screen and (max-width: 576px) {
-    body {
-        background-color: white;
-    }
-
-    .card-container h1 {
-        font-size: 2rem;
-    }
-
-    #background_wave {
-        top: -28%;
-    }
-
-    .mobile-wave#background_wave {
-        display: block;
-        top: 0;
-        position: relative;
-        height: 20vh;
-        mask-size: cover;
-        mask-position: center;
-        -webkit-mask-size: cover;
-        -webkit-mask-position: center;
-    }
-    
-    .regular-wave#background_wave {
-        display: none;
-    }
-}
-
 .icon-left {
     margin-right: 0.5em;
 }
@@ -208,4 +179,49 @@ footer.page-footer {
     font-weight: bold;
     color: var(--secondary-color-medium-dark);
     margin-bottom: 1em;
+}
+    
+footer.page-footer p.contact-item {
+    margin-bottom: 0.2em;
+}
+    
+footer.page-footer p.contact-item.contact-item-mail a {
+    color: inherit;
+}
+
+footer.page-footer p.footer-questions {
+    margin-top: 1.5em;
+}
+
+@media only screen and (max-width: 576px) {
+    body {
+        background-color: white;
+    }
+
+    .card-container h1 {
+        font-size: 2rem;
+    }
+
+    #background_wave {
+        top: -28%;
+    }
+
+    .mobile-wave#background_wave {
+        display: block;
+        top: 0;
+        position: relative;
+        height: 20vh;
+        mask-size: cover;
+        mask-position: center;
+        -webkit-mask-size: cover;
+        -webkit-mask-position: center;
+    }
+    
+    .regular-wave#background_wave {
+        display: none;
+    }
+    
+    footer.page-footer {
+        padding: 0.5em;
+    }
 }
