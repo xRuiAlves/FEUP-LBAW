@@ -37,4 +37,8 @@
         background-color: var(--primary-color);
         margin-bottom: 0;
     }
+
+    .not-found-body {
+        padding: 0 1em;
+    }
 }
