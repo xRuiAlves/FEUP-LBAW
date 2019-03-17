@@ -36,12 +36,13 @@
 }
 
 .navbar .submit-search {
-    border-color: var(--primary-color);
+    border-color: white;
     background-color: transparent;
 }
 
 .navbar .submit-search:hover {
     background-color: var(--primary-color);
+    border-color: var(--primary-color);
 }
 
 .navbar .nav-item.search-mobile {
