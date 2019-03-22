@@ -1,3 +1,11 @@
+DROP TABLE IF EXISTS EventTag;
+DROP TABLE IF EXISTS Favorite;
+DROP TABLE IF EXISTS Organizing;
+DROP TABLE IF EXISTS Ticket;
+DROP TABLE IF EXISTS Rating;
+DROP TABLE IF EXISTS Comment;
+DROP TABLE IF EXISTS Post;
+DROP TABLE IF EXISTS Announcement;
 DROP TABLE IF EXISTS EventVoucher;
 DROP TABLE IF EXISTS Tag;
 DROP TABLE IF EXISTS EventNotification;
@@ -114,9 +122,62 @@ CREATE TABLE EventVoucher (
     person_id INTEGER NOT NULL REFERENCES Person(person_id) ON UPDATE CASCADE
 );
 
+-- R10
+CREATE TABLE Announcement (
+ 	announcement_id SERIAL PRIMARY KEY,
+	content TEXT NOT NULL,
+	"timestamp" TIMESTAMP WITH TIME zone DEFAULT now() NOT NULL,
+    event_id INTEGER NOT NULL REFERENCES Event(event_id) ON UPDATE CASCADE,
+    person_id INTEGER NOT NULL REFERENCES Person(person_id) ON UPDATE CASCADE
+);
 
+-- R11
+CREATE TABLE Post (
+ 	post_id SERIAL PRIMARY KEY,
+	content TEXT NOT NULL,
+	"timestamp" TIMESTAMP WITH TIME zone DEFAULT now() NOT NULL,
+	rating INTEGER NOT NULL DEFAULT 0,
+	num_comments INTEGER NOT NULL DEFAULT 0,
+    event_id INTEGER NOT NULL REFERENCES Event(event_id) ON UPDATE CASCADE,
+    person_id INTEGER NOT NULL REFERENCES Person(person_id) ON UPDATE CASCADE
+);
 
+-- R12
+CREATE TABLE Comment (
+ 	comment_id SERIAL PRIMARY KEY,
+	content TEXT NOT NULL,
+	"timestamp" TIMESTAMP WITH TIME zone DEFAULT now() NOT NULL,
+    post_id INTEGER NOT NULL REFERENCES Post(post_id) ON UPDATE CASCADE,
+    person_id INTEGER NOT NULL REFERENCES Person(person_id) ON UPDATE CASCADE
+);
 
+-- R13
+CREATE TABLE Rating (
+    person_id INTEGER NOT NULL REFERENCES Person(person_id) ON UPDATE CASCADE,
+    post_id INTEGER NOT NULL REFERENCES Post(post_id) ON UPDATE CASCADE,
+    PRIMARY KEY (person_id, post_id)
+);
+
+-- R15
+CREATE TABLE Organizing (
+    person_id INTEGER NOT NULL REFERENCES Person(person_id) ON UPDATE CASCADE,
+    event_id INTEGER NOT NULL REFERENCES Event(event_id) ON UPDATE CASCADE,
+    PRIMARY KEY (person_id, event_id)
+);
+
+-- R16
+CREATE TABLE Favorite (
+    person_id INTEGER NOT NULL REFERENCES Person(person_id) ON UPDATE CASCADE,
+    event_id INTEGER NOT NULL REFERENCES Event(event_id) ON UPDATE CASCADE,
+    PRIMARY KEY (person_id, event_id)
+);
+
+-- R17
+CREATE TABLE EventTag (
+    event_id INTEGER NOT NULL REFERENCES Event(event_id) ON UPDATE CASCADE,
+    tag_id INTEGER NOT NULL REFERENCES Tag(tag_id) ON UPDATE CASCADE,
+    PRIMARY KEY (event_id, tag_id)
+);
 
 
 
