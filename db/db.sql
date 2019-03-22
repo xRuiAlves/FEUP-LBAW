@@ -1,3 +1,7 @@
+-----------------------------------------------
+-- Clear Previously existing table and types --
+-----------------------------------------------
+
 DROP TABLE IF EXISTS IssueNotification;
 DROP TABLE IF EXISTS Issue;
 DROP TABLE IF EXISTS EventTag;
@@ -15,12 +19,14 @@ DROP TABLE IF EXISTS Event;
 DROP TABLE IF EXISTS EventCategory;
 DROP TABLE IF EXISTS Notification;
 DROP TABLE IF EXISTS Person;
+
 DROP TYPE IF EXISTS TICKET_PAYMENT_TYPE;
 DROP TYPE IF EXISTS EVENT_NOTIFICATION_TYPE;
 DROP TYPE IF EXISTS EVENT_STATUS;
 
-
--- Types
+-----------
+-- Types --
+-----------
 
 CREATE TYPE EVENT_STATUS AS ENUM ('Active', 'Disabled', 'Cancelled');
 
@@ -28,8 +34,9 @@ CREATE TYPE EVENT_NOTIFICATION_TYPE AS ENUM ('EventInvitation', 'EventDisabling'
 
 CREATE TYPE TICKET_PAYMENT_TYPE AS ENUM ('Voucher', 'Paypal');
 
-
--- Tables
+------------
+-- Tables --
+------------
 
 -- R01
 CREATE TABLE Person (
@@ -198,12 +205,3 @@ CREATE TABLE IssueNotification(
 	content TEXT NOT NULL,
     issue_id INTEGER NOT NULL REFERENCES Issue(issue_id) ON UPDATE CASCADE
 );
-
-
-
-
-
-
-
-
-
