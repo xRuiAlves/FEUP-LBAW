@@ -25,4 +25,5 @@ grant all privileges on database <user_name> to <db_name>;
 ###############
 
 # run sql script to create database
+psql -U <user_name> -d <dbatabase_name> -a -f <file_name>
 
