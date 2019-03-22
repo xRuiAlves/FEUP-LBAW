@@ -1,0 +1,28 @@
+###############
+# INSIDE PSQL #
+###############
+
+sudo -u postgres psql
+
+
+-- Creating a user:
+create user <user_name>;
+
+-- Creating a database:
+create database <db_name>;
+
+-- Granting user privileges over a database
+grant all privileges on database <user_name> to <db_name>;
+
+-- Listing all databases
+\list
+
+-- Connecting to a database
+\connect <database_name>
+
+###############
+# IN TERMINAL #
+###############
+
+# run sql script to create database
+
