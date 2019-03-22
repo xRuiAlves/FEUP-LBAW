@@ -68,7 +68,7 @@ CREATE TABLE Event (
 	event_id SERIAL PRIMARY KEY,
 	title TEXT NOT NULL,
 	description TEXT NOT NULL,
-	price real,
+	price real NOT NULL,
 	latitude real,
 	longitude real,
 	start_timestamp TIMESTAMP WITH TIME zone NOT NULL,
