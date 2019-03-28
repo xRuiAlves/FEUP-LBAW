@@ -96,7 +96,12 @@ CREATE TABLE posts (
     num_comments INTEGER,
     event_id INTEGER NOT NULL REFERENCES events(id) ON DELETE CASCADE,
     user_id INTEGER NOT NULL REFERENCES users(id) ON DELETE CASCADE,
-    is_announcement BOOLEAN NOT NULL
+    is_announcement BOOLEAN NOT NULL,
+
+    CONSTRAINT annoucement_post CHECK (
+        (is_announcement = true AND rating IS NULL AND num_comments IS NULL) OR
+        (is_announcement != true)
+    ) 
 );
 
 -- R09
