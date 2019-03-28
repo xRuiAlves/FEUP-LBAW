@@ -2,7 +2,7 @@
 -- Clear Previously existing table and types --
 -----------------------------------------------
 
-DROP TABLE IF EXISTS issue_notifications CASCADE;
+DROP TABLE IF EXISTS notifications CASCADE;
 DROP TABLE IF EXISTS issues CASCADE;
 DROP TABLE IF EXISTS event_tags CASCADE;
 DROP TABLE IF EXISTS favorites CASCADE;
@@ -14,14 +14,12 @@ DROP TABLE IF EXISTS posts CASCADE;
 DROP TABLE IF EXISTS announcements CASCADE;
 DROP TABLE IF EXISTS event_vouchers CASCADE;
 DROP TABLE IF EXISTS tags CASCADE;
-DROP TABLE IF EXISTS event_notifications CASCADE;
 DROP TABLE IF EXISTS events CASCADE;
 DROP TABLE IF EXISTS event_categories CASCADE;
-DROP TABLE IF EXISTS notifications CASCADE;
 DROP TABLE IF EXISTS users CASCADE;
 
 DROP TYPE IF EXISTS TICKET_PAYMENT_TYPE CASCADE;
-DROP TYPE IF EXISTS EVENT_NOTIFICATION_TYPE CASCADE;
+DROP TYPE IF EXISTS NOTIFICATION_TYPE CASCADE;
 DROP TYPE IF EXISTS EVENT_STATUS CASCADE;
 
 -----------
@@ -30,7 +28,7 @@ DROP TYPE IF EXISTS EVENT_STATUS CASCADE;
 
 CREATE TYPE EVENT_STATUS AS ENUM ('Active', 'Disabled', 'Cancelled');
 
-CREATE TYPE EVENT_NOTIFICATION_TYPE AS ENUM ('EventInvitation', 'EventDisabling', 'EventCancellation', 'EventRemoval', 'EventModerator');
+CREATE TYPE NOTIFICATION_TYPE AS ENUM ('IssueNotification', 'EventInvitation', 'EventDisabling', 'EventCancellation', 'EventRemoval', 'EventModerator');
 
 CREATE TYPE TICKET_PAYMENT_TYPE AS ENUM ('Voucher', 'Paypal');
 
@@ -40,7 +38,7 @@ CREATE TYPE TICKET_PAYMENT_TYPE AS ENUM ('Voucher', 'Paypal');
 
 -- R01
 CREATE TABLE users (
-	user_id SERIAL PRIMARY KEY,
+	id SERIAL PRIMARY KEY,
 	name TEXT NOT NULL,
 	email TEXT NOT NULL CONSTRAINT user_email_unique UNIQUE,
 	password TEXT NOT NULL,
@@ -49,23 +47,15 @@ CREATE TABLE users (
 	is_admin BOOLEAN NOT NULL DEFAULT false
 );
 
--- R03
-CREATE TABLE notifications (
-    notification_id SERIAL PRIMARY KEY,
-	is_dismissed BOOLEAN NOT NULL DEFAULT false,
-	"timestamp" TIMESTAMP WITH TIME zone DEFAULT now() NOT NULL,
-    user_id INTEGER NOT NULL REFERENCES users(user_id) ON UPDATE CASCADE
-);
-
 -- R07
 CREATE TABLE event_categories (
-	event_category_id SERIAL PRIMARY KEY,
+	id SERIAL PRIMARY KEY,
 	name TEXT NOT NULL
 );
 
 -- R06
 CREATE TABLE events (
-	event_id SERIAL PRIMARY KEY,
+	id SERIAL PRIMARY KEY,
 	title TEXT NOT NULL,
 	description TEXT NOT NULL,
 	price real NOT NULL,
@@ -84,22 +74,15 @@ CREATE TABLE events (
     CONSTRAINT end_timestamp_check CHECK ((end_timestamp is NULL) OR (end_timestamp > start_timestamp))
 );
 
--- R05
-CREATE TABLE event_notifications(
-    notification_id INTEGER PRIMARY KEY REFERENCES notifications(notification_id) ON UPDATE CASCADE,
-	TYPE EVENT_NOTIFICATION_TYPE NOT NULL,
-    event_id INTEGER NOT NULL REFERENCES events(event_id) ON UPDATE CASCADE
-);
-
 -- R08
 CREATE TABLE tags (
-	tag_id SERIAL PRIMARY KEY,
+	id SERIAL PRIMARY KEY,
 	name TEXT NOT NULL
 );
 
 -- R09
 CREATE TABLE event_vouchers (
-	event_voucher_id SERIAL PRIMARY KEY,
+	id SERIAL PRIMARY KEY,
 	code TEXT NOT NULL,
 	is_dismissed BOOLEAN NOT NULL DEFAULT false,
     event_id INTEGER NOT NULL REFERENCES events(event_id) ON UPDATE CASCADE,
@@ -108,7 +91,7 @@ CREATE TABLE event_vouchers (
 
 -- R10
 CREATE TABLE announcements (
- 	announcement_id SERIAL PRIMARY KEY,
+ 	id SERIAL PRIMARY KEY,
 	content TEXT NOT NULL,
 	"timestamp" TIMESTAMP WITH TIME zone DEFAULT now() NOT NULL,
     event_id INTEGER NOT NULL REFERENCES events(event_id) ON UPDATE CASCADE,
@@ -128,7 +111,7 @@ CREATE TABLE posts (
 
 -- R12
 CREATE TABLE comments (
- 	comment_id SERIAL PRIMARY KEY,
+ 	id SERIAL PRIMARY KEY,
 	content TEXT NOT NULL,
 	"timestamp" TIMESTAMP WITH TIME zone DEFAULT now() NOT NULL,
     post_id INTEGER NOT NULL REFERENCES posts(post_id) ON UPDATE CASCADE,
@@ -185,7 +168,7 @@ CREATE TABLE event_tags (
 
 -- R02
 CREATE TABLE issues (
-	issue_id SERIAL PRIMARY KEY,
+	id SERIAL PRIMARY KEY,
 	title TEXT NOT NULL,
 	content TEXT NOT NULL,
 	"timestamp" TIMESTAMP WITH TIME zone DEFAULT now() NOT NULL,
@@ -199,9 +182,14 @@ CREATE TABLE issues (
 	referenced_comment INTEGER REFERENCES comments(comment_id) ON UPDATE CASCADE
 );
 
--- R04
-CREATE TABLE issue_notifications(
-    notification_id INTEGER PRIMARY KEY REFERENCES notifications(notification_id) ON UPDATE CASCADE,
-	content TEXT NOT NULL,
-    issue_id INTEGER NOT NULL REFERENCES issues(issue_id) ON UPDATE CASCADE
+-- R03
+CREATE TABLE notifications (
+    id SERIAL PRIMARY KEY,
+	TYPE NOTIFICATION_TYPE NOT NULL,
+	is_dismissed BOOLEAN NOT NULL DEFAULT false,
+	"timestamp" TIMESTAMP WITH TIME zone DEFAULT now() NOT NULL,
+    user_id INTEGER NOT NULL REFERENCES users(user_id) ON UPDATE CASCADE,
+    event_id INTEGER REFERENCES events(event_id) ON UPDATE CASCADE,
+	content TEXT,
+    issue_id INTEGER REFERENCES issues(issue_id) ON UPDATE CASCADE
 );
