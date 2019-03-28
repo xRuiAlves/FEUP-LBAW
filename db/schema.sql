@@ -98,7 +98,7 @@ CREATE TABLE posts (
     user_id INTEGER NOT NULL REFERENCES users(id) ON DELETE CASCADE,
     is_announcement BOOLEAN NOT NULL,
 
-    CONSTRAINT annoucement_post CHECK (
+    CONSTRAINT announcement_post CHECK (
         (is_announcement = true AND rating IS NULL AND num_comments IS NULL) OR
         (is_announcement != true)
     ) 
@@ -183,9 +183,10 @@ CREATE TABLE issues (
     solver_id INTEGER REFERENCES users(id) ON DELETE SET NULL,
 	referenced_user INTEGER REFERENCES users(id) ON DELETE CASCADE,
 	referenced_event INTEGER REFERENCES events(id) ON DELETE CASCADE,
-	referenced_announcement INTEGER REFERENCES announcements(id) ON DELETE CASCADE,
 	referenced_post INTEGER REFERENCES posts(id) ON DELETE CASCADE,
-	referenced_comment INTEGER REFERENCES comments(id) ON DELETE CASCADE
+	referenced_comment INTEGER REFERENCES comments(id) ON DELETE CASCADE,
+
+    CONSTRAINT self_reporting CHECK (creator_id != referenced_user)
 );
 
 -- R03
