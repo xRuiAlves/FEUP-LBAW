@@ -33,15 +33,15 @@ INSERT INTO event_categories(id, name) VALUES (4, 'Learning');
 INSERT INTO event_categories(id, name) VALUES (5, 'Music');
 
 -- Events
-INSERT INTO events(title, description, price, latitude, longitude, start_timestamp, end_timestamp, event_category_id, type, user_id)
+INSERT INTO events(title, description, price, latitude, longitude, start_timestamp, end_timestamp, event_category_id, status, user_id)
     VALUES ('SINF 2020', 'Very good event', 1, 30.1, -14.2, to_timestamp('16-05-2020 15:36:38', 'dd-mm-yyyy hh24:mi:ss'), to_timestamp('17-05-2020 15:36:38', 'dd-mm-yyyy hh24:mi:ss'), 4, 'Active', 2);
-INSERT INTO events(title, description, price, start_timestamp, event_category_id, type, user_id)
+INSERT INTO events(title, description, price, start_timestamp, event_category_id, status, user_id)
     VALUES ('Event2', 'Very good event', 0, to_timestamp('20-05-2020 15:36:38', 'dd-mm-yyyy hh24:mi:ss'), 4, 'Active', 2);
-INSERT INTO events(title, description, price, start_timestamp, event_category_id, type, user_id)
+INSERT INTO events(title, description, price, start_timestamp, event_category_id, status, user_id)
     VALUES ('Event3', 'Event.', 1.50, to_timestamp('21-05-2020 15:36:38', 'dd-mm-yyyy hh24:mi:ss'), 1, 'Active', 1);
-INSERT INTO events(title, description, price, start_timestamp, event_category_id, type, user_id)
+INSERT INTO events(title, description, price, start_timestamp, event_category_id, status, user_id)
     VALUES ('Event4', '...', 1, to_timestamp('22-05-2020 15:36:38', 'dd-mm-yyyy hh24:mi:ss'), 2, 'Active', 1);
-INSERT INTO events(title, description, price, start_timestamp, event_category_id, type, user_id)
+INSERT INTO events(title, description, price, start_timestamp, event_category_id, status, user_id)
     VALUES ('Event5', 'A B C', 1, to_timestamp('23-05-2020 15:36:38', 'dd-mm-yyyy hh24:mi:ss'), 3, 'Active', 4);
 
 -- Tags
