@@ -39,10 +39,9 @@ CREATE TYPE TICKET_PAYMENT_TYPE AS ENUM ('Voucher', 'Paypal');
 -- R01
 CREATE TABLE users (
 	id SERIAL PRIMARY KEY,
-	name TEXT NOT NULL,
-	email TEXT NOT NULL CONSTRAINT user_email_unique UNIQUE,
-	password TEXT NOT NULL,
-	oauth_token TEXT,
+	name VARCHAR(64) NOT NULL,
+	email VARCHAR(128) NOT NULL CONSTRAINT user_email_unique UNIQUE,
+	password VARCHAR(128) NOT NULL,  -- other value for varchar?
 	is_disabled BOOLEAN NOT NULL DEFAULT false,
 	is_admin BOOLEAN NOT NULL DEFAULT false
 );
@@ -50,13 +49,13 @@ CREATE TABLE users (
 -- R07
 CREATE TABLE event_categories (
 	id SERIAL PRIMARY KEY,
-	name TEXT NOT NULL
+	name VARCHAR(20) NOT NULL
 );
 
 -- R06
 CREATE TABLE events (
 	id SERIAL PRIMARY KEY,
-	title TEXT NOT NULL,
+	title VARCHAR(30) NOT NULL,
 	description TEXT NOT NULL,
 	price real NOT NULL,
 	latitude real,
@@ -77,7 +76,7 @@ CREATE TABLE events (
 -- R08
 CREATE TABLE tags (
 	id SERIAL PRIMARY KEY,
-	name TEXT NOT NULL
+	name VARCHAR(30) NOT NULL
 );
 
 -- R09
