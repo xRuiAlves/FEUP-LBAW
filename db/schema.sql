@@ -205,5 +205,5 @@ CREATE TABLE notifications (
 		(type != 'IssueNotification' AND event_id IS NOT NULL)
 	),
 
-	CONSTRAINT notification_spamm UNIQUE(user_id, event_id, type)
+	CONSTRAINT notification_spam UNIQUE(user_id, event_id, type)
 );
