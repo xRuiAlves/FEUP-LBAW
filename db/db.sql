@@ -3,6 +3,7 @@
 -----------------------------------------------
 
 DROP TABLE IF EXISTS notifications CASCADE;
+DROP TABLE IF EXISTS event_notifications CASCADE;
 DROP TABLE IF EXISTS issues CASCADE;
 DROP TABLE IF EXISTS event_tags CASCADE;
 DROP TABLE IF EXISTS favorites CASCADE;
@@ -38,18 +39,18 @@ CREATE TYPE TICKET_PAYMENT_TYPE AS ENUM ('Voucher', 'Paypal');
 
 -- R01
 CREATE TABLE users (
-	id SERIAL PRIMARY KEY,
-	name VARCHAR(64) NOT NULL,
+    id SERIAL PRIMARY KEY,
+    name VARCHAR(64) NOT NULL,
 	email VARCHAR(128) NOT NULL CONSTRAINT user_email_unique UNIQUE,
 	password VARCHAR(128) NOT NULL,  -- other value for varchar?
-	is_disabled BOOLEAN NOT NULL DEFAULT false,
-	is_admin BOOLEAN NOT NULL DEFAULT false
+    is_disabled BOOLEAN NOT NULL DEFAULT false,
+    is_admin BOOLEAN NOT NULL DEFAULT false
 );
 
 -- R07
 CREATE TABLE event_categories (
-	id SERIAL PRIMARY KEY,
-	name VARCHAR(20) NOT NULL
+    id SERIAL PRIMARY KEY,
+    name VARCHAR(20) NOT NULL
 );
 
 -- R06
@@ -70,7 +71,7 @@ CREATE TABLE events (
     CONSTRAINT latitude_check CHECK ((latitude IS NULL) OR (latitude >= -90 AND latitude <= 90)),
     CONSTRAINT longitude_check CHECK ((longitude IS NULL) OR (longitude >= -180 AND longitude <= 180)),
     CONSTRAINT start_timestamp_check CHECK (start_timestamp > now()),
-    CONSTRAINT end_timestamp_check CHECK ((end_timestamp IS NULL) OR (end_timestamp > start_timestamp))
+    CONSTRAINT end_timestamp_check CHECK ((end_timestamp is NULL) OR (end_timestamp > start_timestamp))
 );
 
 -- R08
@@ -83,9 +84,9 @@ CREATE TABLE tags (
 CREATE TABLE event_vouchers (
 	id SERIAL PRIMARY KEY,
 	code VARCHAR(128) NOT NULL,
-	is_dismissed BOOLEAN NOT NULL DEFAULT false,
-    event_id INTEGER NOT NULL REFERENCES events(id) ON DELETE CASCADE,
-    user_id INTEGER NOT NULL REFERENCES users(id) ON DELETE SET NULL,
+    is_used BOOLEAN NOT NULL DEFAULT false,
+    event_id INTEGER NOT NULL REFERENCES events(id) ON UPDATE CASCADE,
+    user_id INTEGER NOT NULL REFERENCES users(id) ON UPDATE CASCADE
 );
 
 -- R10
@@ -97,70 +98,73 @@ CREATE TABLE announcements (
     user_id INTEGER NOT NULL REFERENCES users(id) ON DELETE CASCADE
 );
 
--- R11
+-- R10
 CREATE TABLE posts (
- 	id SERIAL PRIMARY KEY,
-	content TEXT NOT NULL,
-	"timestamp" TIMESTAMP WITH TIME zone DEFAULT now() NOT NULL,
-	rating INTEGER NOT NULL DEFAULT 0,
-	num_comments INTEGER NOT NULL DEFAULT 0,
-    event_id INTEGER NOT NULL REFERENCES events(id) ON DELETE CASCADE,
-    user_id INTEGER NOT NULL REFERENCES users(id) ON DELETE CASCADE
+    id SERIAL PRIMARY KEY,
+    content TEXT NOT NULL,
+    "timestamp" TIMESTAMP WITH TIME zone DEFAULT now() NOT NULL,
+    rating INTEGER,
+    num_comments INTEGER,
+    event_id INTEGER NOT NULL REFERENCES events(id) ON UPDATE CASCADE,
+    user_id INTEGER NOT NULL REFERENCES users(id) ON UPDATE CASCADE,
+    is_announcement BOOLEAN NOT NULL
 );
 
 -- R12
 CREATE TABLE comments (
- 	id SERIAL PRIMARY KEY,
-	content TEXT NOT NULL,
-	"timestamp" TIMESTAMP WITH TIME zone DEFAULT now() NOT NULL,
-    post_id INTEGER NOT NULL REFERENCES posts(id) ON DELETE CASCADE,
-    user_id INTEGER NOT NULL REFERENCES users(id) ON DELETE CASCADE
+    id SERIAL PRIMARY KEY,
+    content TEXT NOT NULL,
+    "timestamp" TIMESTAMP WITH TIME zone DEFAULT now() NOT NULL,
+    post_id INTEGER NOT NULL REFERENCES posts(id) ON UPDATE CASCADE,
+    user_id INTEGER NOT NULL REFERENCES users(id) ON UPDATE CASCADE
 );
 
 -- R13
 CREATE TABLE ratings (
-    user_id INTEGER NOT NULL REFERENCES users(id) ON DELETE CASCADE,
-    post_id INTEGER NOT NULL REFERENCES posts(id) ON DELETE CASCADE,
+    user_id INTEGER NOT NULL REFERENCES users(id) ON UPDATE CASCADE,
+    post_id INTEGER NOT NULL REFERENCES posts(id) ON UPDATE CASCADE,
 
     PRIMARY KEY (user_id, post_id)
 );
 
 -- R14
 CREATE TABLE tickets (
-    user_id INTEGER NOT NULL REFERENCES users(id) ON DELETE CASCADE,
-    event_id INTEGER NOT NULL REFERENCES events(id) ON DELETE CASCADE,
+	id SERIAL PRIMARY KEY,
+    user_id INTEGER NOT NULL REFERENCES users(id) ON UPDATE CASCADE,
+    event_id INTEGER NOT NULL REFERENCES events(id) ON UPDATE CASCADE,
 	"timestamp" TIMESTAMP WITH TIME zone DEFAULT now() NOT NULL,
 	is_checked_in BOOLEAN NOT NULL DEFAULT false,
-	check_in_organizer_id INTEGER REFERENCES users(id) ON DELETE CASCADE,
+	check_in_organizer_id INTEGER REFERENCES users(id) ON UPDATE CASCADE,
 	nif INTEGER DEFAULT 999999999,
 	billing_name VARCHAR(64),
 	address VARCHAR(128),
     event_voucher_id INTEGER REFERENCES event_vouchers(id) ON UPDATE CASCADE,
-	type TICKET_PAYMENT_TYPE NOT NULL,
-
-    PRIMARY KEY (user_id, event_id)
+	TYPE TICKET_PAYMENT_TYPE NOT NULL,
+	cost REAL DEFAULT 0 NOT NULL,
+	paypal_order_id TEXT,
+	num_attendees INTEGER DEFAULT 1 NOT NULL
 );
 
 -- R15
 CREATE TABLE organizers (
-    user_id INTEGER NOT NULL REFERENCES users(id) ON DELETE CASCADE,
-    event_id INTEGER NOT NULL REFERENCES events(id) ON DELETE CASCADE,
+    user_id INTEGER NOT NULL REFERENCES users(id) ON UPDATE CASCADE,
+    event_id INTEGER NOT NULL REFERENCES events(id) ON UPDATE CASCADE,
 
     PRIMARY KEY (user_id, event_id)
 );
 
 -- R16
 CREATE TABLE favorites (
-    user_id INTEGER NOT NULL REFERENCES users(id) ON DELETE CASCADE,
-    event_id INTEGER NOT NULL REFERENCES events(id) ON DELETE CASCADE,
+    user_id INTEGER NOT NULL REFERENCES users(id) ON UPDATE CASCADE,
+    event_id INTEGER NOT NULL REFERENCES events(id) ON UPDATE CASCADE,
 
     PRIMARY KEY (user_id, event_id)
 );
 
 -- R17
 CREATE TABLE event_tags (
-    event_id INTEGER NOT NULL REFERENCES events(id) ON DELETE CASCADE,
-    tag_id INTEGER NOT NULL REFERENCES tags(id) ON DELETE CASCADE,
+    event_id INTEGER NOT NULL REFERENCES events(id) ON UPDATE CASCADE,
+    tag_id INTEGER NOT NULL REFERENCES tags(id) ON UPDATE CASCADE,
 
     PRIMARY KEY (event_id, tag_id)
 );
@@ -196,4 +200,11 @@ CREATE TABLE notifications (
 		(type = 'IssueNotification' AND issue_id IS NOT NULL AND content IS NOT NULL) OR
 		(type != 'IssueNotification' AND event_id IS NOT NULL)
 	)
+);
+
+-- R05
+CREATE TABLE event_notifications(
+    id INTEGER PRIMARY KEY REFERENCES notifications(id) ON UPDATE CASCADE,
+    TYPE EVENT_NOTIFICATION_TYPE NOT NULL,
+    event_id INTEGER NOT NULL REFERENCES events(id) ON UPDATE CASCADE
 );
