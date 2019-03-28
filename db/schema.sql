@@ -56,9 +56,9 @@ CREATE TABLE events (
 	id SERIAL PRIMARY KEY,
 	title VARCHAR(30) NOT NULL,
 	description TEXT NOT NULL,
-	price real NOT NULL,
-	latitude real,
-	longitude real,
+	price REAL NOT NULL,
+	latitude REAL,
+	longitude REAL,
 	start_timestamp TIMESTAMP WITH TIME zone NOT NULL,
 	end_timestamp TIMESTAMP WITH TIME zone,
     event_category_id INTEGER REFERENCES event_categories(id) ON DELETE CASCADE,
@@ -117,8 +117,12 @@ CREATE TABLE comments (
 CREATE TABLE ratings (
     user_id INTEGER NOT NULL REFERENCES users(id) ON DELETE CASCADE,
     post_id INTEGER NOT NULL REFERENCES posts(id) ON DELETE CASCADE,
+    value REAL NOT NULL,
 
-    PRIMARY KEY (user_id, post_id)
+    PRIMARY KEY (user_id, post_id),
+    CONSTRAINT rating_value CHECK (
+        value = 1 OR value = -1
+    )
 );
 
 -- R11
