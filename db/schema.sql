@@ -117,7 +117,7 @@ CREATE TABLE comments (
 CREATE TABLE ratings (
     user_id INTEGER NOT NULL REFERENCES users(id) ON DELETE CASCADE,
     post_id INTEGER NOT NULL REFERENCES posts(id) ON DELETE CASCADE,
-    value REAL NOT NULL,
+    value INTEGER NOT NULL,
 
     PRIMARY KEY (user_id, post_id),
     CONSTRAINT rating_value CHECK (
