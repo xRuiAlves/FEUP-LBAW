@@ -62,7 +62,7 @@ CREATE TABLE events (
 	start_timestamp TIMESTAMP WITH TIME zone NOT NULL,
 	end_timestamp TIMESTAMP WITH TIME zone,
     event_category_id INTEGER REFERENCES event_categories(id) ON DELETE CASCADE,
-	status EVENT_STATUS NOT NULL,
+	status EVENT_STATUS NOT NULL DEFAULT 'Active',
     user_id INTEGER NOT NULL REFERENCES users(id) ON DELETE CASCADE,
 
     CONSTRAINT price_check CHECK (price >= 0),
