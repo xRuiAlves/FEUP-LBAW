@@ -20,11 +20,6 @@ UPDATE posts
 SET content = 'This is an updated post!'
 WHERE id = 4;
 
--- Update comment content
-UPDATE comments
-SET content = 'This is an updated comment!'
-WHERE id = 3;
-
 -- Administrator solves an issue
 UPDATE issues
 SET is_solved = true,
