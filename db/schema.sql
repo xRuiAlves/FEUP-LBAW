@@ -140,7 +140,6 @@ CREATE TABLE tickets (
 	type TICKET_PAYMENT_TYPE NOT NULL,
 	cost REAL DEFAULT 0 NOT NULL,
 	paypal_order_id VARCHAR(256),
-	num_attendees INTEGER DEFAULT 1 NOT NULL,
 
     CONSTRAINT ticket_payment CHECK (
         (type = 'Voucher' AND event_voucher_id IS NOT NULL) OR
