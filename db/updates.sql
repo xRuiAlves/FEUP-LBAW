@@ -64,7 +64,7 @@ VALUES (
 );
 
 -- Creating a tag and adding it to the event
-INSERT INTO tags(name) VALUES ('Fun');;
+INSERT INTO tags(name) VALUES ('Fun');
 INSERT INTO event_tags(event_id, tag_id) VALUES (6, 6);
 
 -- Organizer emits a voucher 
@@ -102,4 +102,4 @@ VALUES (3, 1);
 
 -- User rates a post
 INSERT INTO ratings(user_id, post_id, value)
-    VALUES (3, 6, -1);
+VALUES (3, 6, -1);
