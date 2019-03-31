@@ -138,7 +138,6 @@ CREATE TABLE tickets (
 	address VARCHAR(128),
     event_voucher_id INTEGER REFERENCES event_vouchers(id) ON UPDATE CASCADE,
 	type TICKET_PAYMENT_TYPE NOT NULL,
-	cost REAL DEFAULT 0 NOT NULL,
 	paypal_order_id VARCHAR(256),
 
     CONSTRAINT ticket_payment CHECK (
