@@ -96,6 +96,10 @@ VALUES (
 INSERT INTO notifications(type, content, user_id, issue_id)
 VALUES ('IssueNotification', 'The event organizers are going to get banned. Thank you.', 2, 6);
 
+-- User gets invited to attend an event
+INSERT INTO notifications(type, user_id, event_id)
+VALUES ('EventInvitation', 3, 2);
+
 -- User favorites an event
 INSERT INTO favorites(user_id, event_id)
 VALUES (3, 1);
