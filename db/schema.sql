@@ -40,7 +40,7 @@ CREATE TABLE users (
     id SERIAL PRIMARY KEY,
     name VARCHAR(64) NOT NULL,
 	email VARCHAR(128) NOT NULL CONSTRAINT user_email_unique UNIQUE,
-	password VARCHAR(128) NOT NULL,  -- other value for varchar?
+	password VARCHAR(128) NOT NULL,
     is_disabled BOOLEAN NOT NULL DEFAULT false,
     is_admin BOOLEAN NOT NULL DEFAULT false
 );
