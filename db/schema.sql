@@ -57,6 +57,7 @@ CREATE TABLE events (
 	title VARCHAR(30) NOT NULL,
 	description TEXT NOT NULL,
 	price REAL NOT NULL,
+	location VARCHAR(60),
 	latitude REAL,
 	longitude REAL,
 	start_timestamp TIMESTAMP WITH TIME zone NOT NULL,
