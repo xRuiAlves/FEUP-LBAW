@@ -93,15 +93,15 @@ CREATE TABLE posts (
     id SERIAL PRIMARY KEY,
     content TEXT NOT NULL,
     "timestamp" TIMESTAMP WITH TIME zone DEFAULT now() NOT NULL,
-    rating INTEGER DF 0,
-    num_comments INTEGER DF 0,
+    rating INTEGER DEFAULT 0,
+    num_comments INTEGER DEFAULT 0,
     event_id INTEGER NOT NULL REFERENCES events(id) ON DELETE CASCADE,
     user_id INTEGER NOT NULL REFERENCES users(id) ON DELETE CASCADE,
     is_announcement BOOLEAN NOT NULL,
 
     CONSTRAINT announcement_post CHECK (
-        (is_announcement = true AND rating IS NULL AND num_comments IS NULL) OR
-        (is_announcement != true)
+        (is_announcement = false AND rating IS NOT NULL AND num_comments IS NOT NULL) OR
+        (is_announcement = true)
     ) 
 );
 
