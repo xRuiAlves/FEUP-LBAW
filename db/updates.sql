@@ -92,7 +92,7 @@ VALUES (
     4
 );
 
--- Admin answer a user's issue and the user is notified
+-- Admin answers a user's issue and the user is notified
 INSERT INTO notifications(type, content, user_id, issue_id)
 VALUES ('IssueNotification', 'The event organizers are going to get banned. Thank you.', 2, 6);
 
