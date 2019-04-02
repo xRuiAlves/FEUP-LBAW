@@ -79,7 +79,7 @@ VALUES ('Bring your coats, it is going to be cold.', 4, 5, true);
 INSERT INTO posts(content, event_id, user_id, is_announcement)
 VALUES ('How cold is it going to be?', 4, 2, false); 
 
--- Organizer answer a user's question in the discussion section
+-- User answers another user's question in the discussion section
 INSERT INTO comments(content, post_id, user_id)
 VALUES ('Very cold!', 6, 5);
 
