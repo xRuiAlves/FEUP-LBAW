@@ -4,7 +4,7 @@ FROM users
 WHERE id = 1 AND
 	  password = 'XXXXX'; 
 
--- Checking user information after log in
+-- Getting user information after log in
 SELECT name, email, is_admin
 FROM users
 WHERE id = 1;
