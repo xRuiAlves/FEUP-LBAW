@@ -65,6 +65,7 @@ CREATE TABLE events (
     event_category_id INTEGER REFERENCES event_categories(id) ON DELETE CASCADE,
 	status EVENT_STATUS NOT NULL DEFAULT 'Active',
     user_id INTEGER NOT NULL REFERENCES users(id) ON DELETE CASCADE,
+	search TSVECTOR,
 
     CONSTRAINT price_check CHECK (price >= 0),
     CONSTRAINT latitude_check CHECK ((latitude IS NULL) OR (latitude >= -90 AND latitude <= 90)),
