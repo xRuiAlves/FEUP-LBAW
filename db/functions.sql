@@ -56,10 +56,10 @@ $$ LANGUAGE 'plpgsql';
 CREATE OR REPLACE FUNCTION
     disable_event_function() RETURNS TRIGGER AS $$
     DECLARE
-        ticket record;
+        u record;
     BEGIN
         FOR 
-            ticket 
+            u 
         IN
             SELECT DISTINCT user_id
             FROM (
@@ -77,7 +77,7 @@ CREATE OR REPLACE FUNCTION
             ) AS users
         LOOP
             INSERT INTO notifications(type, user_id, event_id)
-            VALUES ('EventDisabling', ticket.user_id, NEW.id);
+            VALUES ('EventDisabling', u.user_id, NEW.id);
         END LOOP;
 
         RETURN NEW;
@@ -87,10 +87,10 @@ $$ LANGUAGE 'plpgsql';
 CREATE OR REPLACE FUNCTION
     cancel_event_function() RETURNS TRIGGER AS $$
     DECLARE
-        ticket record;
+        u record;
     BEGIN
         FOR 
-            ticket 
+            u 
         IN
             SELECT DISTINCT user_id
             FROM (
@@ -108,7 +108,7 @@ CREATE OR REPLACE FUNCTION
             ) AS users
         LOOP
             INSERT INTO notifications(type, user_id, event_id)
-            VALUES ('EventCancellation', ticket.user_id, NEW.id);
+            VALUES ('EventCancellation', u.user_id, NEW.id);
         END LOOP;
 
         RETURN NEW;
@@ -122,5 +122,32 @@ CREATE OR REPLACE FUNCTION
         VALUES ('EventRemoval', OLD.user_id, OLD.event_id);
         
         RETURN OLD;
+    END;
+$$ LANGUAGE 'plpgsql';
+
+CREATE OR REPLACE FUNCTION
+    event_data_updated_function() RETURNS TRIGGER AS $$
+    DECLARE
+        u record;
+    BEGIN
+        FOR 
+            u 
+        IN
+            SELECT DISTINCT user_id
+            FROM (
+                SELECT user_id
+                FROM tickets
+                WHERE event_id = NEW.id
+                UNION
+                SELECT user_id
+                FROM favorites
+                WHERE event_id = NEW.id
+            ) AS users
+        LOOP
+            INSERT INTO notifications(type, user_id, event_id)
+            VALUES ('EventUpdate', u.user_id, NEW.id);
+        END LOOP;
+
+        RETURN NEW;
     END;
 $$ LANGUAGE 'plpgsql';

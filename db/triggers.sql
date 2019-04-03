@@ -7,6 +7,9 @@ DROP TRIGGER IF EXISTS delete_rating_trigger ON ratings;
 DROP TRIGGER IF EXISTS insert_comment_trigger ON comments;
 DROP TRIGGER IF EXISTS delete_comment_trigger ON comments;
 DROP TRIGGER IF EXISTS disable_event_trigger ON events;
+DROP TRIGGER IF EXISTS cancel_event_function ON events;
+DROP TRIGGER IF EXISTS remove_attendee_trigger ON tickets;
+DROP TRIGGER IF EXISTS event_data_updated_function ON events;
 
 CREATE TRIGGER insert_rating_trigger 
     AFTER INSERT ON ratings
@@ -49,3 +52,10 @@ CREATE TRIGGER remove_attendee_trigger
     AFTER DELETE ON tickets
     FOR EACH ROW
     EXECUTE PROCEDURE remove_attendee_function();
+
+CREATE TRIGGER event_data_updated_function
+    AFTER UPDATE OF title, description, price, location, 
+        latitude, longitude, start_timestamp, end_timestamp 
+    ON events
+    FOR EACH ROW
+    EXECUTE PROCEDURE event_data_updated_function();
