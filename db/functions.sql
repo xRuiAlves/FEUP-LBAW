@@ -79,6 +79,7 @@ CREATE OR REPLACE FUNCTION
             INSERT INTO notifications(type, user_id, event_id)
             VALUES ('EventDisabling', ticket.user_id, NEW.id);
         END LOOP;
+
         RETURN NEW;
     END;
 $$ LANGUAGE 'plpgsql';
@@ -109,6 +110,17 @@ CREATE OR REPLACE FUNCTION
             INSERT INTO notifications(type, user_id, event_id)
             VALUES ('EventCancellation', ticket.user_id, NEW.id);
         END LOOP;
+
         RETURN NEW;
+    END;
+$$ LANGUAGE 'plpgsql';
+
+CREATE OR REPLACE FUNCTION
+    remove_attendee_function() RETURNS TRIGGER AS $$
+    BEGIN
+        INSERT INTO notifications(type, user_id, event_id)
+        VALUES ('EventRemoval', OLD.user_id, OLD.event_id);
+        
+        RETURN OLD;
     END;
 $$ LANGUAGE 'plpgsql';

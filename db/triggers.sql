@@ -44,3 +44,8 @@ CREATE TRIGGER cancel_event_trigger
     FOR EACH ROW 
     WHEN (NEW.status = 'Cancelled')
     EXECUTE PROCEDURE cancel_event_function();
+
+CREATE TRIGGER remove_attendee_trigger
+    AFTER DELETE ON tickets
+    FOR EACH ROW
+    EXECUTE PROCEDURE remove_attendee_function();
