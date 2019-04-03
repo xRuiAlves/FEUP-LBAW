@@ -30,3 +30,14 @@ CREATE OR REPLACE FUNCTION
         RETURN OLD;
     END;
 $$ LANGUAGE 'plpgsql';
+
+CREATE OR REPLACE FUNCTION
+    insert_comment_function() RETURNS TRIGGER AS $$
+    BEGIN
+        UPDATE posts
+        SET num_comments = num_comments + 1
+        WHERE posts.id = NEW.post_id;
+        
+        RETURN NEW;
+    END;
+$$ LANGUAGE 'plpgsql';
