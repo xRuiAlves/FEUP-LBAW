@@ -152,6 +152,6 @@ INSERT INTO notifications(type, user_id, event_id)
 INSERT INTO notifications(type, user_id, event_id)
     VALUES ('EventRemoval', 4, 2);
 INSERT INTO notifications(type, user_id, event_id, is_dismissed)
-    VALUES ('EventModerator', 2, 2, true);
+    VALUES ('EventOrganizer', 2, 2, true);
 INSERT INTO notifications(type, user_id, event_id)
     VALUES ('EventCancellation', 5, 2);
