@@ -13,7 +13,8 @@ WHERE id = 1;
 SELECT type, timestamp, event_id, content, issue_id
 FROM notifications
 WHERE is_dismissed = false AND
-	  user_id = 4;
+	  user_id = 4
+ORDER BY timestamp DESC;
 
 -- Querying a user's dashboard (participating + organizing + created events)
 SELECT DISTINCT title, price, latitude, longitude, start_timestamp, end_timestamp, event_categories.name AS category, status
