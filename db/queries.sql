@@ -38,7 +38,7 @@ WHERE events.id = 1;
 -- Getting all of the event's announcements
 SELECT content, timestamp
 FROM posts
-WHERE id = 1 AND
+WHERE event_id = 1 AND
 	  is_announcement = true;
 
 -- Getting an event's discussion forum
