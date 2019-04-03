@@ -204,7 +204,5 @@ CREATE TABLE notifications (
     CONSTRAINT issue_notification CHECK (
 		(type = 'IssueNotification' AND issue_id IS NOT NULL AND content IS NOT NULL) OR
 		(type != 'IssueNotification' AND event_id IS NOT NULL)
-	),
-
-	CONSTRAINT notification_spam UNIQUE(user_id, event_id, type)
+	)
 );
