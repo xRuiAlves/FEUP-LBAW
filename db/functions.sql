@@ -116,6 +116,37 @@ CREATE OR REPLACE FUNCTION
 $$ LANGUAGE 'plpgsql';
 
 CREATE OR REPLACE FUNCTION
+    activate_event_function() RETURNS TRIGGER AS $$
+    DECLARE
+        u record;
+    BEGIN
+        FOR 
+            u 
+        IN
+            SELECT DISTINCT user_id
+            FROM (
+                SELECT user_id
+                FROM tickets
+                WHERE event_id = NEW.id
+                UNION
+                SELECT user_id
+                FROM organizers
+                WHERE event_id = NEW.id
+                UNION
+                SELECT user_id
+                FROM favorites
+                WHERE event_id = NEW.id
+            ) AS users
+        LOOP
+            INSERT INTO notifications(type, user_id, event_id)
+            VALUES ('EventActivation', u.user_id, NEW.id);
+        END LOOP;
+
+        RETURN NEW;
+    END;
+$$ LANGUAGE 'plpgsql';
+
+CREATE OR REPLACE FUNCTION
     remove_attendee_function() RETURNS TRIGGER AS $$
     BEGIN
         INSERT INTO notifications(type, user_id, event_id)
