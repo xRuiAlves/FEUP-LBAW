@@ -47,7 +47,7 @@ SELECT content, timestamp, rating, num_comments, users.name AS creator
 FROM posts INNER JOIN users ON (posts.user_id = users.id)
 WHERE posts.id = 4 AND
 	  is_announcement = false
-ORDER BY rating DESC; -- most well rated come first
+ORDER BY rating DESC, timestamp DESC; -- most well rated come first
 
 -- Getting the comments for a given post
 SELECT content, timestamp, users.name AS creator
