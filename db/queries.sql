@@ -39,7 +39,8 @@ WHERE events.id = 1;
 SELECT content, timestamp
 FROM posts
 WHERE event_id = 1 AND
-	  is_announcement = true;
+	  is_announcement = true
+ORDER BY timestamp DESC;
 
 -- Getting an event's discussion forum
 SELECT content, timestamp, rating, num_comments, users.name AS creator
