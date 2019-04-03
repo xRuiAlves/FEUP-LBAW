@@ -38,3 +38,9 @@ CREATE TRIGGER disable_event_trigger
     FOR EACH ROW 
     WHEN (NEW.status = 'Disabled')
     EXECUTE PROCEDURE disable_event_function();
+
+CREATE TRIGGER cancel_event_trigger 
+    AFTER UPDATE OF status ON events
+    FOR EACH ROW 
+    WHEN (NEW.status = 'Cancelled')
+    EXECUTE PROCEDURE cancel_event_function();
