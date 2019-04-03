@@ -27,8 +27,8 @@ DROP TYPE IF EXISTS EVENT_STATUS CASCADE;
 
 CREATE TYPE EVENT_STATUS AS ENUM ('Active', 'Disabled', 'Cancelled');
 
-CREATE TYPE NOTIFICATION_TYPE AS ENUM ('IssueNotification', 'EventInvitation', 'EventDisabling', '
-    EventCancellation', 'EventRemoval', 'EventOrganizer', 'EventUpdate', 'EventAnnouncement');
+CREATE TYPE NOTIFICATION_TYPE AS ENUM ('IssueNotification', 'EventInvitation', 'EventDisabling', 'EventActivation',
+    'EventCancellation', 'EventRemoval', 'EventOrganizer', 'EventUpdate', 'EventAnnouncement');
 
 CREATE TYPE TICKET_PAYMENT_TYPE AS ENUM ('Voucher', 'Paypal');
 
