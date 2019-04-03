@@ -157,6 +157,16 @@ CREATE OR REPLACE FUNCTION
 $$ LANGUAGE 'plpgsql';
 
 CREATE OR REPLACE FUNCTION
+    organizer_promotion_function() RETURNS TRIGGER AS $$
+    BEGIN
+        INSERT INTO notifications(type, user_id, event_id)
+        VALUES ('EventOrganizer', NEW.user_id, NEW.event_id);
+        
+        RETURN NEW;
+    END;
+$$ LANGUAGE 'plpgsql';
+
+CREATE OR REPLACE FUNCTION
     event_data_updated_function() RETURNS TRIGGER AS $$
     DECLARE
         u record;

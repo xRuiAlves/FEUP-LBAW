@@ -10,6 +10,7 @@ DROP TRIGGER IF EXISTS disable_event_trigger ON events;
 DROP TRIGGER IF EXISTS cancel_event_function ON events;
 DROP TRIGGER IF EXISTS activate_event_trigger ON events;
 DROP TRIGGER IF EXISTS remove_attendee_trigger ON tickets;
+DROP TRIGGER IF EXISTS organizer_promotion_trigger ON organizers;
 DROP TRIGGER IF EXISTS event_data_updated_function ON events;
 DROP TRIGGER IF EXISTS event_announcement_creation_trigger ON posts;
 
@@ -60,6 +61,11 @@ CREATE TRIGGER remove_attendee_trigger
     AFTER DELETE ON tickets
     FOR EACH ROW
     EXECUTE PROCEDURE remove_attendee_function();
+
+CREATE TRIGGER organizer_promotion_trigger
+    AFTER INSERT ON organizers
+    FOR EACH ROW
+    EXECUTE PROCEDURE organizer_promotion_function();
 
 CREATE TRIGGER event_data_updated_function
     AFTER UPDATE OF title, description, price, location, 
