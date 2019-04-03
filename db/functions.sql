@@ -151,3 +151,30 @@ CREATE OR REPLACE FUNCTION
         RETURN NEW;
     END;
 $$ LANGUAGE 'plpgsql';
+
+CREATE OR REPLACE FUNCTION
+    event_announcement_creation_function() RETURNS TRIGGER AS $$
+    DECLARE
+        u record;
+    BEGIN
+        FOR 
+            u 
+        IN
+            SELECT DISTINCT user_id
+            FROM (
+                SELECT user_id
+                FROM tickets
+                WHERE event_id = NEW.event_id
+                UNION
+                SELECT user_id
+                FROM favorites
+                WHERE event_id = NEW.event_id
+            ) AS users
+        LOOP
+            INSERT INTO notifications(type, user_id, event_id)
+            VALUES ('EventAnnouncement', u.user_id, NEW.event_id);
+        END LOOP;
+
+        RETURN NEW;
+    END;
+$$ LANGUAGE 'plpgsql';
