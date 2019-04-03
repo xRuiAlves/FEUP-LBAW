@@ -52,3 +52,34 @@ CREATE OR REPLACE FUNCTION
         RETURN OLD;
     END;
 $$ LANGUAGE 'plpgsql';
+
+CREATE OR REPLACE FUNCTION
+    disable_event_function() RETURNS TRIGGER AS $$
+    DECLARE
+        ticket record;
+    BEGIN
+        FOR 
+            ticket 
+        IN
+            SELECT DISTINCT user_id
+            FROM (
+                SELECT user_id
+                FROM tickets
+                WHERE event_id = NEW.id
+                UNION
+                SELECT user_id
+                FROM organizers
+                WHERE event_id = NEW.id
+                UNION
+                SELECT user_id
+                FROM favorites
+                WHERE event_id = NEW.id
+            ) AS users
+        LOOP
+            INSERT INTO notifications(type, user_id, event_id)
+            VALUES ('EventDisabling', ticket.user_id, NEW.id);
+        END LOOP;
+
+        RETURN NEW;
+    END;
+$$ LANGUAGE 'plpgsql';
