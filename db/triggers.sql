@@ -5,6 +5,7 @@ DROP TRIGGER IF EXISTS insert_rating_trigger ON ratings;
 DROP TRIGGER IF EXISTS update_rating_trigger ON ratings;
 DROP TRIGGER IF EXISTS delete_rating_trigger ON ratings;
 DROP TRIGGER IF EXISTS insert_comment_trigger ON comments;
+DROP TRIGGER IF EXISTS delete_comment_trigger ON comments;
 
 CREATE TRIGGER insert_rating_trigger 
     AFTER INSERT ON ratings
@@ -25,3 +26,8 @@ CREATE TRIGGER insert_comment_trigger
     AFTER INSERT ON comments
     FOR EACH ROW 
     EXECUTE PROCEDURE insert_comment_function();
+
+CREATE TRIGGER delete_comment_trigger 
+    BEFORE DELETE ON comments
+    FOR EACH ROW 
+    EXECUTE PROCEDURE delete_comment_function();

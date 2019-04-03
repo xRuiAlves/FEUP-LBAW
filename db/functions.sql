@@ -41,3 +41,14 @@ CREATE OR REPLACE FUNCTION
         RETURN NEW;
     END;
 $$ LANGUAGE 'plpgsql';
+
+CREATE OR REPLACE FUNCTION
+    delete_comment_function() RETURNS TRIGGER AS $$
+    BEGIN
+        UPDATE posts
+        SET num_comments = num_comments - 1
+        WHERE posts.id = OLD.post_id;
+        
+        RETURN OLD;
+    END;
+$$ LANGUAGE 'plpgsql';
