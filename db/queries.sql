@@ -46,7 +46,7 @@ ORDER BY timestamp DESC;
 -- Getting an event's discussion forum
 SELECT content, timestamp, rating, num_comments, users.name AS creator
 FROM posts INNER JOIN users ON (posts.user_id = users.id)
-WHERE posts.id = 4 AND
+WHERE posts.event_id = 4 AND
 	  is_announcement = false
 ORDER BY rating DESC, timestamp DESC; -- most well rated come first
 
