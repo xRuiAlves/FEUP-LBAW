@@ -87,7 +87,9 @@ CREATE TABLE event_vouchers (
 	code VARCHAR(128) NOT NULL,
     is_used BOOLEAN NOT NULL DEFAULT false,
     event_id INTEGER NOT NULL REFERENCES events(id) ON DELETE CASCADE,
-    user_id INTEGER NOT NULL REFERENCES users(id) ON DELETE CASCADE
+    user_id INTEGER NOT NULL REFERENCES users(id) ON DELETE CASCADE,
+
+    CONSTRAINT unique_voucher_in_event UNIQUE(code, event_id)
 );
 
 -- R08
