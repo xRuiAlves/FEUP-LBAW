@@ -219,3 +219,22 @@ CREATE OR REPLACE FUNCTION
         RETURN NEW;
     END;
 $$ LANGUAGE 'plpgsql';
+
+CREATE OR REPLACE FUNCTION
+    ticket_with_voucher_function() RETURNS TRIGGER AS $$
+    BEGIN
+        IF 
+            (SELECT event_vouchers.event_id
+            FROM event_vouchers
+            WHERE id = NEW.event_voucher_id) != NEW.event_id
+        THEN
+            RAISE EXCEPTION 'Invalid voucher for the given event';
+        ELSE
+            UPDATE event_vouchers
+            SET is_used = true
+            WHERE event_vouchers.id = NEW.event_voucher_id;
+        END IF;
+
+        RETURN NEW;
+    END;
+$$ LANGUAGE 'plpgsql';
