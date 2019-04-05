@@ -97,7 +97,7 @@ INSERT INTO tags(name) VALUES
     ('Jogging'),
     ('Respect');
 
--- Event Vouchers
+    -- Event Vouchers
 INSERT INTO event_vouchers(code, event_id, user_id) VALUES 
     ('XPTO1001', 2, 1),
     ('XPTO1002', 2, 1),
@@ -122,7 +122,17 @@ INSERT INTO event_vouchers(code, event_id, user_id) VALUES
     ('XPTO2354', 10, 6),
     ('XPTO2277', 15, 7),
     ('XPTO2823', 15, 21),
-    ('XPTO1562', 3, 18);
+    ('XPTO1562', 3, 18),
+    ('XPTO8134', 10, 6),
+    ('XPTO8135', 5, 6),
+    ('XPTO8136', 6, 7),
+    ('XPTO8137', 7, 8),
+    ('XPTO8138', 14, 3),
+    ('XPTO8139', 5, 4),
+    ('XPTO8140', 4, 5),
+    ('XPTO8141', 10, 6),
+    ('XPTO8142', 15, 7),
+    ('XPTO8143', 15, 21);
     
 -- Posts
 INSERT INTO posts(content, event_id, user_id, is_announcement) VALUES 
@@ -207,16 +217,35 @@ INSERT INTO ratings(user_id, post_id, value) VALUES
     (9, 16, 1);
 
 -- Tickets
-INSERT INTO tickets(user_id, event_id, type, event_voucher_id)
-    VALUES (1, 3, 'Voucher', 1);
-INSERT INTO tickets(user_id, event_id, type, event_voucher_id)
-    VALUES (1, 3, 'Voucher', 2);
 INSERT INTO tickets(user_id, event_id, type, paypal_order_id)
     VALUES (1, 3, 'Paypal', 'PAYPAL-CONFIRMATION-6424');
-INSERT INTO tickets(user_id, event_id, type, event_voucher_id)
-    VALUES (4, 5, 'Voucher', 3);
 INSERT INTO tickets(user_id, event_id, type, paypal_order_id, nif, billing_name)
     VALUES (5, 2, 'Paypal', 'PAYPAL-CONFIRMATION-7512', 245024952, 'Peter');
+INSERT INTO tickets(user_id, event_id, type, event_voucher_id) VALUES 
+    (1, 2, 'Voucher', 1),
+    (1, 2, 'Voucher', 2),
+    (3, 4, 'Voucher', 3),
+    (4, 4, 'Voucher', 4),
+    (5, 7, 'Voucher', 5),
+    (6, 7, 'Voucher', 6),
+    (7, 7, 'Voucher', 7),
+    (8, 7, 'Voucher', 8),
+    (9, 7, 'Voucher', 9),
+    (10, 13, 'Voucher', 10),
+    (11, 13, 'Voucher', 11),
+    (12, 12, 'Voucher', 12),
+    (13, 11, 'Voucher', 13),
+    (14, 10, 'Voucher', 14),
+    (15, 5, 'Voucher', 15),
+    (16, 6, 'Voucher', 16),
+    (17, 7, 'Voucher', 17),
+    (18, 14, 'Voucher', 18),
+    (19, 5, 'Voucher', 19),
+    (10, 4, 'Voucher', 20),
+    (21, 10, 'Voucher', 21),
+    (22, 15, 'Voucher', 22),
+    (23, 15, 'Voucher', 23),
+    (7, 3, 'Voucher', 24);
 
 -- Organizers
 INSERT INTO organizers(user_id, event_id) VALUES 
