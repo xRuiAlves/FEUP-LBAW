@@ -12,23 +12,25 @@ DROP INDEX IF EXISTS notifications_index;
 DROP INDEX IF EXISTS notifications_timestamp_index;
 DROP INDEX IF EXISTS event_invite_notification_spam;
 
-
+--IDX01
 CREATE INDEX voucher_code_index ON event_vouchers USING btree (code, event_id);
 
-CREATE INDEX posts_index ON posts USING btree (event_id, is_announcement);
-CREATE INDEX posts_timestamp_index ON posts USING btree (timestamp);
-CREATE INDEX posts_rating_index ON posts USING btree (rating) WHERE is_announcement = false;
+--IDX02
+CREATE INDEX announcements_index ON posts USING btree (event_id, is_announcement, timestamp) WHERE is_announcement = true;
+--IDX03
+CREATE INDEX discussion_posts_index ON posts USING btree (event_id, is_announcement, rating, timestamp) WHERE is_announcement = false;
 
-CREATE INDEX comments_index ON comments USING hash (post_id);
-CREATE INDEX comments_timestamp_index ON comments USING btree (timestamp);
+--IDX04
+CREATE INDEX comments_index ON comments USING btree (post_id, timestamp);
 
+--IDX05
 CREATE INDEX tickets_index ON tickets USING btree (user_id, event_id);
 
-CREATE INDEX issues_timestamp_index ON issues USING btree(timestamp);
-CREATE INDEX issues_solved_index ON issues USING btree(is_solved);
+--IDX06
+CREATE INDEX issues_timestamp_index ON issues USING btree(is_solved, timestamp);
 
-CREATE INDEX notifications_index ON notifications USING btree(user_id, is_dismissed);
-CREATE INDEX notifications_timestamp_index ON notifications USING btree(timestamp);
+--IDX07
+CREATE INDEX notifications_index ON notifications USING btree(user_id, is_dismissed, timestamp);
 
 --CREATE INDEX events_search_index ON events USING GIN (search);
 --CREATE INDEX users_search_index ON users USING GIN (search);
