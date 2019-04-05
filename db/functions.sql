@@ -226,13 +226,21 @@ CREATE OR REPLACE FUNCTION
         IF 
             (SELECT event_vouchers.event_id
             FROM event_vouchers
-            WHERE id = NEW.event_voucher_id) != NEW.event_id
+            WHERE event_vouchers.id = NEW.event_voucher_id) != NEW.event_id
         THEN
             RAISE EXCEPTION 'Invalid voucher for the given event';
         ELSE
-            UPDATE event_vouchers
-            SET is_used = true
-            WHERE event_vouchers.id = NEW.event_voucher_id;
+            IF 
+                (SELECT is_used
+                FROM event_vouchers
+                WHERE event_vouchers.id = NEW.event_voucher_id) = true
+            THEN
+                RAISE EXCEPTION 'Voucher already redeemed';
+            ELSE
+                UPDATE event_vouchers
+                SET is_used = true
+                WHERE event_vouchers.id = NEW.event_voucher_id;
+            END IF;
         END IF;
 
         RETURN NEW;
