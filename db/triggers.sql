@@ -142,9 +142,9 @@ CREATE TRIGGER update_event_search_on_tags_update
 
 --TRIGGER18
 CREATE TRIGGER update_event_search_on_tags_insert
-    AFTER INSERT ON tags
+    AFTER INSERT ON event_tags
     FOR EACH ROW 
-    EXECUTE PROCEDURE event_search_update_tags();
+    EXECUTE PROCEDURE event_search_update_new_tags();
 
 --TRIGGER19
 CREATE TRIGGER update_event_search_on_tags_delete
@@ -159,36 +159,30 @@ CREATE TRIGGER update_event_search_on_category_update
     EXECUTE PROCEDURE event_search_update_category();
 
 --TRIGGER21
-CREATE TRIGGER update_event_search_on_category_insert
-    AFTER INSERT ON event_categories
-    FOR EACH ROW 
-    EXECUTE PROCEDURE event_search_update_category();
-
---TRIGGER22
 CREATE TRIGGER insert_user_search 
     AFTER INSERT ON users
     FOR EACH ROW 
     EXECUTE PROCEDURE user_search_update();
 
---TRIGGER23
+--TRIGGER22
 CREATE TRIGGER update_user_search 
     AFTER UPDATE ON users
     FOR EACH ROW 
     EXECUTE PROCEDURE user_search_update();
 
---TRIGGER24
+--TRIGGER23
 CREATE TRIGGER insert_issue_search 
     AFTER INSERT ON issues
     FOR EACH ROW 
     EXECUTE PROCEDURE issue_search_update();
 
---TRIGGER25
+--TRIGGER24
 CREATE TRIGGER update_issue_search 
     AFTER UPDATE ON issues
     FOR EACH ROW 
     EXECUTE PROCEDURE issue_search_update();
 
---TRIGGER26
+--TRIGGER25
 CREATE TRIGGER update_issue_search_on_creator_name_update
     AFTER UPDATE ON users
     FOR EACH ROW 

@@ -330,8 +330,30 @@ BEGIN
 END;
 $$ LANGUAGE 'plpgsql';
 
+--FUNCTION17
+CREATE OR REPLACE FUNCTION event_search_update_new_tags() RETURNS TRIGGER AS $$
+DECLARE
+	temprow RECORD;
+BEGIN
+	
+    FOR temprow IN
+        SELECT id as event_id, setweight(title, 'A') || setweight(description, 'C') || setweight(location, 'B') || setweight(category, 'B') || setweight(tags, 'B')
+        AS result_search 
+        FROM event_search_fields 
+        INNER JOIN event_tags 
+        ON id = event_tags.event_id
+        WHERE tag_id = NEW.tag_id
+    LOOP
+        UPDATE events 
+        SET search = temprow.result_search
+        WHERE id = temprow.event_id;
+    END LOOP;
 
---FUNCTION 17
+  RETURN NEW;
+END;
+$$ LANGUAGE 'plpgsql';
+
+--FUNCTION18
 CREATE OR REPLACE FUNCTION event_search_update_deleted_tags() RETURNS TRIGGER AS $$
 DECLARE
 	temprow RECORD;
@@ -345,9 +367,6 @@ BEGIN
         ON id = event_tags.event_id
         WHERE tag_id = OLD.tag_id
     LOOP
-
-        RAISE NOTICE 'temprow: %', temprow;
-
         UPDATE events 
         SET search = temprow.result_search
         WHERE id = temprow.event_id;
@@ -357,7 +376,7 @@ BEGIN
 END;
 $$ LANGUAGE 'plpgsql';
 
---FUNCTION18
+--FUNCTION19
 CREATE OR REPLACE FUNCTION event_search_update_category() RETURNS TRIGGER AS $$
 DECLARE
 	temprow RECORD;
@@ -383,7 +402,7 @@ END;
 $$ LANGUAGE 'plpgsql';
 
 
---FUNCTION19
+--FUNCTION20
 CREATE OR REPLACE FUNCTION user_search_update() RETURNS TRIGGER AS $$
 BEGIN
 
@@ -409,7 +428,7 @@ INNER JOIN users ON (i.creator_id = users.id)
 GROUP BY i.id, users.name
 ;
 
---FUNCTION20
+--FUNCTION21
 CREATE OR REPLACE FUNCTION issue_search_update() RETURNS TRIGGER AS $$
 BEGIN
 
@@ -427,7 +446,7 @@ BEGIN
 END
 $$ LANGUAGE 'plpgsql';
 
---FUNCTION21
+--FUNCTION22
 CREATE OR REPLACE FUNCTION issue_search_update_creator_name() RETURNS TRIGGER AS $$
 DECLARE
 	temprow RECORD;
