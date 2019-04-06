@@ -34,7 +34,7 @@ SELECT events.id, title, price, latitude, longitude, start_timestamp, end_timest
 FROM events
 INNER JOIN event_categories ON (events.event_category_id = event_categories.id)
 WHERE search @@ plainto_tsquery('english', 'SinF')
-ORDER BY ts_rank(search, plainto_tsquery('english', 'SinF')) DESC
+ORDER BY ts_rank(search, plainto_tsquery('english', 'SinF')) DESC;
 
 
 -- Getting an event's information for the event page
@@ -90,7 +90,18 @@ FROM events
 OFFSET 0
 LIMIT 15;
 
+-- Getting full-text-search results on issues - implies the pre-computation of search field on issues
+SELECT issues.id, title, content, timestamp, is_solved, users.name as creator, 
+FROM issues
+INNER JOIN users ON (issues.creator_id = users.id)
+WHERE search @@ plainto_tsquery('english', 'issue search')
+ORDER BY ts_rank(search, plainto_tsquery('english', 'issue search')) DESC;
 
+-- Getting full-text-search results on users - implies the pre-computation of search field on users
+SELECT id, name, email
+FROM users
+WHERE search @@ plainto_tsquery('english', 'mark')
+ORDER BY ts_rank(search, plainto_tsquery('english', 'mark')) DESC;
 
 
 
