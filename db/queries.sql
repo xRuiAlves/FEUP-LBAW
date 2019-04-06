@@ -2,7 +2,7 @@
 SELECT id, is_disabled
 FROM users
 WHERE email = 'XXXXXX'
-AND password = 'XXXXXX'
+AND password = 'XXXXXX';
 
 -- Getting user information after log in
 SELECT name, email, is_admin
@@ -91,11 +91,11 @@ OFFSET 0
 LIMIT 15;
 
 -- Getting full-text-search results on issues - implies the pre-computation of search field on issues
-SELECT issues.id, title, content, timestamp, is_solved, users.name as creator, 
+SELECT issues.id, title, content, timestamp, is_solved, users.name as creator
 FROM issues
 INNER JOIN users ON (issues.creator_id = users.id)
 WHERE issues.search @@ plainto_tsquery('english', 'issue search')
-ORDER BY ts_rank(search, plainto_tsquery('english', 'issue search')) DESC;
+ORDER BY ts_rank(issues.search, plainto_tsquery('english', 'issue search')) DESC;
 
 -- Getting full-text-search results on users - implies the pre-computation of search field on users
 SELECT id, name, email
