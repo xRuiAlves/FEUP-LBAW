@@ -2,7 +2,7 @@
 UPDATE events
 SET description = 'This is an updated event description',
     latitude = 51,
-    longitude = 52,
+    longitude = 52
 WHERE id = 2;
 
 -- Event creator cancelling an event
