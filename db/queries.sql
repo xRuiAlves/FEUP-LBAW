@@ -94,7 +94,7 @@ LIMIT 15;
 SELECT issues.id, title, content, timestamp, is_solved, users.name as creator, 
 FROM issues
 INNER JOIN users ON (issues.creator_id = users.id)
-WHERE search @@ plainto_tsquery('english', 'issue search')
+WHERE issues.search @@ plainto_tsquery('english', 'issue search')
 ORDER BY ts_rank(search, plainto_tsquery('english', 'issue search')) DESC;
 
 -- Getting full-text-search results on users - implies the pre-computation of search field on users
