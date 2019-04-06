@@ -1,3 +1,4 @@
+-- FUNCTION01
 CREATE OR REPLACE FUNCTION
     insert_rating_function() RETURNS TRIGGER AS $$
     BEGIN
@@ -9,6 +10,7 @@ CREATE OR REPLACE FUNCTION
     END;
 $$ LANGUAGE 'plpgsql';
 
+-- FUNCTION02
 CREATE OR REPLACE FUNCTION
     update_rating_function() RETURNS TRIGGER AS $$
     BEGIN
@@ -20,6 +22,7 @@ CREATE OR REPLACE FUNCTION
     END;
 $$ LANGUAGE 'plpgsql';
 
+-- FUNCTION03
 CREATE OR REPLACE FUNCTION
     delete_rating_function() RETURNS TRIGGER AS $$
     BEGIN
@@ -31,6 +34,7 @@ CREATE OR REPLACE FUNCTION
     END;
 $$ LANGUAGE 'plpgsql';
 
+-- FUNCTION04
 CREATE OR REPLACE FUNCTION
     insert_comment_function() RETURNS TRIGGER AS $$
     BEGIN
@@ -42,6 +46,7 @@ CREATE OR REPLACE FUNCTION
     END;
 $$ LANGUAGE 'plpgsql';
 
+-- FUNCTION05
 CREATE OR REPLACE FUNCTION
     delete_comment_function() RETURNS TRIGGER AS $$
     BEGIN
@@ -53,6 +58,7 @@ CREATE OR REPLACE FUNCTION
     END;
 $$ LANGUAGE 'plpgsql';
 
+-- FUNCTION06
 CREATE OR REPLACE FUNCTION
     disable_event_function() RETURNS TRIGGER AS $$
     DECLARE
@@ -84,6 +90,7 @@ CREATE OR REPLACE FUNCTION
     END;
 $$ LANGUAGE 'plpgsql';
 
+-- FUNCTION07
 CREATE OR REPLACE FUNCTION
     cancel_event_function() RETURNS TRIGGER AS $$
     DECLARE
@@ -115,6 +122,7 @@ CREATE OR REPLACE FUNCTION
     END;
 $$ LANGUAGE 'plpgsql';
 
+-- FUNCTION08
 CREATE OR REPLACE FUNCTION
     activate_event_function() RETURNS TRIGGER AS $$
     DECLARE
@@ -146,6 +154,7 @@ CREATE OR REPLACE FUNCTION
     END;
 $$ LANGUAGE 'plpgsql';
 
+-- FUNCTION09
 CREATE OR REPLACE FUNCTION
     remove_attendee_function() RETURNS TRIGGER AS $$
     BEGIN
@@ -156,6 +165,7 @@ CREATE OR REPLACE FUNCTION
     END;
 $$ LANGUAGE 'plpgsql';
 
+-- FUNCTION10
 CREATE OR REPLACE FUNCTION
     organizer_promotion_function() RETURNS TRIGGER AS $$
     BEGIN
@@ -166,6 +176,7 @@ CREATE OR REPLACE FUNCTION
     END;
 $$ LANGUAGE 'plpgsql';
 
+-- FUNCTION11
 CREATE OR REPLACE FUNCTION
     event_data_updated_function() RETURNS TRIGGER AS $$
     DECLARE
@@ -193,6 +204,7 @@ CREATE OR REPLACE FUNCTION
     END;
 $$ LANGUAGE 'plpgsql';
 
+-- FUNCTION12
 CREATE OR REPLACE FUNCTION
     event_announcement_creation_function() RETURNS TRIGGER AS $$
     DECLARE
@@ -220,6 +232,7 @@ CREATE OR REPLACE FUNCTION
     END;
 $$ LANGUAGE 'plpgsql';
 
+-- FUNCTION13
 CREATE OR REPLACE FUNCTION
     ticket_with_voucher_function() RETURNS TRIGGER AS $$
     BEGIN
@@ -241,6 +254,22 @@ CREATE OR REPLACE FUNCTION
                 SET is_used = true
                 WHERE event_vouchers.id = NEW.event_voucher_id;
             END IF;
+        END IF;
+
+        RETURN NEW;
+    END;
+$$ LANGUAGE 'plpgsql';
+
+-- FUNCTION14
+CREATE OR REPLACE FUNCTION
+    issue_solving_function() RETURNS TRIGGER AS $$
+    BEGIN
+        IF 
+            (SELECT is_admin
+            FROM users
+            WHERE users.id = NEW.solver_id) != true
+        THEN
+            RAISE EXCEPTION 'Issue can only be solved by an administrator';
         END IF;
 
         RETURN NEW;
