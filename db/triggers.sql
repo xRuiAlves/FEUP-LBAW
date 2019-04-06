@@ -16,6 +16,21 @@ DROP TRIGGER IF EXISTS event_announcement_creation_trigger ON posts;
 DROP TRIGGER IF EXISTS ticket_with_voucher_trigger ON tickets;
 DROP TRIGGER IF EXISTS issue_solving_trigger ON issues;
 
+--FTS
+DROP TRIGGER IF EXISTS insert_event_search ON events;
+DROP TRIGGER IF EXISTS update_event_search ON events;
+DROP TRIGGER IF EXISTS update_event_search_on_tags_update ON tags;
+DROP TRIGGER IF EXISTS update_event_search_on_tags_insert ON tags;
+DROP TRIGGER IF EXISTS update_event_search_on_tags_delete ON tags;
+DROP TRIGGER IF EXISTS update_event_search_on_tags_delete ON event_tags;
+DROP TRIGGER IF EXISTS update_event_search_on_category_update ON event_categories;
+DROP TRIGGER IF EXISTS update_event_search_on_category_insert ON event_categories;
+DROP TRIGGER IF EXISTS insert_user_search ON users;
+DROP TRIGGER IF EXISTS update_user_search ON users;
+DROP TRIGGER IF EXISTS insert_issue_search ON issues;
+DROP TRIGGER IF EXISTS update_issue_search ON issues;
+DROP TRIGGER IF EXISTS update_issue_search_on_creator_name_update ON users;
+
 -- TRIGGER01
 CREATE TRIGGER insert_rating_trigger 
     AFTER INSERT ON ratings
@@ -106,3 +121,75 @@ CREATE TRIGGER issue_solving_trigger
     BEFORE UPDATE OF solver_id ON issues
     FOR EACH ROW
     EXECUTE PROCEDURE issue_solving_function();
+
+--TRIGGER15
+CREATE TRIGGER insert_event_search 
+    AFTER INSERT ON events
+    FOR EACH ROW 
+    EXECUTE PROCEDURE event_search_update();
+
+--TRIGGER16
+CREATE TRIGGER update_event_search 
+    AFTER UPDATE ON events
+    FOR EACH ROW 
+    EXECUTE PROCEDURE event_search_update();
+
+--TRIGGER17
+CREATE TRIGGER update_event_search_on_tags_update
+    AFTER UPDATE ON tags
+    FOR EACH ROW 
+    EXECUTE PROCEDURE event_search_update_tags();
+
+--TRIGGER18
+CREATE TRIGGER update_event_search_on_tags_insert
+    AFTER INSERT ON tags
+    FOR EACH ROW 
+    EXECUTE PROCEDURE event_search_update_tags();
+
+--TRIGGER19
+CREATE TRIGGER update_event_search_on_tags_delete
+    BEFORE DELETE ON event_tags
+    FOR EACH ROW 
+    EXECUTE PROCEDURE event_search_update_deleted_tags();
+
+--TRIGGER20
+CREATE TRIGGER update_event_search_on_category_update
+    AFTER UPDATE ON event_categories
+    FOR EACH ROW 
+    EXECUTE PROCEDURE event_search_update_category();
+
+--TRIGGER21
+CREATE TRIGGER update_event_search_on_category_insert
+    AFTER INSERT ON event_categories
+    FOR EACH ROW 
+    EXECUTE PROCEDURE event_search_update_category();
+
+--TRIGGER22
+CREATE TRIGGER insert_user_search 
+    AFTER INSERT ON users
+    FOR EACH ROW 
+    EXECUTE PROCEDURE user_search_update();
+
+--TRIGGER23
+CREATE TRIGGER update_user_search 
+    AFTER UPDATE ON users
+    FOR EACH ROW 
+    EXECUTE PROCEDURE user_search_update();
+
+--TRIGGER24
+CREATE TRIGGER insert_issue_search 
+    AFTER INSERT ON issues
+    FOR EACH ROW 
+    EXECUTE PROCEDURE issue_search_update();
+
+--TRIGGER25
+CREATE TRIGGER update_issue_search 
+    AFTER UPDATE ON issues
+    FOR EACH ROW 
+    EXECUTE PROCEDURE issue_search_update();
+
+--TRIGGER26
+CREATE TRIGGER update_issue_search_on_creator_name_update
+    AFTER UPDATE ON users
+    FOR EACH ROW 
+    EXECUTE PROCEDURE issue_search_update_creator_name();

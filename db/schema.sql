@@ -43,7 +43,8 @@ CREATE TABLE users (
 	email VARCHAR(128) NOT NULL CONSTRAINT user_email_unique UNIQUE,
 	password VARCHAR(128) NOT NULL,
     is_disabled BOOLEAN NOT NULL DEFAULT false,
-    is_admin BOOLEAN NOT NULL DEFAULT false
+    is_admin BOOLEAN NOT NULL DEFAULT false,
+    search TSVECTOR
 );
 
 -- R05
@@ -188,6 +189,7 @@ CREATE TABLE issues (
 	referenced_event INTEGER REFERENCES events(id) ON DELETE CASCADE,
 	referenced_post INTEGER REFERENCES posts(id) ON DELETE CASCADE,
 	referenced_comment INTEGER REFERENCES comments(id) ON DELETE CASCADE,
+    search TSVECTOR,
 
     CONSTRAINT self_reporting CHECK (creator_id != referenced_user)
 );

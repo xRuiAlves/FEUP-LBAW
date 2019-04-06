@@ -275,3 +275,179 @@ CREATE OR REPLACE FUNCTION
         RETURN NEW;
     END;
 $$ LANGUAGE 'plpgsql';
+
+
+DROP VIEW IF EXISTS event_search_fields;
+CREATE VIEW event_search_fields
+AS
+SELECT e.id, to_tsvector(coalesce(e.title,'')) as title, to_tsvector(coalesce(e.description, '')) as description, to_tsvector(coalesce(e.location, '')) as location, to_tsvector(coalesce(event_categories.name ,'')) AS category, to_tsvector(coalesce(string_agg(tags.name, ' '),'')) AS tags
+
+FROM events AS e
+INNER JOIN event_categories ON (e.event_category_id = event_categories.id)
+LEFT OUTER JOIN event_tags ON e.id = event_tags.event_id
+LEFT OUTER JOIN tags ON event_tags.tag_id = tags.id
+GROUP BY e.id, event_categories.name
+;
+
+-- FUNCTION15
+CREATE OR REPLACE FUNCTION event_search_update() RETURNS TRIGGER AS $$
+BEGIN
+
+    IF TG_OP = 'INSERT' OR (TG_OP = 'UPDATE' AND (OLD.title <> NEW.title OR OLD.description <> NEW.description OR OLD.location <> NEW.location OR OLD.event_category_id <> NEW.event_category_id)) THEN
+        UPDATE events 
+        SET search = (SELECT result_search FROM 
+            (SELECT setweight(title, 'A') || setweight(description, 'C') || setweight(location, 'B') || setweight(category, 'B') || setweight(tags, 'B')
+            AS result_search 
+            FROM event_search_fields WHERE id = NEW.id)
+        AS subquery)
+        WHERE id = NEW.id;
+    END IF;
+
+  RETURN NEW;
+END
+$$ LANGUAGE 'plpgsql';
+
+-- FUNCTION16
+CREATE OR REPLACE FUNCTION event_search_update_tags() RETURNS TRIGGER AS $$
+DECLARE
+	temprow RECORD;
+BEGIN
+	
+    FOR temprow IN
+        SELECT id as event_id, setweight(title, 'A') || setweight(description, 'C') || setweight(location, 'B') || setweight(category, 'B') || setweight(tags, 'B')
+        AS result_search 
+        FROM event_search_fields 
+        INNER JOIN event_tags 
+        ON id = event_tags.event_id
+        WHERE tag_id = NEW.id
+    LOOP
+        UPDATE events 
+        SET search = temprow.result_search
+        WHERE id = temprow.event_id;
+    END LOOP;
+
+  RETURN NEW;
+END;
+$$ LANGUAGE 'plpgsql';
+
+
+--FUNCTION 17
+CREATE OR REPLACE FUNCTION event_search_update_deleted_tags() RETURNS TRIGGER AS $$
+DECLARE
+	temprow RECORD;
+BEGIN
+	
+    FOR temprow IN
+        SELECT id as event_id, setweight(title, 'A') || setweight(description, 'C') || setweight(location, 'B') || setweight(category, 'B') || setweight(tags, 'B')
+        AS result_search 
+        FROM event_search_fields 
+        INNER JOIN event_tags 
+        ON id = event_tags.event_id
+        WHERE tag_id = OLD.tag_id
+    LOOP
+
+        RAISE NOTICE 'temprow: %', temprow;
+
+        UPDATE events 
+        SET search = temprow.result_search
+        WHERE id = temprow.event_id;
+    END LOOP;
+
+  RETURN OLD;
+END;
+$$ LANGUAGE 'plpgsql';
+
+--FUNCTION18
+CREATE OR REPLACE FUNCTION event_search_update_category() RETURNS TRIGGER AS $$
+DECLARE
+	temprow RECORD;
+BEGIN
+	
+    FOR temprow IN
+        SELECT event_search_fields.id as event_id, setweight(event_search_fields.title, 'A') || setweight(event_search_fields.description, 'C') || setweight(event_search_fields.location, 'B') || setweight(category, 'B') || setweight(tags, 'B')
+        AS result_search 
+        FROM event_search_fields 
+        INNER JOIN events 
+		ON event_search_fields.id = events.id
+    
+        WHERE event_category_id = NEW.id
+        
+    LOOP
+        UPDATE events 
+        SET search = temprow.result_search
+        WHERE id = temprow.event_id;
+    END LOOP;
+
+  RETURN NEW;
+END;
+$$ LANGUAGE 'plpgsql';
+
+
+--FUNCTION19
+CREATE OR REPLACE FUNCTION user_search_update() RETURNS TRIGGER AS $$
+BEGIN
+
+    IF TG_OP = 'INSERT' OR (TG_OP = 'UPDATE' AND (OLD.name <> NEW.name OR OLD.email <> NEW.email)) THEN
+        UPDATE users 
+        SET search = (SELECT setweight(to_tsvector(name), 'A') || setweight(to_tsvector(email), 'B')
+        FROM users WHERE id = NEW.id)
+        WHERE id = NEW.id;
+    END IF;
+
+  RETURN NEW;
+END
+$$ LANGUAGE 'plpgsql';
+
+
+DROP VIEW IF EXISTS issue_search_fields;
+CREATE VIEW issue_search_fields
+AS
+SELECT i.id, i.creator_id AS creator_id, to_tsvector(coalesce(i.title,'')) as title, to_tsvector(coalesce(i.content, '')) as content, to_tsvector(coalesce(users.name ,'')) AS creator
+
+FROM issues AS i
+INNER JOIN users ON (i.creator_id = users.id)
+GROUP BY i.id, users.name
+;
+
+--FUNCTION20
+CREATE OR REPLACE FUNCTION issue_search_update() RETURNS TRIGGER AS $$
+BEGIN
+
+    IF TG_OP = 'INSERT' OR (TG_OP = 'UPDATE' AND (OLD.title <> NEW.title OR OLD.content <> NEW.content )) THEN
+        UPDATE issues 
+        SET search = (SELECT result_search FROM 
+            (SELECT setweight(title, 'A') || setweight(content, 'C') || setweight(creator, 'B')
+            AS result_search 
+            FROM issue_search_fields WHERE id = NEW.id)
+        AS subquery)
+        WHERE id = NEW.id;
+    END IF;
+
+  RETURN NEW;
+END
+$$ LANGUAGE 'plpgsql';
+
+--FUNCTION21
+CREATE OR REPLACE FUNCTION issue_search_update_creator_name() RETURNS TRIGGER AS $$
+DECLARE
+	temprow RECORD;
+BEGIN
+	
+    FOR temprow IN
+        SELECT issue_search_fields.id as issue_id, setweight(title, 'A') || setweight(content, 'C') || setweight(creator, 'B')
+        AS result_search 
+        FROM issue_search_fields 
+        INNER JOIN users 
+		ON issue_search_fields.creator_id = users.id
+    
+        WHERE creator_id = NEW.id
+        
+    LOOP
+        UPDATE issues 
+        SET search = temprow.result_search
+        WHERE id = temprow.issue_id;
+    END LOOP;
+
+  RETURN NEW;
+END;
+$$ LANGUAGE 'plpgsql';
