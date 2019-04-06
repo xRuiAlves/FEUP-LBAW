@@ -1,15 +1,10 @@
-
-DROP INDEX IF EXISTS posts_index;
 DROP INDEX IF EXISTS voucher_code_index;
-DROP INDEX IF EXISTS posts_timestamp_index;
-DROP INDEX IF EXISTS posts_rating_index;
+DROP INDEX IF EXISTS announcements_index;
+DROP INDEX IF EXISTS discussion_posts_index;
 DROP INDEX IF EXISTS comments_index;
-DROP INDEX IF EXISTS comments_timestamp_index;
 DROP INDEX IF EXISTS tickets_index;
 DROP INDEX IF EXISTS issues_timestamp_index;
-DROP INDEX IF EXISTS issues_solved_index;
 DROP INDEX IF EXISTS notifications_index;
-DROP INDEX IF EXISTS notifications_timestamp_index;
 DROP INDEX IF EXISTS event_invite_notification_spam;
 
 --IDX01
@@ -17,6 +12,7 @@ CREATE INDEX voucher_code_index ON event_vouchers USING btree (code, event_id);
 
 --IDX02
 CREATE INDEX announcements_index ON posts USING btree (event_id, is_announcement, timestamp) WHERE is_announcement = true;
+
 --IDX03
 CREATE INDEX discussion_posts_index ON posts USING btree (event_id, is_announcement, rating, timestamp) WHERE is_announcement = false;
 
