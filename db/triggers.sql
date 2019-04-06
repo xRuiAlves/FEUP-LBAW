@@ -20,7 +20,7 @@ DROP TRIGGER IF EXISTS issue_solving_trigger ON issues;
 DROP TRIGGER IF EXISTS insert_event_search ON events;
 DROP TRIGGER IF EXISTS update_event_search ON events;
 DROP TRIGGER IF EXISTS update_event_search_on_tags_update ON tags;
-DROP TRIGGER IF EXISTS update_event_search_on_tags_insert ON tags;
+DROP TRIGGER IF EXISTS update_event_search_on_tags_insert ON event_tags;
 DROP TRIGGER IF EXISTS update_event_search_on_tags_delete ON tags;
 DROP TRIGGER IF EXISTS update_event_search_on_tags_delete ON event_tags;
 DROP TRIGGER IF EXISTS update_event_search_on_category_update ON event_categories;
