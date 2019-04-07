@@ -924,5 +924,5 @@ CREATE INDEX users_search_index ON users USING gin(search);
 --IDX10
 CREATE INDEX issues_search_index ON issues USING gin(search);
 
---IDX10
+--IDX11
 CREATE UNIQUE INDEX event_invite_notification_spam ON notifications (user_id, event_id, type) WHERE type = 'EventInvitation';
