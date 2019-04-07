@@ -40,8 +40,5 @@ CREATE INDEX users_search_index ON users USING gin(search);
 --IDX10
 CREATE INDEX issues_search_index ON issues USING gin(search);
 
+--IDX10
 CREATE UNIQUE INDEX event_invite_notification_spam ON notifications (user_id, event_id, type) WHERE type = 'EventInvitation';
-
-
---template
---CREATE INDEX name ON table USING hash (column);

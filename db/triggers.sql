@@ -1,6 +1,3 @@
-
---Quando um tuplo de rating é criado, dar update ao atributo “rating” da classe post
-
 DROP TRIGGER IF EXISTS insert_rating_trigger ON ratings;
 DROP TRIGGER IF EXISTS update_rating_trigger ON ratings;
 DROP TRIGGER IF EXISTS delete_rating_trigger ON ratings;
@@ -15,8 +12,6 @@ DROP TRIGGER IF EXISTS event_data_updated_trigger ON events;
 DROP TRIGGER IF EXISTS event_announcement_creation_trigger ON posts;
 DROP TRIGGER IF EXISTS ticket_with_voucher_trigger ON tickets;
 DROP TRIGGER IF EXISTS issue_solving_trigger ON issues;
-
---FTS
 DROP TRIGGER IF EXISTS insert_event_search ON events;
 DROP TRIGGER IF EXISTS update_event_search ON events;
 DROP TRIGGER IF EXISTS update_event_search_on_tags_update ON tags;
