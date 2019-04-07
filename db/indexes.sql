@@ -6,6 +6,9 @@ DROP INDEX IF EXISTS tickets_index;
 DROP INDEX IF EXISTS issues_timestamp_index;
 DROP INDEX IF EXISTS notifications_index;
 DROP INDEX IF EXISTS event_invite_notification_spam;
+DROP INDEX IF EXISTS events_search_index;
+DROP INDEX IF EXISTS users_search_index;
+DROP INDEX IF EXISTS issues_search_index;
 
 --IDX01
 CREATE INDEX voucher_code_index ON event_vouchers USING btree (code, event_id);
@@ -28,9 +31,14 @@ CREATE INDEX issues_timestamp_index ON issues USING btree(is_solved, timestamp);
 --IDX07
 CREATE INDEX notifications_index ON notifications USING btree(user_id, is_dismissed, timestamp);
 
---CREATE INDEX events_search_index ON events USING GIN (search);
---CREATE INDEX users_search_index ON users USING GIN (search);
---CREATE INDEX issues_search_index ON issues USING GIN (search);
+--IDX08
+CREATE INDEX events_search_index ON events USING gist(search);
+
+--IDX09
+CREATE INDEX users_search_index ON users USING gin(search);
+
+--IDX10
+CREATE INDEX issues_search_index ON issues USING gin(search);
 
 CREATE UNIQUE INDEX event_invite_notification_spam ON notifications (user_id, event_id, type) WHERE type = 'EventInvitation';
 
