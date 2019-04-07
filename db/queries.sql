@@ -103,6 +103,11 @@ FROM users
 WHERE search @@ plainto_tsquery('english', 'mark')
 ORDER BY ts_rank(search, plainto_tsquery('english', 'mark')) DESC;
 
+-- Get the id for the event voucher of a specific code and event
+SELECT id
+FROM event_vouchers
+WHERE code = 'XPTO1001' AND 
+		event_id = 2;
 
 
 
