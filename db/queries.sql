@@ -14,7 +14,9 @@ SELECT type, timestamp, event_id, content, issue_id
 FROM notifications
 WHERE is_dismissed = false AND
 	  user_id = 4
-ORDER BY timestamp DESC;
+ORDER BY timestamp DESC
+LIMIT 10
+OFFSET 0;
 
 -- Querying a user's dashboard (participating + organizing + created events)
 SELECT DISTINCT title, price, latitude, longitude, start_timestamp, end_timestamp, event_categories.name AS category, status
@@ -27,14 +29,18 @@ SELECT title, price, latitude, longitude, start_timestamp, end_timestamp, event_
 FROM organizers 
 	INNER JOIN events ON (organizers.event_id = events.id)
 	INNER JOIN event_categories ON (events.event_category_id = event_categories.id)
-WHERE organizers.user_id = 1;
+WHERE organizers.user_id = 1
+LIMIT 10
+OFFSET 0;
 
 -- Getting full-text-search results on events - implies the pre-computation of search field on events
 SELECT events.id, title, price, latitude, longitude, start_timestamp, end_timestamp, event_categories.name AS category
 FROM events
 INNER JOIN event_categories ON (events.event_category_id = event_categories.id)
 WHERE search @@ plainto_tsquery('english', 'SinF')
-ORDER BY ts_rank(search, plainto_tsquery('english', 'SinF')) DESC;
+ORDER BY ts_rank(search, plainto_tsquery('english', 'SinF')) DESC
+LIMIT 10
+OFFSET 0;
 
 
 -- Getting an event's information for the event page
@@ -42,21 +48,27 @@ SELECT title, description, price, latitude, longitude, start_timestamp, end_time
 FROM events 
 	INNER JOIN users ON (events.user_id = users.id)
 	INNER JOIN event_categories ON (events.event_category_id = event_categories.id)
-WHERE events.id = 1;
+WHERE events.id = 1
+LIMIT 10
+OFFSET 0;
 
 -- Getting all of the event's announcements
 SELECT content, timestamp
 FROM posts
 WHERE event_id = 1 AND
 	  is_announcement = true
-ORDER BY timestamp DESC;
+ORDER BY timestamp DESC
+LIMIT 10
+OFFSET 0;
 
 -- Getting an event's discussion forum
 SELECT content, timestamp, rating, num_comments, users.name AS creator
 FROM posts INNER JOIN users ON (posts.user_id = users.id)
 WHERE posts.event_id = 4 AND
 	  is_announcement = false
-ORDER BY rating DESC, timestamp DESC; -- most well rated come first
+ORDER BY rating DESC, timestamp DESC -- most well rated come first
+LIMIT 10
+OFFSET 0;
 
 -- Getting the comments for a given post
 SELECT content, timestamp, users.name AS creator
@@ -68,7 +80,9 @@ LIMIT 5;
 -- Event organizer seeing all the event's tickets (to chech-in users)
 SELECT users.name AS attendee, is_checked_in, event_voucher_id, paypal_order_id
 FROM tickets INNER JOIN users ON (tickets.user_id = users.id)
-WHERE event_id = 3;
+WHERE event_id = 3
+OFFSET 0
+LIMIT 10;
 
 -- Application administrator views all users (with pagination)
 SELECT name, email, is_disabled, is_admin
@@ -95,22 +109,21 @@ SELECT issues.id, title, content, timestamp, is_solved, users.name as creator
 FROM issues
 INNER JOIN users ON (issues.creator_id = users.id)
 WHERE issues.search @@ plainto_tsquery('english', 'issue search')
-ORDER BY ts_rank(issues.search, plainto_tsquery('english', 'issue search')) DESC;
+ORDER BY ts_rank(issues.search, plainto_tsquery('english', 'issue search')) DESC
+OFFSET 0
+LIMIT 15;
 
 -- Getting full-text-search results on users - implies the pre-computation of search field on users
 SELECT id, name, email
 FROM users
 WHERE search @@ plainto_tsquery('english', 'mark')
-ORDER BY ts_rank(search, plainto_tsquery('english', 'mark')) DESC;
+ORDER BY ts_rank(search, plainto_tsquery('english', 'mark')) DESC
+OFFSET 0
+LIMIT 15;
 
 -- Get the id for the event voucher of a specific code and event
 SELECT id
 FROM event_vouchers
 WHERE code = 'XPTO1001' AND 
 		event_id = 2;
-
-
-
-
-
-
+		
