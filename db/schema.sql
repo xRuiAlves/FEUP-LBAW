@@ -498,7 +498,11 @@ $$ LANGUAGE 'plpgsql';
 DROP VIEW IF EXISTS event_search_fields;
 CREATE VIEW event_search_fields
 AS
-SELECT e.id, to_tsvector(coalesce(e.title,'')) as title, to_tsvector(coalesce(e.description, '')) as description, to_tsvector(coalesce(e.location, '')) as location, to_tsvector(coalesce(event_categories.name ,'')) AS category, to_tsvector(coalesce(string_agg(tags.name, ' '),'')) AS tags
+SELECT e.id, setweight(to_tsvector(coalesce(e.title,'')), 'A') as title, 
+setweight(to_tsvector(coalesce(e.description, '')), 'C') as description, 
+setweight(to_tsvector(coalesce(e.location, '')), 'B') as location, 
+setweight(to_tsvector(coalesce(event_categories.name ,'')), 'B') AS category, 
+setweight(to_tsvector(coalesce(string_agg(tags.name, ' '),'')), 'B') AS tags
 
 FROM events AS e
 INNER JOIN event_categories ON (e.event_category_id = event_categories.id)
@@ -514,7 +518,7 @@ BEGIN
     IF TG_OP = 'INSERT' OR (TG_OP = 'UPDATE' AND (OLD.title <> NEW.title OR OLD.description <> NEW.description OR OLD.location <> NEW.location OR OLD.event_category_id <> NEW.event_category_id)) THEN
         UPDATE events 
         SET search = (SELECT result_search FROM 
-            (SELECT setweight(title, 'A') || setweight(description, 'C') || setweight(location, 'B') || setweight(category, 'B') || setweight(tags, 'B')
+            (SELECT title || description || location || category || tags
             AS result_search 
             FROM event_search_fields WHERE id = NEW.id)
         AS subquery)
@@ -532,7 +536,7 @@ DECLARE
 BEGIN
 	
     FOR temprow IN
-        SELECT id as event_id, setweight(title, 'A') || setweight(description, 'C') || setweight(location, 'B') || setweight(category, 'B') || setweight(tags, 'B')
+        SELECT id as event_id, title || description || location || category || tags
         AS result_search 
         FROM event_search_fields 
         INNER JOIN event_tags 
@@ -555,7 +559,7 @@ DECLARE
 BEGIN
 	
     FOR temprow IN
-        SELECT id as event_id, setweight(title, 'A') || setweight(description, 'C') || setweight(location, 'B') || setweight(category, 'B') || setweight(tags, 'B')
+        SELECT id as event_id, title || description || location || category || tags
         AS result_search 
         FROM event_search_fields 
         INNER JOIN event_tags 
@@ -578,7 +582,7 @@ DECLARE
 BEGIN
 	
     FOR temprow IN
-        SELECT id as event_id, setweight(title, 'A') || setweight(description, 'C') || setweight(location, 'B') || setweight(category, 'B') || setweight(tags, 'B')
+        SELECT id as event_id, title || description || location || category || tags
         AS result_search 
         FROM event_search_fields 
         INNER JOIN event_tags 
@@ -601,7 +605,8 @@ DECLARE
 BEGIN
 	
     FOR temprow IN
-        SELECT event_search_fields.id as event_id, setweight(event_search_fields.title, 'A') || setweight(event_search_fields.description, 'C') || setweight(event_search_fields.location, 'B') || setweight(category, 'B') || setweight(tags, 'B')
+        SELECT event_search_fields.id as event_id, event_search_fields.title || 
+        event_search_fields.description || event_search_fields.location || category || tags
         AS result_search 
         FROM event_search_fields 
         INNER JOIN events 
@@ -639,7 +644,9 @@ $$ LANGUAGE 'plpgsql';
 DROP VIEW IF EXISTS issue_search_fields;
 CREATE VIEW issue_search_fields
 AS
-SELECT i.id, i.creator_id AS creator_id, to_tsvector(coalesce(i.title,'')) as title, to_tsvector(coalesce(i.content, '')) as content, to_tsvector(coalesce(users.name ,'')) AS creator
+SELECT i.id, i.creator_id AS creator_id, setweight(to_tsvector(coalesce(i.title,'')), 'A') as title, 
+setweight(to_tsvector(coalesce(i.content, '')), 'C') as content, 
+setweight(to_tsvector(coalesce(users.name ,'')), 'B') AS creator
 
 FROM issues AS i
 INNER JOIN users ON (i.creator_id = users.id)
@@ -653,7 +660,7 @@ BEGIN
     IF TG_OP = 'INSERT' OR (TG_OP = 'UPDATE' AND (OLD.title <> NEW.title OR OLD.content <> NEW.content )) THEN
         UPDATE issues 
         SET search = (SELECT result_search FROM 
-            (SELECT setweight(title, 'A') || setweight(content, 'C') || setweight(creator, 'B')
+            (SELECT title || content || creator
             AS result_search 
             FROM issue_search_fields WHERE id = NEW.id)
         AS subquery)
@@ -671,7 +678,7 @@ DECLARE
 BEGIN
 	
     FOR temprow IN
-        SELECT issue_search_fields.id as issue_id, setweight(title, 'A') || setweight(content, 'C') || setweight(creator, 'B')
+        SELECT issue_search_fields.id as issue_id, title || content || creator
         AS result_search 
         FROM issue_search_fields 
         INNER JOIN users 
