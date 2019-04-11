@@ -1,0 +1,41 @@
+.user-settings {
+    position: relative;
+    /* padding: 0; */
+    top: 7em;
+    margin-bottom: 7em;
+    overflow: hidden;
+}
+
+.user-settings input, .user-settings .section {
+    margin-bottom: 1em;
+}
+
+@media only screen and (max-width: 576px) {
+
+    .card-container.user-settings {
+        background-color: var(--primary-color);
+        padding-bottom: 0;
+        margin-bottom: 0;
+
+        -webkit-box-shadow: none;
+        -moz-box-shadow: none;
+        box-shadow: none;
+        top: 0;
+        margin-bottom: 0;
+        border-radius: 0;
+        padding: 0;
+        background-color: transparent;
+    }
+
+    .card-container.user-settings .main {
+        background-color: var(--primary-color);
+        padding: 2em;
+        padding-bottom: 0;
+    }
+
+    .card-container.user-settings .content {
+        padding-left:2em;
+        padding-right: 2em;
+    }
+
+}
