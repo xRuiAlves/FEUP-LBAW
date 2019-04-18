@@ -1,0 +1,227 @@
+@import "./palette.css";
+
+/************ CARD CONTAINER **************/
+
+#page-card {
+    margin-bottom: 15em;
+}
+
+.card-container {
+    background-color: var(--color-grey-light);
+    border-radius: 0.5em;
+    -webkit-box-shadow: 0px 0px 12px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 0px 12px 0px rgba(0,0,0,0.75);
+    box-shadow: 0px 0px 12px 0px rgba(0,0,0,0.75);
+    padding: 3em;
+    background-color: white;
+    color: var(--secondary-color-dark);
+}
+
+.card-container h1 {
+    font-weight: bold;
+    color: var(--secondary-color-medium-dark);
+}
+
+/************ BACKGROUND ************/
+body {
+    background: var(--secondary-color-dark) repeat;
+    z-index: -2;
+    min-height: 100vh;
+}
+
+#background_wave {
+    position: absolute;
+    top: -30%;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: -1;
+
+    background: var(--primary-color) repeat;
+
+    mask-image: url("./curve.svg");    
+    mask-repeat: no-repeat;
+    mask-size: 100% 300vw;
+    mask-position: center calc(45% - 4.5vw);
+
+    -webkit-mask-image: url("./curve.svg");    
+    -webkit-mask-repeat: no-repeat;
+    -webkit-mask-size: 100% 300vw;
+    -webkit-mask-position: center calc(45% - 4.5vw);
+}
+
+.mobile-wave#background_wave {
+    display: none;
+}
+
+/************ CUSTOM PRIMARY BTN *********/
+/* Fixing links */
+a.my-btn {
+    text-decoration: none;
+}
+
+.my-btn {
+    border-radius: 500px;
+    font-size: 1.2em;
+    padding: 0.1em 2em;
+    margin: 0.5em 0;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.my-btn-primary {
+    border: 0;
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.my-btn-primary:hover {
+    background-color: var(--primary-color-darker);
+}
+
+.my-btn-secondary {
+    border: 2px var(--primary-color) solid;
+    background-color: transparent;
+    color: var(--primary-color);
+}
+
+.my-btn-secondary:hover {
+    color: white !important; /* necessary because of some bootstrap overrides */
+    background-color: var(--primary-color);
+}
+
+.my-btn-borderless-secondary, .my-btn-borderless-secondary:hover {
+    border: 0;
+    background-color: transparent;
+    color: var(--primary-color);
+}
+
+/************ MODAL OVERRIDES ************/
+
+.modal {
+    color: var(--secondary-color-medium-dark);
+}
+
+.modal .modal-footer button.publish-button, .modal .modal-footer a.publish-button {
+    background-color: var(--secondary-color-medium);
+    color: white;
+}
+
+.modal-title.custom-modal-title {
+    font-size: 2em;
+    color: var(--color-grey-dark);
+} 
+
+.modal-body textarea {
+    resize: none;
+    width: 100%;
+    border: none;
+}
+
+.modal-body textarea:focus {
+    outline: none;
+}
+
+.modal-header button.close {
+    font-size: 2.5em;
+}
+
+.modal-body input {
+    border:0;
+    border-radius: 0;
+    border-bottom: 2px solid var(--primary-color);
+}
+
+.modal-body input:focus {
+    outline: none;
+    box-shadow: none;
+    outline-color: transparent;
+    outline-style: none;
+    border-bottom: 2px solid var(--primary-color);
+}
+
+.modal-body input::placeholder {
+    font-weight: bold;
+    font-size: 1.1em;
+    color: var(--color-grey);
+}
+
+.modal-body input:focus::placeholder {
+    color: var(--primary-color-light);
+}
+
+/*********** other ************/
+
+.icon-left {
+    margin-right: 0.5em;
+}
+
+.icon-right {
+    margin-left: 0.5em;
+}
+
+footer.page-footer {
+    position: sticky;
+    top: Calc(100vh - 23em);
+    font-family: 'Montserrat', cursive;
+    padding: 4em;
+    padding-bottom: 1em;
+    color: var(--secondary-color-dark);
+    background-color: white;
+}
+
+.footer-link, .footer-link:hover {
+    color: var(--secondary-color-medium);
+    font-weight: bold;
+}
+
+.footer-title {
+    font-weight: bold;
+    color: var(--secondary-color-medium-dark);
+    margin-bottom: 1em;
+}
+    
+footer.page-footer p.contact-item {
+    margin-bottom: 0.2em;
+}
+    
+footer.page-footer p.contact-item.contact-item-mail a {
+    color: inherit;
+}
+
+footer.page-footer p.footer-questions {
+    margin-top: 1.5em;
+}
+
+@media only screen and (max-width: 576px) {
+    body {
+        background-color: white;
+    }
+
+    .card-container h1 {
+        font-size: 2rem;
+    }
+
+    #background_wave {
+        top: -28%;
+    }
+
+    .mobile-wave#background_wave {
+        display: block;
+        top: 0;
+        position: relative;
+        height: 20vh;
+        mask-size: cover;
+        mask-position: center;
+        -webkit-mask-size: cover;
+        -webkit-mask-position: center;
+    }
+    
+    .regular-wave#background_wave {
+        display: none;
+    }
+    
+    footer.page-footer {
+        padding: 0.5em;
+    }
+}
