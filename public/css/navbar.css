@@ -1,0 +1,110 @@
+@import "palette.css";
+
+.navbar {
+    background-color: var(--navbar-color);
+    position: sticky;
+    top: 0;
+    z-index: 2;
+}
+
+.navbar, .navbar a, .navbar button {
+    color: white;
+}
+
+.navbar .navbar-toggler-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.navbar-nav.nav-highlighted li.nav-item {
+    transition: border 0.4s;
+    border-bottom: 1px solid transparent;
+}
+
+.navbar-nav .nav-item .nav-link .nav-item-label {
+    margin-left: 0.5em;
+    display: none;
+}
+
+.navbar .notifications-item {
+    cursor: pointer;
+}
+
+.navbar .issues-item {
+    cursor: pointer;
+}
+
+.navbar .submit-search {
+    border-color: white;
+    background-color: transparent;
+}
+
+.navbar .submit-search:hover {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+.navbar .nav-item.search-mobile {
+    display: none;
+}
+
+@media screen and (min-width: 992px) {
+    /* Only adding the hover to >lg devices (equal to the configured collapse in the navbar) */
+    .navbar-nav.nav-highlighted .nav-item:hover {
+        border-color: white;
+    }
+}
+
+@media only screen and (max-width: 576px) {
+    .navbar-nav .nav-item .nav-link .nav-item-label {
+        display: inline-block;
+    }
+
+    .navbar-nav .nav-item .nav-link .nav-item-icon {
+        min-width: 1.5em;
+    }
+
+    .navbar .nav-item.search-mobile {
+        display: initial;
+    }
+
+    .navbar form.nav-item {
+        display: none;
+    }
+}
+
+/************** NOTIFICATIONS MODAL *****************/
+
+#notifications_modal a {
+    text-decoration: none;
+    color: var(--secondary-color-medium-dark);
+}
+
+#notifications_modal .notifications-list .notification-item {
+    padding: 0.5em;
+}
+
+#notifications_modal .notifications-list .notification-item.unread {
+    background-color: var(--secondary-color-medium-translucid);
+}
+
+#notifications_modal .notifications-list .notification-item .header .title {
+    font-weight: bold;
+}
+
+#notifications_modal .notifications-list .notification-item .description {
+    font-size: 0.8em;
+}
+
+#notifications_modal .notifications-list .notification-item .actions span {
+    cursor: pointer;
+}
+
+#notifications_modal .notifications-list .notification-item:not(.unread) .actions .read .fa-eye {
+    display: none;
+}
+
+#notifications_modal .notifications-list .notification-item.unread .actions .read .fa-eye-slash {
+    display: none;
+}

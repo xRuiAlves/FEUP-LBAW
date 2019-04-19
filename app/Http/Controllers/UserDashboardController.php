@@ -6,9 +6,9 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 
-use App\Home;
+use App\UserDashboard;
 
-class HomeController extends Controller
+class UserDashboardController extends Controller
 {
     /**
      * Shows the home
@@ -16,6 +16,6 @@ class HomeController extends Controller
      * @return Response
      */
     public function show() {
-      return view('pages.home');
+      return view('pages.user_dashboard');
     }
 }

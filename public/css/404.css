@@ -1,0 +1,44 @@
+.card-container.not-found-container {
+    position: relative;
+    top: 7em;
+    margin-bottom: 7em;
+    padding-bottom: 1em;
+}
+    
+.card-container.not-found-container header h1 {
+    margin-bottom: 0.5em;
+}
+
+.not-found-body {
+    font-size: 1.2em;
+    color: var(--secondary-color-medium-dark);
+}
+
+.not-found-body a {
+    font-weight: bold;
+    color: var(--primary-color);
+}
+
+@media only screen and (max-width: 576px) {
+    .card-container.not-found-container {
+        -webkit-box-shadow: none;
+        -moz-box-shadow: none;
+        box-shadow: none;
+        top: 0;
+        padding: 0;
+        margin-bottom: 2em;
+        border-radius: 0;
+        background: transparent;    
+    }
+
+    .card-container.not-found-container header h1 {
+        padding-left: 0.5em;
+        padding-top: 0.5em;
+        background-color: var(--primary-color);
+        margin-bottom: 0;
+    }
+
+    .not-found-body {
+        padding: 0 1em;
+    }
+}

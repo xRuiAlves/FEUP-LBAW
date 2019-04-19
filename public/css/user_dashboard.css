@@ -1,0 +1,176 @@
+@import "palette.css";
+@import "common.css";
+
+.user-dashboard-container > header {
+    max-width: 100%;
+    margin-bottom: 2em;
+}
+
+.user-dashboard-container > header .label {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.user-dashboard-container > header .label .label-color {
+    width: 1em;
+    height: 1em;
+    border-radius: 0.2em;
+    margin-left: 0.6em;
+}
+
+.user-dashboard-container > header .label .label-color.label-attending {
+    background-color: var(--secondary-color-medium);
+}
+
+.user-dashboard-container > header .label .label-color.label-organizing {
+    background-color: var(--primary-color);
+}
+
+.card-container.user-dashboard-container {
+    position: relative;
+    top: 7em;
+    margin-bottom: 7em;
+}
+
+.sticky-container {
+    display: flex;
+    align-items: flex-start;
+}
+
+.sticky-container .sticky-item {
+    position: sticky;
+    top: 4em;
+}
+
+.sticky-container + .sticky-container {
+    margin-top: 1em;
+}
+
+.dashboard-day-containers {
+    flex-grow: 1;
+}
+
+.dashboard-day-items {
+    width: 100%;
+    margin-bottom: 2em;
+}
+
+.dashboard-day-item + .dashboard-day-item {
+    margin-top: 1em;
+}
+
+.sticky-container .item-year-month {
+    color: var(--secondary-color-light);
+    width: 2.5em;
+}
+
+.sticky-container .item-year-month .item-month {
+    font-weight: bold;
+    font-size: 1.2em;
+    line-height: 1.4em
+}
+
+.dashboard-day-container .item-day {
+    font-family: Montserrat, sans-serif;
+    color: var(--secondary-color-medium);
+    font-weight: bolder;
+    width: 2.5em;
+}
+
+.dashboard-day-container .item-day .item-day-number {
+    font-size: 1.4em;
+    line-height: 1.4em;
+    text-align: center;
+}
+
+.dashboard-day-container .item-day .item-day-week {
+    font-size: 0.7em;
+    text-align: center;
+}
+
+.card-container.user-dashboard-container .dashboard-day-items a.dashboard-day-item {
+    display: block;
+    color: var(--secondary-color-medium);
+    border-radius: 0.4em;
+    padding: 0.5em 1em;
+    flex-grow: 1;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.card-container.user-dashboard-container .dashboard-day-items a.dashboard-day-item .not-enabled-event {
+    color: var(--danger-red);
+}
+
+.dashboard-day-items .item-type-attendee {
+    transition-property: background-color;
+    transition-duration: 0.2s;
+    border: 1px solid var(--secondary-color-medium);
+    background-color: var(--secondary-color-medium-translucid);
+}
+
+.dashboard-day-items .item-type-attendee:hover {
+    background-color: var(--secondary-color-medium-dark-translucid);
+}
+
+.dashboard-day-items .item-type-organizer {
+    transition-property: background-color;
+    transition-duration: 0.2s;
+    border: 1px solid var(--primary-color);
+    background-color: var(--primary-color-translucid);
+}
+
+.dashboard-day-items .item-type-organizer:hover {
+    background-color: var(--primary-color-dark-translucid);
+}
+
+.dashboard-day-items .dashboard-day-item > header {
+    font-weight: bold;
+    margin-bottom: 0.5em;
+}
+
+@media only screen and (max-width: 576px) {
+
+    .card-container.user-dashboard-container {
+        -webkit-box-shadow: none;
+        -moz-box-shadow: none;
+        box-shadow: none;
+        top: 0;
+        padding: 1em;
+        margin-bottom: 2em;
+        border-radius: 0;
+        background-color: transparent;
+    }
+
+    .card-container.user-dashboard-container .title.font-title {
+        background: transparent;
+    }
+
+    .dashboard-day-container .item-day {
+        width: 3em;
+    }
+
+    .sticky-container .item-year-month {
+        width: 3em;
+    }
+
+    .card-container.user-dashboard-container h1 {
+        color: var(--secondary-color-medium-dark);
+        margin-bottom: calc(7vh + 3vw);
+    }
+
+    .card-container.user-dashboard-container header {
+        margin-bottom: 1.5em;
+    }
+
+    .user-dashboard-container > header .label {
+        flex-direction: row-reverse;
+        align-items: center;
+    }
+
+    .user-dashboard-container > header .label .label-color {
+        margin-right: 0.6em;
+        margin-left: 0;
+    }
+}

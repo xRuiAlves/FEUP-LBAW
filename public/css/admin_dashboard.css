@@ -1,0 +1,231 @@
+@import "palette.css";
+@import "common.css";
+
+body {
+    background-color:white;
+}
+
+button {
+    background-color: white;
+}
+
+button.action-btn {
+    color: var(--secondary-color-medium);
+    background-color: var(--color-grey-light);
+    margin-bottom: 0.5em;
+}
+
+.admin-dashboard-container {
+    position: relative;
+    top: 2em;
+    padding: 2em;
+}
+
+.admin-dashboard-container .separator hr {
+    padding: 0;
+    margin:0;
+    margin-bottom: 1.5em;
+    border-top-width: 2px;
+}
+
+button.admin-tab {
+    padding: 0.5em;
+    text-align: center;
+    cursor: pointer;
+    height: 4em;
+    border: 1px solid var(--color-grey);
+    border-radius: 0.25em;
+    font-weight: bold;
+    color: var(--secondary-color-medium-dark);
+    transition: transform 0.1s linear;
+}
+
+button.admin-tab.nav-link.active {
+    background-color: var(--secondary-color-light);
+}
+
+.content-table {
+    overflow-x: auto;
+}
+
+.content-table > .row {
+    margin: 1em 0;
+}
+
+button.admin-tab#delete-user-tab {
+    border-bottom: 4px solid #ad4949; 
+}
+
+button.admin-tab#enable-disable-tab {
+    border-bottom: 4px solid #9549ad; 
+}
+
+button.admin-tab#user-issues-tab {
+    border-bottom: 4px solid #496cad; 
+}
+
+button.admin-tab#admin-promotion-tab {
+    border-bottom: 4px solid #49ad6d; 
+}
+
+button.admin-tab:focus {
+    outline: none;
+}
+
+.admin-dashboard .collapse-title.custom-title {
+    color: var(--secondary-color-medium-dark)
+}
+
+.admin-dashboard .issue {
+    border-left: 5px solid var(--primary-color);
+    margin-bottom: 1em;
+    text-align: justify;
+    cursor: pointer;
+}
+
+.admin-dashboard .issue:hover {
+    -webkit-box-shadow: 0px 0px 2px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 0px 2px 0px rgba(0,0,0,0.75);
+    box-shadow: 0px 0px 2px 0px rgba(0,0,0,0.75);
+}
+
+.admin-dashboard .issue .content {
+    padding: 0 1em;
+}
+
+.admin-dashboard .issue .issue-description {
+    padding-bottom: 0.5em;
+}
+
+.admin-dashboard .issue .content header {
+    margin-bottom: 0.5em;
+}
+
+.admin-dashboard .issue .user {
+    font-weight: bold;
+    display: flex;
+} 
+
+.admin-dashboard .searchbar-container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1em;
+}
+
+.admin-dashboard .searchbar-container i {
+    font-size: 1.2em;
+    color: var(--color-grey-darker);
+}
+
+.admin-dashboard input.searchbar {
+    border: 1px solid var(--color-grey-dark);
+    font-size: 1em;
+    padding: 0.2em 0.6em;
+    width: 100%; 
+    font-weight: 100;
+    color: var(--secondary-color-dark);
+}
+
+.admin-dashboard input.searchbar:focus {
+    border-bottom: 1px solid var(--color-grey-dark);
+}
+
+.admin-dashboard input.searchbar::placeholder {
+    color: var(--color-grey-dark);
+    font-weight: 100;
+}
+
+.admin-dashboard input.searchbar:focus::placeholder {
+    color: var(--color-grey-dark);
+}
+
+.admin-dashboard .users-list .user {
+    display: flex;
+    margin: 1.5em 0;
+}
+
+.admin-dashboard .events-list .event {
+    display: flex;
+    margin: 1.5em 0;
+}
+
+.admin-dashboard .events-list .event .event-info {
+    flex-grow: 1;
+}
+
+.admin-dashboard .events-list .event .event-name {
+    font-weight: bold;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.admin-dashboard .events-list .event .event-name .event-button {
+    display: inline;
+    padding: 0 0.75em;
+    margin-left: 0.5em;
+    min-width: 6em;
+}
+
+.admin-dashboard .events-list .event .event-name .event-button.re-enable-button {
+    background: green;
+}
+
+.admin-dashboard .events-list .event .event-name .event-button.disable-button {
+    background: var(--danger-red);
+    border: 1px solid var(--danger-red-dark);
+}
+
+.selected-page{
+    color: var(--secondary-color-light);
+    border-bottom: 1px var(--secondary-color-light) solid;
+}
+
+.page-selectors button.btn:focus {
+    outline: none;
+    box-shadow: none;
+}
+
+.page-selectors button.btn {
+    border-radius: 0;
+}
+
+.page-selectors button.btn:hover {
+    background-color: var(--color-grey-light);
+    border-radius: 5px;
+}
+
+@media only screen and (max-width: 768px) {
+    
+    #admin-tabs {
+        margin-bottom: 2em;
+        margin-left: 0;
+        margin-right: 0;
+        padding: 0.5em;
+    }
+}
+
+@media only screen and (max-width: 576px) {
+
+    .admin-dashboard-container {
+        -webkit-box-shadow: none;
+        -moz-box-shadow: none;
+        box-shadow: none;
+        top: 0;
+        margin-bottom: 2em;
+        border-radius: 0;
+        padding: 0;
+        background-color: transparent;
+    }
+
+    .admin-dashboard-container header h1 {
+        padding-left: 0.5em;
+        padding-top: 0.5em;
+        background-color: var(--primary-color);
+        margin-bottom: 0;
+    }
+
+    .admin-dashboard-container .separator hr {
+        display: none;
+    }
+}

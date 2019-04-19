@@ -1,0 +1,367 @@
+@import "common.css";
+@import "palette.css";
+
+.card-container.event-card {
+    position: relative;
+    padding: 0;
+    top: 7em;
+    margin-bottom: 7em;
+    overflow: hidden;
+}
+
+.card-container.event-card .admin-view-label h6 {
+    padding: 0.5em;
+    border: 1px solid var(--primary-color);
+    display: inline-block;
+    border-radius: 0.5rem;
+    color: var(--primary-color);
+}
+
+.card-container.event-card .cancelled-label h6 {
+    display: inline-block;
+    color: var(--danger-red);
+}
+
+.card-container.event-card .hosted-by-label h6 {
+    color: var(--secondary-color-medium);
+    font-style: italic;
+}
+
+.event-card .event-category {
+    text-align: right;
+} 
+.event-card .event-brief {
+    padding: 3em;
+    padding-bottom: 1em;
+    background-color: white;
+}
+
+.event-card .event-description {
+    margin-bottom: 1em;
+}
+
+.event-card .event-details, .event-card .event-title h1 {
+    font-weight: bold;
+    color: var(--secondary-color-medium-dark);
+}
+
+.event-card .event-map img {
+    width: 100%;
+}
+
+.event-card .event-map img:hover {
+    width: 100%;
+}
+
+.event-card .edit-btn {
+    text-align: right;
+    padding: 0.5em 0;
+}
+
+.event-card .btn.voucher-btn {
+    padding: 0;
+    margin-bottom: 1em;
+    background-color: transparent;
+    font-size: 1.2em;
+    color: var(--primary-color);
+    font-weight: bold;
+}
+
+/* Fixing disabled button styling */
+.attend-btn button:disabled, .attend-btn button:disabled:hover {
+   background-color: var(--secondary-color-medium);
+}
+
+.attend-btn button i {
+    font-size: 1.25em;
+}
+
+.attend-btn button {
+    background-color: var(--secondary-color-medium);
+    color: white;
+    padding: 0.5em 2em;
+    font-weight: bold;
+}
+
+.attend-btn button:hover {
+    background-color: var(--secondary-color-medium-dark);
+}
+
+.attend-btn button.active {
+    background-color: var(--danger-red);
+}
+
+.attend-btn button.active:hover {
+    background-color: var(--danger-red-dark);
+}
+
+.event-brief .date > div:nth-child(2) {
+    margin-left: 1em;
+}
+
+.event-card .separator hr {
+    padding: 0;
+    margin:0;
+    margin-bottom: 1.5em;
+    border-top-width: 2px;
+}
+
+.message-area {
+    padding-bottom: 2em;
+    background-color: var(--color-grey-light)
+}
+.message-area .nav-item {
+    text-align: center;
+}
+
+.event-card .event-description {
+    margin-top: 1em;
+    text-align: justify; 
+} 
+
+.event-card .nav-item, .card-container .nav-item:hover {
+    border: 0;
+    background-color: white;
+    border-bottom: 3px solid var(--secondary-color-light);
+    border-radius: 0;
+    color: var(--secondary-color-light);
+    font-size: 1.2em;
+}
+
+.event-card .nav-item.active, .card-container .nav-item.active:hover {
+    border-color: var(--secondary-color-medium);
+    color: var(--secondary-color-medium);
+}
+
+.event-card .nav-item.nav-link {
+    width: 30%;
+    transition: width .3s ease-in-out;
+}
+
+.event-card .nav-item.nav-link.active {
+    width: 70%;
+}
+
+.announcement, .post {
+    background-color: white;
+    padding: 1em 2em;
+    margin-top: 2em;
+    width: 100%;
+    display: flex;
+    color: var(--secondary-color-medium);
+}
+
+.announcement .icon, .post .icon {
+    width: 2em;
+    font-size: 1.4em;
+}
+.announcement .content, .post .content {
+    width: 100%;
+    font-weight: 600;
+}
+
+.announcement .content .date, .post .content .date,
+.announcement .content .name, .post .content .name {
+    font-weight: 100;
+    display: inline-block;
+}
+
+.add-btn {
+    font-weight: bold;
+    margin-left: 2em;
+    margin-top: 2em;
+    cursor: pointer;
+    color: var(--secondary-color-light);
+    display: inline-block;
+}
+
+.post .content .comments-toggler {
+    font-weight: 100;
+    margin-top: 0.25em;
+    cursor: pointer;
+    color: var(--secondary-color-light);
+    display: inline-block;
+}
+
+.add-btn:hover, .post .content .comments-toggler:hover {
+    color: var(--secondary-color-medium);
+}
+
+.event-disabled-body {
+    font-size: 1.2em;
+    color: var(--secondary-color-medium-dark);
+}
+
+.event-disabled-body a {
+    font-weight: bold;
+    color: var(--primary-color);
+}
+
+#attendees-list-modal .modal-body {
+    max-height: 80vh;
+    overflow-y: auto;
+}
+
+#attendees-list-modal .attendees-list .user .user-name {
+    font-weight: bold;
+}
+
+#attendees-list-modal .attendees-list .user .user-email {
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+#attendees-list-modal .attendees-list .user {
+    padding: 0.5em 0.25em;
+    border-radius: 0.5rem;
+    background-color: var(--secondary-color-medium-translucid);
+    margin: 0.5em 0;
+}
+
+#attendees-list-modal .attendees-list .user span {
+    cursor: pointer;
+}
+
+#voucher-modal .voucher-code {
+    font-weight: bold;
+    font-size: 0.9em;
+}
+
+.post .comment {
+    margin: 0.5em 0 0.5em 2em;
+    padding: 0.5em 0 0.5em 1em;
+    border-left: 3px solid var(--secondary-color-medium-dark);
+}
+
+.post .add-comment {
+    margin: 1em 0 0.5em 2em;
+}
+
+.post .add-comment textarea {
+    padding: 0.5em 1em;
+    outline:none;
+    resize: none;
+    -webkit-box-sizing: border-box;
+       -moz-box-sizing: border-box;
+            box-sizing: border-box;
+    width: 100%; 
+}
+
+.post .add-comment::after {
+    content: 'Enter to add new line, Ctrl + Enter to submit.';
+    font-size: 0.8em;
+    color: var(--color-grey);
+}
+
+@media only screen and (min-width: 576px) {
+    .post .name::after {
+        content: ' - '
+    }
+}
+
+@media only screen and (max-width: 576px) {
+
+    .card-container.event-card .main {
+        background-color: var(--primary-color);
+        padding: 2em;
+        padding-bottom: 0;
+        margin-bottom: 0;
+    }
+
+    .card-container.event-card .admin-view-label h6 {
+        color: white;
+        border-color: white;
+        font-size: 0.8em;
+    }
+    
+    .card-container.event-card .cancelled-label h6 {
+        color: var(--danger-red-dark);
+        font-size: 0.8em;
+    }
+
+    .card-container.event-card .event-brief .date > div:nth-child(2) {
+        margin-left: 0;
+    }
+
+    .card-container.event-card .edit-btn a {
+        color: white;
+        padding-left: 0;
+        font-size: 0.9em;
+    }
+
+    .event-card .voucher-btn-container {
+        background-color: var(--primary-color);
+    }
+
+    .event-card .btn.voucher-btn {
+        margin-top: 0.5em;
+        margin-bottom: 0;
+        color: white;
+        font-size: 0.9em;
+    }
+
+    .event-card .separator.main-separator {
+        display: none;
+    }
+
+    .card-container.event-card, .event-card .event-brief {
+        -webkit-box-shadow: none;
+        -moz-box-shadow: none;
+        box-shadow: none;
+        top: 0;
+        margin-bottom: 0;
+        border-radius: 0;
+        padding: 0;
+        background-color: transparent;
+    }
+
+    .event-card .event-brief > * {
+        padding: 0 2em;
+    }
+
+    .card-container.event-card h1 {
+        font-weight: bold;
+        color: var(--secondary-color-medium-dark);
+    }
+
+    .event-card .nav-item.nav-link {
+        width: 100%;
+        margin-top: 1px;
+        color: var(--color-grey-dark);
+        border-color: var(--color-grey-dark);
+    }
+    
+    .event-card .nav-item.nav-link.active {
+        width: 100%;
+        font-weight: bold;
+        background-color: white;
+        color: var(--secondary-color-medium);
+        border-color: var(--secondary-color-medium);
+    }
+    
+    .event-card .attend-btn button {
+        font-size: 0.9em;
+    }
+}
+
+@media only screen and (min-width: 992px) {
+    .event-card .attend-btn.alone-right {
+        text-align: right;
+    }
+}
+
+@media only screen and (max-width: 1200px) {
+    .event-card .edit-btn {
+        text-align: left;
+    }
+    
+    .event-card .edit-btn a {
+        padding-left: 0;
+    }
+}
+
+
+.event-map {
+    width: 100%;
+    height: 25em; 
+}
