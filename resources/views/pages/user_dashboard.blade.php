@@ -594,27 +594,6 @@
         </div>
     </div>
 
-    <div class="container-fluid white-section" id="about">
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <h4 class="footer-title">About Eventually</h4>
-                </div>
-            </div>
-            <div class="row text-justify">
-                <div class="col-12">
-                    <p>Eventually is the solution for finding and hosting events online, all over the world.</p>
-                    <p>This platform lets you easily find all kinds of events of your interest, allowing you to specify when,
-                        where and what you want to participate in.
-                        You can also manage your tickets and export your favorite events to Google™ Calendar for better organization.</p>
-                    <p>In our website, you can also create and manage any number of events you want, public or private, free
-                        of charge - no matter what their scale is. Additionally, you may invite other users to help in their organization,
-                        making the whole process easier.</p>
-                </div>
-            </div>
-        </div>
-    </div>
-
     <div id="login_modal" class="modal fade font-content" tabindex="-1" role="dialog">
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
@@ -710,24 +689,4 @@
             </div>
         </div>
     </div>
-
-    <footer class="container-fluid page-footer">
-        <div class="container">
-            <div class="row">
-                <h4 class="col-12 footer-title">Contacts</h4>
-                <div class="col-12">
-                    <p class="contact-item">Rua Dr. Roberto Frias, 4200-465 Porto, Portugal</p>
-                    <p class="contact-item">+351 22 508 1440</p>
-                    <p class="contact-item contact-item-mail"><a href="mailto:help@eventual.ly">help@eventual.ly</a></p>
-                    <p class="footer-questions">Have a question? Visit our <a class="footer-link" href="/faq.html">FAQs</a> or visit our <a class="footer-link" href="#about">about</a> section.</p>
-                </div>
-            </div>
-            <br><br>
-            <div class="row">
-                <div class="col-12 text-center">
-                    <p>© Copyright 2019. All rights eventually reserved</p>
-                </div>
-            </div>
-        </div>
-    </footer>
 @endsection
