@@ -11,11 +11,11 @@
 |
 */
 
+
 Route::get('/', function () {
     return redirect('login');
 });
 
-Route::get('/user_dashboard', 'UserDashboardController@show');
 
 // Cards
 Route::get('cards', 'CardController@list');
@@ -35,3 +35,10 @@ Route::post('login', 'Auth\LoginController@login');
 Route::get('logout', 'Auth\LoginController@logout')->name('logout');
 Route::get('register', 'Auth\RegisterController@showRegistrationForm')->name('register');
 Route::post('register', 'Auth\RegisterController@register');
+
+// Ours (Start deleting the above after the template was understood)
+
+Route::get('/user_dashboard', 'UserDashboardController@show');
+
+Route::get('/event_dbg', 'EventController@list');
+Route::get('/event/{id}', 'EventController@show');

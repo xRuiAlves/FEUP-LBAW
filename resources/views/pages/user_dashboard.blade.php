@@ -1,5 +1,9 @@
 @extends('layouts.app')
 
+@section('css_includes')
+<link href="{{ asset('css/user_dashboard.css') }}" rel="stylesheet">
+@endsection
+
 @section('title', 'User Dashboard')
 
 @section('content')

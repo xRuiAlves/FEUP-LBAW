@@ -51,8 +51,8 @@ INSERT INTO event_categories(id, name) VALUES
     (7, 'Music');
 
 -- Events
-INSERT INTO events(title, description, price, latitude, longitude, start_timestamp, end_timestamp, event_category_id, status, user_id) VALUES 
-    ('SINF 2020', 'Very good event', 1, 30.1, -14.2, to_timestamp('16-05-2020 15:36:38', 'dd-mm-yyyy hh24:mi:ss'), to_timestamp('17-05-2020 15:36:38', 'dd-mm-yyyy hh24:mi:ss'), 4, 'Active', 2);
+INSERT INTO events(title, description, price, location, latitude, longitude, start_timestamp, end_timestamp, event_category_id, status, user_id) VALUES 
+    ('SINF 2020', 'Very good event', 1, 'FEUP, Porto, Portugal', 30.1, -14.2, to_timestamp('16-05-2020 15:36:38', 'dd-mm-yyyy hh24:mi:ss'), to_timestamp('17-05-2020 15:36:38', 'dd-mm-yyyy hh24:mi:ss'), 4, 'Active', 2);
 INSERT INTO events(title, description, price, start_timestamp, event_category_id, status, user_id) VALUES 
     ('SINF 2021', 'Also a very good event', 0, to_timestamp('20-05-2021 15:36:38', 'dd-mm-yyyy hh24:mi:ss'), 4, 'Active', 2),
     ('SINF 2035', 'Event.', 1.50, to_timestamp('21-05-2020 15:36:38', 'dd-mm-yyyy hh24:mi:ss'), 1, 'Active', 1),
