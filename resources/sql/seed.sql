@@ -1376,22 +1376,3 @@ INSERT INTO notifications(type, user_id, event_id) VALUES
     ('EventAnnouncement', 2, 7),
     ('EventAnnouncement', 3, 8),
     ('EventAnnouncement', 4, 9);
-
-
-
-
---------------
--- Clusters --
---------------
-
---CLUSTER for IDX04
-CLUSTER comments USING comments_index;
-
---CLUSTER for IDX05
-CLUSTER tickets USING tickets_index;
-
---CLUSTER for IDX06
-CLUSTER issues USING issues_timestamp_index;
-
---CLUSTER for IDX07
-CLUSTER notifications USING notifications_index;
