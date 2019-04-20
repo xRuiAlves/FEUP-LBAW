@@ -9,6 +9,30 @@
     margin-bottom: 0.5em;
 }
 
+.card-container.notifications-container .notification-item{
+    padding: 1em 0em;
+}
+
+.card-container.notifications-container .notification-item a{
+    color: var(--secondary-color);
+}
+
+.card-container.notifications-container .notification-item .title{
+    font-size: 1.1em;
+    font-weight: bold;
+}
+
+.card-container.notifications-container .notification-item .timestamp{
+    color: var(--color-grey);
+    display: inline-block;
+    padding: 0 0.5em;
+    font-size: 0.8em;
+}
+
+.card-container.notifications-container .notification-item ~ .notification-item{
+    border-top: 1px var(--color-grey) solid;
+}
+
 @media only screen and (max-width: 576px) {
     .card-container.notifications-container {
         -webkit-box-shadow: none;
