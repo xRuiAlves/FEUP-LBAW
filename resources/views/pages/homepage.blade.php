@@ -6,7 +6,7 @@
 
 @section('title', 'Eventually Homepage')
 
-@section('content')
+@section('body')
 <div id="banner-wrapper">
     <div id="banner-image-container">
         <img src="{{asset('images/concert2.jpg')}}" />
@@ -74,41 +74,7 @@
 
 <div id="search-box-anchor"></div>
 
-<nav class="navbar navbar-expand-lg font-title" id="navbar">
-    <div class="container">
-        <a class="navbar-brand" href="#">Eventually</a>
-
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon">
-                <i class="fas fa-bars"></i>
-            </span>
-        </button>
-
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav nav-highlighted mr-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="/#search-box-anchor">Search</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/create_event.html">Host</a>
-                </li>
-            </ul>
-            <ul class="navbar-nav ml-auto">
-                <li class="nav-item">
-                    <a href="" title="Log In" class="nav-link" data-toggle="modal" data-target="#login_modal">
-                        Login
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="" title="Register" class="nav-link" data-toggle="modal" data-target="#register_modal">
-                        Register
-                    </a>
-                </li>
-            </ul>
-        </div>
-    </div>
-</nav>
+@include('inc.navbar')
 
 <div class="container" id="search-box">
     <div class="row">
