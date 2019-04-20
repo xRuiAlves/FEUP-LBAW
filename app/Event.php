@@ -21,6 +21,14 @@ class Event extends Model
     }
 
     /**
+     * The attendees of this event.
+     */
+    public function attendees() {
+        // TODO: Add ->withPivot(columns...);
+        return $this->belongsToMany('App\User', 'tickets', 'user_id', 'event_id');
+    }
+
+    /**
      * The category of this event.
      */
     public function category() {
