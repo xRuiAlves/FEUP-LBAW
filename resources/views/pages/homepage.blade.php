@@ -189,6 +189,7 @@
         </footer>
     </a>
     @endforeach
+    {{ $events->fragment('search-box')->links("pagination::bootstrap-4") }}
 
 <div class="container-fluid white-section" id="about">
     <div class="container">

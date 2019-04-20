@@ -238,7 +238,10 @@ a:hover {
     margin-top: 1em;
 }
 
-
+.pagination {
+    margin-top: 2em;
+    justify-content: center;
+}
 /************* WHITE-SECTION ***************/
 
 .white-section {
