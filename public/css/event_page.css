@@ -160,6 +160,15 @@
     font-weight: 600;
 }
 
+.announcement .content header, .post .content header{
+    display: flex;
+    justify-content: space-between;
+}
+
+.post .content header .rating i{
+    margin: 0 0.3em;
+}
+
 .announcement .content .date, .post .content .date,
 .announcement .content .name, .post .content .name {
     font-weight: 100;

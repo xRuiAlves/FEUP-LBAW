@@ -150,17 +150,23 @@
                                     </span>
                                 </div>
                                 <div class="content">
-                                    <div class="name">
-                                        {{$discussion->creator->name}}
-                                    </div>
-                                    <div class="date">
-                                        {{$discussion->formatted_timestamp}}
-                                    </div>
+                                    <header>
+                                        <div>
+                                            <div class="name">
+                                                {{$discussion->creator->name}}
+                                            </div>
+                                            <div class="date">
+                                                {{$discussion->formatted_timestamp}}
+                                            </div>
+                                        </div>
+                                        <div class="text rating">
+                                            <i class="fas fa-chevron-down"></i>
+                                            {{$discussion->rating}}
+                                            <i class="fas fa-chevron-up"></i>
+                                        </div>
+                                    </header>
                                     <div class="text">
                                         {{$discussion->content}}
-                                    </div>
-                                    <div class="text">
-                                        Score: {{$discussion->rating}} (TODO: Fix styling)
                                     </div>
                                     <a class="comments-toggler" data-toggle="collapse" href="#comments_section_{{$discussion_key}}"
                                         role="button" aria-expanded="false" aria-controls="comments_section_{{$discussion_key}}">

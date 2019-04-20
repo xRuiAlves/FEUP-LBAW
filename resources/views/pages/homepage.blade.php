@@ -49,7 +49,7 @@
                 <div class="row">
                     <div class="col-12 col-md-6">
                         <button class="find-events"
-                            onclick="window.scrollTo(0, document.getElementById('navbar').offsetTop);">Find
+                            onclick="window.scrollTo(0, document.getElementById('search-box-anchor').offsetTop);">Find
                             Events</button>
                     </div>
                     <div class="col-12 col-md-6">
@@ -64,7 +64,7 @@
     <div id="banner-down-arrow">
         <div class="row">
             <div class="col-12">
-                <a href="#navbar">
+                <a href="#search-box-anchor">
                     <i class="fas fa-angle-down"></i>
                 </a>
             </div>
@@ -125,7 +125,13 @@
             <div class="col-12">
                 <h3>{{$event->title}}</h3>
             </div>
-            <div class="price-tag col-auto">{{$event->price}}€</div>
+            <div class="price-tag col-auto">
+                @if($event->price == 0)
+                    Free
+                @else
+                    {{$event->price}} €
+                @endif
+            </div>
             <div class="col-auto category">
                 <span>
                     <i class="fas fa-tag"></i>
@@ -155,7 +161,7 @@
         </footer>
     </a>
     @endforeach
-    {{ $events->fragment('search-box')->links("pagination::bootstrap-4") }}
+    {{ $events->fragment('search-box-anchor')->links("pagination::bootstrap-4") }}
 
 <div class="container-fluid white-section" id="about">
     <div class="container">
