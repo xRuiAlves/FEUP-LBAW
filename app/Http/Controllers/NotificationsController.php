@@ -10,8 +10,11 @@ class NotificationsController extends Controller
 {
     public function show($id) {
         $user = User::find($id);
-        $notifications = $user->notifications;
+        $notifications = $user->notifications()
+            ->notSeen()
+            ->orderBy('timestamp', 'desc')
+            ->paginate(10);
 
-        return $notifications;
+        return view('pages.notifications', ['notifications' => $notifications]);
     }
 }
