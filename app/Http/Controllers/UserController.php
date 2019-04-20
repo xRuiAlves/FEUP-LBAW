@@ -18,7 +18,7 @@ class UserController extends Controller
         // TODO: Make this not hardcoded
         $user_id = 1;
         $user = User::find($user_id);
-        $events = $user->events()
+        $events = $user->ownedEvents()
                         // EXTRACT(YEAR FROM start_timestamp) as year, 
                         ->select(DB::raw('EXTRACT(YEAR FROM start_timestamp) as year, EXTRACT(DOW FROM start_timestamp) as day_of_week,
                                         EXTRACT(MONTH FROM start_timestamp) as month, EXTRACT(DAY FROM start_timestamp) as day,
@@ -29,6 +29,10 @@ class UserController extends Controller
                         ->get();
 
         // return $events;
+
+        // TODO: Add getting the events that the user is attending
+
+        // TODO: Key the events array by month of the year so that the templating can do its magic :/
 
         return view('pages.user_dashboard', ['user' => $user, 'events' => $events]);
       }
