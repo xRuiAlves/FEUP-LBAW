@@ -153,17 +153,18 @@
 </div>
 
 <div class="events">
+    @foreach ($events as $event)
     <a class="container card-container event-card" href="/event_page.html">
         <header class="row">
             <div class="col-12">
-                <h3>Semana de Informática</h3>
+                <h3>{{$event->title}}</h3>
             </div>
-            <div class="price-tag col-auto">Free</div>
+            <div class="price-tag col-auto">{{$event->price}}€</div>
             <div class="col-auto category">
                 <span>
                     <i class="fas fa-tag"></i>
                 </span>
-                Technology
+                {{$event->category->name}}
             </div>
         </header>
         <footer class="row">
@@ -171,163 +172,23 @@
                 <span>
                     <i class="fas fa-map-marker-alt"></i>
                 </span>
-                Porto, Portugal
+                {{$event->location}}
             </div>
             <div class="col-7">
                 <span>
                     <i class="far fa-calendar-alt"></i>
                 </span>
-                18.04.2019
+                {{$event->start_date . ($event->end_date ? ' - ' . $event->end_date : '')}}
             </div>
             <div class="col-5 text-right">
-                09:15
+                {{$event->start_time}}
                 <span>
                     <i class="far fa-clock"></i>
                 </span>
             </div>
         </footer>
     </a>
-
-    <a class="container card-container event-card" href="/event_page.html">
-        <header class="row">
-            <div class="col-12">
-                <h3>Functional Progamming using Phoenix + Elixir - The perks of being a Back End Developer</h3>
-            </div>
-            <div class="price-tag col-auto">5.00€</div>
-            <div class="col-auto category">
-                <span>
-                    <i class="fas fa-tag"></i>
-                </span>
-                Learning
-            </div>
-        </header>
-        <footer class="row">
-            <div class="col-12 location">
-                <span>
-                    <i class="fas fa-map-marker-alt"></i>
-                </span>
-                Madrid, Spain
-            </div>
-            <div class="col-7">
-                <span>
-                    <i class="far fa-calendar-alt"></i>
-                </span>
-                18.04.2019
-            </div>
-            <div class="col-5 text-right">
-                15:50
-                <span>
-                    <i class="far fa-clock"></i>
-                </span>
-            </div>
-        </footer>
-    </a>
-
-    <a class="container card-container event-card" href="/event_page.html">
-        <header class="row">
-            <div class="col-12">
-                <h3>Mannheim fußball treffen</h3>
-            </div>
-            <div class="price-tag col-auto">Free</div>
-            <div class="col-auto category">
-                <span>
-                    <i class="fas fa-tag"></i>
-                </span>
-                Sports
-            </div>
-        </header>
-        <footer class="row">
-            <div class="col-12 location">
-                <span>
-                    <i class="fas fa-map-marker-alt"></i>
-                </span>
-                Mannheim, Germany
-            </div>
-            <div class="col-7">
-                <span>
-                    <i class="far fa-calendar-alt"></i>
-                </span>
-                19.04.2019
-            </div>
-            <div class="col-5 text-right">
-                08:00
-                <span>
-                    <i class="far fa-clock"></i>
-                </span>
-            </div>
-        </footer>
-    </a>
-
-    <a class="container card-container event-card" href="/event_page.html">
-        <header class="row">
-            <div class="col-12">
-                <h3>London Security Meetup - The secret life of SQL Injections</h3>
-            </div>
-            <div class="price-tag col-auto">7.50€</div>
-            <div class="col-auto category">
-                <span>
-                    <i class="fas fa-tag"></i>
-                </span>
-                Learning
-            </div>
-        </header>
-        <footer class="row">
-            <div class="col-12 location">
-                <span>
-                    <i class="fas fa-map-marker-alt"></i>
-                </span>
-                London, England
-            </div>
-            <div class="col-7">
-                <span>
-                    <i class="far fa-calendar-alt"></i>
-                </span>
-                20.04.2019
-            </div>
-            <div class="col-5 text-right">
-                14:15
-                <span>
-                    <i class="far fa-clock"></i>
-                </span>
-            </div>
-        </footer>
-    </a>
-
-    <a class="container card-container event-card" href="/event_page.html">
-        <header class="row">
-            <div class="col-12">
-                <h3>Politécnico Career Fest</h3>
-            </div>
-            <div class="price-tag col-auto">12.00€</div>
-            <div class="col-auto category">
-                <span>
-                    <i class="fas fa-tag"></i>
-                </span>
-                Technology
-            </div>
-        </header>
-        <footer class="row">
-            <div class="col-12 location">
-                <span>
-                    <i class="fas fa-map-marker-alt"></i>
-                </span>
-                Lisboa, Portugal
-            </div>
-            <div class="col-7">
-                <span>
-                    <i class="far fa-calendar-alt"></i>
-                </span>
-                20.04.2019
-            </div>
-            <div class="col-5 text-right">
-                08:30
-                <span>
-                    <i class="far fa-clock"></i>
-                </span>
-            </div>
-        </footer>
-    </a>
-</div>
+    @endforeach
 
 <div class="container-fluid white-section" id="about">
     <div class="container">

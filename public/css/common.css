@@ -162,7 +162,7 @@ a.my-btn {
 
 footer.page-footer {
     position: sticky;
-    top: Calc(100vh - 22em);
+    top: Calc(100vh - 23em);
     font-family: 'Montserrat', cursive;
     padding: 4em;
     padding-bottom: 1em;

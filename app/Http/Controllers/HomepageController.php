@@ -4,9 +4,15 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\Event;
+
 class HomepageController extends Controller
 {
     public function display() {
-        return view('pages.homepage');
+
+        $relevantEvents = Event::formatResults(Event::relevant()->get());
+
+        return view('pages.homepage', 
+            ['events' => $relevantEvents]);
     }
 }

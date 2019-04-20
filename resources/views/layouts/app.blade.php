@@ -34,10 +34,7 @@
     <header>
         @include('inc.navbar')
     </header>
-    <section id="content">
-        @yield('content')
-    </section>
-
+    @yield('content')
     @include('inc.footer')
 </body>
 
