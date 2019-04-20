@@ -45,7 +45,6 @@ Route::get('/', 'HomepageController@display');
 Route::view('/faq', 'pages.faq')->name('faq');
 
 // Events
-Route::get('/event_dbg', 'EventController@list');
 Route::get('/event/{id}', 'EventController@show')->where(['id' => '[0-9]+']);
 
 // User stuff
