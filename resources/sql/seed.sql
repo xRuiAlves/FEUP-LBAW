@@ -965,30 +965,30 @@ DELETE FROM notifications;
 
 -- Users
 INSERT INTO users(name, email, password, is_admin) VALUES 
-    ('Mark', 'user1@email.net', 'XXXXX', true),
-    ('Lucy', 'user2@email.net', 'XXXXX', true),
-    ('Susan', 'user3@email.net', 'XXXXX', true),
-    ('Peter', 'user4@email.net', 'XXXXX', true),
-    ('John', 'user5@email.net', 'XXXXX', true);
+    ('Mark', 'user1@email.net', '$2y$10$AUu.UDFET4ym3OCW0OthOeR0wdpSFIxCtIWA2M1bOsmVRKkihCP3W', true),
+    ('Lucy', 'user2@email.net', '$2y$10$AUu.UDFET4ym3OCW0OthOeR0wdpSFIxCtIWA2M1bOsmVRKkihCP3W', true),
+    ('Susan', 'user3@email.net', '$2y$10$AUu.UDFET4ym3OCW0OthOeR0wdpSFIxCtIWA2M1bOsmVRKkihCP3W', true),
+    ('Peter', 'user4@email.net', '$2y$10$AUu.UDFET4ym3OCW0OthOeR0wdpSFIxCtIWA2M1bOsmVRKkihCP3W', true),
+    ('John', 'user5@email.net', '$2y$10$AUu.UDFET4ym3OCW0OthOeR0wdpSFIxCtIWA2M1bOsmVRKkihCP3W', true);
 INSERT INTO users(name, email, password) VALUES 
-    ('Jonathan', 'user6@email.net', 'XXXXX'),
-    ('Kevin', 'user23@email.net', 'XXXXX'),
-    ('Richard', 'user7@email.net', 'XXXXX'),
-    ('Martha', 'user8@email.net', 'XXXXX'),
-    ('Louis', 'user9@email.net', 'XXXXX'),
-    ('Mia', 'user10@email.net', 'XXXXX'),
-    ('Anna', 'user11@email.net', 'XXXXX'),
-    ('Bruno', 'user12@email.net', 'XXXXX'),
-    ('Carlos', 'user13@email.net', 'XXXXX'),
-    ('Paul', 'user14@email.net', 'XXXXX'),
-    ('Charles', 'user15@email.net', 'XXXXX'),
-    ('Paula', 'user16@email.net', 'XXXXX'),
-    ('Francis', 'user17@email.net', 'XXXXX'),
-    ('Gil', 'user18@email.net', 'XXXXX'),
-    ('Jennifer', 'user19@email.net', 'XXXXX'),
-    ('Dominic', 'user20@email.net', 'XXXXX'),
-    ('Nathan', 'user21@email.net', 'XXXXX'),
-    ('Ethan', 'user22@email.net', 'XXXXX');
+    ('Jonathan', 'user6@email.net', '$2y$10$AUu.UDFET4ym3OCW0OthOeR0wdpSFIxCtIWA2M1bOsmVRKkihCP3W'),
+    ('Kevin', 'user23@email.net', '$2y$10$AUu.UDFET4ym3OCW0OthOeR0wdpSFIxCtIWA2M1bOsmVRKkihCP3W'),
+    ('Richard', 'user7@email.net', '$2y$10$AUu.UDFET4ym3OCW0OthOeR0wdpSFIxCtIWA2M1bOsmVRKkihCP3W'),
+    ('Martha', 'user8@email.net', '$2y$10$AUu.UDFET4ym3OCW0OthOeR0wdpSFIxCtIWA2M1bOsmVRKkihCP3W'),
+    ('Louis', 'user9@email.net', '$2y$10$AUu.UDFET4ym3OCW0OthOeR0wdpSFIxCtIWA2M1bOsmVRKkihCP3W'),
+    ('Mia', 'user10@email.net', '$2y$10$AUu.UDFET4ym3OCW0OthOeR0wdpSFIxCtIWA2M1bOsmVRKkihCP3W'),
+    ('Anna', 'user11@email.net', '$2y$10$AUu.UDFET4ym3OCW0OthOeR0wdpSFIxCtIWA2M1bOsmVRKkihCP3W'),
+    ('Bruno', 'user12@email.net', '$2y$10$AUu.UDFET4ym3OCW0OthOeR0wdpSFIxCtIWA2M1bOsmVRKkihCP3W'),
+    ('Carlos', 'user13@email.net', '$2y$10$AUu.UDFET4ym3OCW0OthOeR0wdpSFIxCtIWA2M1bOsmVRKkihCP3W'),
+    ('Paul', 'user14@email.net', '$2y$10$AUu.UDFET4ym3OCW0OthOeR0wdpSFIxCtIWA2M1bOsmVRKkihCP3W'),
+    ('Charles', 'user15@email.net', '$2y$10$AUu.UDFET4ym3OCW0OthOeR0wdpSFIxCtIWA2M1bOsmVRKkihCP3W'),
+    ('Paula', 'user16@email.net', '$2y$10$AUu.UDFET4ym3OCW0OthOeR0wdpSFIxCtIWA2M1bOsmVRKkihCP3W'),
+    ('Francis', 'user17@email.net', '$2y$10$AUu.UDFET4ym3OCW0OthOeR0wdpSFIxCtIWA2M1bOsmVRKkihCP3W'),
+    ('Gil', 'user18@email.net', '$2y$10$AUu.UDFET4ym3OCW0OthOeR0wdpSFIxCtIWA2M1bOsmVRKkihCP3W'),
+    ('Jennifer', 'user19@email.net', '$2y$10$AUu.UDFET4ym3OCW0OthOeR0wdpSFIxCtIWA2M1bOsmVRKkihCP3W'),
+    ('Dominic', 'user20@email.net', '$2y$10$AUu.UDFET4ym3OCW0OthOeR0wdpSFIxCtIWA2M1bOsmVRKkihCP3W'),
+    ('Nathan', 'user21@email.net', '$2y$10$AUu.UDFET4ym3OCW0OthOeR0wdpSFIxCtIWA2M1bOsmVRKkihCP3W'),
+    ('Ethan', 'user22@email.net', '$2y$10$AUu.UDFET4ym3OCW0OthOeR0wdpSFIxCtIWA2M1bOsmVRKkihCP3W');
 
 -- Event Categories
 INSERT INTO event_categories(id, name) VALUES 
