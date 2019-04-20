@@ -53,6 +53,46 @@ class Event extends Model
     }
 
     /**
+     * Get the start date year
+     *
+     * @return string
+     */
+    public function getStartDateYearAttribute()
+    {
+        return TimeUtilities::timestampToYear($this->start_timestamp);
+    }
+
+    /**
+     * Get the start date month
+     *
+     * @return string
+     */
+    public function getStartDateMonthAttribute()
+    {
+        return TimeUtilities::timestampToMonthShort($this->start_timestamp);
+    }
+
+    /**
+     * Get the start date day
+     *
+     * @return string
+     */
+    public function getStartDateDayAttribute()
+    {
+        return TimeUtilities::timestampToDay($this->start_timestamp);
+    }
+
+    /**
+     * Get the start date day as a day of the week
+     *
+     * @return string
+     */
+    public function getStartDateDayOfWeekAttribute()
+    {
+        return TimeUtilities::timestampToDayOfWeek($this->start_timestamp);
+    }
+
+    /**
      * Get the end date string
      *
      * @return string
