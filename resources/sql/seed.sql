@@ -1322,30 +1322,30 @@ INSERT INTO event_tags(event_id, tag_id) VALUES
 
 -- Issues
 INSERT INTO issues(title, content, creator_id, referenced_user)
-    VALUES ('Issue #1', 'I have an issue', 1, 4);
+    VALUES ('User harrasment', 'This user was harassing me!', 1, 4);
 INSERT INTO issues(title, content, creator_id, referenced_event)
-    VALUES ('Issue #2', 'I have an issue', 1, 3);
+    VALUES ('Fake Event', 'This event has fake news... ', 1, 3);
 INSERT INTO issues(title, content, creator_id, referenced_post)
-    VALUES ('Issue #3', 'I have an issue', 2, 3);
+    VALUES ('Offensive Post', 'This post is offensive to me.', 2, 3);
 INSERT INTO issues(title, content, creator_id, referenced_comment)
-    VALUES ('Issue #4', 'I have an issue', 2, 5);
+    VALUES ('Unpolite comment', 'This comment is unpolite!!', 2, 5);
 INSERT INTO issues(title, content, creator_id) VALUES 
-    ('Issue #5', 'I have an issue', 5),
-    ('Issue #6', 'I have an issue', 6),
-    ('Issue #7', 'I have an issue', 7),
-    ('Issue #8', 'I have an issue', 8),
-    ('Issue #9', 'I have an issue', 9),
-    ('Issue #10', 'I have an issue', 10),
-    ('Issue #11', 'I have an issue', 11),
-    ('Issue #12', 'I have an issue', 12),
-    ('Issue #13', 'I have an issue', 13),
-    ('Issue #14', 'I have an issue', 14),
-    ('Issue #15', 'I have an issue', 15),
-    ('Issue #16', 'I have an issue', 16),
-    ('Issue #17', 'I have an issue', 17),
-    ('Issue #18', 'I have an issue', 18),
-    ('Issue #19', 'I have an issue', 19),
-    ('Issue #20', 'I have an issue', 20);
+    ('FAQ', 'I cant find the FAQ', 5),
+    ('Contacts missing', 'I am not able to find your contacts', 6),
+    ('Issue Submission', 'I am unable to find the form to submit an issue!', 7),
+    ('Eventbrite Connection', 'Do you guys support connection to Eventbrite?', 8),
+    ('Eventbrite Application', 'Is this eventbrite?', 9),
+    ('MeetUp Application', 'Is this MeetUp?', 10),
+    ('Great Job', 'Just passing by to say you are doing a great job!', 11),
+    ('Administration Team', 'How can I become an admin?', 12),
+    ('Thank You', 'Thank you for all your support!', 13),
+    ('Google Callendar', 'Is this Google Callendar?', 14),
+    ('Веб приложение', 'Это приложение Eventbrite webb?', 15),
+    ('Aдминистрация', 'Как я могу стать администратором?', 16),
+    ('Häufig gestellte Fragen', 'Wo finde ich den Website-Abschnitt mit häufig gestellten Fragen?', 17),
+    ('Jaju mudneun jilmun', 'Jaju mudneun jilmun web saiteu segsyeon-eun eodieseo chaj-eul su issseubnikka?', 18),
+    ('Events Attendance', 'I cancelled a ticket for an event. Meanwhile, it got full but I would like my ticket back! Can I get it back?', 19),
+    ('Event Creator to Administrator', 'I have hosted a lot of Events in your application. May I become an admin?', 20);
 
 -- Notifications
 INSERT INTO notifications(type, content, user_id, issue_id)
