@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg font-title">
+<nav class="navbar navbar-expand-lg font-title" id="navbar">
     <div class="container">
         <a class="navbar-brand" href="/">Eventually</a>
 

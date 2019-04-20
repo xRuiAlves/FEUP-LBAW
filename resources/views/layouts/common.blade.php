@@ -25,8 +25,8 @@
 
     <link href="{{ asset('css/constants.css') }}" rel="stylesheet">
     <link href="{{ asset('css/navbar.css') }}" rel="stylesheet">
-    @yield('css_includes')
     <link href="{{ asset('css/common.css') }}" rel="stylesheet">
+    @yield('css_includes')
 </head>
 
 <body>

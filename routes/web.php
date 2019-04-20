@@ -53,3 +53,8 @@ Route::get('/dashboard', 'UserController@showDashboard')->name('dashboard');
 // Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/admin', 'AdminController@users')->name('admin');
+Route::get('/admin/users', 'AdminController@users')->name('admin-users');
+Route::get('/admin/issues', 'AdminController@issues')->name('admin-issues');
+Route::get('/admin/events', 'AdminController@events')->name('admin-events');

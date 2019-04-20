@@ -7,6 +7,9 @@
 @section('title', 'Eventually Homepage')
 
 @section('body')
+
+<script src="{{ asset('js/main_page.js') }}" defer></script>
+
 <div id="banner-wrapper">
     <div id="banner-image-container">
         <img src="{{asset('images/concert2.jpg')}}" />
