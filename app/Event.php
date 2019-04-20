@@ -20,6 +20,13 @@ class Event extends Model
     }
 
     /**
+     * The category of this event.
+     */
+    public function category() {
+        return $this->belongsTo('App\EventCategory', 'event_category_id');
+    }
+
+    /**
      * The posts this event has.
      */
     public function posts() {

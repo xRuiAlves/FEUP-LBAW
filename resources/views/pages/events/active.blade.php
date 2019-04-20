@@ -71,7 +71,7 @@
                 </div>
                 <div class="row">
                     <div class="col-12">
-                        Technology (TODO)
+                        {{$category->name}}
                         <span>
                             <i class="fas fa-tag icon-right"></i>
                         </span>

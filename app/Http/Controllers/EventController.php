@@ -26,11 +26,12 @@ class EventController extends Controller
         // $this->authorize('show', $event); //TODO
         
         $owner = $event->owner;
-        
+
+        $category = $event->category;
+                
         $announcements = $event->posts()->announcements()->get();
-        
+
         $discussions = $event->posts()->discussions()->get();
-        
         $discussion_comments = [];
         foreach($discussions as $i => $discussion) {
             $discussion_comments[$i] = $discussion->comments()->get();
@@ -38,7 +39,7 @@ class EventController extends Controller
 
         return view('pages.events.index',
         [
-            'event' => $event, 'owner' => $owner, 'announcements' => $announcements,
+            'event' => $event, 'owner' => $owner, 'announcements' => $announcements, 'category' => $category,
             'discussions' => $discussions, 'discussion_comments' => $discussion_comments
         ]);
     }
