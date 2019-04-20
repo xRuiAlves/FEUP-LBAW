@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.app', ['hideNavbar' => true])
 
 @section('css_includes')
 <link href="{{ asset('css/main_page.css') }}" rel="stylesheet">
@@ -6,7 +6,7 @@
 
 @section('title', 'Eventually Homepage')
 
-@section('body')
+@section('content')
 
 <script src="{{ asset('js/main_page.js') }}" defer></script>
 
