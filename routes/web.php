@@ -28,9 +28,14 @@ Route::put('api/cards/{card_id}/', 'ItemController@create');
 Route::post('api/item/{id}', 'ItemController@update');
 Route::delete('api/item/{id}', 'ItemController@delete');
 
+///////////////////////////////////////////////////
+///////////////////////////////////////////////////
+///////////////////////////////////////////////////
+
 // Ours (Start deleting the above after the template was understood)
 
 Route::get('/', 'HomepageController@display');
+Route::view('/faq', 'pages.faq')->name('faq');
 
 // Auth
 Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
@@ -38,11 +43,6 @@ Route::post('login', 'Auth\LoginController@login');
 Route::get('register', 'Auth\RegisterController@showRegistrationForm')->name('register');
 Route::post('register', 'Auth\RegisterController@register');
 Route::get('logout', 'Auth\LoginController@logout')->name('logout');
-
-// Ours (Start deleting the above after the template was understood)
-
-Route::get('/', 'HomepageController@display');
-Route::view('/faq', 'pages.faq')->name('faq');
 
 // Events
 Route::get('/event/{id}', 'EventController@show')->where(['id' => '[0-9]+']);
