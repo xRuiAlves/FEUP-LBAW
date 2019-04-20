@@ -38,6 +38,8 @@ Route::post('register', 'Auth\RegisterController@register');
 
 // Ours (Start deleting the above after the template was understood)
 
+Route::get('/', 'HomepageController@display');
+
 Route::get('/user_dashboard', 'UserController@showDashboard');
 
 Route::get('/event_dbg', 'EventController@list');
