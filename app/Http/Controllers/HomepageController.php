@@ -10,7 +10,7 @@ class HomepageController extends Controller
 {
     public function display() {
 
-        $relevantEvents = Event::formatResults(Event::relevant()->paginate(5));
+        $relevantEvents = Event::relevant()->paginate(5);
 
         return view('pages.homepage', 
             ['events' => $relevantEvents]);

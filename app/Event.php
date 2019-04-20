@@ -34,6 +34,46 @@ class Event extends Model
     }
 
     /**
+     * Get the start date string
+     *
+     * @return string
+     */
+    public function getStartDateAttribute()
+    {
+        return date('d-m-Y', strtotime($this->start_timestamp));
+    }
+
+    /**
+     * Get the end date string
+     *
+     * @return string
+     */
+    public function getEndDateAttribute()
+    {
+        return $this->end_timestamp ? date('d-m-Y', strtotime($this->end_timestamp)) : null;
+    }
+
+    /**
+     * Get the start time string
+     *
+     * @return string
+     */
+    public function getStartTimeAttribute()
+    {
+        return date('H:i', strtotime($this->start_timestamp));
+    }
+
+    /**
+     * Get the end time string
+     *
+     * @return string
+     */
+    public function getEndTimeAttribute()
+    {
+        return $this->end_timestamp ? date('H:i', strtotime($this->end_timestamp)) : null;
+    }
+
+    /**
      * The attributes that should be hidden for arrays.
      *
      * @var array
@@ -70,20 +110,6 @@ class Event extends Model
      */
     public function scopeFutureEvents($query) {
         return $query->active()->where('start_timestamp', '>', 'NOW()');
-    }
-
-
-    public static function formatResults($events){
-        foreach($events as $event){
-            $event->start_date = date('d-m-Y', strtotime($event->start_timestamp));
-            $event->start_time = date('H:i', strtotime($event->start_timestamp));
-
-            if($event->end_timestamp){
-                $event->end_date = date('d-m-Y', strtotime($event->end_timestamp));
-                $event->end_time = date('H:i', strtotime($event->end_timestamp));
-            }
-        }
-        return $events;
     }
 
 }
