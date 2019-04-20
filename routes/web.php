@@ -28,24 +28,29 @@ Route::put('api/cards/{card_id}/', 'ItemController@create');
 Route::post('api/item/{id}', 'ItemController@update');
 Route::delete('api/item/{id}', 'ItemController@delete');
 
-// Authentication
+// Ours (Start deleting the above after the template was understood)
 
+Route::get('/', 'HomepageController@display');
+
+// Auth
 Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
 Route::post('login', 'Auth\LoginController@login');
-Route::get('logout', 'Auth\LoginController@logout')->name('logout');
 Route::get('register', 'Auth\RegisterController@showRegistrationForm')->name('register');
 Route::post('register', 'Auth\RegisterController@register');
+Route::get('logout', 'Auth\LoginController@logout')->name('logout');
 
 // Ours (Start deleting the above after the template was understood)
 
 Route::get('/', 'HomepageController@display');
-Route::get('/faq', function() {
-    return view('pages.faq');
-});
+Route::get('/faq', 'pages.faq');
 
-Route::get('/user_dashboard', 'UserController@showDashboard');
-
+// Events
 Route::get('/event_dbg', 'EventController@list');
-Route::get('/event/{id}', 'EventController@show');
+Route::get('/event/{id}', 'EventController@show')->where(['id' => '[0-9]+']);
 
-Route::get('/notifications/{id}', 'NotificationsController@show');
+// User stuff
+Route::get('/notifications/{id}', 'NotificationsController@show')->name('notifications');
+Route::get('/dashboard', 'UserController@showDashboard')->name('dashboard');
+// Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

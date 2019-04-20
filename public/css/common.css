@@ -2,8 +2,28 @@
 
 /************ CARD CONTAINER **************/
 
-#page-card {
-    margin-bottom: 15em;
+#page_card {
+    /* margin-bottom: 15em; */
+}
+
+#page_card.card-container.login-register {
+    top: 4em;
+    margin-bottom: 9em;
+    max-width: 50em;
+}
+
+#page_card.card-container {
+    position: relative;
+    top: 4em;
+    margin-bottom: 4em;
+    overflow: hidden;
+}
+
+#page_card.card-container.event-card {
+    padding: 0;
+    top: 7em;
+    margin-bottom: 12em;
+    overflow: hidden;
 }
 
 .card-container {

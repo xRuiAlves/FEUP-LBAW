@@ -44,6 +44,7 @@ CREATE TABLE users (
 	password VARCHAR(128) NOT NULL,
     is_disabled BOOLEAN NOT NULL DEFAULT false,
     is_admin BOOLEAN NOT NULL DEFAULT false,
+    remember_token VARCHAR, -- Necessary for Laravel session remembering
     search TSVECTOR
 );
 

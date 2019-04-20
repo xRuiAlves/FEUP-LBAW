@@ -1,39 +1,69 @@
 @extends('layouts.app')
 
 @section('content')
-<form method="POST" action="{{ route('register') }}">
-    {{ csrf_field() }}
+<div id="background_wave"></div>
 
-    <label for="name">Name</label>
-    <input id="name" type="text" name="name" value="{{ old('name') }}" required autofocus>
-    @if ($errors->has('name'))
-      <span class="error">
-          {{ $errors->first('name') }}
-      </span>
-    @endif
-
-    <label for="email">E-Mail Address</label>
-    <input id="email" type="email" name="email" value="{{ old('email') }}" required>
-    @if ($errors->has('email'))
-      <span class="error">
-          {{ $errors->first('email') }}
-      </span>
-    @endif
-
-    <label for="password">Password</label>
-    <input id="password" type="password" name="password" required>
-    @if ($errors->has('password'))
-      <span class="error">
-          {{ $errors->first('password') }}
-      </span>
-    @endif
-
-    <label for="password-confirm">Confirm Password</label>
-    <input id="password-confirm" type="password" name="password_confirmation" required>
-
-    <button type="submit">
-      Register
-    </button>
-    <a class="button button-outline" href="{{ route('login') }}">Login</a>
-</form>
+<div id="page_card" class="container card-container font-content login-register">
+  <header>
+    <div class="modal-title custom-modal-title font-title">Register</div>
+  </header>
+  <div class="modal-body">
+      <form method="POST" action="{{route('register')}}" novalidate class="needs-validation font-content">
+        {{ csrf_field() }}
+        <div class="form-group">
+          <input type="text" name="name" value="{{ old('name') }}" placeholder="name" required autofocus class="form-control">
+            @if ($errors->has('name'))
+            <span class="error">
+                {{ $errors->first('name') }}
+            </span>
+            @endif
+            <div class="invalid-feedback">
+              Please provide a name
+            </div>
+        </div>
+        <div class="form-group">
+            <input type="email" name="email" value="{{ old('email') }}" placeholder="email" required class="form-control">
+            @if ($errors->has('email'))
+                <span class="error">
+                {{ $errors->first('email') }}
+                </span>
+            @endif
+            <div class="invalid-feedback">
+                Please provide a valid email address
+            </div>
+        </div>
+        <div class="form-group">
+          <input type="password" name="password" placeholder="password" required class="form-control">
+          @if ($errors->has('password'))
+          <span class="error">
+              {{ $errors->first('password') }}
+          </span>
+          @endif
+          <div class="invalid-feedback">
+              Please provide a valid password
+          </div>
+        </div>
+        <div class="form-group">
+          <input type="password" name="password_confirmation" placeholder="confirm password" required class="form-control">
+          <div class="invalid-feedback">
+              Please type your password again
+          </div>
+        </div>
+        <div class="d-flex justify-content-center">
+            <button class="my-btn my-btn-primary" type="submit">Register</button>
+        </div>
+    </form>
+    <div class="d-flex justify-content-center">
+        <a class="my-btn my-btn-borderless-secondary" href="/WIP">
+            <span class="nav-icon icon-left">
+                <i class="fab fa-google" aria-hidden="true"></i>
+            </span>
+            Sign in with Google
+        </a>
+    </div>
+  </div>
+  <div class="modal-footer">
+      <span>Already have an account? Login <a href="{{route('login')}}">here!</a></span>
+  </div>
+</div>
 @endsection

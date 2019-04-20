@@ -1,13 +1,13 @@
 @import "common.css";
 @import "palette.css";
 
-.card-container.event-card {
+/* .card-container.event-card {
     position: relative;
     padding: 0;
     top: 7em;
     margin-bottom: 7em;
     overflow: hidden;
-}
+} */
 
 .card-container.event-card .admin-view-label h6 {
     padding: 0.5em;

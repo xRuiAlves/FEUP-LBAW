@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg font-title">
     <div class="container">
-        <a class="navbar-brand" href="/index_lin.html">Eventually</a>
+        <a class="navbar-brand" href="/">Eventually</a>
 
         <button class="navbar-toggler" type="button" data-toggle="collapse"
             data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
@@ -16,7 +16,7 @@
                     <a class="nav-link" href="/#search-box-anchor">Search</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/create_event.html">Host</a>
+                    <a class="nav-link" href="/event/create">Host</a>
                 </li>
 
                 <form class=" nav-item ml-2 my-2 my-lg-0">
@@ -31,18 +31,32 @@
                     </div>
                 </form>
             </ul>
+            @if(Auth::guest())
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="/user_dashboard.html">
-                        John Doe
+                    <a href="{{route('login')}}" title="Log In" class="nav-link">
+                        Login
                     </a>
                 </li>
                 <li class="nav-item">
-                    <div title="Notifications" class="nav-link notifications-item" data-toggle="modal"
-                        data-target="#notifications_modal">
+                <a href="{{route('register')}}" title="Register" class="nav-link">
+                        Register
+                    </a>
+                </li>
+            </ul>
+            @else
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="{{route('dashboard')}}">
+                        {{Auth::user()->name}}
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a title="Notifications" class="nav-link notifications-item" href="{{route('notifications', ['id' => Auth::user()->id])}}">
                         <i class="fas fa-bell nav-item-icon"></i>
+                        <small>(Using semi-hardcoded ID)</small>
                         <span class="nav-item-label">Notifications</span>
-                    </div>
+                    </a>
                 </li>
                 <li class="nav-item">
                     <div title="Submit an Issue" class="nav-link issues-item" data-toggle="modal"
@@ -52,18 +66,19 @@
                     </div>
                 </li>
                 <li class="nav-item">
-                    <a title="Administration Dashboard" class="nav-link" href="/admin_dashboard.html">
+                    <a title="Administration Dashboard" class="nav-link" href="/admin_dashboard">
                         <i class="fas fa-clipboard-list nav-item-icon"></i>
                         <span class="nav-item-label">Administration Dashboard</span>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a title="Exit" class="nav-link" href="/">
+                    <a title="Exit" class="nav-link" href="{{route('logout')}}">
                         <i class="fas fa-sign-out-alt nav-item-icon"></i>
                         <span class="nav-item-label">Exit</span>
                     </a>
                 </li>
             </ul>
+            @endif
         </div>
     </div>
 </nav>
@@ -86,139 +101,6 @@
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                 </div>
             </form>
-        </div>
-    </div>
-</div>
-
-<div id="notifications_modal" class="modal fade font-content" tabindex="-1" role="dialog">
-    <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <div class="modal-title custom-modal-title">Notifications</div>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body container notifications-list">
-
-                <div class="row notification-item" data-notif-id="1">
-                    <div class="col-12">
-                        <div class="row header">
-                            <a class="col-8 col-md-10 title font-title" href="/event_page_lin.html">
-                                Invitation to attend
-                            </a>
-                            <div class="col-4 col-md-2 ml-auto actions d-flex justify-content-end">
-                                <div class="row">
-                                    <span class="col-6 read">
-                                        <i class="fas fa-eye"
-                                            onclick="$('.notification-item[data-notif-id=\'1\'').removeClass('unread')"></i>
-                                        <i class="fas fa-eye-slash"
-                                            onclick="$('.notification-item[data-notif-id=\'1\'').addClass('unread')"></i>
-                                    </span>
-                                    <span class="col-6 delete">
-                                        <i class="fas fa-times"
-                                            onclick="$('.notification-item[data-notif-id=\'1\'').remove()"></i>
-                                    </span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-12 description">
-                                You have been invited to attend Semana de Informática 2019
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="row notification-item unread" data-notif-id="2">
-                    <div class="col-12">
-                        <div class="row header">
-                            <a class="col-8 col-md-10 title font-title" href="/event_page_cancelled.html">
-                                Event Cancelled
-                            </a>
-                            <div class="col-4 col-md-2 ml-auto actions d-flex justify-content-end">
-                                <div class="row">
-                                    <span class="col-6 read">
-                                        <i class="fas fa-eye"
-                                            onclick="$('.notification-item[data-notif-id=\'2\'').removeClass('unread')"></i>
-                                        <i class="fas fa-eye-slash"
-                                            onclick="$('.notification-item[data-notif-id=\'2\'').addClass('unread')"></i>
-                                    </span>
-                                    <span class="col-6 delete">
-                                        <i class="fas fa-times"
-                                            onclick="$('.notification-item[data-notif-id=\'2\'').remove()"></i>
-                                    </span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-12 description">
-                                IEEE Code Week 2019 has been cancelled
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="row notification-item" data-notif-id="3">
-                    <div class="col-12">
-                        <div class="row header">
-                            <a class="col-8 col-md-10 title font-title" href="/event_page_lin.html">
-                                Removed from Event
-                            </a>
-                            <div class="col-4 col-md-2 ml-auto actions d-flex justify-content-end">
-                                <div class="row">
-                                    <span class="col-6 read">
-                                        <i class="fas fa-eye"
-                                            onclick="$('.notification-item[data-notif-id=\'3\'').removeClass('unread')"></i>
-                                        <i class="fas fa-eye-slash"
-                                            onclick="$('.notification-item[data-notif-id=\'3\'').addClass('unread')"></i>
-                                    </span>
-                                    <span class="col-6 delete">
-                                        <i class="fas fa-times"
-                                            onclick="$('.notification-item[data-notif-id=\'3\'').remove()"></i>
-                                    </span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-12 description">
-                                You have been removed from Eventually Organizers Day 2019
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="row notification-item" data-notif-id="4">
-                    <div class="col-12">
-                        <div class="row header">
-                            <a class="col-8 col-md-10 title font-title" href="/event_page_disabled.html">
-                                Event Disabled
-                            </a>
-                            <div class="col-4 col-md-2 ml-auto actions d-flex justify-content-end">
-                                <div class="row">
-                                    <span class="col-6 read">
-                                        <i class="fas fa-eye"
-                                            onclick="$('.notification-item[data-notif-id=\'4\'').removeClass('unread')"></i>
-                                        <i class="fas fa-eye-slash"
-                                            onclick="$('.notification-item[data-notif-id=\'4\'').addClass('unread')"></i>
-                                    </span>
-                                    <span class="col-6 delete">
-                                        <i class="fas fa-times"
-                                            onclick="$('.notification-item[data-notif-id=\'4\'').remove()"></i>
-                                    </span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-12 description">
-                                Fishing Workshop - HDNV Student Association has been disabled by a Platform
-                                Administrator
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
         </div>
     </div>
 </div>

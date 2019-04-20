@@ -17,7 +17,7 @@
     <script src="{{ asset('bootstrap/jquery-3.3.1.min.js') }}" defer></script>
     <script src="{{ asset('bootstrap/popper.min.js') }}" defer></script>
     <script src="{{ asset('bootstrap/js/bootstrap.min.js') }}" defer></script>
-    <script src="{{ asset('js/form_verification_redirect_to.js') }}" defer></script>
+    <script src="{{ asset('js/form_validation.js') }}" defer></script>
     
     <link href="{{ asset('bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
     <link href="{{ asset('fonts/Fonts.css') }}" rel="stylesheet">
@@ -27,14 +27,15 @@
     <link href="{{ asset('css/navbar.css') }}" rel="stylesheet">
     @yield('css_includes')
     <link href="{{ asset('css/common.css') }}" rel="stylesheet">
-
 </head>
 
 <body>
     <header>
         @include('inc.navbar')
     </header>
-    @yield('content')
+    <div>
+        @yield('content')
+    </div>
     @include('inc.footer')
 </body>
 
