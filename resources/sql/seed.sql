@@ -1004,7 +1004,7 @@ INSERT INTO event_categories(id, name) VALUES
 INSERT INTO events(title, description, price, location, latitude, longitude, start_timestamp, end_timestamp, event_category_id, status, user_id) VALUES 
     ('SINF 2020', 'Semana de Informática is a conference that aims to bring together students of informatics, computer science and engineering to learn, socialize and connect with each other and the business world. The event takes place every year in Faculdade de Engenharia da Universidade do Porto, in Portugal.', 1.00, 'FEUP, Porto, Portugal', 41.1780, -8.5980, to_timestamp('16-05-2020 15:36:38', 'dd-mm-yyyy hh24:mi:ss'), to_timestamp('17-05-2020 15:36:38', 'dd-mm-yyyy hh24:mi:ss'), 4, 'Active', 2);
 INSERT INTO events(title, location, latitude, longitude, description, price, start_timestamp, event_category_id, status, user_id) VALUES 
-    ('Hash Code 2019', 'Delhi, India', 28.644800, 77.216721, 'Hash Code is a team programming competition, organized by Google, for students and professionals around the world. You pick your team and programming language and we pick an engineering problem for you to solve. This year’s contest kicks off with an Online Qualification Round, where your team can compete from wherever you’d like, including from one of our Hash Code hubs. Top teams will then be invited to a Google office for the Final Round.', 0.00, to_timestamp('20-05-2021 15:36:38', 'dd-mm-yyyy hh24:mi:ss'), 4, 'Active', 2),
+    ('Hash Code 2020', 'Delhi, India', 28.644800, 77.216721, 'Hash Code is a team programming competition, organized by Google, for students and professionals around the world. You pick your team and programming language and we pick an engineering problem for you to solve. This year’s contest kicks off with an Online Qualification Round, where your team can compete from wherever you’d like, including from one of our Hash Code hubs. Top teams will then be invited to a Google office for the Final Round.', 0.00, to_timestamp('20-05-2021 15:36:38', 'dd-mm-yyyy hh24:mi:ss'), 4, 'Active', 2),
     ('Visiting Albania', 'Tirana, Albania', 41.327953, 19.819025, 'A part of Illyria in ancient times and later of the Roman Empire, Albania was ruled by the Byzantine Empire from 535 to 1204. An alliance (1444–1466) of Albanian chiefs failed to halt the advance of the Ottoman Turks, and the country remained under at least nominal Turkish rule for more than four centuries, until it proclaimed its independence on Nov. 28, 1912.', 1.00, to_timestamp('22-05-2020 15:36:38', 'dd-mm-yyyy hh24:mi:ss'), 2, 'Active', 3),
     ('Enjoying Berlin', 'Berlin, Germany', 52.520008, 13.404954, 'Located in central Europe, Germany is made up of the North German Plain, the Central German Uplands (Mittelgebirge), and the Southern German Highlands. The Bavarian plateau in the southwest averages 1,600 ft (488 m) above sea level, but it reaches 9,721 ft (2,962 m) in the Zugspitze Mountains, the highest point in the country. Germanys major rivers are the Danube, the Elbe, the Oder, the Weser, and the Rhine. Germany is about the size of Montana.', 1.00, to_timestamp('31-06-2020 15:36:38', 'dd-mm-yyyy hh24:mi:ss'), 2, 'Active', 1),
     ('Tech Meeting - UK Edition', 'London, United Kingdom', 51.509865, -0.118092, 'The United Kingdom is a constitutional monarchy and parliamentary democracy, with a queen and a parliament that has two houses: the House of Lords, with 574 life peers, 92 hereditary peers, and 26 bishops; and the House of Commons, which has 651 popularly elected members. Supreme legislative power is vested in parliament, which sits for five years unless dissolved sooner. The House of Lords was stripped of most of its power in 1911, and now its main function is to revise legislation. In Nov. 1999, hundreds of hereditary peers were expelled in an effort to make the body more democratic. The executive power of the Crown is exercised by the cabinet, headed by the prime minister.', 1, to_timestamp('31-06-2020 15:36:38', 'dd-mm-yyyy hh24:mi:ss'), 2, 'Active', 1),
@@ -1017,7 +1017,7 @@ INSERT INTO events(title, location, latitude, longitude, description, price, sta
     ('Russia and Chess', 'Moscow, Russia', 55.751244, 37.618423, 'Шахматът се играе върху квадратна дъска, която е разделена на 64 (8×8) квадратчета. Условно цветът на 32 от тези квадратчета е бял, а на другите 32 – черен. Цветовете на полетата се редуват, като се изисква първото поле отляво на първия ред от страната на всеки играч да е черно. Всеки играч разполага в началото с 8 пешки, 2 топа (или тура), 2 коня, 2 офицера, 1 дама (или популярно царица) и 1 цар. Целта на играта е да се създаде такава ситуация, при която е пленен царят на противника. Това се нарича мат или матиране. За да се постигне това, фигурите извършват движения по дъската, наречени ходове, съблюдавайки правилата за движение на фигурите. Първи на ход са винаги белите, а след тях черните. Когато фигура от един цвят може да се премести на дадено поле, но то е заето от противникова фигура, се извършва „вземане“. При това действие фигурата, която е била първоначално на полето, се премахва от дъската, а другата се поставя на нейно място. Вземат се само фигури на противника. За документиране на партия се използва шахматната нотация.', 0.00, to_timestamp('29-05-2021 15:36:38', 'dd-mm-yyyy hh24:mi:ss'), 2, 'Active', 21),
     ('Wine tasting', 'London, England', 51.509865, -0.118092, 'Wine is an alcoholic drink made from fermented grapes. Yeast consumes the sugar in the grapes and converts it to ethanol, carbon dioxide, and heat. Different varieties of grapes and strains of yeasts produce different styles of wine. These variations result from the complex interactions between the biochemical development of the grape, the reactions involved in fermentation, the terroir, and the production process. Many countries enact legal appellations intended to define styles and qualities of wine. These typically restrict the geographical origin and permitted varieties of grapes, as well as other aspects of wine production. Wines not made from grapes include rice wine and fruit wines such as plum, cherry, pomegranate, currant and elderberry.', 0.00, to_timestamp('30-12-2020 22:36:38', 'dd-mm-yyyy hh24:mi:ss'), 2, 'Active', 13),
     ('Aristídes de Sousa Mendes', 'Freixo de Espada a Cinta, Portugal', 41.083, -6.817, 'Aristides de Sousa Mendes, também conhecido por Aristides de Sousa Mendes do Amaral e Abranches, nome para qual o alterou, (Cabanas de Viriato, 19 de julho de 1885 — Lisboa, 3 de abril de 1954) foi um cônsul Português. Enquanto Cônsul de Portugal em Bordéus no ano da invasão de França pela Alemanha Nazi na Segunda Guerra Mundial, desafiou ordens expressas do presidente António de Oliveira Salazar, que acumulava a função de ministro dos Negócios Estrangeiros, e durante três dias e três noites concedeu milhares de vistos de entrada em Portugal a refugiados, principalmente de origem judia que fugiam da Alemanha, mas também outros indivíduos que simplesmente procuravam simples asilo, pois desejavam fugir de França em 1940.', 9.99, to_timestamp('23-05-2020 12:02:38', 'dd-mm-yyyy hh24:mi:ss'), 3, 'Cancelled', 4),
-    ('Lets talk about Smarthphones', 'Braga, Portugal', 41.55032, -8.42005, 'Smartphones are a class of mobile phones and of multi-purpose mobile computing devices. They are distinguished from feature phones by their stronger hardware capabilities and extensive mobile operating systems, which facilitate wider software, internet (including web browsing over mobile broadband), and multimedia functionality (including music, video, cameras, and gaming), alongside core phone functions such as voice calls and text messaging. Smartphones typically include various sensors that can be leveraged by their software, such as a magnetometer, proximity sensors, barometer, gyroscope and accelerometer, and support wireless communications protocols such as Bluetooth, Wi-Fi, and satellite navigation.', 9.50, to_timestamp('25-12-2019 15:05:55', 'dd-mm-yyyy hh24:mi:ss'), 5, 'Active', 6);
+    ('Lets talk about Smarthphones', 'Braga, Portugal', 41.55032, -8.42005, 'Smartphones are a class of mobile phones and of multi-purpose mobile computing devices. They are distinguished from feature phones by their stronger hardware capabilities and extensive mobile operating systems, which facilitate wider software, internet (including web browsing over mobile broadband), and multimedia functionality (including music, video, cameras, and gaming), alongside core phone functions such as voice calls and text messaging. Smartphones typically include various sensors that can be leveraged by their software, such as a magnetometer, proximity sensors, barometer, gyroscope and accelerometer, and support wireless communications protocols such as Bluetooth, Wi-Fi, and satellite navigation.', 9.50, to_timestamp('25-12-2020 15:05:55', 'dd-mm-yyyy hh24:mi:ss'), 5, 'Active', 6);
 
 -- Tags
 INSERT INTO tags(name) VALUES 
@@ -1133,37 +1133,37 @@ INSERT INTO posts(content, event_id, user_id, is_announcement) VALUES
     ('Do we need to bring our umbrellas?', 10, 20, false),
     ('Is any preparation advised for the event? Thank you in advance.', 11, 21, false),
     ('I cant believe this... Really?', 12, 22, false),
-    ('Cant wait. Thank you, organizers team! Good job!', 11, 23, false);
+    ('Cant wait. Thank you, organizers team! Good job!', 11, 23, false),
     ('Great idea! Regards from HOng Kong.', 12, 9, false),
     ('Well, would you recommend that we bring food from home?.', 5, 19, false),
     ('Is there any restaurants nearby?', 3, 20, false),
-    ('Is there parking space near the event lounge?', 7, 21, false),
+    ('Is there parking space near the event lounge?', 7, 21, false);
 
 -- Comments
-INSERT INTO comments(content, post_id, user_id) VALUES
-    ('What an amazing event!', 27, 1),
-    ('Really incredible!', 27, 2),
-    ('The fact that people still take the time to organize events like this warms my heart.', 27, 3),
-    ('This is indeed a nice way to spend the day, imo.', 28, 4),
-    ('This brings me back to my younger days.', 29, 14),
-    ('I do not enjoy this. Just saying...', 30, 15),
-    ('Wooooooowww', 31, 16),
-    ('Very, VERY nice! :) ', 32, 16),
-    ('A good day to you!', 33, 22),
-    ('Well, you do ceartainly have a point. However, some people may say you are wrong. Other people may say you are right.', 34, 21),
-    ('Eheheh, true that!', 35, 20),
-    ('Feels good man, someone who shares my way of thinking.', 36, 16),
-    ('Lets make the Internets great again!', 37, 9),
-    ('Yeap. I shared this on Reddit cuz it is so awesome', 38, 4),
-    ('So. Very. Good.', 39, 4),
-    ('Yes very good me agrrees sorry my englush not verry guud', 40, 23),
-    ('A great way to spend your Sunday afternoon', 41, 17),
-    ('Love it', 42, 18),
-    ('Amen to that!', 43, 4),
-    ('Lol yeap. You say what everyone is thinking.', 44, 5),
-    ('Boy oh boy!', 45, 6),
-    ('Yes. A hug to you from western colombia ;) ', 46, 7),
-    ('This takes me back to the time I visited Zimbabue with my older cousin!!! What a great time I had.', 47, 8);
+INSERT INTO comments(content, post_id, user_id, timestamp) VALUES
+    ('What an amazing event!', 27, 1, to_timestamp('20-03-2020 15:36:38', 'dd-mm-yyyy hh24:mi:ss')),
+    ('Really incredible!', 27, 2, to_timestamp('21-03-2020 15:36:38', 'dd-mm-yyyy hh24:mi:ss')),
+    ('The fact that people still take the time to organize events like this warms my heart.', 27, 3, to_timestamp('22-03-2020 15:36:38', 'dd-mm-yyyy hh24:mi:ss')),
+    ('This is indeed a nice way to spend the day, imo.', 28, 4, to_timestamp('23-03-2020 15:36:38', 'dd-mm-yyyy hh24:mi:ss')),
+    ('This brings me back to my younger days.', 29, 14, to_timestamp('24-03-2020 15:36:38', 'dd-mm-yyyy hh24:mi:ss')),
+    ('I do not enjoy this. Just saying...', 30, 15, to_timestamp('25-03-2020 15:36:38', 'dd-mm-yyyy hh24:mi:ss')),
+    ('Wooooooowww', 31, 16, to_timestamp('26-03-2020 15:36:38', 'dd-mm-yyyy hh24:mi:ss')),
+    ('Very, VERY nice! :) ', 32, 16, to_timestamp('27-03-2020 15:36:38', 'dd-mm-yyyy hh24:mi:ss')),
+    ('A good day to you!', 33, 22, to_timestamp('28-03-2020 15:36:38', 'dd-mm-yyyy hh24:mi:ss')),
+    ('Well, you do ceartainly have a point. However, some people may say you are wrong. Other people may say you are right.', 34, 21, to_timestamp('29-03-2020 15:36:38', 'dd-mm-yyyy hh24:mi:ss')),
+    ('Eheheh, true that!', 35, 20, to_timestamp('30-03-2020 15:36:38', 'dd-mm-yyyy hh24:mi:ss')),
+    ('Feels good man, someone who shares my way of thinking.', 36, 16, to_timestamp('02-04-2020 15:36:38', 'dd-mm-yyyy hh24:mi:ss')),
+    ('Lets make the Internets great again!', 37, 9, to_timestamp('03-04-2020 15:36:38', 'dd-mm-yyyy hh24:mi:ss')),
+    ('Yeap. I shared this on Reddit cuz it is so awesome', 38, 4, to_timestamp('04-04-2020 15:36:38', 'dd-mm-yyyy hh24:mi:ss')),
+    ('So. Very. Good.', 39, 4, to_timestamp('05-04-2020 15:36:38', 'dd-mm-yyyy hh24:mi:ss')),
+    ('Yes very good me agrrees sorry my englush not verry guud', 40, 23, to_timestamp('06-04-2020 15:36:38', 'dd-mm-yyyy hh24:mi:ss')),
+    ('A great way to spend your Sunday afternoon', 41, 17, to_timestamp('07-04-2020 15:36:38', 'dd-mm-yyyy hh24:mi:ss')),
+    ('Love it', 42, 18, to_timestamp('08-04-2020 15:36:38', 'dd-mm-yyyy hh24:mi:ss')),
+    ('Amen to that!', 43, 4, to_timestamp('09-04-2020 15:36:38', 'dd-mm-yyyy hh24:mi:ss')),
+    ('Lol yeap. You say what everyone is thinking.', 44, 5, to_timestamp('10-04-2020 15:36:38', 'dd-mm-yyyy hh24:mi:ss')),
+    ('Boy oh boy!', 45, 6, to_timestamp('12-04-2020 15:36:38', 'dd-mm-yyyy hh24:mi:ss')),
+    ('Yes. A hug to you from western colombia ;) ', 46, 7, to_timestamp('11-04-2020 15:36:38', 'dd-mm-yyyy hh24:mi:ss')),
+    ('This takes me back to the time I visited Zimbabue with my older cousin!!! What a great time I had.', 47, 8, to_timestamp('13-04-2020 15:36:38', 'dd-mm-yyyy hh24:mi:ss'));
 
 -- Ratings
 INSERT INTO ratings(user_id, post_id, value) VALUES
