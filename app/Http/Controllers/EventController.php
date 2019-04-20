@@ -21,6 +21,9 @@ class EventController extends Controller
         //                 ->first();
 
         $event = Event::find($id);
+        if (is_null($event)) {
+            return abort(404);
+        }
 
         // TODO: Decide which view to show based on auth probably
         // $this->authorize('show', $event); //TODO

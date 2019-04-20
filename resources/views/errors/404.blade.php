@@ -11,12 +11,12 @@
     
     <div id="page-card" class="container card-container font-content not-found-container">
         <header>
-            <h1>404 - Page not found</h1>
+            <h1>404 - Not found</h1>
         </header>
         <div class="mobile-wave" id="background_wave"></div>
         <div class="not-found-body">
             <p>
-                The page you requested does not seem to exist.
+                The resource that you requested does not seem to exist.
             </p>
             <p>
                 To go back to the application click
