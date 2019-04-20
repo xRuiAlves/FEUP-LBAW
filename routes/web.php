@@ -42,7 +42,7 @@ Route::get('logout', 'Auth\LoginController@logout')->name('logout');
 // Ours (Start deleting the above after the template was understood)
 
 Route::get('/', 'HomepageController@display');
-Route::get('/faq', 'pages.faq');
+Route::view('/faq', 'pages.faq')->name('faq');
 
 // Events
 Route::get('/event_dbg', 'EventController@list');

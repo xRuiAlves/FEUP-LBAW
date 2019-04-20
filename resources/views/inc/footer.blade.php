@@ -8,7 +8,7 @@
                 <p class="contact-item contact-item-mail"><a href="mailto:help@eventual.ly">help@eventual.ly</a>
                 </p>
                 <p class="footer-questions">Have a question? Visit our <a class="footer-link"
-                        href="/faq.html">FAQs</a> or visit our <a class="footer-link" href="/#about">about</a>
+                    href="{{route('faq')}}">FAQs</a> or visit our <a class="footer-link" href="/#about">about</a>
                     section.</p>
             </div>
         </div>
