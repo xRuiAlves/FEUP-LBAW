@@ -14,13 +14,12 @@ class EventController extends Controller
      * @param  int  $id
      * @return Response
      */
-    public function show($id)
-    {
+    public function show($id) {
         $event = Event::find($id);
 
         // $this->authorize('show', $event); //TODO
 
-        return view('pages.event', ['event' => $event]);
+        return view('pages.events.index', ['event' => $event]);
     }
 
     /**
