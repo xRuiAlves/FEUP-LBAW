@@ -25,7 +25,7 @@
                 </button>
             </div>
             <div class="col-12 hosted-by-label mt-2 mt-lg-0">
-                <h6>Event hosted by {{$owner}}</h6>
+                <h6>Event hosted by {{$owner->name}}</h6>
             </div>
         </div>
         <div class="mobile-wave" id="background_wave"></div>
@@ -164,37 +164,26 @@
                                     </div>
                                     <a class="comments-toggler" data-toggle="collapse" href="#comments_section_{{$discussion_key}}"
                                         role="button" aria-expanded="false" aria-controls="comments_section_{{$discussion_key}}">
-                                        {{$discussion->num_comments}} comments (TODO)
+                                        {{$discussion->num_comments}} comments
                                     </a>
                                     <div class="collapse" id="comments_section_{{$discussion_key}}">
-                                        <div class="comment">
-                                            <div class="name">
-                                                Random User's Name
+                                        @if(count($discussion_comments[$discussion_key]) > 0)
+                                            @foreach($discussion_comments[$discussion_key] as $comment)
+                                            <div class="comment">
+                                                <div class="name">
+                                                    {{$comment->creator->name}}
+                                                </div>
+                                                <div class="date">
+                                                    {{$comment->timestamp}} (TODO: Pretty format)
+                                                </div>
+                                                <div class="text">
+                                                    {{$comment->content}}
+                                                </div>
                                             </div>
-                                            <div class="date">
-                                                08.04.2019 14:22
-                                            </div>
-                                            <div class="text">
-                                                Really glad, and now I'm just going to write a super long comment for no
-                                                reason at all, just so I can test this UI thoroughly. And it seems the
-                                                last sentence was not enough so I just added this one.
-                                            </div>
-    
-                                        </div>
-                                        <div class="comment">
-                                            <div class="name">
-                                                Another User's Name
-                                            </div>
-                                            <div class="date">
-                                                08.04.2019 14:23
-                                            </div>
-                                            <div class="text">
-                                                Really glad, and now I'm just going to write a super long comment for no
-                                                reason at all, just so I can test this UI thoroughly. And it seems the
-                                                last sentence was not enough so I just added this one.
-                                            </div>
-    
-                                        </div>
+                                            @endforeach
+                                        @else
+                                            No comments yet! (TODO Fix Styling)
+                                        @endif
                                         <div class="add-comment">
                                             <textarea name="comment" placeholder="Add a comment..."></textarea>
                                         </div>

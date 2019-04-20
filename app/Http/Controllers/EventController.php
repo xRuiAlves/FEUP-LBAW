@@ -25,18 +25,22 @@ class EventController extends Controller
         
         // $this->authorize('show', $event); //TODO
         
-        $owner = $event->owner()->get();
+        $owner = $event->owner;
         
         $announcements = $event->posts()->announcements()->get();
         
         $discussions = $event->posts()->discussions()->get();
         
-        // TODO - Methods defined but not working for some reason... ORMs we meet again...
-        // $discussion_comments = $discussions->comments()->get();
-        // return $event->posts()->comments()->get();
-        // return $discussion_comments;
+        $discussion_comments = [];
+        foreach($discussions as $i => $discussion) {
+            $discussion_comments[$i] = $discussion->comments()->get();
+        }
 
-        return view('pages.events.index', ['event' => $event, 'owner' => $owner, 'announcements' => $announcements, 'discussions' => $discussions]);
+        return view('pages.events.index',
+        [
+            'event' => $event, 'owner' => $owner, 'announcements' => $announcements,
+            'discussions' => $discussions, 'discussion_comments' => $discussion_comments
+        ]);
     }
 
     /**

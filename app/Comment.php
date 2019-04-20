@@ -13,8 +13,8 @@ class Comment extends Model
     /**
      * The user this Comment belongs to.
      */
-    public function owner() {
-        return $this->belongsTo('App\User');
+    public function creator() {
+        return $this->belongsTo('App\User', 'user_id');
     }
 
     /**

@@ -18,6 +18,13 @@ class Post extends Model
     }
 
     /**
+     * The event this post belongs to.
+     */
+    public function event() {
+        return $this->belongsTo('App\Event', 'event_id');
+    }
+
+    /**
      * The comments this post has.
      */
     public function comments() {

@@ -23,7 +23,7 @@ class Event extends Model
      * The posts this event has.
      */
     public function posts() {
-        return $this->hasMany('App\Post');
+        return $this->hasMany('App\Post', 'event_id', 'id');
     }
 
     /**
