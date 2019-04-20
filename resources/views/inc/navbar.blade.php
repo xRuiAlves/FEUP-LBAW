@@ -52,9 +52,8 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a title="Notifications" class="nav-link notifications-item" href="{{route('notifications', ['id' => Auth::user()->id])}}">
+                    <a title="Notifications" class="nav-link notifications-item" href="{{route('notifications')}}">
                         <i class="fas fa-bell nav-item-icon"></i>
-                        <small>(Using semi-hardcoded ID)</small>
                         <span class="nav-item-label">Notifications</span>
                     </a>
                 </li>

@@ -23,16 +23,21 @@
                 </div>
             </div>
         </header>
-        @foreach ($events as $event)
-        <div>
-            <h5>{{$event}}</h5>
-            @if($event->user_id == $user->id)
-                <small>Creator</small>
-            @else
-                <small>Not Creator</small>
-            @endif
-        </div>
-        @endforeach
+        @if(count($events) > 0)
+            @foreach ($events as $event)
+            <div>
+                <h5>{{$event}}</h5>
+                @if($event->user_id == $user->id)
+                    <small>Creator</small>
+                @else
+                    <small>Not Creator</small>
+                @endif
+            </div>
+            @endforeach
+        @else
+            <h2>Not attending or organizing any event yet!</h2>
+            <h3>Create an event <a href="/event/create">here</a> or search for events <a href="/#search-box-anchor">here!</a> (TODO: links)</h3>
+        @endif
 
         <div class="timeline">
 

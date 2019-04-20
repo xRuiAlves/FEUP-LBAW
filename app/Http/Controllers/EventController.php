@@ -22,7 +22,7 @@ class EventController extends Controller
 
         $event = Event::find($id);
 
-        
+        // TODO: Decide which view to show based on auth probably
         // $this->authorize('show', $event); //TODO
         
         $owner = $event->owner;

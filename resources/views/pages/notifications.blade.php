@@ -21,7 +21,7 @@
             @endforeach
             {{$notifications->links("pagination::bootstrap-4")}}
         @else
-            <h2>No comments.</h2>
+            <h2>You have no notifications</h2>
         @endif
     </div>
 @endsection

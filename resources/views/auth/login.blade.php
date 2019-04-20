@@ -39,7 +39,10 @@
                 </div>
             </div>
             <div class="form-group">
-                <input type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}> Remember Me
+                <label>
+                    <input type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}>
+                    Remember Me
+                </label>
             </div>
             <div class="d-flex justify-content-center">
                 <button class="my-btn my-btn-primary" type="submit">Login</button>

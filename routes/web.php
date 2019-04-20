@@ -48,7 +48,7 @@ Route::view('/faq', 'pages.faq')->name('faq');
 Route::get('/event/{id}', 'EventController@show')->where(['id' => '[0-9]+']);
 
 // User stuff
-Route::get('/notifications/{id}', 'NotificationsController@show')->name('notifications');
+Route::get('/notifications', 'NotificationsController@show')->name('notifications');
 Route::get('/dashboard', 'UserController@showDashboard')->name('dashboard');
 // Auth::routes();
 
