@@ -46,6 +46,8 @@ Route::view('/faq', 'pages.faq')->name('faq');
 
 // Events
 Route::get('/event/{id}', 'EventController@show')->where(['id' => '[0-9]+']);
+Route::get('/event/create', 'EventController@create');
+Route::post('/event/create', 'EventController@store');
 
 // User stuff
 Route::get('/notifications', 'NotificationsController@show')->name('notifications');

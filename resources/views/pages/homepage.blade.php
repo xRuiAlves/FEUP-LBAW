@@ -53,7 +53,7 @@
                             Events</button>
                     </div>
                     <div class="col-12 col-md-6">
-                        <button class="host-event" onclick="window.location.href='/create_event.html'">Host an
+                        <button class="host-event" onclick="window.location.href='/event/create'">Host an
                             Event</button>
                     </div>
                 </div>

@@ -9,6 +9,17 @@ use App\Post;
 
 class EventController extends Controller
 {
+
+    /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth')->except(['show']);
+    }
+
     /**
      * Shows the event for a given id.
      *
@@ -63,9 +74,8 @@ class EventController extends Controller
     }
 
     /**
-     * Creates a new evebt.
+     * Renders the event creation page
      *
-     * @return Event The event created.
      */
     public function create(Request $request) {
         // TODO
@@ -78,6 +88,48 @@ class EventController extends Controller
         // $card->save();
 
         // return $card;
+        $this->authorize('create', Event::class);
+
+        return view('pages.events.create');
+    }
+
+    /**
+     * Renders the event creation page
+     *
+     * @return Event The event created.
+     */
+    public function store(Request $request) {
+        $event = new Event();
+        
+        $this->authorize('create', $event);
+
+        echo "was authorized";
+        $this->validate($request, [
+            'title' => 'required',
+            'location' => 'required',
+            'price' => 'required',
+            // 'category' => 'required',
+            // 'start_timestamp' => 'required',
+            'description' => 'required',
+        ]);
+        
+        echo "was validated";
+
+        $event->title = $request->input('title');
+        $event->location = $request->input('location');
+        $event->price = $request->input('price');
+        // $event->category = $request->input('category');
+        // $event->start_timestamp = $request->input('start_timestamp');
+        $event->start_timestamp = date('Y-m-d H:i:s', time() + 2400);
+        $event->event_category_id = 1;
+        $event->description = $request->input('description');
+
+        $event->user_id = auth()->user()->id;
+        $event->save();
+
+        echo "was saved";
+        
+        return redirect('/event/'.$event->id);
     }
 
     public function delete(Request $request, $id) {

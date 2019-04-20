@@ -9,6 +9,10 @@
     outline: none;
 }
 
+#page-card.card-container.event-card {
+    padding: 3em;
+}
+
 .card-container.event-card.event-creation-container {
     position: relative;
     top: 7em;
