@@ -44,3 +44,5 @@ Route::get('/user_dashboard', 'UserController@showDashboard');
 
 Route::get('/event_dbg', 'EventController@list');
 Route::get('/event/{id}', 'EventController@show');
+
+Route::get('/notifications/{id}', 'NotificationsController@show');

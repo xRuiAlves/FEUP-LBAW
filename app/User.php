@@ -36,4 +36,11 @@ class User extends Authenticatable
     public function ownedEvents() {
       return $this->hasMany('App\Event');
     }
+
+    /**
+     * The notifications of this user.
+     */
+    public function notifications() {
+        return $this->hasMany('App\Notification', 'user_id', 'id');
+    }
 }
