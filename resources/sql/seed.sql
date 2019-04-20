@@ -1194,35 +1194,35 @@ INSERT INTO ratings(user_id, post_id, value) VALUES
     (9, 16, 1);
 
 -- Tickets
-INSERT INTO tickets(user_id, event_id, type, paypal_order_id)
-    VALUES (1, 3, 'Paypal', 'PAYPAL-CONFIRMATION-6424');
-INSERT INTO tickets(user_id, event_id, type, paypal_order_id, nif, billing_name)
-    VALUES (5, 2, 'Paypal', 'PAYPAL-CONFIRMATION-7512', 245024952, 'Peter');
-INSERT INTO tickets(user_id, event_id, type, event_voucher_id) VALUES 
-    (1, 2, 'Voucher', 1),
-    (1, 2, 'Voucher', 2),
-    (3, 4, 'Voucher', 3),
-    (4, 4, 'Voucher', 4),
-    (5, 7, 'Voucher', 5),
-    (6, 7, 'Voucher', 6),
-    (7, 7, 'Voucher', 7),
-    (8, 7, 'Voucher', 8),
-    (9, 7, 'Voucher', 9),
-    (10, 13, 'Voucher', 10),
-    (11, 13, 'Voucher', 11),
-    (12, 12, 'Voucher', 12),
-    (13, 11, 'Voucher', 13),
-    (14, 10, 'Voucher', 14),
-    (15, 5, 'Voucher', 15),
-    (16, 6, 'Voucher', 16),
-    (17, 7, 'Voucher', 17),
-    (18, 14, 'Voucher', 18),
-    (19, 5, 'Voucher', 19),
-    (10, 4, 'Voucher', 20),
-    (21, 10, 'Voucher', 21),
-    (22, 15, 'Voucher', 22),
-    (23, 15, 'Voucher', 23),
-    (7, 3, 'Voucher', 24);
+INSERT INTO tickets(user_id, event_id, type, paypal_order_id, timestamp)
+    VALUES (1, 3, 'Paypal', 'PAYPAL-CONFIRMATION-6424', to_timestamp('02-04-2020 23:42:31', 'dd-mm-yyyy hh24:mi:ss'));
+INSERT INTO tickets(user_id, event_id, type, paypal_order_id, nif, billing_name, timestamp)
+    VALUES (5, 2, 'Paypal', 'PAYPAL-CONFIRMATION-7512', 245024952, 'Peter', to_timestamp('12-04-2020 11:13:50', 'dd-mm-yyyy hh24:mi:ss'));
+INSERT INTO tickets(user_id, event_id, type, event_voucher_id, timestamp) VALUES 
+    (1, 2, 'Voucher', 1, to_timestamp('02-03-2020 11:31:11', 'dd-mm-yyyy hh24:mi:ss')),
+    (1, 2, 'Voucher', 2, to_timestamp('03-03-2020 12:32:12', 'dd-mm-yyyy hh24:mi:ss')),
+    (3, 4, 'Voucher', 3, to_timestamp('04-03-2020 13:34:13', 'dd-mm-yyyy hh24:mi:ss')),
+    (4, 4, 'Voucher', 4, to_timestamp('05-03-2020 14:41:14', 'dd-mm-yyyy hh24:mi:ss')),
+    (5, 7, 'Voucher', 5, to_timestamp('06-03-2020 15:42:14', 'dd-mm-yyyy hh24:mi:ss')),
+    (6, 7, 'Voucher', 6, to_timestamp('07-03-2020 16:43:15', 'dd-mm-yyyy hh24:mi:ss')),
+    (7, 7, 'Voucher', 7, to_timestamp('08-03-2020 17:44:16', 'dd-mm-yyyy hh24:mi:ss')),
+    (8, 7, 'Voucher', 8, to_timestamp('09-03-2020 18:45:17', 'dd-mm-yyyy hh24:mi:ss')),
+    (9, 7, 'Voucher', 9, to_timestamp('31-03-2020 19:51:18', 'dd-mm-yyyy hh24:mi:ss')),
+    (10, 13, 'Voucher', 10, to_timestamp('11-03-2020 20:59:19', 'dd-mm-yyyy hh24:mi:ss')),
+    (11, 13, 'Voucher', 11, to_timestamp('12-03-2020 06:58:20', 'dd-mm-yyyy hh24:mi:ss')),
+    (12, 12, 'Voucher', 12, to_timestamp('23-03-2020 07:57:21', 'dd-mm-yyyy hh24:mi:ss')),
+    (13, 11, 'Voucher', 13, to_timestamp('14-03-2020 08:56:22', 'dd-mm-yyyy hh24:mi:ss')),
+    (14, 10, 'Voucher', 14, to_timestamp('15-04-2020 11:55:23', 'dd-mm-yyyy hh24:mi:ss')),
+    (15, 5, 'Voucher', 15, to_timestamp('02-04-2020 12:54:23', 'dd-mm-yyyy hh24:mi:ss')),
+    (16, 6, 'Voucher', 16, to_timestamp('17-04-2020 13:01:24', 'dd-mm-yyyy hh24:mi:ss')),
+    (17, 7, 'Voucher', 17, to_timestamp('18-04-2020 14:02:25', 'dd-mm-yyyy hh24:mi:ss')),
+    (18, 14, 'Voucher', 18, to_timestamp('19-04-2020 15:31:26', 'dd-mm-yyyy hh24:mi:ss')),
+    (19, 5, 'Voucher', 19, to_timestamp('03-04-2020 16:32:26', 'dd-mm-yyyy hh24:mi:ss')),
+    (10, 4, 'Voucher', 20, to_timestamp('21-04-2020 17:33:27', 'dd-mm-yyyy hh24:mi:ss')),
+    (21, 10, 'Voucher', 21, to_timestamp('22-04-2020 18:34:28', 'dd-mm-yyyy hh24:mi:ss')),
+    (22, 15, 'Voucher', 22, to_timestamp('23-04-2020 19:35:31', 'dd-mm-yyyy hh24:mi:ss')),
+    (23, 15, 'Voucher', 23, to_timestamp('24-04-2020 15:36:32', 'dd-mm-yyyy hh24:mi:ss')),
+    (7, 3, 'Voucher', 24, to_timestamp('23-04-2020 13:36:33', 'dd-mm-yyyy hh24:mi:ss'));
 
 -- Organizers
 INSERT INTO organizers(user_id, event_id) VALUES 
@@ -1348,59 +1348,59 @@ INSERT INTO event_tags(event_id, tag_id) VALUES
     (15, 10);
 
 -- Issues
-INSERT INTO issues(title, content, creator_id, referenced_user)
-    VALUES ('User harrasment', 'This user was harassing me!', 1, 4);
-INSERT INTO issues(title, content, creator_id, referenced_event)
-    VALUES ('Fake Event', 'This event has fake news... ', 1, 3);
-INSERT INTO issues(title, content, creator_id, referenced_post)
-    VALUES ('Offensive Post', 'This post is offensive to me.', 2, 3);
-INSERT INTO issues(title, content, creator_id, referenced_comment)
-    VALUES ('Unpolite comment', 'This comment is unpolite!!', 2, 5);
-INSERT INTO issues(title, content, creator_id) VALUES 
-    ('FAQ', 'I cant find the FAQ', 5),
-    ('Contacts missing', 'I am not able to find your contacts', 6),
-    ('Issue Submission', 'I am unable to find the form to submit an issue!', 7),
-    ('Eventbrite Connection', 'Do you guys support connection to Eventbrite?', 8),
-    ('Eventbrite Application', 'Is this eventbrite?', 9),
-    ('MeetUp Application', 'Is this MeetUp?', 10),
-    ('Great Job', 'Just passing by to say you are doing a great job!', 11),
-    ('Administration Team', 'How can I become an admin?', 12),
-    ('Thank You', 'Thank you for all your support!', 13),
-    ('Google Callendar', 'Is this Google Callendar?', 14),
-    ('Веб приложение', 'Это приложение Eventbrite webb?', 15),
-    ('Aдминистрация', 'Как я могу стать администратором?', 16),
-    ('Häufig gestellte Fragen', 'Wo finde ich den Website-Abschnitt mit häufig gestellten Fragen?', 17),
-    ('Jaju mudneun jilmun', 'Jaju mudneun jilmun web saiteu segsyeon-eun eodieseo chaj-eul su issseubnikka?', 18),
-    ('Events Attendance', 'I cancelled a ticket for an event. Meanwhile, it got full but I would like my ticket back! Can I get it back?', 19),
-    ('Event Creator to Administrator', 'I have hosted a lot of Events in your application. May I become an admin?', 20);
+INSERT INTO issues(title, content, creator_id, referenced_user, timestamp)
+    VALUES ('User harrasment', 'This user was harassing me!', 1, 4, to_timestamp('12-03-2020 11:11:41', 'dd-mm-yyyy hh24:mi:ss'));
+INSERT INTO issues(title, content, creator_id, referenced_event, timestamp)
+    VALUES ('Fake Event', 'This event has fake news... ', 1, 3, to_timestamp('13-03-2020 12:11:42', 'dd-mm-yyyy hh24:mi:ss'));
+INSERT INTO issues(title, content, creator_id, referenced_post, timestamp)
+    VALUES ('Offensive Post', 'This post is offensive to me.', 2, 3, to_timestamp('14-03-2020 13:33:43', 'dd-mm-yyyy hh24:mi:ss'));
+INSERT INTO issues(title, content, creator_id, referenced_comment, timestamp)
+    VALUES ('Unpolite comment', 'This comment is unpolite!!', 2, 5, to_timestamp('15-03-2020 14:34:44', 'dd-mm-yyyy hh24:mi:ss'));
+INSERT INTO issues(title, content, creator_id, timestamp) VALUES 
+    ('FAQ', 'I cant find the FAQ', 5, to_timestamp('16-03-2020 16:12:45', 'dd-mm-yyyy hh24:mi:ss')),
+    ('Contacts missing', 'I am not able to find your contacts', 6, to_timestamp('17-03-2020 17:13:46', 'dd-mm-yyyy hh24:mi:ss')),
+    ('Issue Submission', 'I am unable to find the form to submit an issue!', 7, to_timestamp('19-03-2020 18:14:47', 'dd-mm-yyyy hh24:mi:ss')),
+    ('Eventbrite Connection', 'Do you guys support connection to Eventbrite?', 8, to_timestamp('20-03-2020 19:15:48', 'dd-mm-yyyy hh24:mi:ss')),
+    ('Eventbrite Application', 'Is this eventbrite?', 9, to_timestamp('21-03-2020 08:16:11', 'dd-mm-yyyy hh24:mi:ss')),
+    ('MeetUp Application', 'Is this MeetUp?', 10, to_timestamp('22-03-2020 09:21:12', 'dd-mm-yyyy hh24:mi:ss')),
+    ('Great Job', 'Just passing by to say you are doing a great job!', 11, to_timestamp('23-03-2020 20:31:13', 'dd-mm-yyyy hh24:mi:ss')),
+    ('Administration Team', 'How can I become an admin?', 12, to_timestamp('24-03-2020 21:32:14', 'dd-mm-yyyy hh24:mi:ss')),
+    ('Thank You', 'Thank you for all your support!', 13, to_timestamp('25-03-2020 22:33:15', 'dd-mm-yyyy hh24:mi:ss')),
+    ('Google Callendar', 'Is this Google Callendar?', 14, to_timestamp('26-03-2020 23:51:16', 'dd-mm-yyyy hh24:mi:ss')),
+    ('Веб приложение', 'Это приложение Eventbrite webb?', 15, to_timestamp('27-03-2020 11:52:17', 'dd-mm-yyyy hh24:mi:ss')),
+    ('Aдминистрация', 'Как я могу стать администратором?', 16, to_timestamp('28-03-2020 12:53:18', 'dd-mm-yyyy hh24:mi:ss')),
+    ('Häufig gestellte Fragen', 'Wo finde ich den Website-Abschnitt mit häufig gestellten Fragen?', 17, to_timestamp('01-04-2020 13:54:19', 'dd-mm-yyyy hh24:mi:ss')),
+    ('Jaju mudneun jilmun', 'Jaju mudneun jilmun web saiteu segsyeon-eun eodieseo chaj-eul su issseubnikka?', 18, to_timestamp('02-04-2020 14:55:21', 'dd-mm-yyyy hh24:mi:ss')),
+    ('Events Attendance', 'I cancelled a ticket for an event. Meanwhile, it got full but I would like my ticket back! Can I get it back?', 19, to_timestamp('11-04-2020 13:36:33', 'dd-mm-yyyy hh24:mi:ss')),
+    ('Event Creator to Administrator', 'I have hosted a lot of Events in your application. May I become an admin?', 20, to_timestamp('12-04-2020 16:56:22', 'dd-mm-yyyy hh24:mi:ss'));
 
 -- Notifications
-INSERT INTO notifications(type, content, user_id, issue_id)
-    VALUES ('IssueNotification', 'We, the admins, solved your issue', 1, 2);
-INSERT INTO notifications(type, user_id, event_id, is_dismissed)
-    VALUES ('EventOrganizer', 2, 2, true);
-INSERT INTO notifications(type, user_id, event_id) VALUES 
-    ('EventInvitation', 4, 1), 
-    ('EventInvitation', 5, 2), 
-    ('EventInvitation', 6, 3), 
-    ('EventDisabling', 7, 4), 
-    ('EventDisabling', 8, 5), 
-    ('EventDisabling', 9, 6),
-    ('EventActivation', 10, 7),
-    ('EventActivation', 11, 8),
-    ('EventActivation', 12, 9),
-    ('EventCancellation', 13, 10),
-    ('EventCancellation', 14, 11),
-    ('EventCancellation', 15, 12),
-    ('EventRemoval', 16, 13),
-    ('EventRemoval', 17, 14),
-    ('EventRemoval', 18, 15),
-    ('EventOrganizer', 19, 1),
-    ('EventOrganizer', 20, 2),
-    ('EventOrganizer', 21, 3),
-    ('EventUpdate', 22, 4),
-    ('EventUpdate', 23, 5),
-    ('EventUpdate', 1, 6),
-    ('EventAnnouncement', 2, 7),
-    ('EventAnnouncement', 3, 8),
-    ('EventAnnouncement', 4, 9);
+INSERT INTO notifications(type, content, user_id, issue_id, timestamp)
+    VALUES ('IssueNotification', 'We, the admins, solved your issue', 1, 2, to_timestamp('01-03-2020 11:31:51', 'dd-mm-yyyy hh24:mi:ss'));
+INSERT INTO notifications(type, user_id, event_id, is_dismissed, timestamp)
+    VALUES ('EventOrganizer', 2, 2, true, to_timestamp('02-03-2020 12:33:52', 'dd-mm-yyyy hh24:mi:ss'));
+INSERT INTO notifications(type, user_id, event_id, timestamp) VALUES 
+    ('EventInvitation', 4, 1, to_timestamp('03-03-2020 13:32:53', 'dd-mm-yyyy hh24:mi:ss')), 
+    ('EventInvitation', 5, 2, to_timestamp('04-03-2020 14:34:54', 'dd-mm-yyyy hh24:mi:ss')), 
+    ('EventInvitation', 6, 3, to_timestamp('05-03-2020 15:35:55', 'dd-mm-yyyy hh24:mi:ss')), 
+    ('EventDisabling', 7, 4, to_timestamp('06-03-2020 16:36:56', 'dd-mm-yyyy hh24:mi:ss')), 
+    ('EventDisabling', 8, 5, to_timestamp('07-03-2020 17:37:57', 'dd-mm-yyyy hh24:mi:ss')), 
+    ('EventDisabling', 9, 6, to_timestamp('08-03-2020 18:33:58', 'dd-mm-yyyy hh24:mi:ss')),
+    ('EventActivation', 10, 7, to_timestamp('09-03-2020 19:34:54', 'dd-mm-yyyy hh24:mi:ss')),
+    ('EventActivation', 11, 8, to_timestamp('12-03-2020 20:35:56', 'dd-mm-yyyy hh24:mi:ss')),
+    ('EventActivation', 12, 9, to_timestamp('13-03-2020 21:36:59', 'dd-mm-yyyy hh24:mi:ss')),
+    ('EventCancellation', 13, 10, to_timestamp('14-03-2020 08:37:50', 'dd-mm-yyyy hh24:mi:ss')),
+    ('EventCancellation', 14, 11, to_timestamp('15-03-2020 09:38:21', 'dd-mm-yyyy hh24:mi:ss')),
+    ('EventCancellation', 15, 12, to_timestamp('16-03-2020 10:39:22', 'dd-mm-yyyy hh24:mi:ss')),
+    ('EventRemoval', 16, 13, to_timestamp('17-03-2020 11:41:23', 'dd-mm-yyyy hh24:mi:ss')),
+    ('EventRemoval', 17, 14, to_timestamp('18-03-2020 12:42:24', 'dd-mm-yyyy hh24:mi:ss')),
+    ('EventRemoval', 18, 15, to_timestamp('19-03-2020 13:43:25', 'dd-mm-yyyy hh24:mi:ss')),
+    ('EventOrganizer', 19, 1, to_timestamp('01-04-2020 14:40:26', 'dd-mm-yyyy hh24:mi:ss')),
+    ('EventOrganizer', 20, 2, to_timestamp('04-04-2020 15:44:27', 'dd-mm-yyyy hh24:mi:ss')),
+    ('EventOrganizer', 21, 3, to_timestamp('09-04-2020 16:45:28', 'dd-mm-yyyy hh24:mi:ss')),
+    ('EventUpdate', 22, 4, to_timestamp('11-04-2020 17:46:29', 'dd-mm-yyyy hh24:mi:ss')),
+    ('EventUpdate', 23, 5, to_timestamp('12-04-2020 18:47:30', 'dd-mm-yyyy hh24:mi:ss')),
+    ('EventUpdate', 1, 6, to_timestamp('13-04-2020 19:48:31', 'dd-mm-yyyy hh24:mi:ss')),
+    ('EventAnnouncement', 2, 7, to_timestamp('14-04-2020 20:49:32', 'dd-mm-yyyy hh24:mi:ss')),
+    ('EventAnnouncement', 3, 8, to_timestamp('15-04-2020 21:50:33', 'dd-mm-yyyy hh24:mi:ss')),
+    ('EventAnnouncement', 4, 9, to_timestamp('16-04-2020 22:51:34', 'dd-mm-yyyy hh24:mi:ss'));
