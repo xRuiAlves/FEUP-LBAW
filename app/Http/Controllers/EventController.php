@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Event;
-use App\User;
+use App\Post;
 
 class EventController extends Controller
 {
@@ -16,16 +16,27 @@ class EventController extends Controller
      * @return Response
      */
     public function show($id) {
-        $event = Event::where('id', $id)
-                        ->select('id', 'title', 'description', 'price', 'location', 'latitude', 'longitude', 'start_timestamp', 'end_timestamp', 'status')
-                        ->first();
+        // $event = Event::where('id', $id)
+        //                 ->select('id', 'title', 'description', 'price', 'location', 'latitude', 'longitude', 'start_timestamp', 'end_timestamp', 'status')
+        //                 ->first();
 
+        $event = Event::find($id);
+
+        
         // $this->authorize('show', $event); //TODO
+        
+        $owner = $event->owner()->get();
+        
+        $announcements = $event->posts()->announcements()->get();
+        
+        $discussions = $event->posts()->discussions()->get();
+        
+        // TODO - Methods defined but not working for some reason... ORMs we meet again...
+        // $discussion_comments = $discussions->comments()->get();
+        // return $event->posts()->comments()->get();
+        // return $discussion_comments;
 
-        // $owner = User::find(1)->events()->get();
-        // return $owner;
-
-        return view('pages.events.index', ['event' => $event]);
+        return view('pages.events.index', ['event' => $event, 'owner' => $owner, 'announcements' => $announcements, 'discussions' => $discussions]);
     }
 
     /**

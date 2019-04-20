@@ -13,10 +13,17 @@ class Event extends Model
     // protected $dateFormat = '';
 
     /**
-     * The user this Event belongs to
+     * The user this Event belongs to.
      */
     public function owner() {
-        return $this->belongsTo('App\User');
+        return $this->belongsTo('App\User', 'user_id');
+    }
+
+    /**
+     * The posts this event has.
+     */
+    public function posts() {
+        return $this->hasMany('App\Post');
     }
 
     /**

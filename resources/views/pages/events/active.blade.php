@@ -25,7 +25,7 @@
                 </button>
             </div>
             <div class="col-12 hosted-by-label mt-2 mt-lg-0">
-                <h6>Event hosted by TODO</h6>
+                <h6>Event hosted by {{$owner}}</h6>
             </div>
         </div>
         <div class="mobile-wave" id="background_wave"></div>
@@ -101,69 +101,36 @@
                 <div class="nav nav-tabs" id="nav-tab" role="tablist">
                     <a class="nav-item nav-link active" id="nav-announcements-tab" data-toggle="tab"
                         href="#nav-announcements" role="tab" aria-controls="nav-announcements"
-                        aria-selected="true">Announcements (TODO)</a>
+                        aria-selected="true">Announcements</a>
                     <a class="nav-item nav-link" id="nav-discussion-tab" data-toggle="tab" href="#nav-discussion"
-                        role="tab" aria-controls="nav-discussion" aria-selected="false">Discussion (TODO)</a>
+                        role="tab" aria-controls="nav-discussion" aria-selected="false">Discussion</a>
                 </div>
             </nav>
             <div class="tab-content" id="nav-tabContent">
                 <div class="tab-pane fade show active" id="nav-announcements" role="tabpanel"
                     aria-labelledby="nav-announcements-tab">
                     <div class="announcements-area">
-
-                        <div class="announcement">
-                            <div class="icon">
-                                <span>
-                                    <i class="fas fa-info-circle"></i>
-                                </span>
-                            </div>
-                            <div class="content">
-                                <div class="date">
-                                    14.02.2019 12:12
+                        @if(count($announcements) > 0)
+                            @foreach ($announcements as $announcement)
+                            <div class="announcement">
+                                <div class="icon">
+                                    <span>
+                                        <i class="fas fa-info-circle"></i>
+                                    </span>
                                 </div>
-                                <div class="text">
-                                    Dear Semana de Informática 2019 attendees, we remind you all the importance of
-                                    bringing your laptop to the workshops, so
-                                    that you can take the most out of this experience. We also remind you to be near
-                                    the workshop room about 5 minutes before the start, so that we can deal with the
-                                    check-in logistics on time.
+                                <div class="content">
+                                    <div class="date">
+                                        {{$announcement->timestamp}} (TODO: Pretty format)
+                                    </div>
+                                    <div class="text">
+                                        {{$announcement->content}}
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="announcement">
-                            <div class="icon">
-                                <span>
-                                    <i class="fas fa-info-circle"></i>
-                                </span>
-                            </div>
-                            <div class="content">
-                                <div class="date">
-                                    12.04.2019 18:14
-                                </div>
-                                <div class="text">
-                                    We are glad to inform that the attendance limit has reached 95%, which makes
-                                    this year's edition the one with the most participants.
-                                    Be sure to get your ticket before they are all sold out!
-                                </div>
-                            </div>
-                        </div>
-                        <div class="announcement">
-                            <div class="icon">
-                                <span>
-                                    <i class="fas fa-info-circle"></i>
-                                </span>
-                            </div>
-                            <div class="content">
-                                <div class="date">
-                                    08.11.2012 21:47
-                                </div>
-                                <div class="text">
-                                    The event's program is finally completed! Be sure to visit our website
-                                    (www.sinf.pt) to learn more and don't forget to get
-                                    your ticket!
-                                </div>
-                            </div>
-                        </div>
+                            @endforeach
+                        @else
+                            No announcements yet!
+                        @endif
                     </div>
                 </div>
                 <div class="tab-pane fade" id="nav-discussion" role="tabpanel" aria-labelledby="nav-discussion-tab">
@@ -174,178 +141,70 @@
                             </span>
                             Create Post
                         </div>
-                        <div class="post">
-                            <div class="icon">
-                                <span>
-                                    <i class="fas fa-reply"></i>
-                                </span>
-                            </div>
-                            <div class="content">
-                                <div class="name">
-                                    A User's Name
+                        @if(count($discussions) > 0)
+                            @foreach ($discussions as $discussion_key => $discussion)
+                            <div class="post">
+                                <div class="icon">
+                                    <span>
+                                        <i class="fas fa-reply"></i>
+                                    </span>
                                 </div>
-                                <div class="date">
-                                    08.04.2019 14:21
-                                </div>
-                                <div class="text">
-                                    Really glad that Núcleo de Informática (NIAEFEUP) is responsible of organizing
-                                    this year's edition! The last edition was
-                                    a lot of fun, and I'm sure they'll have a lot of great surprises expecting us.
-                                </div>
-                                <a class="comments-toggler" data-toggle="collapse" href="#comments_section_1"
-                                    role="button" aria-expanded="false" aria-controls="comments_section_1">
-                                    2 comments
-                                </a>
-                                <div class="collapse" id="comments_section_1">
-                                    <div class="comment">
-                                        <div class="name">
-                                            Random User's Name
-                                        </div>
-                                        <div class="date">
-                                            08.04.2019 14:22
-                                        </div>
-                                        <div class="text">
-                                            Really glad, and now I'm just going to write a super long comment for no
-                                            reason at all, just so I can test this UI thoroughly. And it seems the
-                                            last sentence was not enough so I just added this one.
-                                        </div>
-
+                                <div class="content">
+                                    <div class="name">
+                                        {{$discussion->creator->name}}
                                     </div>
-                                    <div class="comment">
-                                        <div class="name">
-                                            Another User's Name
-                                        </div>
-                                        <div class="date">
-                                            08.04.2019 14:23
-                                        </div>
-                                        <div class="text">
-                                            Really glad, and now I'm just going to write a super long comment for no
-                                            reason at all, just so I can test this UI thoroughly. And it seems the
-                                            last sentence was not enough so I just added this one.
-                                        </div>
-
+                                    <div class="date">
+                                        {{$discussion->timestamp}} (TODO: Pretty format)
                                     </div>
-                                    <div class="add-comment">
-                                        <textarea name="comment" placeholder="Add a comment..."></textarea>
+                                    <div class="text">
+                                        {{$discussion->content}}
                                     </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="post">
-                            <div class="icon">
-                                <span>
-                                    <i class="fas fa-reply"></i>
-                                </span>
-                            </div>
-                            <div class="content">
-                                <div class="name">
-                                    A User's Name
-                                </div>
-                                <div class="date">
-                                    02.04.2019 08:12
-                                </div>
-                                <div class="text">
-                                    The amount of workshops that are taking place is actually amazing! As an
-                                    attendee, may I attend whichever workshops I desire,
-                                    or do I have some kind of limitation? Can't wait for this year's edition!
-                                </div>
-                                <a class="comments-toggler" data-toggle="collapse" href="#comments_section_2"
-                                    role="button" aria-expanded="false" aria-controls="comments_section_2">
-                                    2 comments
-                                </a>
-                                <div class="collapse" id="comments_section_2">
-                                    <div class="comment">
-                                        <div class="name">
-                                            Random User's Name
-                                        </div>
-                                        <div class="date">
-                                            08.04.2019 14:22
-                                        </div>
-                                        <div class="text">
-                                            Really glad, and now I'm just going to write a super long comment for no
-                                            reason at all, just so I can test this UI thoroughly. And it seems the
-                                            last sentence was not enough so I just added this one.
-                                        </div>
-
+                                    <div class="text">
+                                        Score: {{$discussion->rating}} (TODO: Fix styling)
                                     </div>
-                                    <div class="comment">
-                                        <div class="name">
-                                            Another User's Name
+                                    <a class="comments-toggler" data-toggle="collapse" href="#comments_section_{{$discussion_key}}"
+                                        role="button" aria-expanded="false" aria-controls="comments_section_{{$discussion_key}}">
+                                        {{$discussion->num_comments}} comments (TODO)
+                                    </a>
+                                    <div class="collapse" id="comments_section_{{$discussion_key}}">
+                                        <div class="comment">
+                                            <div class="name">
+                                                Random User's Name
+                                            </div>
+                                            <div class="date">
+                                                08.04.2019 14:22
+                                            </div>
+                                            <div class="text">
+                                                Really glad, and now I'm just going to write a super long comment for no
+                                                reason at all, just so I can test this UI thoroughly. And it seems the
+                                                last sentence was not enough so I just added this one.
+                                            </div>
+    
                                         </div>
-                                        <div class="date">
-                                            08.04.2019 14:23
+                                        <div class="comment">
+                                            <div class="name">
+                                                Another User's Name
+                                            </div>
+                                            <div class="date">
+                                                08.04.2019 14:23
+                                            </div>
+                                            <div class="text">
+                                                Really glad, and now I'm just going to write a super long comment for no
+                                                reason at all, just so I can test this UI thoroughly. And it seems the
+                                                last sentence was not enough so I just added this one.
+                                            </div>
+    
                                         </div>
-                                        <div class="text">
-                                            Really glad, and now I'm just going to write a super long comment for no
-                                            reason at all, just so I can test this UI thoroughly. And it seems the
-                                            last sentence was not enough so I just added this one.
+                                        <div class="add-comment">
+                                            <textarea name="comment" placeholder="Add a comment..."></textarea>
                                         </div>
-
-                                    </div>
-                                    <div class="add-comment">
-                                        <textarea name="comment" placeholder="Add a comment..."></textarea>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="post">
-                            <div class="icon">
-                                <span>
-                                    <i class="fas fa-reply"></i>
-                                    </i>
-                                </span>
-                            </div>
-                            <div class="content">
-                                <div class="name">
-                                    A User's Name
-                                </div>
-                                <div class="date">
-                                    30.03.2019 13:30
-                                </div>
-                                <div class="text">
-                                    Well, this year's ticketing option seems like a much better aproach than
-                                    Eventbrite.
-                                </div>
-                                <a class="comments-toggler" data-toggle="collapse" href="#comments_section_3"
-                                    role="button" aria-expanded="false" aria-controls="comments_section_3">
-                                    2 comments
-                                </a>
-                                <div class="collapse" id="comments_section_3">
-                                    <div class="comment">
-                                        <div class="name">
-                                            Random User's Name
-                                        </div>
-                                        <div class="date">
-                                            08.04.2019 14:22
-                                        </div>
-                                        <div class="text">
-                                            Really glad, and now I'm just going to write a super long comment for no
-                                            reason at all, just so I can test this UI thoroughly. And it seems the
-                                            last sentence was not enough so I just added this one.
-                                        </div>
-
-                                    </div>
-                                    <div class="comment">
-                                        <div class="name">
-                                            Another User's Name
-                                        </div>
-                                        <div class="date">
-                                            08.04.2019 14:23
-                                        </div>
-                                        <div class="text">
-                                            Really glad, and now I'm just going to write a super long comment for no
-                                            reason at all, just so I can test this UI thoroughly. And it seems the
-                                            last sentence was not enough so I just added this one.
-                                        </div>
-
-                                    </div>
-                                    <div class="add-comment">
-                                        <textarea name="comment" placeholder="Add a comment..."></textarea>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                            @endforeach
+                        @else
+                            No discussion posts yet!
+                        @endif
                 </div>
             </div>
 

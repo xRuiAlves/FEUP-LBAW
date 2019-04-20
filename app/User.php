@@ -27,13 +27,13 @@ class User extends Authenticatable
      * @var array
      */
     protected $hidden = [
-        'password', 'remember_token',
+        'password', 'remember_token', 'search', 'is_disabled', 'is_admin'
     ];
 
     /**
      * The events this user owns.
      */
-     public function ownedEvents() {
+    public function ownedEvents() {
       return $this->hasMany('App\Event');
     }
 }
