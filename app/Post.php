@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Utilities\TimeUtilities;
 
 class Post extends Model
 {
@@ -30,6 +31,17 @@ class Post extends Model
     public function comments() {
         return $this->hasMany('App\Comment', 'post_id', 'id');
     }
+
+    /**
+     * Get the start date string
+     *
+     * @return string
+     */
+    public function getFormattedTimestampAttribute()
+    {
+        return TimeUtilities::timestampToString($this->timestamp);
+    }
+
 
     /**
      * Scope a query to only include Posts that are Announcements

@@ -38,14 +38,14 @@
                     <div class="col-12 col-md-auto">
                         <span>
                             <i class="far fa-calendar-alt icon-left"></i>
-                        </span> {{$event->start_timestamp}}
+                        </span> {{$event->formatted_start_timestamp}}
                     </div>
                     @if(!empty($event->end_timestamp))
                     <div class="col-12 col-md-auto">
                         <span>
                             <i class="fas fa-minus icon-left"></i>
                             </i>
-                        </span> {{$event->end_timestamp}}
+                        </span> {{$event->formatted_end_timestamp}}
                     </div>
                     @endif
                 </div>
@@ -120,7 +120,7 @@
                                 </div>
                                 <div class="content">
                                     <div class="date">
-                                        {{$announcement->timestamp}} (TODO: Pretty format)
+                                        {{$announcement->formatted_timestamp}}
                                     </div>
                                     <div class="text">
                                         {{$announcement->content}}
@@ -154,7 +154,7 @@
                                         {{$discussion->creator->name}}
                                     </div>
                                     <div class="date">
-                                        {{$discussion->timestamp}} (TODO: Pretty format)
+                                        {{$discussion->formatted_timestamp}}
                                     </div>
                                     <div class="text">
                                         {{$discussion->content}}
@@ -174,7 +174,7 @@
                                                     {{$comment->creator->name}}
                                                 </div>
                                                 <div class="date">
-                                                    {{$comment->timestamp}} (TODO: Pretty format)
+                                                    {{$comment->formatted_timestamp}}
                                                 </div>
                                                 <div class="text">
                                                     {{$comment->content}}
@@ -194,6 +194,7 @@
                         @else
                             No discussion posts yet!
                         @endif
+                    </div>
                 </div>
             </div>
 

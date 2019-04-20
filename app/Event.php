@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Utilities\TimeUtilities;
 
 class Event extends Model
 {
@@ -40,7 +41,7 @@ class Event extends Model
      */
     public function getStartDateAttribute()
     {
-        return date('d-m-Y', strtotime($this->start_timestamp));
+        return TimeUtilities::timestampToDateString($this->start_timestamp);
     }
 
     /**
@@ -50,7 +51,7 @@ class Event extends Model
      */
     public function getEndDateAttribute()
     {
-        return $this->end_timestamp ? date('d-m-Y', strtotime($this->end_timestamp)) : null;
+        return $this->end_timestamp ? TimeUtilities::timestampToDateString($this->end_timestamp) : null;
     }
 
     /**
@@ -60,7 +61,7 @@ class Event extends Model
      */
     public function getStartTimeAttribute()
     {
-        return date('H:i', strtotime($this->start_timestamp));
+        return TimeUtilities::timestampToTimeString($this->start_timestamp);
     }
 
     /**
@@ -70,7 +71,27 @@ class Event extends Model
      */
     public function getEndTimeAttribute()
     {
-        return $this->end_timestamp ? date('H:i', strtotime($this->end_timestamp)) : null;
+        return $this->end_timestamp ? TimeUtilities::timestampToTimeString($this->end_timestamp) : null;
+    }
+
+    /**
+     * Get the start timestamp string
+     *
+     * @return string
+     */
+    public function getFormattedStartTimestampAttribute()
+    {
+        return TimeUtilities::timestampToString($this->start_timestamp);
+    }
+
+    /**
+     * Get the end timestamp string
+     *
+     * @return string
+     */
+    public function getFormattedEndTimestampAttribute()
+    {
+        return $this->end_timestamp ? TimeUtilities::timestampToString($this->end_timestamp) : null;
     }
 
     /**

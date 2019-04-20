@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Utilities\TimeUtilities;
 
 class Comment extends Model
 {
@@ -22,5 +23,15 @@ class Comment extends Model
      */
     public function post() {
         return $this->belongsTo('App\Post');
+    }
+
+    /**
+     * Get the start date string
+     *
+     * @return string
+     */
+    public function getFormattedTimestampAttribute()
+    {
+        return TimeUtilities::timestampToString($this->timestamp);
     }
 }
