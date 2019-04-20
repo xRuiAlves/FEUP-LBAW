@@ -27,14 +27,16 @@
             </div>
         </div>
     </div>
+    @if(Auth::guest())
     <div class="banner-corner-actions">
-        <a href="" title="Log In" data-toggle="modal" data-target="#login_modal">
+        <a href="{{route('login')}}" title="Log In">
             Login
         </a>
-        <a href="" title="Register" data-toggle="modal" data-target="#register_modal">
+        <a href="{{route('register')}}" title="Register">
             Register
         </a>
     </div>
+    @endif
     <div id="banner-buttons">
         <div class="row">
             <div class="col-sm-12 col-md-8 col-lg-6 col-xl-4">
@@ -182,102 +184,6 @@
                 <p>In our website, you can also create and manage any number of events you want, public or private, free
                     of charge - no matter what their scale is. Additionally, you may invite other users to help in their organization,
                     making the whole process easier.</p>
-            </div>
-        </div>
-    </div>
-</div>
-
-<div id="login_modal" class="modal fade font-content" tabindex="-1" role="dialog">
-    <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <div class="modal-title custom-modal-title font-title">Login</div>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <form novalidate class="needs-validation redirect-on-submit font-content"
-                    data-redirect-to="/index_lin.html">
-                    <div class="form-group">
-                        <input class="form-control" required type="email" name="email" placeholder="email">
-                        <div class="invalid-feedback">
-                            Please provide a valid email address
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <input class="form-control" required type="password" name="password" placeholder="password">
-                        <div class="invalid-feedback">
-                            Please type your password
-                        </div>
-                    </div>
-                    <div class="d-flex justify-content-center">
-                        <button class="my-btn my-btn-primary" type="submit">Login</button>
-                    </div>
-                </form>
-                <div class="d-flex justify-content-center">
-                    <a class="my-btn my-btn-borderless-secondary" href="/index_lin.html">
-                        <span class="nav-icon icon-left">
-                            <i class="fab fa-google" aria-hidden="true"></i>
-                        </span>
-                        Sign in with Google
-                    </a>
-                </div>
-            </div>
-            <div class="modal-footer">
-                <span>Don't have an account yet? Register <a href=""
-                        onclick="$('#login_modal').modal('hide'); $('#register_modal').modal('show'); return false;">here!</a></span>
-            </div>
-        </div>
-    </div>
-</div>
-
-<div id="register_modal" class="modal fade font-content" tabindex="-1" role="dialog">
-    <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <div class="modal-title custom-modal-title">Register</div>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <form novalidate class="needs-validation redirect-on-submit" data-redirect-to="/">
-                    <div class="form-group">
-                        <input class="form-control" required type="email" name="email" placeholder="email">
-                        <div class="invalid-feedback">
-                            Please provide a valid email address
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <input class="form-control" required type="password" name="password" placeholder="password">
-                        <div class="invalid-feedback">
-                            Please type your password
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <input class="form-control" required type="password" name="password_repeat"
-                            placeholder="repeat password">
-                        <div class="invalid-feedback">
-                            Please type your password again
-                        </div>
-                    </div>
-                    <div class="d-flex justify-content-center">
-                        <button class="my-btn my-btn-primary" type="submit">Register</button>
-                    </div>
-                </form>
-                <div class="d-flex justify-content-center">
-                    <a class="my-btn my-btn-borderless-secondary" href="/index_lin.html">
-                        <span class="icon-left">
-                            <i class="fab fa-google" aria-hidden="true"></i>
-                        </span>
-                        Sign in with Google
-                    </a>
-                </div>
-            </div>
-            <div class="modal-footer">
-                <span>Already have an account? Login <a href=""
-                        onclick="$('#register_modal').modal('hide'); $('#login_modal').modal('show'); return false;">here!</a></span>
             </div>
         </div>
     </div>
