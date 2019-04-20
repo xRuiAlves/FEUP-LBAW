@@ -16,7 +16,11 @@
         <div class="mobile-wave" id="background_wave"></div>
         <div class="not-found-body">
             <p>
-                {{ $exception->getMessage() }}
+                @if(strlen($exception->getMessage()) === 0)
+                    The resource that you requested does not seem to exist.
+                @else
+                    {{ $exception->getMessage() }}
+                @endif
             </p>
             <p>
                 To go back to the application click
