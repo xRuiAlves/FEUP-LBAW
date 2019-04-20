@@ -65,7 +65,8 @@
                     </div>
                 </li>
                 <li class="nav-item">
-                    <a title="Administration Dashboard" class="nav-link" href="/admin_dashboard">
+                    <a title="Administration Dashboard" class="nav-link" href="{{route('admin')}}">
+                        TODO: Not show if not admin
                         <i class="fas fa-clipboard-list nav-item-icon"></i>
                         <span class="nav-item-label">Administration Dashboard</span>
                     </a>
