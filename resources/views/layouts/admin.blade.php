@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.app', ['hideFooter' => true])
 
 @section('css_includes')
 <link href="{{ asset('css/admin_dashboard.css') }}" rel="stylesheet">

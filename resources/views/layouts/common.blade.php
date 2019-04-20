@@ -31,7 +31,9 @@
 
 <body>
     @yield('body')
-    @include('inc.footer')
+    @if(!$hideFooter)
+        @include('inc.footer')
+    @endif
 </body>
 
 </html>
