@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Event;
+use App\User;
 
 class EventController extends Controller
 {
@@ -15,9 +16,14 @@ class EventController extends Controller
      * @return Response
      */
     public function show($id) {
-        $event = Event::find($id);
+        $event = Event::where('id', $id)
+                        ->select('id', 'title', 'description', 'price', 'location', 'latitude', 'longitude', 'start_timestamp', 'end_timestamp', 'status')
+                        ->first();
 
         // $this->authorize('show', $event); //TODO
+
+        // $owner = User::find(1)->events()->get();
+        // return $owner;
 
         return view('pages.events.index', ['event' => $event]);
     }
@@ -37,7 +43,7 @@ class EventController extends Controller
         // return view('pages.cards', ['cards' => $cards]);
 
         // Temporary debug
-        return Event::all();
+        return Event::select()->get();
     }
 
     /**

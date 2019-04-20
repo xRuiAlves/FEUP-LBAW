@@ -23,6 +23,17 @@
                 </div>
             </div>
         </header>
+        @foreach ($events as $event)
+        <div>
+            <h5>{{$event}}</h5>
+            @if($event->user_id == $user->id)
+                <small>Creator</small>
+            @else
+                <small>Not Creator</small>
+            @endif
+        </div>
+        @endforeach
+
         <div class="timeline">
 
             <div class="sticky-container">
