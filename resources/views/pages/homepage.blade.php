@@ -154,7 +154,7 @@
 
 <div class="events">
     @foreach ($events as $event)
-    <a class="container card-container event-card" href="/event_page.html">
+    <a class="container card-container event-card" href="/event/{{$event->id}}">
         <header class="row">
             <div class="col-12">
                 <h3>{{$event->title}}</h3>
