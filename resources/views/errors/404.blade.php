@@ -16,7 +16,7 @@
         <div class="mobile-wave" id="background_wave"></div>
         <div class="not-found-body">
             <p>
-                The resource that you requested does not seem to exist.
+                {{ $exception->getMessage() }}
             </p>
             <p>
                 To go back to the application click

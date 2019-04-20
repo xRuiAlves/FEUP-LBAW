@@ -22,7 +22,7 @@ class EventController extends Controller
 
         $event = Event::find($id);
         if (is_null($event)) {
-            return abort(404);
+            return abort(404, 'The event with id ' . $id . ' does not seem to exist.');
         }
 
         // TODO: Decide which view to show based on auth probably
