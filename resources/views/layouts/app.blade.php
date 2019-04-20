@@ -31,14 +31,14 @@
 
 <body>
     <header>
-        @if(!isset($hideNavbar) || !$hideNavbar)
+        @if(empty($hideNavbar))
             @include('inc.navbar')
         @endif
     </header>
     
     @yield('content')
 
-    @if(!isset($hideFooter) || !$hideFooter)
+    @if(empty($hideFooter))
         @include('inc.footer')
     @endif
 </body>
