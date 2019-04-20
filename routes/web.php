@@ -39,6 +39,9 @@ Route::post('register', 'Auth\RegisterController@register');
 // Ours (Start deleting the above after the template was understood)
 
 Route::get('/', 'HomepageController@display');
+Route::get('/faq', function() {
+    return view('pages.faq');
+});
 
 Route::get('/user_dashboard', 'UserController@showDashboard');
 
