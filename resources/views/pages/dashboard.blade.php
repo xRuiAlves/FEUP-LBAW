@@ -67,7 +67,7 @@
                                         <span><i class="far fa-clock"></i></span>
                                         {{$event->start_time}}
                                     </div>
-                                    <div class="col-6 text-right timespan">TODO: [Day X/Y]</div>
+                                    <div class="col-6 text-right timespan"></div>
                                 </footer>
                             </a>
                         </div>
@@ -81,7 +81,7 @@
     </div>
     @else
         <h2>Not attending or organizing any event yet!</h2>
-        <h3>Create an event <a href="/event/create">here</a> or search for events <a href="/#search-box-anchor">here!</a> (TODO: links)</h3>
+        <h3>Create an event <a href="/event/create">here</a> or search for events <a href="/#search-box-anchor">here!</a></h3>
     @endif
 </div>
 @endsection
