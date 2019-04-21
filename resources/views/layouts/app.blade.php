@@ -11,8 +11,8 @@
 
     <title>@yield('title')</title>
 
-    <script type="text/javascript" src={{ asset('js/app.js') }} defer>
-    </script>
+    {{-- <script type="text/javascript" src={{ asset('js/app.js') }} defer>
+    </script> --}}
 
     <script src="{{ asset('bootstrap/jquery-3.3.1.min.js') }}" defer></script>
     <script src="{{ asset('bootstrap/popper.min.js') }}" defer></script>

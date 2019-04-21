@@ -1,5 +1,10 @@
 @extends('layouts.admin', ['activeTable' => 'events'])
 
+@section('css_includes')
+@parent
+<script src="{{asset('js/admin_user_editing.js')}}" defer></script>
+@endsection
+
 @section('table')
 <div id="events-table" class="admin-dashboard col-12 col-md-10 col-xl-11">
     <div class="collapse-title custom-title">Events</div>
@@ -9,8 +14,8 @@
         </div>
         <div class="row no-gutters">
             <div class="col-12">
-                <button class="btn action-btn">Disable selected events</button>
-                <button class="btn action-btn">Enable selected events</button>
+                <button id="disable_events_btn" class="btn action-btn">Disable selected events</button>
+                <button id="enable_events_btn" class="btn action-btn">Enable selected events</button>
             </div>
         </div>
         <div class="content-table">
