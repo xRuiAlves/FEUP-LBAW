@@ -160,6 +160,10 @@
     text-align: right;
 }
 
+.card-container.event-creation-container .submission-error {
+    color: red;
+}
+
 
 @media only screen and (max-width: 576px) {
 

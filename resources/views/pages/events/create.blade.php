@@ -16,7 +16,7 @@
         <header class="row no-gutters">
             <div class="col-12">
                 <div class="form-group">
-                    <input class="form-control title-input" required type="text" name="title" placeholder="Title"></input>
+                    <input class="form-control title-input" value="{{Request::old('title')}}" required type="text" name="title" placeholder="Title"></input>
                     <div class="invalid-feedback">
                         Please provide a title for the event
                     </div>
@@ -26,13 +26,18 @@
         <div class="mobile-wave" id="background_wave"></div> <!-- why tho -->
         <div class="row no-gutters event-details font-title">
             <div class="col-12 col-sm-6 event-spacetime">
-                <div class="row no-gutters date event-field">
+                <div class="row no-gutters date event-field form-group">
                     <span>
                         <i class="far fa-calendar-alt icon-left"></i>
                     </span>
-                    <div class="date-picker">
-                        Pick a date
-                    </div>
+                    
+                    <label> Start
+                        <input class="form-control" required type="datetime-local" value="{{Request::old('start_timestamp')}}" name="start_timestamp"></input>
+                        <div class="invalid-feedback">Please provide at least a start date for the event</div>
+                    </label>
+                    <label> End (Optional)
+                        <input class="form-control" type="datetime-local" value="{{Request::old('end_timestamp')}}" name="end_timestamp"></input>
+                    </label>
                 </div>
                 <div class="row no-gutters">
                     <div class="col-12 location event-field">
@@ -40,7 +45,7 @@
                             <span>
                                 <i class="fas fa-map-marker-alt icon-left"></i>
                             </span>
-                            <input class="form-control" required type="text" name="location" placeholder="Location"></input>
+                            <input class="form-control" required type="text" name="location" value="{{Request::old('location')}}" placeholder="Location"></input>
                             <div class="invalid-feedback">Please provide a valid location for the event</div>
                         </div>
                     </div>
@@ -50,7 +55,7 @@
                 <div class="row no-gutters">
                     <div class="col-12 price event-field">
                         <div class="form-group">
-                            <input class="form-control" required type="text" name="price" placeholder="0.00"></input>
+                            <input class="form-control" required type="text" name="price" value="{{Request::old('price')}}" min="0" placeholder="0.00"></input>
                             <div class="invalid-feedback">Please provide a valid price for the event</div>
                         </div>
                         <span class="currency">€</span>
@@ -58,21 +63,14 @@
                 </div>
                 <div class="row no-gutters">
                     <div class="col-12 event-field">
-                        <div class="dropdown category-picker">
-                            <span>
-                                <i class="fas fa-tag"></i>
-                            </span>
-                            <button class="btn dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown">
-                                Pick a category
-                            </button>
-                            <div class="dropdown-menu scrollable-menu">
-                                <a class="dropdown-item" href="#">Sports</a>
-                                <a class="dropdown-item" href="#">Arts</a>
-                                <a class="dropdown-item" href="#">Technology</a>
-                                <a class="dropdown-item" href="#">Animals</a>
-                                <a class="dropdown-item" href="#">Learning</a>
-                                <a class="dropdown-item" href="#">Politics</a>
-                            </div>
+                        <div class="dropdown category-picker form-group">
+                            <select required name="event_category_id" class="custom-select">
+                                <option value="" selected disabled>Pick a category</option>
+                                @foreach ($categories as $category)
+                                    <option value="{{ $category->id }}" {{ (Request::old("event_category_id") == $category->id ? "selected":"") }}>{{ $category->name }}</option>
+                                @endforeach
+                            </select>
+                            <div class="invalid-feedback">Please select a category for the event</div>
                         </div>
                     </div>
                 </div>
@@ -81,7 +79,7 @@
         <div class="row no-gutters event-description">
             <div class="col-12">
                 <div class="form-group">
-                    <textarea class="form-control" required name="description" placeholder="Event description"></textarea>
+                    <textarea class="form-control" required name="description" placeholder="Event description">{{Request::old('description')}}</textarea>
                     <div class="invalid-feedback">Please provide a description for the event</div>
                 </div>
             </div>
@@ -96,6 +94,13 @@
                 </button>
             </div>
         </footer>
+        @if ($errors->any())
+            @foreach ($errors->all() as $error)
+                <span class="submission-error">
+                    {{ $error }}
+                </span>       
+            @endforeach
+        @endif
     </form>
 </div>
 @endsection

@@ -3,9 +3,13 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
+
 
 use App\Event;
+use App\EventCategory;
 use App\Post;
+
 
 class EventController extends Controller
 {
@@ -90,7 +94,9 @@ class EventController extends Controller
         // return $card;
         $this->authorize('create', Event::class);
 
-        return view('pages.events.create');
+        $categories = EventCategory::all();
+
+        return view('pages.events.create', ['categories' => $categories]);
     }
 
     /**
@@ -99,36 +105,41 @@ class EventController extends Controller
      * @return Event The event created.
      */
     public function store(Request $request) {
-        $event = new Event();
         
-        $this->authorize('create', $event);
+        $this->authorize('create', Event::class);
+        
 
-        echo "was authorized";
-        $this->validate($request, [
+        $validator = Validator::make($request->all(), [
             'title' => 'required',
             'location' => 'required',
-            'price' => 'required',
-            // 'category' => 'required',
-            // 'start_timestamp' => 'required',
+            'price' => 'required|numeric|min:0',
+            'event_category_id' => 'required',
+            'start_timestamp' => 'required|date|after:now',
+            'end_timestamp' => 'sometimes|nullable|date|after:start_date',
             'description' => 'required',
         ]);
         
-        echo "was validated";
-
+        if ($validator->fails()) {
+            return redirect('event/create')
+            ->withErrors($validator)
+            ->withInput();
+        }
+         
+        $event = new Event();
         $event->title = $request->input('title');
         $event->location = $request->input('location');
         $event->price = $request->input('price');
-        // $event->category = $request->input('category');
-        // $event->start_timestamp = $request->input('start_timestamp');
-        $event->start_timestamp = date('Y-m-d H:i:s', time() + 2400);
-        $event->event_category_id = 1;
+        $event->event_category_id = $request->input('event_category_id');
+        $event->start_timestamp = $request->input('start_timestamp');
         $event->description = $request->input('description');
+
+        if (!empty(request()->input('end_timestamp'))) {
+            $event->end_timestamp = $request->input('end_timestamp');
+        }
 
         $event->user_id = auth()->user()->id;
         $event->save();
 
-        echo "was saved";
-        
         return redirect('/event/'.$event->id);
     }
 
