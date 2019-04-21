@@ -1,8 +1,9 @@
 .card-container.notifications-container {
     position: relative;
     top: 7em;
-    margin-bottom: 7em;
-    padding-bottom: 1em;
+    margin-bottom: 12em;
+    padding-bottom: 2em;
+
 }
     
 .card-container.notifications-container header h1 {
@@ -49,6 +50,6 @@
         padding-left: 0.5em;
         padding-top: 0.5em;
         background-color: var(--primary-color);
-        margin-bottom: 0;
+        margin-bottom: 3.5em;
     }
 }

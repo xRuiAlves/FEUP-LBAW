@@ -7,7 +7,7 @@
 @section('title', 'Notifications')
 
 @section('content')
-    <div class="regular-wave" id="background_wave"></div>
+    <div id="background_wave"></div>
 
     <div id="page-card" class="container card-container font-content notifications-container">
         <div class="container notifications-list">
