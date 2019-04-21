@@ -89,7 +89,7 @@ class AdminController extends Controller {
                             ->header('Content-Type', 'text/plain');
         }
 
-        $event->status = 'Disabled';
+        $event->is_disabled = true;
         $event->save();
 
         return response(200);
@@ -117,7 +117,7 @@ class AdminController extends Controller {
                             ->header('Content-Type', 'text/plain');
         }
 
-        $event->status = 'Active';
+        $event->is_disabled = false;
         $event->save();
 
         return response(200);

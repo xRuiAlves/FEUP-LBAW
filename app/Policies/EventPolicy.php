@@ -7,8 +7,7 @@ use App\Event;
 use Illuminate\Auth\Access\HandlesAuthorization;
 use Illuminate\Support\Facades\Auth;
 
-class EventPolicy
-{
+class EventPolicy {
     use HandlesAuthorization;
 
     /**
@@ -18,8 +17,7 @@ class EventPolicy
      * @param  \App\Event  $event
      * @return mixed
      */
-    public function view(User $user, Event $event)
-    {
+    public function view(User $user, Event $event) {
         //
     }
 
@@ -29,9 +27,8 @@ class EventPolicy
      * @param  \App\User  $user
      * @return mixed
      */
-    public function create(User $user)
-    {
-        // Any user can create a new card
+    public function create(User $user) {
+        // Any user can create a new event
         return Auth::check();
     }
 
@@ -42,8 +39,7 @@ class EventPolicy
      * @param  \App\Event  $event
      * @return mixed
      */
-    public function update(User $user, Event $event)
-    {
+    public function update(User $user, Event $event) {
         // 
     }
 
