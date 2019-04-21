@@ -1,9 +1,7 @@
-@if($event->status === 'Active')
-    @include('pages.events.active')
-@elseif($event->status === 'Disabled')
+@if($event->is_disabled)
     Event Disabled! (WIP)
-@elseif($event->status === 'Cancelled')
+@elseif($event->is_cancelled)
     Event Cancelled! (WIP)
 @else
-    <h1>Event in impossible state!</h1>
+    @include('pages.events.active')
 @endif
