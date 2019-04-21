@@ -178,7 +178,7 @@ class Event extends Model
      * @return \Illuminate\Database\Eloquent\Builder
      */
     public function scopeActive($query) {
-        return $query->where('status', 'Active');
+        return $query->where('is_disabled', false)->where('is_cancelled', false);
     }
 
     /**
