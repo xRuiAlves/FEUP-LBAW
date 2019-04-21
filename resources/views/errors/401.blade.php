@@ -4,20 +4,20 @@
 <link href="{{ asset('css/error_pages.css') }}" rel="stylesheet">
 @endsection
 
-@section('title', '404 - Not Found')
+@section('title', '401 - Unauthorized')
 
 @section('content')
     <div class="regular-wave" id="background_wave"></div>
     
     <div id="page-card" class="container card-container font-content not-found-container">
         <header>
-            <h1>404 - Not found</h1>
+            <h1>401 - Unauthorized</h1>
         </header>
         <div class="mobile-wave" id="background_wave"></div>
         <div class="not-found-body">
             <p>
                 @if(strlen($exception->getMessage()) === 0)
-                    The resource that you requested does not seem to exist.
+                    You do not possess the required permissions to acces the request resource.
                 @else
                     {{ $exception->getMessage() }}
                 @endif
