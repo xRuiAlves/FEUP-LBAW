@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
+
 use App\Event;
 use App\EventCategory;
 use App\User;
@@ -73,26 +75,29 @@ class AdminController extends Controller {
     public function disableEvent(Request $request) {
         $this->authorize('disable', Event::class);
 
-        $event_id = $request->input('id');
+        $validated_data = $request->validate([
+            'event_ids' => 'required|array',
+            'event_ids.*' => 'integer'
+        ]);
 
-        // TODO: Discuss the responses
+        $event_ids = $validated_data['event_ids'];
 
-        if (empty($event_id)) {
-            return response('Missing parameter "id"', 400)
-                            ->header('Content-Type', 'text/plain');
+        try {
+            $events = Event::whereIn('id', $event_ids);
+            $events->update(['is_disabled' => true]);
+
+            return response(200);
+        } catch (ModelNotFoundException $err) {
+            if (is_array($err->getIds())) {
+                return response()->json([
+                    'message' => 'Events with ids "' . implode(', ', $err->getIds()) . '" were not found.',
+                ], 404);
+            } else {
+                return response()->json([
+                    'message' => 'Event with id "' . $err->getIds() . '" was not found.',
+                ], 404);
+            }
         }
-
-        $event = Event::find($event_id);
-
-        if (is_null($event)) {
-            return response('Event with id "' . $id . '" not found.', 404)
-                            ->header('Content-Type', 'text/plain');
-        }
-
-        $event->is_disabled = true;
-        $event->save();
-
-        return response(200);
     }
 
     /**
@@ -101,26 +106,29 @@ class AdminController extends Controller {
     public function enableEvent(Request $request) {
         $this->authorize('enable', Event::class);
 
-        $event_id = $request->input('id');
+        $validated_data = $request->validate([
+            'event_ids' => 'required|array',
+            'event_ids.*' => 'integer'
+        ]);
 
-        // TODO: Discuss the responses
+        $event_ids = $validated_data['event_ids'];
 
-        if (empty($event_id)) {
-            return response('Missing parameter "id"', 400)
-                            ->header('Content-Type', 'text/plain');
+        try {
+            $events = Event::whereIn('id', $event_ids);
+            $events->update(['is_disabled' => false]);
+
+            return response(200);
+        } catch (ModelNotFoundException $err) {
+            if (is_array($err->getIds())) {
+                return response()->json([
+                    'message' => 'Events with ids "' . implode(', ', $err->getIds()) . '" were not found.',
+                ], 404);
+            } else {
+                return response()->json([
+                    'message' => 'Event with id "' . $err->getIds() . '" was not found.',
+                ], 404);
+            }
         }
-
-        $event = Event::find($event_id);
-
-        if (is_null($event)) {
-            return response('Event with id "' . $id . '" not found.', 404)
-                            ->header('Content-Type', 'text/plain');
-        }
-
-        $event->is_disabled = false;
-        $event->save();
-
-        return response(200);
     }
 
     /**

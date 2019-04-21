@@ -17,6 +17,10 @@
                 <button id="disable_events_btn" class="btn action-btn">Disable selected events</button>
                 <button id="enable_events_btn" class="btn action-btn">Enable selected events</button>
             </div>
+            <div id="status_messages" class="col-12">
+                <div class="alert alert-danger" style="display:none;white-space:pre-line"></div>
+                <div class="alert alert-success" style="display:none;white-space:pre-line"></div>
+            </div>
         </div>
         <div class="content-table">
             <table class="table">
@@ -24,8 +28,8 @@
                     <tr>
                         <th></th>
                         <th>Title</th>
-                        <th>is Disabled</th>
-                        <th>is Cancelled</th>
+                        <th>Disabled</th>
+                        <th>Cancelled</th>
                         <th>Start Date</th>
                         <th>End Date</th>
                         <th>Location</th>
@@ -34,10 +38,10 @@
                 </thead>
                 <tbody>  
                     @foreach($events as $event)              
-                    <tr>
+                    <tr data-event-id="{{$event->id}}">
                         <td><input type="checkbox"/></td>
                         <td><a href="{{$event->href}}">{{$event->title}}</a></td>
-                        <td>{{$event->is_disabled ? "Yes" : "No"}}</td>
+                        <td class="event-abling">{{$event->is_disabled ? "Yes" : "No"}}</td>
                         <td>{{$event->is_cancelled ? "Yes" : "No"}}</td>
                         <td>{{$event->start_date}}</td>
                         <td>{{$event->end_date ? $event->end_date : '-'}}</td>

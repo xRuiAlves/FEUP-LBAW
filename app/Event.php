@@ -162,6 +162,15 @@ class Event extends Model
     ];
 
     /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
+    protected $fillable = [
+        'is_disabled',
+    ];
+
+    /**
      * Scope a query to only include most relevant events
      * 
      * @param \Illuminate\Database\Eloquent\Builder $query
