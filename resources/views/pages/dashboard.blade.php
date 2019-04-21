@@ -9,7 +9,7 @@
 @section('content')
 <div id="background_wave"></div>
 
-<div id="page-card" class="container card-container font-content user-dashboard-container">
+<div id="page_card" class="container card-container font-content user-dashboard-container">
     <header class="row no-gutters">
         <div class="col-12 col-sm-8 title font-title">
             <h1>Your Events</h1>
@@ -53,8 +53,8 @@
                                 <header class="row">
                                     <div class="col-12">
                                         {{$event->title}}
-                                        @if($event->status !== 'Active')
-                                        <span class="not-enabled-event">[{{$event->status}}]</span>
+                                        @if($event->is_disabled || $event->is_cancelled)
+                                        <span class="not-enabled-event">[{{$event->is_disabled ? 'Disabled' : 'Cancelled'}}]</span>
                                         @endif
                                     </div>
                                 </header>
