@@ -50,7 +50,7 @@
         padding-left: 0.5em;
         padding-top: 0.5em;
         background-color: var(--primary-color);
-        margin-bottom: 3.5em;
+        margin-bottom: 4em;
     }
 
     .card-container.notifications-container .notification-item:nth-of-type(1) {

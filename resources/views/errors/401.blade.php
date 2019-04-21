@@ -17,7 +17,7 @@
         <div class="not-found-body">
             <p>
                 @if(strlen($exception->getMessage()) === 0)
-                    You do not possess the required permissions to acces the request resource.
+                    You do not possess the required permissions to acces the requested resource.
                 @else
                     {{ $exception->getMessage() }}
                 @endif
