@@ -35,7 +35,7 @@ Route::delete('api/item/{id}', 'ItemController@delete');
 // Ours (Start deleting the above after the template was understood)
 
 Route::get('/', 'HomepageController@display');
-Route::view('/faq', 'pages.faq')->name('faq');
+Route::view('faq', 'pages.faq')->name('faq');
 
 // Auth
 Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
@@ -45,14 +45,18 @@ Route::post('register', 'Auth\RegisterController@register');
 Route::get('logout', 'Auth\LoginController@logout')->name('logout');
 
 // Events
-Route::get('/event/{id}', 'EventController@show')->where(['id' => '[0-9]+']);
+Route::get('event/{id}', 'EventController@show')->where(['id' => '[0-9]+']);
+Route::put('api/event/enable', 'AdminController@enableEvent');
+Route::put('api/event/disable', 'AdminController@disableEvent');
 
 // User stuff
-Route::get('/notifications', 'NotificationsController@show')->name('notifications');
-Route::get('/dashboard', 'UserController@showDashboard')->name('dashboard');
+Route::get('notifications', 'NotificationsController@show')->name('notifications');
+Route::get('dashboard', 'UserController@showDashboard')->name('dashboard');
 // Auth::routes();
 
-Route::get('/admin', 'AdminController@users')->name('admin');
-Route::get('/admin/users', 'AdminController@users')->name('admin-users');
-Route::get('/admin/issues', 'AdminController@issues')->name('admin-issues');
-Route::get('/admin/events', 'AdminController@events')->name('admin-events');
+Route::get('admin', 'AdminController@users')->name('admin');
+Route::get('admin/users', 'AdminController@users')->name('admin-users');
+Route::get('admin/issues', 'AdminController@issues')->name('admin-issues');
+Route::get('admin/events', 'AdminController@events')->name('admin-events');
+
+

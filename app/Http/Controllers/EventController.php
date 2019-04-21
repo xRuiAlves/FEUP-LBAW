@@ -10,17 +10,23 @@ use App\Post;
 class EventController extends Controller
 {
     /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct() {
+        $this->middleware('auth', ['except' => ['show']]);
+    }
+
+    /**
      * Shows the event for a given id.
      *
      * @param  int  $id
      * @return Response
      */
     public function show($id) {
-        // $event = Event::where('id', $id)
-        //                 ->select('id', 'title', 'description', 'price', 'location', 'latitude', 'longitude', 'start_timestamp', 'end_timestamp', 'status')
-        //                 ->first();
-
         $event = Event::find($id);
+
         if (is_null($event)) {
             return abort(404, 'The event with id ' . $id . ' does not seem to exist.');
         }
@@ -48,25 +54,7 @@ class EventController extends Controller
     }
 
     /**
-     * Lists all events. Not sure if should keep this or not <------------
-     *
-     * @return Response
-     */
-    public function list() {
-        // TODO
-        // if (!Auth::check()) return redirect('/login');
-        // $this->authorize('list', Card::class);
-
-        // $events = Auth::user()->cards()->orderBy('id')->get();
-
-        // return view('pages.cards', ['cards' => $cards]);
-
-        // Temporary debug
-        return Event::select()->get();
-    }
-
-    /**
-     * Creates a new evebt.
+     * Creates a new event.
      *
      * @return Event The event created.
      */
@@ -81,6 +69,15 @@ class EventController extends Controller
         // $card->save();
 
         // return $card;
+    }
+
+    /**
+     * Updates an existing event.
+     * 
+     * @return Event The updated event.
+     */
+    public function update(Request $request) {
+
     }
 
     public function delete(Request $request, $id) {
