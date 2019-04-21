@@ -12,12 +12,14 @@
 <div id="page-card" class="container card-container font-content event-card">
     <div class="event-brief">
         <div class="row no-gutters main">
+            <div class="col-12 cancelled-label">
+                <h6>This event was cancelled</h6>
+            </div>
             <div class="col-12 col-lg-9 event-title font-title">
                 <h1>{{$event->title}}</h1>
             </div>
-            <div class="col-12 col-lg-3 attend-btn alone-right">
-                {{-- Todo: Ifs here for authenticated/owner/etc? --}}
-                <button type="button" class="btn" data-toggle="modal" data-target="#login_modal">
+            <div class="col-12 col-lg-3 attend-btn alone-right">                
+                <button disabled type="button" class="btn" data-toggle="modal" data-target="#attend-event-modal">
                     <span>
                         <i class="fas fa-calendar-check icon-left"></i>
                     </span>
@@ -226,26 +228,6 @@
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                 </div>
             </form>
-        </div>
-    </div>
-</div>
-
-<div id="attend-event-modal" class="modal fade font-content" tabindex="-1" role="dialog">
-    <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <div class="modal-title custom-modal-title">Ticket</div>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                Do you wish to obtain a free ticket to Semana de Informática 2019?
-            </div>
-            <div class="modal-footer">
-                <a href="/event_page_attendee.html" class="btn publish-button">Confirm</a>
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            </div>
         </div>
     </div>
 </div>
