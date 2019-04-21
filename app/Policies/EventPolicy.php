@@ -5,6 +5,7 @@ namespace App\Policies;
 use App\User;
 use App\Event;
 use Illuminate\Auth\Access\HandlesAuthorization;
+use Illuminate\Support\Facades\Auth;
 
 class EventPolicy
 {
@@ -28,8 +29,10 @@ class EventPolicy
      * @param  \App\User  $user
      * @return mixed
      */
-    public function create(User $user) {
-        //
+    public function create(User $user)
+    {
+        // Any user can create a new card
+        return Auth::check();
     }
 
     /**
@@ -41,7 +44,7 @@ class EventPolicy
      */
     public function update(User $user, Event $event)
     {
-        //
+        // 
     }
 
     /**
@@ -57,18 +60,18 @@ class EventPolicy
     }
 
     /**
-     * Determine whether the user can disable events.
-     * Not passing in a specific event because if he can disable one, he can disable all of them (must be admin)
-     */
-    public function disable(User $user) {
-        return $user->is_admin;
-    }
-
-    /**
      * Determine whether the user can enable events.
      * Not passing in a specific event because if he can enable one, he can enable all of them (must be admin)
      */
     public function enable(User $user) {
+        return $user->is_admin;
+    }
+
+    /**
+     * Determine whether the user can disable events.
+     * Not passing in a specific event because if he can disable one, he can disable all of them (must be admin)
+     */
+    public function disable(User $user) {
         return $user->is_admin;
     }
 }

@@ -45,7 +45,9 @@ Route::post('register', 'Auth\RegisterController@register');
 Route::get('logout', 'Auth\LoginController@logout')->name('logout');
 
 // Events
-Route::get('event/{id}', 'EventController@show')->where(['id' => '[0-9]+']);
+Route::get('/event/{id}', 'EventController@show')->where(['id' => '[0-9]+']);
+Route::get('/event/create', 'EventController@create');
+Route::post('/event/create', 'EventController@store');
 Route::put('api/event/enable', 'AdminController@enableEvent');
 Route::put('api/event/disable', 'AdminController@disableEvent');
 

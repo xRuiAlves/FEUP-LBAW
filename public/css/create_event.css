@@ -9,6 +9,10 @@
     outline: none;
 }
 
+#page-card.card-container.event-card {
+    padding: 3em;
+}
+
 .card-container.event-card.event-creation-container {
     position: relative;
     top: 7em;
@@ -154,6 +158,10 @@
     padding-right: 1.2em;
     max-width: 10em;
     text-align: right;
+}
+
+.card-container.event-creation-container .submission-error {
+    color: red;
 }
 
 

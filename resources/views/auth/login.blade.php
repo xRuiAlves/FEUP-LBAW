@@ -9,7 +9,7 @@
 @section('content')
 <div id="background_wave"></div>
 
-<div id="page_card" class="container card-container font-content login-register">
+<div id="page-card" class="container card-container font-content login-register">
     <header>
         <div class="modal-title custom-modal-title font-title">Login</div>
     </header>
