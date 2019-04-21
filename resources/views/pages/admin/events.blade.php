@@ -19,7 +19,8 @@
                     <tr>
                         <th></th>
                         <th>Title</th>
-                        <th>Status</th>
+                        <th>is Disabled</th>
+                        <th>is Cancelled</th>
                         <th>Start Date</th>
                         <th>End Date</th>
                         <th>Location</th>
@@ -30,8 +31,9 @@
                     @foreach($events as $event)              
                     <tr>
                         <td><input type="checkbox"/></td>
-                        <td>{{$event->title}}</td>
-                        <td>{{$event->status}}</td>
+                        <td><a href="{{$event->href}}">{{$event->title}}</a></td>
+                        <td>{{$event->is_disabled ? "Yes" : "No"}}</td>
+                        <td>{{$event->is_cancelled ? "Yes" : "No"}}</td>
                         <td>{{$event->start_date}}</td>
                         <td>{{$event->end_date ? $event->end_date : '-'}}</td>
                         <td>{{$event->location}}</td>

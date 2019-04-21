@@ -9,6 +9,10 @@ button {
     background-color: white;
 }
 
+a, a:hover{
+    color: inherit;
+}
+
 button.action-btn {
     color: var(--secondary-color-medium);
     background-color: var(--color-grey-light);

@@ -115,7 +115,7 @@ class Notification extends Model
         if($this->type === 'IssueNotification'){
             return '#';
         }else{
-            return '/event/' . $this->event->id;
+            return $this->event->href;
         }
     }
 

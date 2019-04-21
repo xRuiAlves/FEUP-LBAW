@@ -143,6 +143,16 @@ class Event extends Model
     }
 
     /**
+     * Get the link to event page
+     *
+     * @return string
+     */
+    public function getHrefAttribute()
+    {
+        return "/event/" . $this->id;
+    }
+
+    /**
      * The attributes that should be hidden for arrays.
      *
      * @var array
