@@ -64,13 +64,14 @@
                         <span class="nav-item-label">Submit an Issue</span>
                     </div>
                 </li>
+                @if(Auth::user()->is_admin) {{-- TODO: Change this to use policies --}}
                 <li class="nav-item">
                     <a title="Administration Dashboard" class="nav-link" href="{{route('admin')}}">
-                        TODO: Not show if not admin
                         <i class="fas fa-clipboard-list nav-item-icon"></i>
                         <span class="nav-item-label">Administration Dashboard</span>
                     </a>
                 </li>
+                @endif
                 <li class="nav-item">
                     <a title="Exit" class="nav-link" href="{{route('logout')}}">
                         <i class="fas fa-sign-out-alt nav-item-icon"></i>
