@@ -167,6 +167,11 @@
 
 @media only screen and (max-width: 576px) {
 
+    #page-card.card-container.event-card {
+        padding: 0;
+        top: 0;
+    }
+
     .card-container.event-card.event-creation-container header{
         background-color: var(--primary-color);
         padding: 2em;
@@ -227,6 +232,7 @@
 
     .card-container.event-creation-container .price .currency {
         left: 0;
+        right: initial;
     }
 
     .card-container.event-creation-container input[name="price"] {
