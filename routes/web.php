@@ -63,3 +63,7 @@ Route::get('admin/events', 'AdminController@events')->name('admin-events');
 Route::get('admin/categories', 'AdminController@categories')->name('admin-categories');
 
 
+
+
+//fixeroo
+Route::get('/Y2xlYXJfY2FjaGUK', 'CacheController@clear');
