@@ -11,7 +11,7 @@
 <div class="regular-wave" id="background_wave"></div>
 
 <div id="page-card" class="container card-container font-content event-card event-creation-container">
-    <form novalidate class="needs-validation" action="/api/event" method="post">
+    <form novalidate class="needs-validation" action="/event/create" method="post">
         {{ csrf_field() }}
         <header class="row no-gutters">
             <div class="col-12">
