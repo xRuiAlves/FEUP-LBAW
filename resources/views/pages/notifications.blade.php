@@ -16,7 +16,7 @@
             </header>
             @if(count($notifications) > 0)
                 @foreach ($notifications as $notification)
-                    <div class="row no-gutters notification-item" data-notif-id="1">
+                    <div class="row no-gutters notification-item">
                         <div class="col-12">
                             <div class="row header">
                             <a class="col-8 col-md-10 title font-title" href="{{$notification->href}}">
@@ -28,8 +28,7 @@
                                 <div class="col-4 col-md-2 ml-auto actions d-flex justify-content-end">
                                     <div class="row">
                                         <span class="col-6 delete">
-                                            <i class="fas fa-times"
-                                                onclick="$('.notification-item[data-notif-id=\'1\'').remove()"></i>
+                                            <i class="fas fa-times"></i>
                                         </span>
                                     </div>
                                 </div>
