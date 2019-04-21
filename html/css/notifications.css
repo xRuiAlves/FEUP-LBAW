@@ -50,14 +50,6 @@
         padding-left: 0.5em;
         padding-top: 0.5em;
         background-color: var(--primary-color);
-        margin-bottom: 4em;
-    }
-
-    .card-container.notifications-container .notification-item:nth-of-type(1) {
-        border-top: 1px var(--color-grey) solid;
-    }
-
-    .card-container.notifications-container .notification-item:last-of-type {
-        border-bottom: 1px var(--color-grey) solid;
+        margin-bottom: 3.5em;
     }
 }

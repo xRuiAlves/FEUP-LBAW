@@ -5,8 +5,11 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Collection;
 
 use App\User;
+use App\Event;
+use App\Utilities\TimeUtilities;
 
 class UserController extends Controller
 {
@@ -24,22 +27,40 @@ class UserController extends Controller
       // $this->authorize('list', Event::class);
 
       $user = Auth::user();
+      // $user = User::find(2);
 
-      $events = $user->ownedEvents()
-                  // EXTRACT(YEAR FROM start_timestamp) as year, 
-                  ->select(DB::raw('EXTRACT(YEAR FROM start_timestamp) as year, EXTRACT(DOW FROM start_timestamp) as day_of_week,
-                                  EXTRACT(MONTH FROM start_timestamp) as month, EXTRACT(DAY FROM start_timestamp) as day,
-                                  EXTRACT(HOUR FROM start_timestamp) as hour, EXTRACT(MINUTE FROM start_timestamp) as minute'),
-                          'id', 'title', 'location', 'user_id')
-                  ->groupBy('month', 'start_timestamp', 'events.id')
-                  ->orderBy('month', 'asc', 'day', 'asc')
-                  ->get();
+      $owned_events = $user->ownedEvents()->get()
+      ->map(function ($event, $key) {
+        $event['relationship'] = 'owner';
+        return $event;
+      });
 
-        // return $events;
+      // return $owned_events;
 
-        // TODO: Add getting the events that the user is attending
-        // TODO: Key the events array by month of the year so that the templating can do its magic :/
+      // Distinct because the user might have several tickets for the same event
+      $attending_events = $user->attendingEvents()->distinct()->get()
+      ->map(function ($event, $key) {
+        $event['relationship'] = 'attendee';
+        return $event;
+      });
 
-        return view('pages.user_dashboard', ['user' => $user, 'events' => $events]);
-      }
+      // return $attending_events;
+      
+      $organizing_events = $user->organizingEvents()->get()
+      ->map(function ($event, $key) {
+        $event['relationship'] = 'organizer';
+        return $event;
+      });
+
+      // return $organizing_events;
+
+      // The order for merge must be this one because of not overriding positions with higher priority
+      $events = $organizing_events->merge($attending_events)->merge($owned_events)->sortBy('start_timestamp')->values();
+
+      // return $events;
+
+      // TODO: Key the events array by month of the year so that the templating can do its magic :/
+
+      return view('pages.dashboard', ['user' => $user, 'events' => $events]);
+    }
 }

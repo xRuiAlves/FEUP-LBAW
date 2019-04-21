@@ -188,7 +188,7 @@
                                             </div>
                                             @endforeach
                                         @else
-                                            No comments yet! (TODO Fix Styling)
+                                            No comments yet. Would you like to add one?
                                         @endif
                                         <div class="add-comment">
                                             <textarea name="comment" placeholder="Add a comment..."></textarea>

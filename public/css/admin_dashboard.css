@@ -28,7 +28,7 @@ button.action-btn {
     border-top-width: 2px;
 }
 
-button.admin-tab {
+a.admin-tab {
     padding: 0.5em;
     text-align: center;
     cursor: pointer;
@@ -36,12 +36,16 @@ button.admin-tab {
     border: 1px solid var(--color-grey);
     border-radius: 0.25em;
     font-weight: bold;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
     color: var(--secondary-color-medium-dark);
     transition: transform 0.1s linear;
 }
 
-button.admin-tab.nav-link.active {
+a.admin-tab.active {
     background-color: var(--secondary-color-light);
+    color:white;
 }
 
 .content-table {
@@ -176,23 +180,34 @@ button.admin-tab:focus {
     border: 1px solid var(--danger-red-dark);
 }
 
-.selected-page{
+
+
+.content-table .pagination{
+    display: flex;
+    justify-content: center;
+}
+
+.content-table .pagination .page-item.active span{
     color: var(--secondary-color-light);
     border-bottom: 1px var(--secondary-color-light) solid;
+    background-color: white;
 }
 
-.page-selectors button.btn:focus {
-    outline: none;
-    box-shadow: none;
+.content-table .pagination .page-item span, .content-table .pagination .page-item a{
+    border: 0;
+    color: var(--color-grey-darker);
 }
 
-.page-selectors button.btn {
-    border-radius: 0;
-}
-
-.page-selectors button.btn:hover {
-    background-color: var(--color-grey-light);
+.content-table .pagination .page-item {
     border-radius: 5px;
+    border: 0;
+    width: 5em;
+    text-align: center;
+}
+
+.content-table .pagination .page-item:hover {
+    background-color: var(--color-grey-light);
+    border-radius: 10px;
 }
 
 @media only screen and (max-width: 768px) {
@@ -228,4 +243,8 @@ button.admin-tab:focus {
     .admin-dashboard-container .separator hr {
         display: none;
     }
+}
+
+#issue-table .issue-header{
+    cursor: pointer;
 }

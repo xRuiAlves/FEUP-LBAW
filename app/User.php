@@ -38,6 +38,21 @@ class User extends Authenticatable
     }
 
     /**
+     * The events this user is attending.
+     */
+    public function attendingEvents() {
+        // TODO: Add ->withPivot(columns...);
+        return $this->belongsToMany('App\Event', 'tickets', 'event_id', 'user_id');
+    }
+
+    /**
+     * The events this user is organizing.
+     */
+    public function organizingEvents() {
+        return $this->belongsToMany('App\Event', 'organizers', 'event_id', 'user_id');
+    }
+
+    /**
      * The notifications of this user.
      */
     public function notifications() {

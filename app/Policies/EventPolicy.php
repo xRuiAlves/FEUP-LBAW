@@ -58,4 +58,20 @@ class EventPolicy
     {
         //
     }
+
+    /**
+     * Determine whether the user can enable events.
+     * Not passing in a specific event because if he can enable one, he can enable all of them (must be admin)
+     */
+    public function enable(User $user) {
+        return $user->is_admin;
+    }
+
+    /**
+     * Determine whether the user can disable events.
+     * Not passing in a specific event because if he can disable one, he can disable all of them (must be admin)
+     */
+    public function disable(User $user) {
+        return $user->is_admin;
+    }
 }

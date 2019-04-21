@@ -12,7 +12,14 @@ class EventCategory extends Model
     /**
      * The events this category is assigned to.
      */
-    public function posts() {
+    public function events() {
         return $this->hasMany('App\Event', 'event_category_id', 'id');
+    }
+
+    /**
+     * The number of events this category is assigned to.
+     */
+    public function getNEventsAttribute() {
+        return $this->events->count();
     }
 }

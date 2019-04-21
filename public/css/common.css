@@ -244,4 +244,21 @@ footer.page-footer p.footer-questions {
     footer.page-footer {
         padding: 0.5em;
     }
+
+    #page_card.card-container.login-register {
+        -webkit-box-shadow: none;
+        -moz-box-shadow: none;
+        box-shadow: none;
+        top: 0;
+        padding: 0;
+        margin-bottom: 2em;
+        border-radius: 0;
+        background: transparent;    
+    }
+
+    #page_card.card-container.login-register .modal-title {
+        color: var(--secondary-color-medium-dark); 
+        font-weight: bold;
+        margin: 0.5em 0 3em 0.5em;
+    }
 }

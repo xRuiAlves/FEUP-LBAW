@@ -21,6 +21,14 @@ class Event extends Model
     }
 
     /**
+     * The attendees of this event.
+     */
+    public function attendees() {
+        // TODO: Add ->withPivot(columns...);
+        return $this->belongsToMany('App\User', 'tickets', 'user_id', 'event_id');
+    }
+
+    /**
      * The category of this event.
      */
     public function category() {
@@ -42,6 +50,46 @@ class Event extends Model
     public function getStartDateAttribute()
     {
         return TimeUtilities::timestampToDateString($this->start_timestamp);
+    }
+
+    /**
+     * Get the start date year
+     *
+     * @return string
+     */
+    public function getStartDateYearAttribute()
+    {
+        return TimeUtilities::timestampToYear($this->start_timestamp);
+    }
+
+    /**
+     * Get the start date month
+     *
+     * @return string
+     */
+    public function getStartDateMonthAttribute()
+    {
+        return TimeUtilities::timestampToMonthShort($this->start_timestamp);
+    }
+
+    /**
+     * Get the start date day
+     *
+     * @return string
+     */
+    public function getStartDateDayAttribute()
+    {
+        return TimeUtilities::timestampToDay($this->start_timestamp);
+    }
+
+    /**
+     * Get the start date day as a day of the week
+     *
+     * @return string
+     */
+    public function getStartDateDayOfWeekAttribute()
+    {
+        return TimeUtilities::timestampToDayOfWeek($this->start_timestamp);
     }
 
     /**

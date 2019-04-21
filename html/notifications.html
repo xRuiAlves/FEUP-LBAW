@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>404 - Page not found</title>
+    <title>FAQ - Frequently Asked Questions</title>
 
     <script src="/bootstrap/jquery-3.3.1.min.js" defer></script>
     <script src="/bootstrap/popper.min.js" defer></script>
@@ -18,7 +18,7 @@
     <link rel="stylesheet" href="./css/constants.css">
     <link rel="stylesheet" href="./css/common.css">
     <link rel="stylesheet" href="./css/navbar.css">
-    <link rel="stylesheet" href="./css/error_pages.css">
+    <link rel="stylesheet" href="./css/notifications.css">
 </head>
 
 <body>
@@ -83,7 +83,7 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a title="Exit" class="nav-link" href="/404.html">
+                        <a title="Exit" class="nav-link" href="/faq.html">
                             <i class="fas fa-sign-out-alt nav-item-icon"></i>
                             <span class="nav-item-label">Exit</span>
                         </a>
@@ -248,21 +248,136 @@
         </div>
     </div>
 
-    <div id="page-card" class="container card-container font-content not-found-container">
-        <header>
-            <h1>404 - Page not found</h1>
-        </header>
-        <div class="mobile-wave" id="background_wave"></div>
-        <div class="not-found-body">
-            <p>
-                The page you requested does not seem to exist.
-            </p>
-            <p>
-                To go back to the application click
-                <a href="/index_lin.html">here</a>.
-            </p>
+    <div id="page-card" class="container card-container font-content notifications-container">
+        <div class="container notifications-list">
+            <header>
+                <h1>Notifications</h1>
+            </header>
+            <div class="row no-gutters notification-item">
+                <div class="col-12">
+                    <div class="row header">
+                        <a class="col-8 col-md-10 title font-title" href="/event/6">
+                            Event Update
+                            <div class="timestamp">
+                                13-04-2020, 19:48
+                            </div>
+                        </a>
+                        <div class="col-4 col-md-2 ml-auto actions d-flex justify-content-end">
+                            <div class="row">
+                                <span class="col-6 delete">
+                                    <i class="fas fa-times"></i>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12 description">
+                            The details of &quot;Bird Watching&quot; have been updated. Make sure to check them as soon
+                            as possible
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row no-gutters notification-item">
+                <div class="col-12">
+                    <div class="row header">
+                        <a class="col-8 col-md-10 title font-title" href="#">
+                            An issue you created has been solved
+                            <div class="timestamp">
+                                01-03-2020, 11:31
+                            </div>
+                        </a>
+                        <div class="col-4 col-md-2 ml-auto actions d-flex justify-content-end">
+                            <div class="row">
+                                <span class="col-6 delete">
+                                    <i class="fas fa-times"></i>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12 description">
+                            Issue &quot;Fake Event&quot; has been solved: We, the admins, solved your issue
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row no-gutters notification-item">
+                <div class="col-12">
+                    <div class="row header">
+                        <a class="col-8 col-md-10 title font-title" href="/event/4">
+                            You have become an organizer of an event
+                            <div class="timestamp">
+                                20-04-2019, 22:43
+                            </div>
+                        </a>
+                        <div class="col-4 col-md-2 ml-auto actions d-flex justify-content-end">
+                            <div class="row">
+                                <span class="col-6 delete">
+                                    <i class="fas fa-times"></i>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12 description">
+                            You are now an organizer of &quot;Enjoying Berlin&quot;
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row no-gutters notification-item">
+                <div class="col-12">
+                    <div class="row header">
+                        <a class="col-8 col-md-10 title font-title" href="/event/5">
+                            You have become an organizer of an event
+                            <div class="timestamp">
+                                20-04-2019, 22:43
+                            </div>
+                        </a>
+                        <div class="col-4 col-md-2 ml-auto actions d-flex justify-content-end">
+                            <div class="row">
+                                <span class="col-6 delete">
+                                    <i class="fas fa-times"></i>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12 description">
+                            You are now an organizer of &quot;Tech Meeting - UK Edition&quot;
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row no-gutters notification-item">
+                <div class="col-12">
+                    <div class="row header">
+                        <a class="col-8 col-md-10 title font-title" href="/event/1">
+                            You have become an organizer of an event
+                            <div class="timestamp">
+                                20-04-2019, 22:43
+                            </div>
+                        </a>
+                        <div class="col-4 col-md-2 ml-auto actions d-flex justify-content-end">
+                            <div class="row">
+                                <span class="col-6 delete">
+                                    <i class="fas fa-times"></i>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12 description">
+                            You are now an organizer of &quot;SINF 2020&quot;
+                        </div>
+                    </div>
+                </div>
+            </div>
+
         </div>
     </div>
+
 
     <footer class="container-fluid page-footer">
         <div class="container">
@@ -272,7 +387,9 @@
                     <p class="contact-item">Rua Dr. Roberto Frias, 4200-465 Porto, Portugal</p>
                     <p class="contact-item">+351 22 508 1440</p>
                     <p class="contact-item contact-item-mail"><a href="mailto:help@eventual.ly">help@eventual.ly</a></p>
-                    <p class="footer-questions">Have a question? Visit our <a class="footer-link" href="/faq.html">FAQs</a> or visit our <a class="footer-link" href="/#about">about</a> section.</p>
+                    <p class="footer-questions">Have a question? Visit our <a class="footer-link"
+                            href="/faq.html">FAQs</a> or visit our <a class="footer-link" href="/#about">about</a>
+                        section.</p>
                 </div>
             </div>
             <br><br>

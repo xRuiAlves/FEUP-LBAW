@@ -19,9 +19,8 @@ class EventController extends Controller
      *
      * @return void
      */
-    public function __construct()
-    {
-        $this->middleware('auth')->except(['show']);
+    public function __construct() {
+        $this->middleware('auth', ['except' => ['show']]);
     }
 
     /**
@@ -31,11 +30,11 @@ class EventController extends Controller
      * @return Response
      */
     public function show($id) {
-        // $event = Event::where('id', $id)
-        //                 ->select('id', 'title', 'description', 'price', 'location', 'latitude', 'longitude', 'start_timestamp', 'end_timestamp', 'status')
-        //                 ->first();
-
         $event = Event::find($id);
+
+        if (is_null($event)) {
+            return abort(404, 'The event with id ' . $id . ' does not seem to exist.');
+        }
 
         // TODO: Decide which view to show based on auth probably
         // $this->authorize('show', $event); //TODO
@@ -60,26 +59,9 @@ class EventController extends Controller
     }
 
     /**
-     * Lists all events. Not sure if should keep this or not <------------
+     * Creates a new event.
      *
-     * @return Response
-     */
-    public function list() {
-        // TODO
-        // if (!Auth::check()) return redirect('/login');
-        // $this->authorize('list', Card::class);
-
-        // $events = Auth::user()->cards()->orderBy('id')->get();
-
-        // return view('pages.cards', ['cards' => $cards]);
-
-        // Temporary debug
-        return Event::select()->get();
-    }
-
-    /**
-     * Renders the event creation page
-     *
+     * @return Event The event created.
      */
     public function create(Request $request) {
         // TODO
@@ -141,6 +123,15 @@ class EventController extends Controller
         $event->save();
 
         return redirect('/event/'.$event->id);
+    }
+
+    /**
+     * Updates an existing event.
+     * 
+     * @return Event The updated event.
+     */
+    public function update(Request $request) {
+
     }
 
     public function delete(Request $request, $id) {
