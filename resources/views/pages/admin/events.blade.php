@@ -1,7 +1,7 @@
 @extends('layouts.admin', ['activeTable' => 'events'])
 
 @section('table')
-<div id="events-table" class="admin-dashboard col-12 col-md-11">
+<div id="events-table" class="admin-dashboard col-12 col-md-10 col-xl-11">
     <div class="collapse-title custom-title">Events</div>
         <div class="searchbar-container">
             <input class="searchbar" type="text" placeholder="Event name, location, ..." />

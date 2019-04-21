@@ -2,7 +2,7 @@
 
 @section('table')
 
-<div id="issue-table" class="admin-dashboard col-12 col-md-11">
+<div id="issue-table" class="admin-dashboard col-12 col-md-10 col-xl-11">
     <div class="custom-title">Issues</div>
     <div class="searchbar-container">
         <input class="searchbar" type="text" placeholder="Event, user, issue id, ..." />

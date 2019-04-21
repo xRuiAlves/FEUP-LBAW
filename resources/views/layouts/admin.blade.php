@@ -17,16 +17,19 @@
         <hr>
     </div>
     <div class="row" id="admin-tabs">
-        <div class="col-12 col-md-1">
+        <div class="col-12 col-md-2 col-xl-1">
             <div class="row no-guters nav nav-pills" role="tablist">
-            <a id="user-tab" class="col-4 col-md-12 container admin-tab {{$activeTable === 'users' ? 'active' : ''}}" href="/admin/users">
+                <a id="user-tab" class="col-3 col-md-12 container admin-tab {{$activeTable === 'users' ? 'active' : ''}}" href="/admin/users">
                     Users
                 </a>
-                <a id="events-tab" class="col-4 col-md-12 container admin-tab {{$activeTable === 'events' ? 'active' : ''}}" href="/admin/events">
+                <a id="events-tab" class="col-3 col-md-12 container admin-tab {{$activeTable === 'events' ? 'active' : ''}}" href="/admin/events">
                     Events
                 </a>
-                <a id="issues-tab" class="col-4 col-md-12 container admin-tab {{$activeTable === 'issues' ? 'active' : ''}}" href="/admin/issues">
+                <a id="issues-tab" class="col-3 col-md-12 container admin-tab {{$activeTable === 'issues' ? 'active' : ''}}" href="/admin/issues">
                     Issues
+                </a>
+                <a id="categories-tab" class="col-3 col-md-12 container admin-tab {{$activeTable === 'categories' ? 'active' : ''}}" href="/admin/categories">
+                    Categories
                 </a>
             </div>
         </div>

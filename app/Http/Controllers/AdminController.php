@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Event;
+use App\EventCategory;
 use App\User;
 use App\Issue;
 
@@ -52,6 +53,18 @@ class AdminController extends Controller {
             return abort(401, 'You do not possess the required permissions to acces the administration pages');
         }
         return view('pages.admin.issues', ['issues' => Issue::paginate(10)]);
+    }
+
+    /**
+     * Show the admin dashboard for handling event categories.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function categories() {
+        if(!Auth::user()->is_admin) { // TODO: Change this to use policies
+            return abort(401, 'You do not possess the required permissions to acces the administration pages');
+        }
+        return view('pages.admin.categories', ['categories' => EventCategory::paginate(10)]);
     }
 
     /**

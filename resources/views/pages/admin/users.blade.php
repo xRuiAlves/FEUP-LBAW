@@ -2,7 +2,7 @@
 
 @section('table')
 
-<div id="user-table" class="admin-dashboard col-12 col-md-11">
+<div id="user-table" class="admin-dashboard col-12 col-md-10 col-xl-11">
     <div class="collapse-title custom-title">Users</div>
     <div class="searchbar-container">
         <input class="searchbar" type="text" placeholder="User name, email, ..." />
