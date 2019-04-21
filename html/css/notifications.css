@@ -1,0 +1,55 @@
+.card-container.notifications-container {
+    position: relative;
+    top: 7em;
+    margin-bottom: 12em;
+    padding-bottom: 2em;
+
+}
+    
+.card-container.notifications-container header h1 {
+    margin-bottom: 0.5em;
+}
+
+.card-container.notifications-container .notification-item{
+    padding: 1em 0em;
+}
+
+.card-container.notifications-container .notification-item a{
+    color: var(--secondary-color);
+}
+
+.card-container.notifications-container .notification-item .title{
+    font-size: 1.1em;
+    font-weight: bold;
+}
+
+.card-container.notifications-container .notification-item .timestamp{
+    color: var(--color-grey);
+    display: inline-block;
+    padding: 0 0.5em;
+    font-size: 0.8em;
+}
+
+.card-container.notifications-container .notification-item ~ .notification-item{
+    border-top: 1px var(--color-grey) solid;
+}
+
+@media only screen and (max-width: 576px) {
+    .card-container.notifications-container {
+        -webkit-box-shadow: none;
+        -moz-box-shadow: none;
+        box-shadow: none;
+        top: 0;
+        padding: 0;
+        margin-bottom: 2em;
+        border-radius: 0;
+        background: transparent;    
+    }
+
+    .card-container.notifications-container header h1 {
+        padding-left: 0.5em;
+        padding-top: 0.5em;
+        background-color: var(--primary-color);
+        margin-bottom: 3.5em;
+    }
+}
