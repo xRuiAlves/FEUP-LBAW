@@ -49,7 +49,7 @@
                             <div class="item-day-week">{{strtoupper($event->start_date_day_of_week)}}</div>
                         </div>
                         <div class="dashboard-day-items">
-                            <a href="/event/{{$event->id}}" class="dashboard-day-item {{$event->relationship === 'attendee' ? 'item-type-attendee' : 'item-type-organizer'}}">
+                            <a href="{{$event->href}}" class="dashboard-day-item {{$event->relationship === 'attendee' ? 'item-type-attendee' : 'item-type-organizer'}}">
                                 <header class="row">
                                     <div class="col-12">
                                         {{$event->title}}

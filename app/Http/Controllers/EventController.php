@@ -122,7 +122,7 @@ class EventController extends Controller
         $event->user_id = auth()->user()->id;
         $event->save();
 
-        return redirect('/event/'.$event->id);
+        return redirect($event->href);
     }
 
     /**

@@ -125,7 +125,7 @@
 
 <div class="events">
     @foreach ($events as $event)
-    <a class="container card-container event-card" href="/event/{{$event->id}}">
+    <a class="container card-container event-card" href="{{$event->href}}">
         <header class="row">
             <div class="col-12">
                 <h3>{{$event->title}}</h3>
