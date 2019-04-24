@@ -16,9 +16,7 @@ COPY docker_run.sh /docker_run.sh
 RUN mkdir /var/run/php
 
 WORKDIR /var/www
-RUN pwd
 RUN php artisan config:clear
-RUN php artisan cache:clear
 RUN php artisan config:cache
 
 # Start command
