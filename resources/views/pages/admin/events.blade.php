@@ -8,10 +8,14 @@
 @section('table')
 <div id="events-table" class="admin-dashboard col-12 col-md-10 col-xl-11">
     <div class="collapse-title custom-title">Events</div>
-        <div class="searchbar-container">
-            <input class="searchbar" type="text" placeholder="Event name, location, ..." />
-            <i class="fas fa-search icon-right"></i>
-        </div>
+    <div class="searchbar-container">
+        <form class="form-inline" action="" method="get">
+            <label class="sr-only" for="inlineFormInputName2">Name</label>
+            <input type="text" class="form-control mb-2 mr-sm-2" id="inlineFormInputName2" placeholder="ENEI 2018" name="search">
+            
+            <button type="submit" class="btn btn-primary mb-2">Submit</button>
+        </form>
+    </div>
         <div class="row no-gutters">
             <div class="col-12">
                 <button id="disable_events_btn" class="btn action-btn">Disable selected events</button>

@@ -58,4 +58,11 @@ class User extends Authenticatable
     public function notifications() {
         return $this->hasMany('App\Notification', 'user_id', 'id');
     }
+
+    public function scopeFTS($query, $search) {
+
+        return $query->selectRaw('id, name, email')
+        ->whereRaw("search @@ plainto_tsquery('english', ?)", [$search])
+        ->orderByRaw("ts_rank(search, plainto_tsquery('english', ?)) DESC", [$search]);
+    }
 }

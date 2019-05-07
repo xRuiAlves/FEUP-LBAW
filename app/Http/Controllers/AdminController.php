@@ -12,6 +12,9 @@ use App\User;
 use App\Issue;
 
 class AdminController extends Controller {
+
+    const ITEMS_PER_PAGE = 10;
+
     /**
      * Create a new controller instance.
      *
@@ -26,11 +29,22 @@ class AdminController extends Controller {
      *
      * @return \Illuminate\Http\Response
      */
-    public function users() {
+    public function users(Request $request) {
         if(!Auth::user()->is_admin) { // TODO: Change this to use policies
             return abort(401, 'You do not possess the required permissions to acces the administration pages');
         }
-        return view('pages.admin.users', ['users' => User::paginate(10)]);
+        
+        $search_query = $request->get('search');
+        
+        if(!empty($search_query)){
+            $users = User::FTS($search_query)->paginate(AdminController::ITEMS_PER_PAGE);
+
+            $users->withPath('?search='.$search_query);
+        }else{
+            $users = User::paginate(AdminController::ITEMS_PER_PAGE);
+        }
+
+        return view('pages.admin.users', ['users' => $users]);
     }
 
     /**
@@ -38,11 +52,22 @@ class AdminController extends Controller {
      *
      * @return \Illuminate\Http\Response
      */
-    public function events() {
+    public function events(Request $request) {
         if(!Auth::user()->is_admin) { // TODO: Change this to use policies
             return abort(401, 'You do not possess the required permissions to acces the administration pages');
         }
-        return view('pages.admin.events', ['events' => Event::paginate(10)]);
+
+        $search_query = $request->get('search');
+        
+        if(!empty($search_query)){
+            $events = Event::FTS($search_query)->paginate(AdminController::ITEMS_PER_PAGE);
+
+            $events->withPath('?search='.$search_query);
+        }else{
+            $events = Event::paginate(AdminController::ITEMS_PER_PAGE);
+        }
+
+        return view('pages.admin.events', ['events' => $events]);
     }
 
     /**
@@ -50,11 +75,22 @@ class AdminController extends Controller {
      *
      * @return \Illuminate\Http\Response
      */
-    public function issues() {
+    public function issues(Request $request) {
         if(!Auth::user()->is_admin) { // TODO: Change this to use policies
             return abort(401, 'You do not possess the required permissions to acces the administration pages');
         }
-        return view('pages.admin.issues', ['issues' => Issue::paginate(10)]);
+
+        $search_query = $request->get('search');
+        
+        if(!empty($search_query)){
+            $issues = Issue::FTS($search_query)->paginate(AdminController::ITEMS_PER_PAGE);
+
+            $issues->withPath('?search='.$search_query);
+        }else{
+            $issues = Issue::paginate(AdminController::ITEMS_PER_PAGE);
+        }
+
+        return view('pages.admin.issues', ['issues' => $issues]);
     }
 
     /**
@@ -66,7 +102,7 @@ class AdminController extends Controller {
         if(!Auth::user()->is_admin) { // TODO: Change this to use policies
             return abort(401, 'You do not possess the required permissions to acces the administration pages');
         }
-        return view('pages.admin.categories', ['categories' => EventCategory::paginate(10)]);
+        return view('pages.admin.categories', ['categories' => EventCategory::paginate(AdminController::ITEMS_PER_PAGE)]);
     }
 
     /**

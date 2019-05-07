@@ -16,18 +16,6 @@
 //     return redirect('login');
 // });
 
-
-// Cards
-Route::get('cards', 'CardController@list');
-Route::get('cards/{id}', 'CardController@show');
-
-// API
-Route::put('api/cards', 'CardController@create');
-Route::delete('api/cards/{card_id}', 'CardController@delete');
-Route::put('api/cards/{card_id}/', 'ItemController@create');
-Route::post('api/item/{id}', 'ItemController@update');
-Route::delete('api/item/{id}', 'ItemController@delete');
-
 ///////////////////////////////////////////////////
 ///////////////////////////////////////////////////
 ///////////////////////////////////////////////////
@@ -61,9 +49,3 @@ Route::get('admin/users', 'AdminController@users')->name('admin-users');
 Route::get('admin/issues', 'AdminController@issues')->name('admin-issues');
 Route::get('admin/events', 'AdminController@events')->name('admin-events');
 Route::get('admin/categories', 'AdminController@categories')->name('admin-categories');
-
-
-
-
-//fixeroo
-Route::get('/Y2xlYXJfY2FjaGUK', 'CacheController@clear');

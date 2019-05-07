@@ -14,11 +14,15 @@
     {{-- <script type="text/javascript" src={{ asset('js/app.js') }} defer>
     </script> --}}
 
-    <script src="{{ asset('bootstrap/jquery-3.3.1.min.js') }}" defer></script>
-    <script src="{{ asset('bootstrap/popper.min.js') }}" defer></script>
-    <script src="{{ asset('bootstrap/js/bootstrap.min.js') }}" defer></script>
-    <script src="{{ asset('js/form_validation.js') }}" defer></script>
+    <script type="text/javascript" src="{{ asset('bootstrap/jquery-3.3.1.min.js') }}" defer></script>
+    <script type="text/javascript" src="{{ asset('bootstrap/popper.min.js') }}" defer></script>
+    <script type="text/javascript" src="{{ asset('bootstrap/js/bootstrap.min.js') }}" defer></script>
+    <script type="text/javascript" src="{{ asset('js/form_validation.js') }}" defer></script>
+    <script type="text/javascript" src="{{ asset('js/moment.js/moment-with-locales.js') }}" defer></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.0.0-alpha14/js/tempusdominus-bootstrap-4.min.js" defer></script>
+    @yield('scripts')
     
+
     <link href="{{ asset('bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
     <link href="{{ asset('fonts/Fonts.css') }}" rel="stylesheet">
     <link href="{{ asset('fontawesome/css/all.css') }}" rel="stylesheet">
@@ -26,6 +30,8 @@
     <link href="{{ asset('css/constants.css') }}" rel="stylesheet">
     <link href="{{ asset('css/navbar.css') }}" rel="stylesheet">
     <link href="{{ asset('css/common.css') }}" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.0.0-alpha14/css/tempusdominus-bootstrap-4.min.css" />
     @yield('css_includes')
 </head>
 
@@ -36,11 +42,14 @@
         @endif
     </header>
     
+    
     @yield('content')
-
+    
+    
     @if(empty($hideFooter))
         @include('inc.footer')
     @endif
+
 </body>
 
 </html>

@@ -25,19 +25,36 @@
         </header>
         <div class="mobile-wave" id="background_wave"></div> <!-- why tho -->
         <div class="row no-gutters event-details font-title">
-            <div class="col-12 col-sm-6 event-spacetime">
+            <div class="col-12 col-lg-6 event-spacetime">
                 <div class="row no-gutters date event-field form-group">
-                    <span>
-                        <i class="far fa-calendar-alt icon-left"></i>
-                    </span>
-                    
-                    <label> Start
-                        <input class="form-control" required type="datetime-local" value="{{Request::old('start_timestamp')}}" name="start_timestamp"></input>
-                        <div class="invalid-feedback">Please provide at least a start date for the event</div>
-                    </label>
-                    <label> End (Optional)
-                        <input class="form-control" type="datetime-local" value="{{Request::old('end_timestamp')}}" name="end_timestamp"></input>
-                    </label>
+                    <div class="col-12">
+                        <label> 
+                            <span>
+                                <i class="far fa-calendar-alt icon-left"></i>
+                            </span>
+                            Start
+                            <div class="input-group date" id="datetimepicker_start" data-target-input="nearest">
+                                <input type="text" class="form-control datetimepicker-input" required data-target="#datetimepicker_start" value="{{Request::old('start_timestamp')}}" name="start_timestamp"/>
+                                <div class="input-group-append" data-target="#datetimepicker_start" data-toggle="datetimepicker">
+                                    <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                                </div>
+                            </div>
+                            <div class="invalid-feedback">Please provide at least a start date for the event</div>
+                            
+
+                        </label>
+                    </div>
+                    <div class="col-12">
+                        <label> End (Optional)
+                            <div class="input-group date" id="datetimepicker_end" data-target-input="nearest">
+                                <input type="text" class="form-control datetimepicker-input" data-target="#datetimepicker_end" value="{{Request::old('end_timestamp')}}" name="end_timestamp"/>
+                                <div class="input-group-append" data-target="#datetimepicker_end" data-toggle="datetimepicker">
+                                    <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                                </div>
+                            </div>
+                            <div class="invalid-feedback">Please provide at least a start date for the event</div>
+                        </label>
+                    </div>
                 </div>
                 <div class="row no-gutters">
                     <div class="col-12 location event-field">
@@ -51,7 +68,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-12 col-sm-6 event-category">
+            <div class="col-12 col-lg-6 event-category">
                 <div class="row no-gutters">
                     <div class="col-12 price event-field">
                         <div class="form-group">
@@ -103,4 +120,9 @@
         @endif
     </form>
 </div>
+@endsection
+
+@section('scripts')
+<script src="{{ asset('js/setlocale-datetime.js') }}" type="text/javascript" defer>
+</script>
 @endsection
