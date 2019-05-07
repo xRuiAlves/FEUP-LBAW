@@ -10,7 +10,7 @@ use App\EventCategory;
 class HomepageController extends Controller
 {
 
-    const ITEMS_PER_PAGE = 1;
+    const ITEMS_PER_PAGE = 5;
 
     public function display(Request $request) {
 

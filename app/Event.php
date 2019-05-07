@@ -172,6 +172,19 @@ class Event extends Model
     ];
 
     /**
+     * Scope a query to include events' categories
+     * 
+     * @param \Illuminate\Database\Eloquent\Builder $query
+     * @return \Illuminate\Database\Eloquent\Builder
+     */
+    public function scopeWithCategory($query) {
+        return $query
+        ->select()
+        ->addSelect(DB::raw('event_categories.name AS category'))
+        ->join('event_categories', 'events.event_category_id', '=', 'event_categories.id');
+    }
+
+    /**
      * Scope a query to only include most relevant events
      * 
      * @param \Illuminate\Database\Eloquent\Builder $query
@@ -232,7 +245,8 @@ class Event extends Model
 
     public function scopeFTS($query, $search) {
 
-        $this->FTSScope($query, $search);
+        echo $query->get();
+        // return $this->FTSScope($query, $search);
     }
 
 }
