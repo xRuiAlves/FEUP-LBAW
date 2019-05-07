@@ -186,17 +186,14 @@ a:hover {
 
 /******* DROPDOWNS *******/
 
-.scrollable-menu {
-    height: auto;
-    max-height: 200px;
-    overflow-x: hidden;
-}
-
-
 .dropdown{
     display: flex;
     flex-direction: column;
     justify-content: center;
+    font-size: 0.6em;
+}
+.dropdown select {
+    border: none;
 }
 
 

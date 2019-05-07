@@ -2,6 +2,7 @@
 
 namespace App;
 
+use Illuminate\Support\Facades\DB;
 use Illuminate\Database\Eloquent\Model;
 use App\Utilities\TimeUtilities;
 
@@ -177,7 +178,11 @@ class Event extends Model
      * @return \Illuminate\Database\Eloquent\Builder
      */
     public function scopeRelevant($query) {
-        return $query->futureEvents()->orderBy('start_timestamp', 'asc');
+        return $query->futureEvents()
+        ->select()
+        ->addSelect(DB::raw('event_categories.name AS category'))
+        ->join('event_categories', 'events.event_category_id', '=', 'event_categories.id')
+        ->orderBy('start_timestamp', 'asc');
     }
 
     /**
@@ -200,20 +205,34 @@ class Event extends Model
         return $query->active()->where('start_timestamp', '>', 'NOW()');
     }
 
-    public function scopeFTS($query, $search) {
 
-        // SELECT events.id, title, price, latitude, longitude, start_timestamp,                 end_timestamp, event_categories.name AS category
-        // FROM events
-        // INNER JOIN event_categories ON (events.event_category_id = event_categories.id)
-        // WHERE search @@ plainto_tsquery('english', :search_query)
-        // ORDER BY ts_rank(search, plainto_tsquery('english', :search_query)) DESC
-        // LIMIT 10
-        // OFFSET :offset;
 
+    protected function LocationScope($query, $location) {
+        return $query->where('location', 'like', '%'.$location.'%');
+    }
+
+
+    /**
+     * Scope a query to only include events located at given parameter
+     * 
+     * @param \Illuminate\Database\Eloquent\Builder $query
+     * @return \Illuminate\Database\Eloquent\Builder
+     */
+    public function scopeLocated($query, $location) {
+        $this->LocationScope($query, $location);
+    }
+
+    
+    protected function FTSScope($query, $search) {
         return $query->selectRaw('events.id, title, price, latitude, longitude, start_timestamp, end_timestamp, event_categories.name AS category')
-        ->join('event_categories', 'events.event_category_id', '=', 'event_categories.id')        
         ->whereRaw("search @@ plainto_tsquery('english', ?)", [$search])
         ->orderByRaw("ts_rank(search, plainto_tsquery('english', ?)) DESC", [$search]);
+
+    }
+
+    public function scopeFTS($query, $search) {
+
+        $this->FTSScope($query, $search);
     }
 
 }

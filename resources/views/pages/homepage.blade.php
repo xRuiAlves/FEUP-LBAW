@@ -92,18 +92,13 @@
             <input type="text" placeholder="Location" />
         </div>
         <div class="col-12 col-sm-3 col-lg-2">
-            <div class="dropdown">
-                <button class="btn dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown">
-                    Category
-                </button>
-                <div class="dropdown-menu scrollable-menu">
-                    <a class="dropdown-item" href="#">Sports</a>
-                    <a class="dropdown-item" href="#">Arts</a>
-                    <a class="dropdown-item" href="#">Technology</a>
-                    <a class="dropdown-item" href="#">Animals</a>
-                    <a class="dropdown-item" href="#">Learning</a>
-                    <a class="dropdown-item" href="#">Politics</a>
-                </div>
+            <div class="dropdown">                
+                <select required name="event_category_id" class="custom-select">
+                    <option value="" selected disabled>Category</option>
+                    @foreach ($categories as $category)
+                    <option value="{{ $category->id }}" {{ (Request::old("event_category_id") == $category->id ? "selected":"") }}>{{ $category->name }}</option>
+                    @endforeach
+                </select>
             </div>
         </div>
         <div class="col-12 col-sm-3 col-lg-2">
@@ -141,7 +136,7 @@
                 <span>
                     <i class="fas fa-tag"></i>
                 </span>
-                {{$event->category->name}}
+                {{$event->category}}
             </div>
         </header>
         <footer class="row">
