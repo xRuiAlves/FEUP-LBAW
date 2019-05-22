@@ -41,7 +41,6 @@ Route::put('api/event/disable', 'AdminController@disableEvent');
 
 // Issues
 Route::post('issue/create', 'IssueController@create');
-Route::get('issue/create', 'IssueController@create');
 
 // User stuff
 Route::get('notifications', 'NotificationsController@show')->name('notifications');
