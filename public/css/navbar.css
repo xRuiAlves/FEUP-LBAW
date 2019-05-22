@@ -70,6 +70,17 @@
     border-color: var(--color-grey-medium);
 }
 
+.header-container {
+    display: flex;
+    align-items: center;
+}
+
+.form-info {
+    margin-left: 0.6em;
+    font-size: 1.2em;
+    cursor: pointer;
+}
+
 
 @media screen and (min-width: 992px) {
     /* Only adding the hover to >lg devices (equal to the configured collapse in the navbar) */

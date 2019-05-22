@@ -88,7 +88,10 @@
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <div class="modal-title custom-modal-title">Submit an Issue</div>
+                <div class="header-container">
+                    <div class="modal-title custom-modal-title">Submit an Issue</div>
+                    <i class="fas fa-question-circle form-info" data-toggle="popover" data-placement="top" data-content="This form allows you to contact the website administrators with any issue you might be experiencing."></i>
+                </div>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
