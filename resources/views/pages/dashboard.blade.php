@@ -9,7 +9,7 @@
 @section('content')
 <div id="background_wave"></div>
 
-<div id="page_card" class="container card-container font-content user-dashboard-container">
+<div id="page-card" class="container card-container font-content user-dashboard-container">
     <header class="row no-gutters">
         <div class="col-12 col-sm-8 title font-title">
             <h1>Your Events</h1>

@@ -7,7 +7,7 @@
 @section('title', '401 - Unauthorized')
 
 @section('content')
-    <div class="regular-wave" id="background_wave"></div>
+    <div id="background_wave"></div>
     
     <div id="page-card" class="container card-container font-content not-found-container">
         <header>

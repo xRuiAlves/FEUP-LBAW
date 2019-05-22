@@ -7,7 +7,7 @@
 @section('title', $event->title)
 
 @section('content')
-<div class="regular-wave" id="background_wave"></div>
+<div id="background_wave"></div>
 
 <div id="page-card" class="container card-container font-content event-card">
     <div class="event-brief">

@@ -8,7 +8,7 @@
 @section('title', 'Create Event')
 
 @section('content')
-<div class="regular-wave" id="background_wave"></div>
+<div id="background_wave"></div>
 
 <div id="page-card" class="container card-container font-content event-card event-creation-container">
     <form novalidate class="needs-validation" action="/event/create" method="post">

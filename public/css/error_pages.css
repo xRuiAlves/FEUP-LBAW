@@ -40,5 +40,6 @@
 
     .not-found-body {
         padding: 0 1em;
+        margin-bottom: 3em;
     }
 }

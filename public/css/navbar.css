@@ -57,9 +57,19 @@
     border-bottom-color: var(--color-grey-medium);
 }
 
+.create-issue-form input[name="title"]::placeholder {
+    color: var(--color-grey-medium);
+}
+
 .create-issue-form input[name="title"]:focus::placeholder {
     color: var(--color-grey-medium);
 }
+
+.create-issue-form textarea[name="description"] {
+    border: 2px solid;
+    border-color: var(--color-grey-medium);
+}
+
 
 @media screen and (min-width: 992px) {
     /* Only adding the hover to >lg devices (equal to the configured collapse in the navbar) */

@@ -237,15 +237,16 @@ footer.page-footer p.footer-questions {
         -webkit-mask-position: center;
     }
     
-    .regular-wave#background_wave {
-        display: none;
-    }
-    
     footer.page-footer {
         padding: 0.5em;
     }
 
-    #page_card.card-container.login-register {
+    #page-card.card-container {
+        position: static;
+        top: 0;
+    }
+
+    #page-card.card-container.login-register {
         -webkit-box-shadow: none;
         -moz-box-shadow: none;
         box-shadow: none;
@@ -256,7 +257,7 @@ footer.page-footer p.footer-questions {
         background: transparent;    
     }
 
-    #page_card.card-container.login-register .modal-title {
+    #page-card.card-container.login-register .modal-title {
         color: var(--secondary-color-medium-dark); 
         font-weight: bold;
         margin: 0.5em 0 3em 0.5em;
