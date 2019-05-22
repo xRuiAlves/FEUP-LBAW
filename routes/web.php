@@ -39,6 +39,10 @@ Route::post('/event/create', 'EventController@store');
 Route::put('api/event/enable', 'AdminController@enableEvent');
 Route::put('api/event/disable', 'AdminController@disableEvent');
 
+// Issues
+Route::post('issue/create', 'IssueController@create');
+Route::get('issue/create', 'IssueController@create');
+
 // User stuff
 Route::get('notifications', 'NotificationsController@show')->name('notifications');
 Route::get('dashboard', 'UserController@showDashboard')->name('dashboard');

@@ -104,7 +104,7 @@
                         <div class="invalid-feedback">Please provide a title for the issue</div>
                     </div>
                     <div class="form-group">
-                        <textarea class="form-control" required name="description" placeholder="Tell us what's wrong">{{ old('description') }}</textarea>
+                        <textarea class="form-control" required name="content" placeholder="Tell us what's wrong">{{ old('content') }}</textarea>
                         <div class="invalid-feedback">Please describe your issue</div>
                     </div>
                 </div>
