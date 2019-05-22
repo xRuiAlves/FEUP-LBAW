@@ -49,6 +49,18 @@
     display: none;
 }
 
+.create-issue-form input[name="title"] {
+    border-bottom-color: var(--color-grey-medium);
+}
+
+.create-issue-form input[name="title"]:focus {
+    border-bottom-color: var(--color-grey-medium);
+}
+
+.create-issue-form input[name="title"]:focus::placeholder {
+    color: var(--color-grey-medium);
+}
+
 @media screen and (min-width: 992px) {
     /* Only adding the hover to >lg devices (equal to the configured collapse in the navbar) */
     .navbar-nav.nav-highlighted .nav-item:hover {

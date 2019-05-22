@@ -93,12 +93,20 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <form>
-                <div class="modal-body">
-                    <textarea name="announcement-content" placeholder="Tell us what's wrong ..."></textarea>
+            <form novalidate class="needs-validation create-issue-form" action="/issue/create" method="post">
+                {{ csrf_field() }}
+                <div class="modal-body">                 
+                    <div class="form-group">
+                        <input class="form-control" required type="text" name="title" placeholder="Title" autocomplete="off" value="{{ old('price') }}"></input>
+                        <div class="invalid-feedback">Please provide a title for the issue</div>
+                    </div>
+                    <div class="form-group">
+                        <textarea class="form-control" required name="description" placeholder="Tell us what's wrong">{{ old('description') }}</textarea>
+                        <div class="invalid-feedback">Please describe your issue</div>
+                    </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn publish-button" data-dismiss="modal">Submit</button>
+                    <button type="submit" class="btn publish-button">Submit</button>
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                 </div>
             </form>
