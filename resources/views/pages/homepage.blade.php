@@ -27,16 +27,20 @@
             </div>
         </div>
     </div>
-    @if(Auth::guest())
     <div class="banner-corner-actions">
+    @if(Auth::guest())
         <a href="{{route('login')}}" title="Log In">
             Login
         </a>
         <a href="{{route('register')}}" title="Register">
             Register
         </a>
-    </div>
+    @else
+        <a href="{{route('logout')}}" title="Log Out">
+            Logout
+        </a>
     @endif
+</div>
     <div id="banner-buttons">
         <div class="row">
             <div class="col-sm-12 col-md-8 col-lg-6 col-xl-4">

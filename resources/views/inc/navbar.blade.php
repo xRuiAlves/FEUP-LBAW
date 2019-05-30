@@ -16,7 +16,7 @@
                     <a class="nav-link" href="/#search-box-anchor">Search</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/event/create">Host</a>
+                    <a class="nav-link" href="/event/create">Create Event</a>
                 </li>
 
                 <form class=" nav-item ml-2 my-2 my-lg-0">
