@@ -1,5 +1,7 @@
 @extends('layouts.app')
 
+@section('title', 'Register - Eventually')
+
 @section('content')
 <div id="background_wave"></div>
 

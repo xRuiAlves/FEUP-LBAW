@@ -4,7 +4,7 @@
 <link href="{{ asset('css/notifications.css') }}" rel="stylesheet">
 @endsection
 
-@section('title', 'Notifications')
+@section('title', 'Notifications - Eventually')
 
 @section('content')
     <div id="background_wave"></div>

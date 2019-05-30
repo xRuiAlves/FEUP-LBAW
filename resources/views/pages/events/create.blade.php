@@ -5,7 +5,7 @@
 <link rel="stylesheet" href="{{ asset('css/create_event.css') }}">
 @endsection
 
-@section('title', 'Create Event')
+@section('title', 'Create Event - Eventually')
 
 @section('content')
 <div id="background_wave"></div>

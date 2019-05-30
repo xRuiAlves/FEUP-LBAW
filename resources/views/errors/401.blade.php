@@ -4,7 +4,7 @@
 <link href="{{ asset('css/error_pages.css') }}" rel="stylesheet">
 @endsection
 
-@section('title', '401 - Unauthorized')
+@section('title', 'Unauthorized - Eventually')
 
 @section('content')
     <div id="background_wave"></div>

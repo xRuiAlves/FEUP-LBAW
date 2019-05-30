@@ -4,7 +4,7 @@
 {{-- navbar --}}
 @endsection
 
-@section('title', 'Login')
+@section('title', 'Login - Eventually')
 
 @section('content')
 <div id="background_wave"></div>

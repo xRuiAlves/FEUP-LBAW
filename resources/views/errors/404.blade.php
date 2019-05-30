@@ -4,7 +4,7 @@
 <link href="{{ asset('css/error_pages.css') }}" rel="stylesheet">
 @endsection
 
-@section('title', '404 - Not Found')
+@section('title', 'Not Found - Eventually')
 
 @section('content')
     <div id="background_wave"></div>

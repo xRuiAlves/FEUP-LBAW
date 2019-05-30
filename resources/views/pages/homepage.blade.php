@@ -4,7 +4,7 @@
 <link href="{{ asset('css/main_page.css') }}" rel="stylesheet">
 @endsection
 
-@section('title', 'Eventually Homepage')
+@section('title', 'Eventually')
 
 @section('content')
 

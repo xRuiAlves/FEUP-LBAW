@@ -4,7 +4,7 @@
 <link href="{{ asset('css/admin_dashboard.css') }}" rel="stylesheet">
 @endsection
 
-@section('title', 'Admin Dashboard')
+@section('title', 'Admin Dashboard - Eventually')
 
 @section('content')
 

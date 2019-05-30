@@ -4,7 +4,7 @@
 <link href="{{ asset('css/event_page.css') }}" rel="stylesheet">
 @endsection
 
-@section('title', $event->title)
+@section('title', $event->title . ' - Eventually')
 
 @section('content')
 <div id="background_wave"></div>

@@ -4,7 +4,7 @@
 <link href="{{ asset('css/user_dashboard.css') }}" rel="stylesheet">
 @endsection
 
-@section('title', 'User Dashboard')
+@section('title', 'Dashboard - Eventually')
 
 @section('content')
 <div id="background_wave"></div>

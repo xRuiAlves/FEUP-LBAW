@@ -4,7 +4,7 @@
 <link href="{{ asset('css/faq.css') }}" rel="stylesheet">
 @endsection
 
-@section('title', 'FAQ - Frequently Asked Questions')
+@section('title', 'FAQ - Eventually')
 
 @section('content')
     <div id="background_wave"></div>
