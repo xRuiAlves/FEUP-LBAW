@@ -6,6 +6,15 @@
     margin-bottom: 2em;
 }
 
+.user-dashboard-container > header .title-container {
+    display: flex;
+    align-items: center;
+}
+
+.user-dashboard-container > header .title-container h1 {
+    margin-bottom: 0;
+}
+
 .user-dashboard-container > header .label {
     display: flex;
     justify-content: flex-end;

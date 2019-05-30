@@ -12,7 +12,10 @@
 <div id="page-card" class="container card-container font-content user-dashboard-container">
     <header class="row no-gutters">
         <div class="col-12 col-sm-8 title font-title">
-            <h1>Your Events</h1>
+            <div class="title-container">
+                <h1>Dashboard</h1>
+                <i class="fas fa-question-circle form-info" data-toggle="popover" data-placement="top" data-content="In this page, you may view information of all events that you are attending and organizing."></i>
+            </div>
         </div>
         <div class="col-12 col-sm-4 labels">
             <div class="label">Organizing

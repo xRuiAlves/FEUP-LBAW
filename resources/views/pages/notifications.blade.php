@@ -13,6 +13,7 @@
         <div class="container notifications-list">
             <header>
                 <h1>Notifications</h1>
+                <i class="fas fa-question-circle form-info" data-toggle="popover" data-placement="top" data-content="In this page, you may view everything new that happened in Eventually, including changes in events and admin responses on issues you submitted."></i>
             </header>
             @if(count($notifications) > 0)
                 @foreach ($notifications as $notification)
