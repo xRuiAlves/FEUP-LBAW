@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
+use Illuminate\Support\Facades\DB;
 
 use App\Event;
 use App\EventCategory;
@@ -103,7 +104,9 @@ class AdminController extends Controller {
         if(!Auth::user()->is_admin) { // TODO: Change this to use policies
             return abort(401, 'You do not possess the required permissions to acces the administration pages');
         }
-        return view('pages.admin.categories', ['categories' => EventCategory::paginate(AdminController::ITEMS_PER_PAGE)]);
+
+        $categories = EventCategory::orderBy('id')->paginate(AdminController::ITEMS_PER_PAGE);
+        return view('pages.admin.categories', ['categories' => $categories]);
     }
 
     /**
@@ -215,12 +218,7 @@ class AdminController extends Controller {
             $notification->content = $content;
             $notification->save();
 
-            return response()->json([
-                'issue_id' => $issue_id,
-                'solver_id' => $solver_id,
-                'content' => $content,
-                'issue' => is_null($issue)
-            ], 200);
+            return response(null, 200);
         } catch (ModelNotFoundException $err) {
             return response(null, 404);
         }

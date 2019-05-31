@@ -149,7 +149,43 @@ class EventController extends Controller
         } catch (QueryException $err) {
             $err_msg = "";
             if ($err->getCode() == 23505) {
-                $err_message = "There already exists a category with the given name.";
+                $err_message = "There already exists a category with the '" . $name . "'.";
+            } else if ($err->getCode() == 22001) {
+                $err_message = "The category name must be, at most, 20 characters long.";
+            }
+
+            return response()->json([
+                'message' => $err_message
+            ], 400);
+        }
+    }
+
+    /**
+     * Renames an event category.
+     */
+    public function renameCategory(Request $request) {
+        $this->authorize('renameCategory', Event::class);
+
+        $validated_data = $request->validate([
+            'id' => 'required',
+            'name' => 'required'
+        ]);
+        
+        $id = $validated_data['id'];
+        $name = $validated_data['name'];
+
+        try {
+            $category = EventCategory::findOrFail($id);
+            $category->name = $name;
+            $category->save();
+
+            return response()->json([], 200);
+        } catch (ModelNotFoundException $err) {
+            return response()->json([], 404);
+        } catch (QueryException $err) {
+            $err_msg = "";
+            if ($err->getCode() == 23505) {
+                $err_message = "There already exists a category with the '" . $name . "'.";
             } else if ($err->getCode() == 22001) {
                 $err_message = "The category name must be, at most, 20 characters long.";
             }

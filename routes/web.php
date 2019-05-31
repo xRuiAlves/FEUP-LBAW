@@ -39,6 +39,7 @@ Route::post('/event/create', 'EventController@store');
 Route::put('api/event/enable', 'AdminController@enableEvent');
 Route::put('api/event/disable', 'AdminController@disableEvent');
 Route::post('/event/category', 'EventController@storeCategory');
+Route::put('/event/category/rename', 'EventController@renameCategory');
 
 // Issues
 Route::post('issue/create', 'IssueController@create');

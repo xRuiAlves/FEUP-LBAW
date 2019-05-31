@@ -6,7 +6,32 @@ const addEventListeners = () => {
         createCategory(name);
         $('#create-category-modal').modal('hide');
         name_node.value = "";
-    })
+    });
+
+    const rename_category_modal = document.querySelector("#rename-category-modal");
+    document.querySelectorAll("#categories-list tr").forEach((elem) => {
+        const button = elem.querySelector("button.rename-category-button");
+        const category_id = elem.querySelector("td:nth-child(1)").textContent;
+        const category_name = elem.querySelector("td:nth-child(2)").textContent;
+
+        button.addEventListener("click", () => {
+            $('#rename-category-modal').modal();
+            const modal_title = rename_category_modal.querySelector(".custom-modal-title");
+            modal_title.textContent = `Rename '${category_name}' category`;
+            modal_title.setAttribute("data-category-id", category_id);
+            modal_title.setAttribute("data-category-name", category_name);
+        })
+    });
+
+    rename_category_modal.querySelector("button.rename-category").addEventListener("click", () => {
+        const category_id = rename_category_modal.querySelector(".custom-modal-title").getAttribute("data-category-id");
+        const category_old_name = rename_category_modal.querySelector(".custom-modal-title").getAttribute("data-category-name");
+        const category_name = rename_category_modal.querySelector("input[name=name]").value;
+
+        renameCategory(category_id, category_name, category_old_name);
+        document.querySelector("#rename-category-modal input[name=name]").value = "";
+        $('#rename-category-modal').modal('hide');
+    });
 };
 
 const createCategory = (name) => {
@@ -26,20 +51,25 @@ const createCategory = (name) => {
             res.json()
             .then(json => {
                 const success_alert = document.querySelector("#status_messages > .alert-success");
+                const danger_alert = document.querySelector("#status_messages > .alert-danger");
                 success_alert.style.display = "";
+                danger_alert.style.display = "none";
                 success_alert.textContent = `Category '${name}' created successfully!`;
 
                 const num_categories = document.querySelector("#categories-list").childElementCount;
                 if (num_categories < 10) {
-                    createCategoryDOMNode(name, json.element_id);
+                    console.log(json)
+                    createCategoryDOMNode(name, json.category_id);
                 }
             });
         } else {
             res.json()
             .then(json => {
-                const success_alert = document.querySelector("#status_messages > .alert-danger");
-                success_alert.style.display = "";
-                success_alert.textContent = `Failed to create category. ${json.message}`;
+                const success_alert = document.querySelector("#status_messages > .alert-success");
+                const danger_alert = document.querySelector("#status_messages > .alert-danger");
+                success_alert.style.display = "none";
+                danger_alert.style.display = "";
+                danger_alert.textContent = `Failed to create category. ${json.message}`;
             });
         }
     });
@@ -60,6 +90,44 @@ const createCategoryDOMNode = (name, id) => {
     category_item.appendChild(td4);
 
     document.querySelector("#categories-list").appendChild(category_item);
+}
+
+const renameCategory = (id, name, old_name) => {
+    fetch('/event/category/rename', {
+        method: 'PUT',
+        body: JSON.stringify({
+            id,
+            name
+        }),
+        headers: {
+            'Content-Type': 'application/json',
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content'),
+            'Accept': 'application/json'
+        }
+    })
+    .then(res => {
+        if (res.status === 200) {
+            res.json()
+            .then(json => {
+                const success_alert = document.querySelector("#status_messages > .alert-success");
+                const danger_alert = document.querySelector("#status_messages > .alert-danger");
+                success_alert.style.display = "";
+                danger_alert.style.display = "none";
+                success_alert.textContent = `Category name updated from '${old_name}' to '${name}' successfully!`;
+                const category_node = document.querySelector(`td[data-category-name='${old_name}']`);
+                category_node.textContent = name;
+            });
+        } else {
+            res.json()
+            .then(json => {
+                const success_alert = document.querySelector("#status_messages > .alert-success");
+                const danger_alert = document.querySelector("#status_messages > .alert-danger");
+                success_alert.style.display = "none";
+                danger_alert.style.display = "";
+                danger_alert.textContent = `Failed to create category. ${json.message}`;
+            });
+        }
+    });
 }
 
 addEventListeners();

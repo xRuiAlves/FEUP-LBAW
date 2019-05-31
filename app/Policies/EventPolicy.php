@@ -40,6 +40,13 @@ class EventPolicy {
     }
 
     /**
+     * Determine whether the user can rename event categories.
+     */
+    public function renameCategory(User $user) {
+        return $user->is_admin;
+    }
+
+    /**
      * Determine whether the user can update the event.
      *
      * @param  \App\User  $user

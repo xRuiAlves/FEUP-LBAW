@@ -30,9 +30,9 @@
             <tbody id="categories-list">
                 @foreach($categories as $category)
                 <tr>
-                    <td>{{$category->id}}</td>
-                    <td>{{$category->name}}</td>
-                    <td>{{$category->n_events}}</td>
+                    <td data-category-id={{$category->id}}>{{$category->id}}</td>
+                    <td data-category-name={{$category->name}}>{{$category->name}}</td>
+                    <td >{{$category->n_events}}</td>
                     <td><button class="btn action-btn rename-category-button">Rename</button></td>
                 </tr>
                 @endforeach
@@ -65,6 +65,36 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn publish-button create-category">Create</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="rename-category-modal" class="modal fade font-content" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="header-container">
+                    <div class="modal-title custom-modal-title">Rename Category</div>
+                </div>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div novalidate class="needs-validation">
+                {{ csrf_field() }}
+                <div class="modal-body"> 
+                    <div class="form-group">
+                        <input type="text" name="name" autocomplete="off" placeholder="New category name" required class="form-control">
+                        <div class="invalid-feedback">
+                            Please provide the new category name
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn publish-button rename-category">Rename</button>
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                 </div>
             </div>
