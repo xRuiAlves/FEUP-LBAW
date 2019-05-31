@@ -48,6 +48,14 @@ class IssuePolicy
     }
 
     /**
+     * Determine whether the user can solve issues.
+     * Not passing in a specific issue because if he can solve one, he can solve all of them (must be admin)
+     */
+    public function solve(User $user) {
+        return $user->is_admin;
+    }
+
+    /**
      * Determine whether the user can delete the issue.
      *
      * @param  \App\User  $user

@@ -19,15 +19,13 @@
     </div>
     <div class="row no-gutters">
         <div class="col-12">
-            <button class="btn action-btn">Close selected issues</button>
-            <button class="btn float-right">Show closed issues</button>
+            <button class="btn action-btn">Show closed issues</button>
         </div>
     </div>
     <div class="content-table">
         <table class="table">
             <thead>
                 <tr>
-                    <th></th>
                     <th>Id</th>
                     <th>Name</th>
                     <th>Date</th>
@@ -38,8 +36,7 @@
             </thead>
             <tbody>
                 @foreach($issues as $issue)
-                <tr class="issue-header" data-toggle="collapse" data-target="#issue{{$issue->id}}collapse" data-issue-id={{$issue->id}}>
-                    <td><input type="checkbox"/></td>
+                <tr class="issue-header" data-toggle="collapse" data-target="#issue{{$issue->id}}collapse" data-issue-id={{$issue->id}} data-issue-creator-id={{$issue['creator_id']}}>
                     <td>{{$issue->id}}</td>
                     <td>{{$issue->creator_name}}</td>
                     <td>{{$issue->date}}</td>

@@ -10,6 +10,7 @@ use App\Event;
 use App\EventCategory;
 use App\User;
 use App\Issue;
+use App\Notification;
 
 class AdminController extends Controller {
 
@@ -182,9 +183,46 @@ class AdminController extends Controller {
     }
 
     /**
-     * Closes a certain issue
+     * Solves a certain issue
      */
-    public function closeIssue(Request $request) {
+    public function solveIssue(Request $request) {
+        $this->authorize('solve', Issue::class);
 
+        $validated_data = $request->validate([
+            'issue_id' => 'required|integer',
+            'creator_id' => 'required|integer',
+            'solver_id' => 'required|integer',
+            'content' => ''
+        ]);
+
+        $issue_id = $validated_data['issue_id'];
+        $creator_id = $validated_data['creator_id'];
+        $solver_id = $validated_data['solver_id'];
+        $content = $validated_data['content'] ? $validated_data['content'] : "";
+
+        try {
+            // Solve the issue
+            $issue = Issue::findOrFail($issue_id);
+            $issue['is_solved'] = true;
+            $issue['solver_id'] = $solver_id;
+            $issue->save();
+
+            // Create the notification
+            $notification = new Notification;
+            $notification['type'] = 'IssueNotification';
+            $notification['issue_id'] = $issue_id;
+            $notification['user_id'] = $creator_id;
+            $notification['content'] = $content;
+            $notification->save();
+
+            return response()->json([
+                'issue_id' => $issue_id,
+                'solver_id' => $solver_id,
+                'content' => $content,
+                'issue' => is_null($issue)
+            ], 200);
+        } catch (ModelNotFoundException $err) {
+            return response('', 404);
+        }
     }
 }
