@@ -18,8 +18,9 @@
         </form>
     </div>
     <div class="row no-gutters">
-        <div class="col-12">
-            <button class="btn action-btn">Show closed issues</button>
+        <div id="status_messages" class="col-12">
+            <div class="alert alert-danger" style="display:none;white-space:pre-line"></div>
+            <div class="alert alert-success" style="display:none;white-space:pre-line"></div>
         </div>
     </div>
     <div class="content-table">
@@ -45,7 +46,7 @@
                     <td>{{$issue->title}}</td>
                     <td>
                         @if($issue->is_solved) 
-                            <span class="solved-issue">Solved</span> 
+                            <button class="btn action-btn solve-issue-pop-modal solved-issue">Solved</button> 
                         @else 
                             <button class="btn action-btn solve-issue-pop-modal">Solve</button> 
                         @endif

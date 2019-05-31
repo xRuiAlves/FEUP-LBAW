@@ -214,9 +214,11 @@ button.admin-tab:focus {
     border-radius: 10px;
 }
 
-.solved-issue {
-    margin-left: 0.5em;
+button.solved-issue {
+    background-color: transparent;
     color: var(--color-grey-dark);
+    cursor: auto;
+    padding-left: 0.5em;
 }
 
 @media only screen and (max-width: 768px) {

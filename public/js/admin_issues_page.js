@@ -48,9 +48,17 @@ const solveIssue = (issue_id, creator_id, solver_id, content) => {
     })
     .then(res => {
         if (res.status === 200) {
-            location.reload();
+            const success_alert = document.querySelector("#status_messages > .alert-success");
+            success_alert.style.display = "";
+            success_alert.textContent = `Issue #${issue_id} was solved successfully!`;
+
+            const issue_solved_text = document.querySelector(`#issue-table .issue-header[data-issue-id="${issue_id}"] button.solve-issue-pop-modal`);
+            issue_solved_text.textContent = "Solved";
+            issue_solved_text.classList.add("solved-issue");
         } else {
-            // TODO
+            const success_alert = document.querySelector("#status_messages > .alert-danger");
+            success_alert.style.display = "";
+            success_alert.textContent = `Failed to mark Issue #${issue_id} as solved.`;
         }
     });
 }
