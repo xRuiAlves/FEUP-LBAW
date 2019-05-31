@@ -32,9 +32,23 @@ const dismiss_notification = (notification_id) => {
     .then(res => {
         if (res.status === 200) {
             const notification = document.querySelector(`#notifications-list .notification-item[data-notification-id="${notification_id}"]`);
+            const notifications_list = notification.parentElement;
             notification.remove();
+
+            const num_notifications = notifications_list.querySelectorAll(".notification-item").length;
+            if (num_notifications == 0) {
+                const msg = document.createElement("h4");
+                msg.textContent = "You have no available notifications.";
+                notifications_list.appendChild(msg);
+            }
+
+            const success_alert = document.querySelector("#status_messages > .alert-success");
+            success_alert.style.display = "";
+            success_alert.textContent = "Notification was dismissed successfully.";
         } else {
-            // TODO
+            const success_alert = document.querySelector("#status_messages > .alert-danger");
+            success_alert.style.display = "";
+            success_alert.textContent = "An error occured, failed to dismiss notification.";
         }
     });
 }
