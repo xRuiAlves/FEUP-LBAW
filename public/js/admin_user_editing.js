@@ -16,6 +16,10 @@ const addEventListeners = () => {
 
         enableEvents(event_ids);
     });
+
+    document.querySelectorAll("#issue-table .issue-header").forEach((elem) => {
+        console.log(elem);
+    })
 };
 
 const disableEvents = (event_ids) => {

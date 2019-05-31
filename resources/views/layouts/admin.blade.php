@@ -8,7 +8,7 @@
 
 @section('content')
 
-<div class="font-content admin-dashboard-container">
+<div id="admin-dashboard" class="font-content admin-dashboard-container" data-admin-id={{Auth::user()->id}}>
     <header class="font-title">
         <h1>Administration Dashboard</h1>
     </header>
