@@ -1,6 +1,6 @@
 @extends('layouts.app', ['hideFooter' => true])
 
-@section('css_includes')
+@section('asset_includes')
 <link href="{{ asset('css/admin_dashboard.css') }}" rel="stylesheet">
 @endsection
 
@@ -25,11 +25,11 @@
                 <a id="events-tab" class="col-3 col-md-12 container admin-tab {{$activeTable === 'events' ? 'active' : ''}}" href="/admin/events">
                     Events
                 </a>
+                <a id="categories-tab" class="col-3 col-md-12 container admin-tab {{$activeTable === 'categories' ? 'active' : ''}}" href="/admin/categories">
+                    Event Categories
+                </a>
                 <a id="issues-tab" class="col-3 col-md-12 container admin-tab {{$activeTable === 'issues' ? 'active' : ''}}" href="/admin/issues">
                     Issues
-                </a>
-                <a id="categories-tab" class="col-3 col-md-12 container admin-tab {{$activeTable === 'categories' ? 'active' : ''}}" href="/admin/categories">
-                    Categories
                 </a>
             </div>
         </div>

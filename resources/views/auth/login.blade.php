@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('css_includes')
+@section('asset_includes')
 {{-- navbar --}}
 @endsection
 

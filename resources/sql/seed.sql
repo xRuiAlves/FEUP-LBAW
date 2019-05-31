@@ -991,17 +991,17 @@ INSERT INTO users(name, email, password) VALUES
     ('Ethan', 'et_than@email.net', '$2y$10$AUu.UDFET4ym3OCW0OthOeR0wdpSFIxCtIWA2M1bOsmVRKkihCP3W');
 
 -- Event Categories
-INSERT INTO event_categories(id, name) VALUES 
-    (1, 'Sports'),
-    (2, 'Science'),
-    (3, 'Art'),
-    (4, 'Learning'),
-    (5, 'Technology'),
-    (6, 'Health Care'),
-    (7, 'Music'),
-    (8, 'Travelling'),
-    (9, 'Nature'),
-    (10, 'Entertainment');
+INSERT INTO event_categories(name) VALUES 
+    ('Sports'),
+    ('Science'),
+    ('Art'),
+    ('Learning'),
+    ('Technology'),
+    ('Health Care'),
+    ('Music'),
+    ('Travelling'),
+    ('Nature'),
+    ('Entertainment');
 
 -- Events
 INSERT INTO events(title, description, price, location, latitude, longitude, start_timestamp, end_timestamp, event_category_id, user_id) VALUES 

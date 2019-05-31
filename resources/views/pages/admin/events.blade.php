@@ -1,6 +1,6 @@
 @extends('layouts.admin', ['activeTable' => 'events'])
 
-@section('css_includes')
+@section('asset_includes')
 @parent
 <script src="{{asset('js/admin_user_editing.js')}}" defer></script>
 @endsection

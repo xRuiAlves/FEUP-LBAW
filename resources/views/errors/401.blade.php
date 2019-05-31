@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('css_includes')
+@section('asset_includes')
 <link href="{{ asset('css/error_pages.css') }}" rel="stylesheet">
 @endsection
 

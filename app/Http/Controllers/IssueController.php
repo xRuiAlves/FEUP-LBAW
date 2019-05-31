@@ -23,23 +23,16 @@ class IssueController extends Controller
      * Creates a new issue.
      */
     public function create(Request $request) {
-        $this->authorize('create', Issue::class);     // TODO: Why not working?
+        $this->authorize('create', Issue::class);
 
         $validator = Validator::make($request->all(), [
             'title' => 'required',
             'content' => 'required'
         ]);
         
-        if ($validator->fails()) {
-            // TODO: What to do here?
-            return back();
-        }
-
         $issue = new Issue();
         $issue->title = $request->input('title');
         $issue->content = $request->input('content');
-        
-
         $issue->creator_id = auth()->user()->id;
         $issue->save();
         

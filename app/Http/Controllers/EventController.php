@@ -4,7 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
-
+use Illuminate\Database\QueryException;
+use Illuminate\Database\DB;
 
 use App\Event;
 use App\EventCategory;
@@ -59,7 +60,7 @@ class EventController extends Controller
     }
 
     /**
-     * Creates a new event.
+     * Renders the event creation page
      *
      * @return Event The event created.
      */
@@ -82,7 +83,7 @@ class EventController extends Controller
     }
 
     /**
-     * Renders the event creation page
+     * Creates a new event.
      *
      * @return Event The event created.
      */
@@ -123,6 +124,40 @@ class EventController extends Controller
         $event->save();
 
         return redirect($event->href);
+    }
+
+    /**
+     * Creates a new event category.
+     */
+    public function storeCategory(Request $request) {
+        $this->authorize('createCategory', Event::class);
+
+        $validated_data = $request->validate([
+            'name' => 'required'
+        ]);
+        
+        $name = $validated_data['name'];
+
+        try {
+            $event = new EventCategory();
+            $event->name = $name;
+            $event->save();
+
+            return response()->json([
+                'category_id' => $event->id
+            ], 200);
+        } catch (QueryException $err) {
+            $err_msg = "";
+            if ($err->getCode() == 23505) {
+                $err_message = "There already exists a category with the given name.";
+            } else if ($err->getCode() == 22001) {
+                $err_message = "The category name must be, at most, 20 characters long.";
+            }
+
+            return response()->json([
+                'message' => $err_message
+            ], 400);
+        }
     }
 
     /**

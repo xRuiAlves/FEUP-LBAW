@@ -1,6 +1,6 @@
 @extends('layouts.app', ['hideNavbar' => true])
 
-@section('css_includes')
+@section('asset_includes')
 <link href="{{ asset('css/main_page.css') }}" rel="stylesheet">
 @endsection
 

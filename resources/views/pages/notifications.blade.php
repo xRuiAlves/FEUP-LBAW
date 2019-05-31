@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('css_includes')
+@section('asset_includes')
 <link href="{{ asset('css/notifications.css') }}" rel="stylesheet">
 <script src="{{asset('js/notifications.js')}}" defer></script>
 @endsection

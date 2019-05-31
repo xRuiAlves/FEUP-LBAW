@@ -38,6 +38,7 @@ Route::get('/event/create', 'EventController@create');
 Route::post('/event/create', 'EventController@store');
 Route::put('api/event/enable', 'AdminController@enableEvent');
 Route::put('api/event/disable', 'AdminController@disableEvent');
+Route::post('/event/category', 'EventController@storeCategory');
 
 // Issues
 Route::post('issue/create', 'IssueController@create');
@@ -49,8 +50,8 @@ Route::put('api/notification/dismiss', 'NotificationsController@dismiss');
 
 // User related routes
 Route::get('dashboard', 'UserController@showDashboard')->name('dashboard');
-// Auth::routes();
 
+// Admin dashboard routes
 Route::get('admin', 'AdminController@users')->name('admin');
 Route::get('admin/users', 'AdminController@users')->name('admin-users');
 Route::get('admin/issues', 'AdminController@issues')->name('admin-issues');

@@ -1,6 +1,6 @@
 @extends('layouts.admin', ['activeTable' => 'issues'])
 
-@section('css_includes')
+@section('asset_includes')
 @parent
 <script src="{{asset('js/admin_issues_page.js')}}" defer></script>
 @endsection
@@ -75,7 +75,7 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <form novalidate class="needs-validation" action="/todo" method="post">
+            <form novalidate class="needs-validation">
                 {{ csrf_field() }}
                 <div class="modal-body">                 
                     <div class="form-group">

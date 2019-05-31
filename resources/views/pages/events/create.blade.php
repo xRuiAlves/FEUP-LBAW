@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('css_includes')
+@section('asset_includes')
 <link href="{{ asset('css/event_page.css') }}" rel="stylesheet">
 <link rel="stylesheet" href="{{ asset('css/create_event.css') }}">
 @endsection

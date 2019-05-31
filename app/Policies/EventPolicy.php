@@ -33,6 +33,13 @@ class EventPolicy {
     }
 
     /**
+     * Determine whether the user can create event categories.
+     */
+    public function createCategory(User $user) {
+        return $user->is_admin;
+    }
+
+    /**
      * Determine whether the user can update the event.
      *
      * @param  \App\User  $user

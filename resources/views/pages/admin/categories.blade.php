@@ -1,33 +1,39 @@
 @extends('layouts.admin', ['activeTable' => 'categories'])
 
+@section('asset_includes')
+@parent
+<script src="{{asset('js/admin_categories_page.js')}}" defer></script>
+@endsection
+
 @section('table')
 
 <div id="category-table" class="admin-dashboard col-12 col-md-10 col-xl-11">
     <div class="row no-gutters">
         <div class="col-12">
-            <button class="btn action-btn">Remove selected categories</button>
-            <button class="btn action-btn">Add category</button>
+            <button class="btn action-btn" data-toggle="modal" data-target="#create-category-modal">Create new Event Category</button>
+        </div>
+        <div id="status_messages" class="col-12">
+            <div class="alert alert-danger" style="display:none;white-space:pre-line"></div>
+            <div class="alert alert-success" style="display:none;white-space:pre-line"></div>
         </div>
     </div>
     <div class="content-table">
         <table class="table">
             <thead>
                 <tr>
-                    <th></th>
                     <th>Id</th>
                     <th>Category Name</th>
                     <th>Number of Events</th>
                     <th>Action</th>
                 </tr>
             </thead>
-            <tbody>
+            <tbody id="categories-list">
                 @foreach($categories as $category)
                 <tr>
-                    <td><input type="checkbox"></td>
                     <td>{{$category->id}}</td>
                     <td>{{$category->name}}</td>
                     <td>{{$category->n_events}}</td>
-                    <td><button class="btn action-btn">Rename</button></td>
+                    <td><button class="btn action-btn rename-category-button">Rename</button></td>
                 </tr>
                 @endforeach
             </tbody>
@@ -35,4 +41,35 @@
         {{$categories->links("pagination::bootstrap-4")}}
     </div>
 </div>
+
+<div id="create-category-modal" class="modal fade font-content" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="header-container">
+                    <div class="modal-title custom-modal-title">Create an Event Category</div>
+                </div>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div novalidate class="needs-validation">
+                {{ csrf_field() }}
+                <div class="modal-body"> 
+                    <div class="form-group">
+                        <input type="text" name="name" autocomplete="off" placeholder="Category name" required class="form-control">
+                        <div class="invalid-feedback">
+                            Please provide a category name
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn publish-button create-category">Create</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
 @endsection
