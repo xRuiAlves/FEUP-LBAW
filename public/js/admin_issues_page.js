@@ -27,12 +27,11 @@ const addEventListeners = () => {
 
         solveIssue(issue_id, creator_id, solver_id, content);
         content_field.value = "";
+        $('#solve-issue-modal').modal('hide');
     });
 };
 
 const solveIssue = (issue_id, creator_id, solver_id, content) => {
-    $('#solve-issue-modal').modal('hide');
-
     fetch('/api/issue/solve', {
         method: 'PUT',
         body: JSON.stringify({

@@ -49,15 +49,15 @@ class NotificationPolicy
     }
 
     /**
-     * Determine whether the user can update the notification.
+     * Determine whether the user can dismiss the notification
      *
      * @param  \App\User  $user
      * @param  \App\Notification  $notification
      * @return mixed
      */
-    public function update(User $user, Notification $notification)
+    public function dismiss(User $user, Notification $notification)
     {
-        // TODO: Discuss
+        return $user->id == $notification->user_id;
     }
 
     /**

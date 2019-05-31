@@ -39,6 +39,14 @@
     border-top: 1px var(--color-grey) solid;
 }
 
+.dismiss-notification-button {
+    cursor: pointer;
+}
+
+.card-container.notifications-container h4 {
+    margin-top: 1em;
+}
+
 @media only screen and (max-width: 576px) {
     .card-container.notifications-container {
         -webkit-box-shadow: none;

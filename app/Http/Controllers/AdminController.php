@@ -123,7 +123,7 @@ class AdminController extends Controller {
             $events = Event::whereIn('id', $event_ids);
             $events->update(['is_disabled' => true]);
 
-            return response(200);
+            return response(null, 200);
         } catch (ModelNotFoundException $err) {
             if (is_array($err->getIds())) {
                 return response()->json([
@@ -154,7 +154,7 @@ class AdminController extends Controller {
             $events = Event::whereIn('id', $event_ids);
             $events->update(['is_disabled' => false]);
 
-            return response(200);
+            return response(null, 200);
         } catch (ModelNotFoundException $err) {
             if (is_array($err->getIds())) {
                 return response()->json([
@@ -203,16 +203,16 @@ class AdminController extends Controller {
         try {
             // Solve the issue
             $issue = Issue::findOrFail($issue_id);
-            $issue['is_solved'] = true;
-            $issue['solver_id'] = $solver_id;
+            $issue->is_solved = true;
+            $issue->solver_id = $solver_id;
             $issue->save();
 
             // Create the notification
             $notification = new Notification;
-            $notification['type'] = 'IssueNotification';
-            $notification['issue_id'] = $issue_id;
-            $notification['user_id'] = $creator_id;
-            $notification['content'] = $content;
+            $notification->type = 'IssueNotification';
+            $notification->issue_id = $issue_id;
+            $notification->user_id = $creator_id;
+            $notification->content = $content;
             $notification->save();
 
             return response()->json([
@@ -222,7 +222,7 @@ class AdminController extends Controller {
                 'issue' => is_null($issue)
             ], 200);
         } catch (ModelNotFoundException $err) {
-            return response('', 404);
+            return response(null, 404);
         }
     }
 }

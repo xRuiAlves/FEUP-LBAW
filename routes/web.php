@@ -43,8 +43,11 @@ Route::put('api/event/disable', 'AdminController@disableEvent');
 Route::post('issue/create', 'IssueController@create');
 Route::put('api/issue/solve', 'AdminController@solveIssue');
 
-// User stuff
+// Notifications
 Route::get('notifications', 'NotificationsController@show')->name('notifications');
+Route::put('api/notification/dismiss', 'NotificationsController@dismiss');
+
+// User related routes
 Route::get('dashboard', 'UserController@showDashboard')->name('dashboard');
 // Auth::routes();
 
