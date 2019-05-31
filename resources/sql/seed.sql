@@ -48,7 +48,7 @@ CREATE TABLE users (
 -- R05
 CREATE TABLE event_categories (
     id SERIAL PRIMARY KEY,
-    name VARCHAR(20) NOT NULL
+    name VARCHAR(20) NOT NULL CONSTRAINT event_category_name_unique UNIQUE
 );
 
 -- R04
