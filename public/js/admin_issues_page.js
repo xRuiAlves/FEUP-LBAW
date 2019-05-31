@@ -1,18 +1,21 @@
 const addEventListeners = () => {
     const issue_modal = document.querySelector("#solve-issue-modal");
     document.querySelectorAll("#issue-table .issue-header").forEach((elem) => {
-        const issue_id = elem.getAttribute("data-issue-id");
-        const creator_id = elem.getAttribute("data-issue-creator-id");
-        const button = elem.querySelector("button.solve-issue-pop-modal");
-        
-        button.addEventListener("click", (e) => {
-            e.stopPropagation();
-            $('#solve-issue-modal').modal();
-            const modal_title = issue_modal.querySelector(".custom-modal-title");
-            modal_title.textContent = `Solve Issue #${issue_id}`;
-            modal_title.setAttribute("data-issue-id", issue_id);
-            modal_title.setAttribute("data-issue-creator-id", creator_id);
-        });
+        const is_solved = elem.getAttribute("data-issue-solved");
+        if (is_solved == 0) {
+            const issue_id = elem.getAttribute("data-issue-id");
+            const creator_id = elem.getAttribute("data-issue-creator-id");
+            const button = elem.querySelector("button.solve-issue-pop-modal");
+    
+            button.addEventListener("click", (e) => {
+                e.stopPropagation();
+                $('#solve-issue-modal').modal();
+                const modal_title = issue_modal.querySelector(".custom-modal-title");
+                modal_title.textContent = `Solve Issue #${issue_id}`;
+                modal_title.setAttribute("data-issue-id", issue_id);
+                modal_title.setAttribute("data-issue-creator-id", creator_id);
+            });
+        }
     })
 
     issue_modal.querySelector("button.solve-issue").addEventListener("click", (e) => {

@@ -36,7 +36,8 @@
             </thead>
             <tbody>
                 @foreach($issues as $issue)
-                <tr class="issue-header" data-toggle="collapse" data-target="#issue{{$issue->id}}collapse" data-issue-id={{$issue->id}} data-issue-creator-id={{$issue['creator_id']}}>
+                <tr class="issue-header" data-toggle="collapse" data-target="#issue{{$issue->id}}collapse" 
+                data-issue-solved={{$issue->is_solved ? "1" : "0"}} data-issue-id={{$issue->id}} data-issue-creator-id={{$issue->creator_id}}>
                     <td>{{$issue->id}}</td>
                     <td>{{$issue->creator_name}}</td>
                     <td>{{$issue->date}}</td>
@@ -44,7 +45,7 @@
                     <td>{{$issue->title}}</td>
                     <td>
                         @if($issue->is_solved) 
-                            Solved
+                            <span class="solved-issue">Solved</span> 
                         @else 
                             <button class="btn action-btn solve-issue-pop-modal">Solve</button> 
                         @endif
