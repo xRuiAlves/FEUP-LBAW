@@ -8,6 +8,7 @@
 @section('table')
 
 <div id="category-table" class="admin-dashboard col-12 col-md-10 col-xl-11">
+    <div class="collapse-title custom-title">Event Categories</div>
     <div class="row no-gutters">
         <div class="col-12">
             <button class="btn action-btn" data-toggle="modal" data-target="#create-category-modal">Create new Event Category</button>

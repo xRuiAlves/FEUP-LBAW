@@ -11,9 +11,9 @@
     <div class="searchbar-container">
         <form class="form-inline" action="" method="get">
             <label class="sr-only" for="inlineFormInputName2">Name</label>
-            <input type="text" class="form-control mb-2 mr-sm-2" id="inlineFormInputName2" placeholder="ENEI 2018" name="search">
+            <input type="text" class="form-control mb-2 mr-sm-2" id="inlineFormInputName2" placeholder="Ex: SINF 2020" name="search">
             
-            <button type="submit" class="btn btn-primary mb-2">Submit</button>
+            <button type="submit" class="btn btn-primary mb-2">Search</button>
         </form>
     </div>
         <div class="row no-gutters">

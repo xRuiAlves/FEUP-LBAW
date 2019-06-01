@@ -221,7 +221,15 @@ button.solved-issue {
     padding-left: 0.5em;
 }
 
+.admin-dashboard .custom-title {
+    font-size: 2.5em;
+    margin-bottom: 0.5em;
+}
+
 @media only screen and (max-width: 768px) {
+    .admin-dashboard .custom-title {
+        margin-top: 0.5em;
+    }
     
     #admin-tabs {
         margin-bottom: 2em;

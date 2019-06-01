@@ -11,10 +11,10 @@
     <div class="custom-title">Issues</div>
     <div class="searchbar-container">
         <form class="form-inline" action="" method="get">
-            <label class="sr-only" for="inlineFormInputName2">Name</label>
-            <input type="text" class="form-control mb-2 mr-sm-2" id="inlineFormInputName2" placeholder="Jane Doe" name="search">
+            <label class="sr-only" for="inlineFormInputName2">Search for Issues</label>
+            <input type="text" class="form-control mb-2 mr-sm-2" id="inlineFormInputName2" placeholder="Ex: Ticket bug" name="search">
             
-            <button type="submit" class="btn btn-primary mb-2">Submit</button>
+            <button type="submit" class="btn btn-primary mb-2">Search</button>
         </form>
     </div>
     <div class="row no-gutters">
