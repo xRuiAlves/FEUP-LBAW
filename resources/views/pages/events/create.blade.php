@@ -16,7 +16,7 @@
         <header class="row no-gutters">
             <div class="col-12">
                 <div class="form-group">
-                    <input class="form-control title-input" value="{{Request::old('title')}}" required type="text" name="title" placeholder="Title"></input>
+                    <input class="form-control title-input" value="{{Request::old('title')}}" required type="text" name="title" placeholder="Title">
                     <div class="invalid-feedback">
                         Please provide a title for the event
                     </div>
@@ -62,7 +62,7 @@
                             <span>
                                 <i class="fas fa-map-marker-alt icon-left"></i>
                             </span>
-                            <input class="form-control" required type="text" name="location" value="{{Request::old('location')}}" placeholder="Location"></input>
+                            <input class="form-control" required type="text" name="location" value="{{Request::old('location')}}" placeholder="Location">
                             <div class="invalid-feedback">Please provide a valid location for the event</div>
                         </div>
                     </div>
@@ -72,7 +72,7 @@
                 <div class="row no-gutters">
                     <div class="col-12 price event-field">
                         <div class="form-group">
-                            <input class="form-control" required type="text" name="price" value="{{Request::old('price')}}" min="0" placeholder="0.00"></input>
+                            <input class="form-control" required type="text" name="price" value="{{Request::old('price')}}" min="0" placeholder="0.00">
                             <div class="invalid-feedback">Please provide a valid price for the event</div>
                         </div>
                         <span class="currency">€</span>

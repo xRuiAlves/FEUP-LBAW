@@ -187,7 +187,7 @@ class EventController extends Controller
             if ($err->getCode() == 23505) {
                 $err_message = "There already exists a category with the '" . $name . "'.";
             } else if ($err->getCode() == 22001) {
-                $err_message = "The category name must be, at most, 20 characters long.";
+                $err_message = "The new category name must be, at most, 20 characters long.";
             }
 
             return response()->json([

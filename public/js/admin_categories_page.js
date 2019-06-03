@@ -1,11 +1,15 @@
 const addEventListeners = () => {
-    const create_category_button = document.querySelector("#create-category-modal button.create-category");
-    create_category_button.addEventListener("click", () => {
+    const create_category_form = document.querySelector("#create-category-form");
+    create_category_form.addEventListener("submit", (e) => {
+        e.preventDefault();
+        if (!create_category_form.checkValidity()) {
+            return;
+        }
+        
         const name_node = document.querySelector("#create-category-modal input[name=name]");
         const name = name_node.value;
         createCategory(name);
         $('#create-category-modal').modal('hide');
-        name_node.value = "";
     });
 
     const rename_category_modal = document.querySelector("#rename-category-modal");
@@ -23,7 +27,13 @@ const addEventListeners = () => {
         })
     });
 
-    rename_category_modal.querySelector("button.rename-category").addEventListener("click", () => {
+    const rename_category_form = document.querySelector("#rename-category-form");
+    rename_category_form.addEventListener("submit", (e) => {
+        e.preventDefault();
+        if (!rename_category_form.checkValidity()) {
+            return;
+        }
+        
         const category_id = rename_category_modal.querySelector(".custom-modal-title").getAttribute("data-category-id");
         const category_old_name = rename_category_modal.querySelector(".custom-modal-title").getAttribute("data-category-name");
         const category_name = rename_category_modal.querySelector("input[name=name]").value;
@@ -124,7 +134,7 @@ const renameCategory = (id, name, old_name) => {
                 const danger_alert = document.querySelector("#status_messages > .alert-danger");
                 success_alert.style.display = "none";
                 danger_alert.style.display = "";
-                danger_alert.textContent = `Failed to create category. ${json.message}`;
+                danger_alert.textContent = `Failed to rename category. ${json.message}`;
             });
         }
     });

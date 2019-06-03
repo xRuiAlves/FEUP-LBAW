@@ -10,10 +10,6 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>@yield('title')</title>
-
-    {{-- <script type="text/javascript" src={{ asset('js/app.js') }} defer>
-    </script> --}}
-
     <script type="text/javascript" src="{{ asset('bootstrap/jquery-3.3.1.min.js') }}" defer></script>
     <script type="text/javascript" src="{{ asset('bootstrap/popper.min.js') }}" defer></script>
     <script type="text/javascript" src="{{ asset('bootstrap/js/bootstrap.min.js') }}" defer></script>
@@ -21,7 +17,7 @@
     <script type="text/javascript" src="{{ asset('js/moment.js/moment-with-locales.js') }}" defer></script>
     <script type="text/javascript" src="{{ asset('js/popovers.js') }}" defer></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.0.0-alpha14/js/tempusdominus-bootstrap-4.min.js" defer></script>
-    
+
     @yield('scripts')
     
 

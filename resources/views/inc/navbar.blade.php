@@ -1,3 +1,5 @@
+<script src="{{asset('js/app.js')}}" defer></script>
+
 <nav class="navbar navbar-expand-lg font-title" id="navbar">
     <div class="container">
         <a class="navbar-brand" href="/">Eventually</a>
@@ -96,16 +98,22 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <form novalidate class="needs-validation create-issue-form" action="/issue/create" method="post">
+            <form id="create-issue-form" novalidate class="needs-validation create-issue-form" action="#">
                 {{ csrf_field() }}
                 <div class="modal-body">                 
                     <div class="form-group">
-                        <input class="form-control" required type="text" name="title" placeholder="Title" autocomplete="off" value="{{ old('price') }}"></input>
+                        <input class="form-control" required type="text" name="title" placeholder="Title" autocomplete="off" value="{{ old('price') }}">
                         <div class="invalid-feedback">Please provide a title for the issue</div>
                     </div>
                     <div class="form-group">
                         <textarea class="form-control" required name="content" placeholder="Tell us what's wrong">{{ old('content') }}</textarea>
                         <div class="invalid-feedback">Please describe your issue</div>
+                    </div>
+                    <div class="row no-gutters">
+                        <div id="status_messages" class="col-12">
+                            <div class="alert alert-danger" style="display:none;white-space:pre-line"></div>
+                            <div class="alert alert-success" style="display:none;white-space:pre-line"></div>
+                        </div>
                     </div>
                 </div>
                 <div class="modal-footer">

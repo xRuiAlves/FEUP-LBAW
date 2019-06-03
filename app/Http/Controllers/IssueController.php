@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Database\QueryException;
 
 use App\Issue;
 
@@ -29,13 +30,35 @@ class IssueController extends Controller
             'title' => 'required',
             'content' => 'required'
         ]);
-        
+
+
         $issue = new Issue();
-        $issue->title = $request->input('title');
-        $issue->content = $request->input('content');
         $issue->creator_id = auth()->user()->id;
-        $issue->save();
         
-        return back();
+        // Issue title
+        try {
+            $issue->title = $request->input('title');
+            $issue->save();
+        } catch (QueryException $err) {
+            if ($err->getCode() == 22001) {
+                return response()->json([
+                    'message' => 'The issue title must be, at most, 64 characters long.'
+                ], 400);
+            }
+        }
+
+        // Issue content
+        try {
+            $issue->content = $request->input('content');
+            $issue->save();
+        } catch (QueryException $err) {
+            if ($err->getCode() == 22001) {
+                return response()->json([
+                    'message' => 'The issue\'s content message must be, at most, 600 characters long.'
+                ], 400);
+            }
+        }
+
+        return response()->json([], 200);
     }
 }
