@@ -130,11 +130,18 @@
 }
 
 .dashboard-day-items .item-type-favorite {
+    background-color: white;
+    transition-property: background-color;
+    transition-duration: 0.2s;
     border: 1px solid goldenrod;
 }
 
 .dashboard-day-items .item-type-favorite .favorite-marker {
     display: inline-block;
+}
+
+.dashboard-day-items .item-type-favorite:hover {
+    background-color: rgba(218, 165, 32, 0.17);
 }
 
 .dashboard-day-items .item-type-attendee:hover {
