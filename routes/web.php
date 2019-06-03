@@ -24,6 +24,7 @@
 
 Route::get('/', 'HomepageController@display');
 Route::view('faq', 'pages.faq')->name('faq');
+Route::view('settings', 'pages.settings')->name('settings');
 
 // Auth
 Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');

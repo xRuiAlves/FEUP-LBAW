@@ -1,0 +1,14 @@
+#page-card.settings-container header {
+    margin-bottom: 2em;
+}
+
+#change-name-form, #change-password-form {
+    margin-bottom: 3em;
+}
+
+button.btn.change-button {
+    background-color: var(--primary-color);
+    color: white;
+    margin-bottom: 1em;
+}
+

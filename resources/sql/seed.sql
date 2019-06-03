@@ -36,13 +36,15 @@ CREATE TYPE TICKET_PAYMENT_TYPE AS ENUM ('Voucher', 'Paypal');
 -- R01
 CREATE TABLE users (
     id SERIAL PRIMARY KEY,
-    name VARCHAR(64) NOT NULL,
+    name VARCHAR(20) NOT NULL,
 	email VARCHAR(128) NOT NULL CONSTRAINT user_email_unique UNIQUE,
 	password VARCHAR(128) NOT NULL,
     is_disabled BOOLEAN NOT NULL DEFAULT false,
     is_admin BOOLEAN NOT NULL DEFAULT false,
     remember_token VARCHAR, -- Necessary for Laravel session remembering
-    search TSVECTOR
+    search TSVECTOR,
+
+    CONSTRAINT user_name_min_length CHECK (LENGTH(name) >= 3)
 );
 
 -- R05
