@@ -24,6 +24,9 @@
             <div class="label">Attending
                 <div class="label-color label-attending">&nbsp;</div>
             </div>
+            <div class="label">Favorite
+                <div class="label-color label-favorite">&nbsp;</div>
+            </div>
         </div>
     </header>
     @if(count($events) > 0)

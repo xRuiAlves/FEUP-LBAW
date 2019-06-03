@@ -36,6 +36,11 @@
     background-color: var(--primary-color);
 }
 
+.user-dashboard-container > header .label .label-color.label-favorite {
+    background-color: white;
+    border: 1.25px solid goldenrod;
+}
+
 .card-container.user-dashboard-container {
     position: relative;
     top: 7em;
