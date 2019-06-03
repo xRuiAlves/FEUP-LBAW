@@ -124,7 +124,7 @@
         </div>
         <div class="collapse" id="datetimepickerwrapper_start">
             <div class="date input-group" id="datetimepicker_start" data-target-input="nearest">
-                <input id="start_input" type="text" class="form-control datetimepicker-input" data-target="#datetimepicker_start" value="" name="start_timestamp" placeholder="Ex. 31/05/2019 10:37"/>
+                <input id="start_input" type="text" class="form-control datetimepicker-input" data-target="#datetimepicker_start" value="" name="start_date" placeholder="Ex. 2019/05/20 10:37"/>
                 <div class="input-group-append" data-target="#datetimepicker_start" data-toggle="datetimepicker">
                     <div class="input-group-text"><i class="fa fa-calendar"></i></div>
                 </div>
@@ -132,12 +132,13 @@
         </div>
         <div class="collapse" id="datetimepickerwrapper_end">
             <div class="input-group date" id="datetimepicker_end" data-target-input="nearest">
-                <input id="end_input" type="text" class="form-control datetimepicker-input" data-target="#datetimepicker_end" value="" name="end_timestamp" placeholder="Ex. 31/06/2019 22:37"/>
+                <input id="end_input" type="text" class="form-control datetimepicker-input" data-target="#datetimepicker_end" value="" name="end_date" placeholder="Ex. 2019/05/31 22:37"/>
                 <div class="input-group-append" data-target="#datetimepicker_end" data-toggle="datetimepicker">
                     <div class="input-group-text"><i class="fa fa-calendar"></i></div>
                 </div>
             </div>
         </div>
+        <input style="display: none" type=submit>
     </form>
 </div>
 

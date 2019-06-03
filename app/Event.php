@@ -269,7 +269,7 @@ class Event extends Model
     }
 
     protected function EndScope($query, $end_date) {
-        return $query->where('end_timestamp', '<=', $end_date);
+        return $query->where('start_timestamp', '<=', $end_date);
 
     }
 
