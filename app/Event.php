@@ -9,7 +9,7 @@ use App\Utilities\TimeUtilities;
 class Event extends Model
 {
 
-    protected $appends = ['href'];
+    // protected $appends = ['href'];
 
 
     // Don't add create and update timestamps in database.
