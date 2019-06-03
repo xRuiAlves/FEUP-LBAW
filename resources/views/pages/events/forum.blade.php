@@ -53,9 +53,9 @@
                                         </div>
                                     </div>
                                     <div class="text rating">
-                                        <i class="fas fa-chevron-down"></i>
-                                        {{$discussion->rating}}
-                                        <i class="fas fa-chevron-up"></i>
+                                        <i class="fas fa-chevron-up upvote"></i>
+                                        <span class="rating-value">{{$discussion->rating}}</span>
+                                        <i class="fas fa-chevron-down downvote"></i>
                                     </div>
                                 </header>
                                 <div class="text">

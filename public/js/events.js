@@ -13,6 +13,61 @@ const addEventListeners = () => {
             createComment(post_id, content);
         });
     });
+
+    const posts = document.querySelectorAll(".post");
+    posts.forEach((post) => {
+        const post_id = post.getAttribute("data-post-id");
+        const rating_node = post.querySelector(".rating");
+        const upvote_node = rating_node.querySelector(".upvote");
+        const downvote_node = rating_node.querySelector(".downvote");
+        const rating_value_node = rating_node.querySelector(".rating-value");
+        
+        upvote_node.addEventListener("click", (e) => {
+            upvotePost(post_id, rating_value_node);
+        });
+        
+        downvote_node.addEventListener("click", (e) => {
+            downvotePost(post_id, rating_value_node);
+        });
+    });
+}
+
+const upvotePost = (post_id, rating_value_node) => {
+    fetch('/api/post/upvote', {
+        method: 'PUT',
+        body: JSON.stringify({
+            post_id
+        }),
+        headers: {
+            'Content-Type': 'application/json',
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content'),
+            'Accept': 'application/json'
+        }
+    })
+    .then(res => {
+        res.json().then(json => {
+            rating_value_node.textContent = json.rating
+        });
+    });
+}
+
+const downvotePost = (post_id, rating_value_node) => {
+    fetch('/api/post/downvote', {
+        method: 'PUT',
+        body: JSON.stringify({
+            post_id
+        }),
+        headers: {
+            'Content-Type': 'application/json',
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content'),
+            'Accept': 'application/json'
+        }
+    })
+    .then(res => {
+        res.json().then(json => {
+            rating_value_node.textContent = json.rating
+        });
+    });
 }
 
 const createComment = (post_id, content) => {

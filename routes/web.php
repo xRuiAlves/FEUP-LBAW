@@ -55,6 +55,10 @@ Route::get('dashboard', 'UserController@showDashboard')->name('dashboard');
 // Comments
 Route::post('api/comment', 'CommentController@store');
 
+// Rating
+Route::put('api/post/upvote', 'RatingController@upvote');
+Route::put('api/post/downvote', 'RatingController@downvote');
+
 // Admin dashboard routes
 Route::get('admin', 'AdminController@users')->name('admin');
 Route::get('admin/users', 'AdminController@users')->name('admin-users');

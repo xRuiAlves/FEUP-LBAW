@@ -10,7 +10,6 @@ use App\Comment;
 
 class CommentController extends Controller
 {
-
     /**
      * Create a new controller instance.
      *

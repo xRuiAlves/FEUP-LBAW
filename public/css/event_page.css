@@ -165,8 +165,14 @@
     justify-content: space-between;
 }
 
-.post .content header .rating i{
-    margin: 0 0.3em;
+.post .content header .rating {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.post .content header .rating i {
+    cursor: pointer;
 }
 
 .announcement .content .date, .post .content .date,
