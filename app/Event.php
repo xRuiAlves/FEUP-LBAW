@@ -8,6 +8,10 @@ use App\Utilities\TimeUtilities;
 
 class Event extends Model
 {
+
+    protected $appends = ['href'];
+
+
     // Don't add create and update timestamps in database.
     public $timestamps  = false;
 
@@ -194,7 +198,7 @@ class Event extends Model
         return $query
         ->futureEvents()
         ->select()
-        ->addSelect(DB::raw('event_categories.name AS category'))
+        ->addSelect(DB::raw('events.id as id, event_categories.name AS category'))
         ->join('event_categories', 'events.event_category_id', '=', 'event_categories.id')
         ->orderBy('start_timestamp', 'asc');
     }

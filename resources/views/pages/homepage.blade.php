@@ -147,7 +147,7 @@
     <a class="container card-container event-card" href="{{$event->href}}">
         <header class="row">
             <div class="col-12">
-                <h3>{{$event->title}}</h3>
+                <h3>{{$event->title}} :: {{$event->id}}</h3>
             </div>
             <div class="price-tag col-auto">
                 @if($event->price == 0)
