@@ -222,7 +222,7 @@ class Event extends Model
 
 
     protected function LocationScope($query, $location) {
-        return $query->where('location', 'like', '%'.$location.'%');
+        return $query->where('location', 'ilike', '%'.$location.'%');
     }
 
 
