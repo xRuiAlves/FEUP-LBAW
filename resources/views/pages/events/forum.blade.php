@@ -16,14 +16,9 @@
                     @if(count($announcements) > 0)
                         @foreach ($announcements as $announcement)
                         <div class="announcement">
-                            <div class="icon">
-                                <span>
-                                    <i class="fas fa-info-circle"></i>
-                                </span>
-                            </div>
                             <div class="content">
                                 <div class="date">
-                                    {{$announcement->formatted_timestamp}}
+                                    {{$announcement->formatted_timestamp}}h
                                 </div>
                                 <div class="text">
                                     {{$announcement->content}}
@@ -46,12 +41,7 @@
                     </div>
                     @if(count($discussions) > 0)
                         @foreach ($discussions as $discussion_key => $discussion)
-                        <div class="post">
-                            <div class="icon">
-                                <span>
-                                    <i class="fas fa-reply"></i>
-                                </span>
-                            </div>
+                        <div class="post" data-post-id={{$discussion->id}}>
                             <div class="content">
                                 <header>
                                     <div>
@@ -59,7 +49,7 @@
                                             {{$discussion->creator->name}}
                                         </div>
                                         <div class="date">
-                                            {{$discussion->formatted_timestamp}}
+                                            {{$discussion->formatted_timestamp}}h
                                         </div>
                                     </div>
                                     <div class="text rating">
@@ -73,28 +63,41 @@
                                 </div>
                                 <a class="comments-toggler" data-toggle="collapse" href="#comments_section_{{$discussion_key}}"
                                     role="button" aria-expanded="false" aria-controls="comments_section_{{$discussion_key}}">
-                                    {{$discussion->num_comments}} comments
+                                    <span class="num-comments">{{$discussion->num_comments}}</span> comments
                                 </a>
                                 <div class="collapse" id="comments_section_{{$discussion_key}}">
-                                    @if(count($discussion_comments[$discussion_key]) > 0)
-                                        @foreach($discussion_comments[$discussion_key] as $comment)
-                                        <div class="comment">
-                                            <div class="name">
-                                                {{$comment->creator->name}}
-                                            </div>
-                                            <div class="date">
-                                                {{$comment->formatted_timestamp}}
-                                            </div>
-                                            <div class="text">
-                                                {{$comment->content}}
-                                            </div>
-                                        </div>
-                                        @endforeach
-                                    @else
-                                        No comments yet. Would you like to add one?
-                                    @endif
                                     <div class="add-comment">
-                                        <textarea name="comment" placeholder="Add a comment..."></textarea>
+                                        <form class="needs-validation create-comment-form" novalidate action="#" data-post-id={{$discussion->id}}>
+                                            {{ csrf_field() }}
+                                            <div class="row no-gutters">
+                                                <div class="status_messages" class="col-12">
+                                                    <div class="alert alert-danger" style="display:none;white-space:pre-line"></div>
+                                                    <div class="alert alert-success" style="display:none;white-space:pre-line"></div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <textarea name="comment" placeholder="Add a comment..." required class="form-control"></textarea>
+                                                <div class="invalid-feedback">Please provide the comment content.</div>
+                                            </div>
+                                            <button type="submit" class="btn publish-button submit-comment">Create comment</button>
+                                        </form>
+                                    </div>
+                                    <div class="comments-list">
+                                        @if(count($discussion_comments[$discussion_key]) > 0)
+                                            @foreach($discussion_comments[$discussion_key] as $comment)
+                                            <div class="comment">
+                                                <div class="name">
+                                                    {{$comment->creator->name}}
+                                                </div>
+                                                <div class="date">
+                                                    {{$comment->formatted_timestamp}}h
+                                                </div>
+                                                <div class="text">
+                                                    {{$comment->content}}
+                                                </div>
+                                            </div>
+                                            @endforeach
+                                        @endif
                                     </div>
                                 </div>
                             </div>

@@ -52,6 +52,9 @@ Route::put('api/notification/dismiss', 'NotificationsController@dismiss');
 // User related routes
 Route::get('dashboard', 'UserController@showDashboard')->name('dashboard');
 
+// Comments
+Route::post('api/comment', 'CommentController@store');
+
 // Admin dashboard routes
 Route::get('admin', 'AdminController@users')->name('admin');
 Route::get('admin/users', 'AdminController@users')->name('admin-users');
