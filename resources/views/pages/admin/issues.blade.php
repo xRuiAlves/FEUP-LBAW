@@ -18,7 +18,7 @@
         </form>
     </div>
     <div class="row no-gutters">
-        <div id="status_messages" class="col-12">
+        <div class="col-12 status-messages">
             <div class="alert alert-danger" style="display:none;white-space:pre-line"></div>
             <div class="alert alert-success" style="display:none;white-space:pre-line"></div>
         </div>
@@ -75,15 +75,16 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <form novalidate class="needs-validation">
+            <form id="solve-issue-form" novalidate class="needs-validation">
                 {{ csrf_field() }}
                 <div class="modal-body">                 
                     <div class="form-group">
-                        <textarea class="form-control" name="content" placeholder="Enter a reply message to send to the user ...">{{ old('content') }}</textarea>
+                        <textarea required class="form-control" name="content" placeholder="Enter a reply message to send to the user ...">{{ old('content') }}</textarea>
+                        <div class="invalid-feedback">Please provide a reply to the user that submitted the issue</div>
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn publish-button solve-issue">Solve</button>
+                    <button type="submit" class="btn publish-button solve-issue">Solve</button>
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                 </div>
             </form>

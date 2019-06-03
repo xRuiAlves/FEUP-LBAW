@@ -60,8 +60,8 @@ const createCategory = (name) => {
         if (res.status === 200) {
             res.json()
             .then(json => {
-                const success_alert = document.querySelector("#status_messages > .alert-success");
-                const danger_alert = document.querySelector("#status_messages > .alert-danger");
+                const success_alert = document.querySelector("#category-table .status-messages > .alert-success");
+                const danger_alert = document.querySelector("#category-table .status-messages > .alert-danger");
                 success_alert.style.display = "";
                 danger_alert.style.display = "none";
                 success_alert.textContent = `Category '${name}' created successfully!`;
@@ -75,8 +75,8 @@ const createCategory = (name) => {
         } else {
             res.json()
             .then(json => {
-                const success_alert = document.querySelector("#status_messages > .alert-success");
-                const danger_alert = document.querySelector("#status_messages > .alert-danger");
+                const success_alert = document.querySelector("#category-table .status-messages > .alert-success");
+                const danger_alert = document.querySelector("#category-table .status-messages > .alert-danger");
                 success_alert.style.display = "none";
                 danger_alert.style.display = "";
                 danger_alert.textContent = `Failed to create category. ${json.message}`;
@@ -119,8 +119,8 @@ const renameCategory = (id, name, old_name) => {
         if (res.status === 200) {
             res.json()
             .then(json => {
-                const success_alert = document.querySelector("#status_messages > .alert-success");
-                const danger_alert = document.querySelector("#status_messages > .alert-danger");
+                const success_alert = document.querySelector("#category-table .status-messages > .alert-success");
+                const danger_alert = document.querySelector("#category-table .status-messages > .alert-danger");
                 success_alert.style.display = "";
                 danger_alert.style.display = "none";
                 success_alert.textContent = `Category name updated from '${old_name}' to '${name}' successfully!`;
@@ -130,8 +130,8 @@ const renameCategory = (id, name, old_name) => {
         } else {
             res.json()
             .then(json => {
-                const success_alert = document.querySelector("#status_messages > .alert-success");
-                const danger_alert = document.querySelector("#status_messages > .alert-danger");
+                const success_alert = document.querySelector("#category-table .status-messages > .alert-success");
+                const danger_alert = document.querySelector("#category-table .status-messages > .alert-danger");
                 success_alert.style.display = "none";
                 danger_alert.style.display = "";
                 danger_alert.textContent = `Failed to rename category. ${json.message}`;

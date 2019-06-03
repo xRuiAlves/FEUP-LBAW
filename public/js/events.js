@@ -87,8 +87,8 @@ const createComment = (post_id, content) => {
         const form = document.querySelector(`.create-comment-form[data-post-id='${post_id}']`);
         res.json().then(json => {
             if (res.status === 200) {
-                const success_alert = form.querySelector(".status_messages > .alert-success");
-                const danger_alert = form.querySelector(".status_messages > .alert-danger");
+                const success_alert = form.querySelector(".status-messages > .alert-success");
+                const danger_alert = form.querySelector(".status-messages > .alert-danger");
                 success_alert.style.display = "";
                 danger_alert.style.display = "none";
                 success_alert.textContent = `The issue was successfully submitted to the administration team.`;
@@ -98,8 +98,8 @@ const createComment = (post_id, content) => {
 
                 createCommentDOMNode(post_id, content, json.name, json.formatted_timestamp);
             } else {
-                const success_alert = form.querySelector(".status_messages > .alert-success");
-                const danger_alert = form.querySelector(".status_messages > .alert-danger");
+                const success_alert = form.querySelector(".status-messages > .alert-success");
+                const danger_alert = form.querySelector(".status-messages > .alert-danger");
                 success_alert.style.display = "none";
                 danger_alert.style.display = "";
                 danger_alert.textContent = json.message;

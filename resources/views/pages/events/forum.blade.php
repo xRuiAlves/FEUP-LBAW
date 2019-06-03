@@ -70,7 +70,7 @@
                                         <form class="needs-validation create-comment-form" novalidate action="#" data-post-id={{$discussion->id}}>
                                             {{ csrf_field() }}
                                             <div class="row no-gutters">
-                                                <div class="status_messages" class="col-12">
+                                                <div class="col-12 status-messages">
                                                     <div class="alert alert-danger" style="display:none;white-space:pre-line"></div>
                                                     <div class="alert alert-success" style="display:none;white-space:pre-line"></div>
                                                 </div>

@@ -18,7 +18,13 @@ const addEventListeners = () => {
         }
     })
 
-    issue_modal.querySelector("button.solve-issue").addEventListener("click", (e) => {
+    const solve_issue_form = issue_modal.querySelector("#solve-issue-form");
+    solve_issue_form.addEventListener("submit", (e) => {
+        e.preventDefault();
+        if (!solve_issue_form.checkValidity()) {
+            return;
+        }
+
         const issue_id = issue_modal.querySelector(".custom-modal-title").getAttribute("data-issue-id");
         const creator_id = issue_modal.querySelector(".custom-modal-title").getAttribute("data-issue-creator-id");
         const solver_id = document.querySelector("#admin-dashboard").getAttribute("data-admin-id");
@@ -26,7 +32,6 @@ const addEventListeners = () => {
         const content = content_field.value;
 
         solveIssue(issue_id, creator_id, solver_id, content);
-        content_field.value = "";
         $('#solve-issue-modal').modal('hide');
     });
 };
@@ -48,15 +53,19 @@ const solveIssue = (issue_id, creator_id, solver_id, content) => {
     })
     .then(res => {
         if (res.status === 200) {
-            const success_alert = document.querySelector("#status_messages > .alert-success");
+            const success_alert = document.querySelector("#issue-table .status-messages > .alert-success");
             success_alert.style.display = "";
             success_alert.textContent = `Issue #${issue_id} was solved successfully!`;
 
             const issue_solved_text = document.querySelector(`#issue-table .issue-header[data-issue-id="${issue_id}"] button.solve-issue-pop-modal`);
             issue_solved_text.textContent = "Solved";
             issue_solved_text.classList.add("solved-issue");
+
+            const solve_issue_form = document.querySelector("#solve-issue-form");
+            solve_issue_form.reset();
+            solve_issue_form.classList.remove("was-validated");
         } else {
-            const success_alert = document.querySelector("#status_messages > .alert-danger");
+            const success_alert = document.querySelector("#issue-table .status-messages > .alert-danger");
             success_alert.style.display = "";
             success_alert.textContent = `Failed to mark Issue #${issue_id} as solved.`;
         }

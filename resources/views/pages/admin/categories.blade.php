@@ -13,7 +13,7 @@
         <div class="col-12">
             <button class="btn action-btn" data-toggle="modal" data-target="#create-category-modal">Create new Event Category</button>
         </div>
-        <div id="status_messages" class="col-12">
+        <div class="col-12 status-messages">
             <div class="alert alert-danger" style="display:none;white-space:pre-line"></div>
             <div class="alert alert-success" style="display:none;white-space:pre-line"></div>
         </div>

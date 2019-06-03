@@ -37,9 +37,9 @@ const disableEvents = (event_ids) => {
     .then(res => {
         if (res.status === 200) {
             // Clearing previous successes and errors
-            document.querySelectorAll("#status_messages > .alert").forEach(el => el.style.display = "none");
+            document.querySelectorAll("#events-table .status-messages > .alert").forEach(el => el.style.display = "none");
             // Displaying success with the desired message
-            const success_alert = document.querySelector("#status_messages > .alert-success");
+            const success_alert = document.querySelector("#events-table .status-messages > .alert-success");
             success_alert.style.display = "";
             success_alert.textContent = `${event_ids.length} ${event_ids.length > 1 ? "events" : "event"} disabled successfully!`;
 
@@ -51,9 +51,9 @@ const disableEvents = (event_ids) => {
             res.json()
             .then(res_json => {
                 // Clearing previous successes and errors
-                document.querySelectorAll("#status_messages > .alert").forEach(el => el.style.display = "none");
+                document.querySelectorAll("#events-table .status-messages > .alert").forEach(el => el.style.display = "none");
                 // Displaying error with the given message
-                const error_alert = document.querySelector("#status_messages > .alert-danger");
+                const error_alert = document.querySelector("#events-table .status-messages > .alert-danger");
                 error_alert.style.display = "";
                 let error_str = `Error: ${res_json.message}\n`;
                 if (res_json.errors) {
@@ -83,9 +83,9 @@ const enableEvents = (event_ids) => {
     .then(res => {
         if (res.status === 200) {
             // Clearing previous successes and errors
-            document.querySelectorAll("#status_messages > .alert").forEach(el => el.style.display = "none");
+            document.querySelectorAll("#events-table .status-messages > .alert").forEach(el => el.style.display = "none");
             // Displaying success with the desired message
-            const success_alert = document.querySelector("#status_messages > .alert-success");
+            const success_alert = document.querySelector("#events-table .status-messages > .alert-success");
             success_alert.style.display = "";
             success_alert.textContent = `${event_ids.length} ${event_ids.length > 1 ? "events" : "event"} enabled successfully!`;
 
@@ -97,9 +97,9 @@ const enableEvents = (event_ids) => {
             res.json()
             .then(res_json => {
                 // Clearing previous successes and errors
-                document.querySelectorAll("#status_messages > .alert").forEach(el => el.style.display = "none");
+                document.querySelectorAll("#events-table .status-messages > .alert").forEach(el => el.style.display = "none");
                 // Displaying error with the given message
-                const error_alert = document.querySelector("#status_messages > .alert-danger");
+                const error_alert = document.querySelector("#events-table .status-messages > .alert-danger");
                 error_alert.style.display = "";
                 let error_str = `Error: ${res_json.message}\n`;
                 if (res_json.errors) {

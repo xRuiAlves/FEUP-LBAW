@@ -17,7 +17,7 @@
                 <i class="fas fa-question-circle form-info" data-toggle="popover" data-placement="top" data-content="In this page, you may view everything new that happened in Eventually, including changes in events and admin responses on issues you submitted."></i>
             </header>
             <div class="row no-gutters">
-                <div id="status_messages" class="col-12">
+                <div class="col-12 status-messages">
                     <div class="alert alert-danger" style="display:none;white-space:pre-line"></div>
                     <div class="alert alert-success" style="display:none;white-space:pre-line"></div>
                 </div>

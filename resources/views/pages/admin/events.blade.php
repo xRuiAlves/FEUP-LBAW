@@ -21,7 +21,7 @@
                 <button id="disable_events_btn" class="btn action-btn">Disable selected events</button>
                 <button id="enable_events_btn" class="btn action-btn">Enable selected events</button>
             </div>
-            <div id="status_messages" class="col-12">
+            <div class="col-12 status-messages">
                 <div class="alert alert-danger" style="display:none;white-space:pre-line"></div>
                 <div class="alert alert-success" style="display:none;white-space:pre-line"></div>
             </div>

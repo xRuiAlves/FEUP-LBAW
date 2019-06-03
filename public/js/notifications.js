@@ -42,11 +42,11 @@ const dismiss_notification = (notification_id) => {
                 notifications_list.appendChild(msg);
             }
 
-            const success_alert = document.querySelector("#status_messages > .alert-success");
+            const success_alert = document.querySelector("#notifications-list .status-messages > .alert-success");
             success_alert.style.display = "";
             success_alert.textContent = "Notification was dismissed successfully.";
         } else {
-            const success_alert = document.querySelector("#status_messages > .alert-danger");
+            const success_alert = document.querySelector("#notifications-list .status-messages > .alert-danger");
             success_alert.style.display = "";
             success_alert.textContent = "An error occured, failed to dismiss notification.";
         }
