@@ -148,7 +148,7 @@ a:hover {
     color: var(--secondary-color-dark);
 }
 
-#search-box input {
+#search-box input.search-field, #search-box input.location-field {
     height: 100%;
     width: 100%;
     border: 0;
@@ -169,6 +169,20 @@ a:hover {
     color: var(--primary-color);
     font-weight: 600;
 }
+
+
+#search-box .collapse > .date{
+    /* display: flex; */
+    width: 40%;
+}
+
+#search-box .collapse {
+    position: relative;
+}
+
+/* #search-box .collapse > .date > .input-group-append {
+    display: inherit;
+}  */
 
 #search-box .row > div {
     display: flex;
@@ -195,6 +209,16 @@ a:hover {
 .dropdown select {
     border: none;
 }
+
+/* #search-box .input-group.date {
+    width: 40%;
+} */
+
+/* #search-box .datetimepicker-input {
+    height: initial;
+    width: 40%;
+
+} */
 
 
 /********** EVENT CARD ***********/

@@ -7,6 +7,9 @@ use Illuminate\Http\Request;
 use App\Event;
 use App\EventCategory;
 
+use Illuminate\Support\Facades\DB;
+
+
 class HomepageController extends Controller
 {
 
@@ -16,6 +19,7 @@ class HomepageController extends Controller
 
         $search_query = $request->get('search');
         $location_query = $request->get('location');
+        $category = $request->get('event_category');
         $start_date = $request->get('start_date');
         $end_date = $request->get('end_date');
 
@@ -26,11 +30,23 @@ class HomepageController extends Controller
         ->when(!empty($location_query), function ($q) use ($location_query) {
             return Event::LocationScope($q, $location_query);
         })
-        ->paginate(HomepageController::ITEMS_PER_PAGE);
+        ->when(!empty($category), function ($q) use ($category) {
+            return Event::CategoryScope($q, $category);
+        })
+        ->when(!empty($start_date), function ($q) use ($category) {
+            return Event::StartScope($q, $category);
+        })
+        ->when(!empty($end_date), function ($q) use ($category) {
+            return Event::EndScope($q, $category);
+        })
+        ->paginate(HomepageController::ITEMS_PER_PAGE); 
 
         $events->appends([
             'search' => $search_query,
-            'location' => $location_query
+            'location' => $location_query,
+            'category' => $category,
+            'start_date' => $start_date,
+            'end_date' => $end_date,
         ]);
 
         $categories = EventCategory::all();

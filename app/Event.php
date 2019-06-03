@@ -191,7 +191,8 @@ class Event extends Model
      * @return \Illuminate\Database\Eloquent\Builder
      */
     public function scopeRelevant($query) {
-        return $query->futureEvents()
+        return $query
+        ->futureEvents()
         ->select()
         ->addSelect(DB::raw('event_categories.name AS category'))
         ->join('event_categories', 'events.event_category_id', '=', 'event_categories.id')
@@ -245,8 +246,35 @@ class Event extends Model
 
     public function scopeFTS($query, $search) {
 
-        echo $query->get();
-        // return $this->FTSScope($query, $search);
+        $this->FTSScope($query, $search);
+    }
+
+    protected function CategoryScope($query, $category_id) {
+        return $query->where('event_category_id', '=', $category_id);
+
+    }
+
+    public function scopeCategory($query, $category_id) {
+        $this->CategoryScope($query, $category_id);
+    }
+
+
+    protected function StartScope($query, $start_date) {
+        return $query->where('start_timestamp', '>=', $start_date);
+
+    }
+
+    public function scopeStart($query, $start_date) {
+        $this->StartScope($query, $start_date);
+    }
+
+    protected function EndScope($query, $end_date) {
+        return $query->where('end_timestamp', '<=', $end_date);
+
+    }
+
+    public function scopeEnd($query, $end_date) {
+        $this->EndScope($query, $end_date);
     }
 
 }

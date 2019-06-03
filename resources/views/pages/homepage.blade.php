@@ -82,40 +82,63 @@
 @include('inc.navbar')
 
 <div class="container" id="search-box">
-    <div class="row">
-        <div class="col-12 col-lg-4">
-            <i class="fas fa-search"></i>
-            <input type="text" placeholder="Search" class="search-field" />
-        </div>
-        <div class="col-12 col-sm-3 col-lg-2">
-            <i class="fas fa-map-marker-alt"></i>
-            <input type="text" placeholder="Location" />
-        </div>
-        <div class="col-12 col-sm-3 col-lg-2">
-            <div class="dropdown">                
-                <select required name="event_category_id" class="custom-select">
-                    <option value="" selected disabled>Category</option>
-                    @foreach ($categories as $category)
-                    <option value="{{ $category->id }}" {{ (Request::old("event_category_id") == $category->id ? "selected":"") }}>{{ $category->name }}</option>
-                    @endforeach
-                </select>
+    <form action="/#search-box-anchor" method="get">
+        <div class="row">
+            <div class="col-12 col-lg-4">
+                <i class="fas fa-search"></i>
+                <input type="text" placeholder="Search" name="search" class="search-field" />
+            </div>
+            <div class="col-12 col-sm-3 col-lg-2">
+                <i class="fas fa-map-marker-alt"></i>
+                <input type="text" name="location" placeholder="Location" class="location-field" />
+            </div>
+            <div class="col-12 col-sm-3 col-lg-2">
+                <div class="dropdown">                
+                    <select name="event_category" class="custom-select">
+                        <option value="" selected disabled>Category</option>
+                        @foreach ($categories as $category)
+                        <option value="{{ $category->id }}">{{ $category->name }}</option>
+                        @endforeach
+                    </select>
+                </div>
+            </div>
+
+            <div class="col-12 col-sm-3 col-lg-2">
+                
+                <button type="button" id="start_date_btn" class="btn date" data-toggle="collapse" data-target="#datetimepickerwrapper_start" aria-expanded="false" aria-controls="datetimepickerwrapper_start">
+                    Start
+                    <span>
+                        <i class="far fa-calendar-alt"></i>
+                    </span>
+                </button>
+               
+            </div>
+            <div class="col-12 col-sm-3 col-lg-2">
+                <button type="button" id="end_date_btn" class="btn date" data-toggle="collapse" data-target="#datetimepickerwrapper_end" aria-expanded="false" aria-controls="datetimepickerwrapper_end">
+                    End
+                    <span>
+                        <i class="far fa-calendar-alt"></i>
+                    </span>
+                </button>
             </div>
         </div>
-        <div class="col-12 col-sm-3 col-lg-2">
-            <button class="btn date">Start
-                <span>
-                    <i class="far fa-calendar-alt"></i>
-                </span>
-            </button>
+        <div class="collapse" id="datetimepickerwrapper_start">
+            <div class="date input-group" id="datetimepicker_start" data-target-input="nearest">
+                <input id="start_input" type="text" class="form-control datetimepicker-input" data-target="#datetimepicker_start" value="" name="start_timestamp" placeholder="Ex. 31/05/2019 10:37"/>
+                <div class="input-group-append" data-target="#datetimepicker_start" data-toggle="datetimepicker">
+                    <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                </div>
+            </div>
         </div>
-        <div class="col-12 col-sm-3 col-lg-2">
-            <button class="btn date">End
-                <span>
-                    <i class="far fa-calendar-alt"></i>
-                </span>
-            </button>
+        <div class="collapse" id="datetimepickerwrapper_end">
+            <div class="input-group date" id="datetimepicker_end" data-target-input="nearest">
+                <input id="end_input" type="text" class="form-control datetimepicker-input" data-target="#datetimepicker_end" value="" name="end_timestamp" placeholder="Ex. 31/06/2019 22:37"/>
+                <div class="input-group-append" data-target="#datetimepicker_end" data-toggle="datetimepicker">
+                    <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                </div>
+            </div>
         </div>
-    </div>
+    </form>
 </div>
 
 <div class="events">
@@ -183,4 +206,8 @@
         </div>
     </div>
 </div>
+@endsection
+
+@section('scripts')
+<script src="{{ asset('js/setlocale-datetime.js') }}" type="text/javascript" defer></script>
 @endsection
