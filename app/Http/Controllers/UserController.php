@@ -51,11 +51,17 @@ class UserController extends Controller
         $event['relationship'] = 'organizer';
         return $event;
       });
+      
+      $favorite_events = $user->favoriteEvents()->get()
+      ->map(function ($event, $key) {
+        $event['relationship'] = 'favorite';
+        return $event;
+      });
 
       // return $organizing_events;
 
       // The order for merge must be this one because of not overriding positions with higher priority
-      $events = $organizing_events->merge($attending_events)->merge($owned_events)->sortBy('start_timestamp')->values();
+      $events = $organizing_events->merge($attending_events)->merge($owned_events)->merge($favorite_events)->sortBy('start_timestamp')->values();
 
       // return $events;
 

@@ -53,6 +53,13 @@ class User extends Authenticatable
     }
 
     /**
+     * The events this user has marked as favorite.
+     */
+    public function favoriteEvents() {
+        return $this->belongsToMany('App\Event', 'favorites', 'event_id', 'user_id');
+    }
+
+    /**
      * The notifications of this user.
      */
     public function notifications() {

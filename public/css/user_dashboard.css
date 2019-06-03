@@ -119,6 +119,19 @@
     background-color: var(--secondary-color-medium-translucid);
 }
 
+.dashboard-day-items .favorite-marker {
+    display: none;
+    color: goldenrod;
+}
+
+.dashboard-day-items .item-type-favorite {
+    border: 1px solid goldenrod;
+}
+
+.dashboard-day-items .item-type-favorite .favorite-marker {
+    display: inline-block;
+}
+
 .dashboard-day-items .item-type-attendee:hover {
     background-color: var(--secondary-color-medium-dark-translucid);
 }

@@ -52,13 +52,21 @@
                             <div class="item-day-week">{{strtoupper($event->start_date_day_of_week)}}</div>
                         </div>
                         <div class="dashboard-day-items">
-                            <a href="{{$event->href}}" class="dashboard-day-item {{$event->relationship === 'attendee' ? 'item-type-attendee' : 'item-type-organizer'}}">
+                            <a href="{{$event->href}}" class="dashboard-day-item 
+                                @if($event->relationship === 'attendee') item-type-attendee
+                                @endif
+                                @if($event->relationship === 'organizer') item-type-organizer
+                                @endif
+                                @if($event->relationship === 'favorite') item-type-favorite
+                                @endif
+                            ">
                                 <header class="row">
                                     <div class="col-12">
                                         {{$event->title}}
                                         @if($event->is_disabled || $event->is_cancelled)
                                         <span class="not-enabled-event">[{{$event->is_disabled ? 'Disabled' : 'Cancelled'}}]</span>
                                         @endif
+                                        <span title="Favorited" class="favorite-marker"><i class="fas fa-star"></i></span>
                                     </div>
                                 </header>
                                 <footer class="row">
