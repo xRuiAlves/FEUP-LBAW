@@ -72,4 +72,8 @@ const solveIssue = (issue_id, creator_id, solver_id, content) => {
     });
 }
 
+$('#solve-issue-modal').on('shown.bs.modal', () => {
+    $('#solve-issue-modal textarea[name=content]').focus()
+});
+
 addEventListeners();

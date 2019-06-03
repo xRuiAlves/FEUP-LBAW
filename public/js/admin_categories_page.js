@@ -45,6 +45,11 @@ const addEventListeners = () => {
 };
 
 const createCategory = (name) => {
+    if (name.length > 20) {
+        displayCategoryErrorMessage("Failed to create category. The category name must be, at most, 20 characters long.");
+        return;
+    }
+
     fetch('/event/category', {
         method: 'POST',
         body: JSON.stringify({
@@ -68,20 +73,19 @@ const createCategory = (name) => {
 
                 const num_categories = document.querySelector("#categories-list").childElementCount;
                 if (num_categories < 10) {
-                    console.log(json)
                     createCategoryDOMNode(name, json.category_id);
                 }
             });
         } else {
             res.json()
             .then(json => {
-                const success_alert = document.querySelector("#category-table .status-messages > .alert-success");
-                const danger_alert = document.querySelector("#category-table .status-messages > .alert-danger");
-                success_alert.style.display = "none";
-                danger_alert.style.display = "";
-                danger_alert.textContent = `Failed to create category. ${json.message}`;
+                displayCategoryErrorMessage(`Failed to create category. ${json.message}`);
             });
         }
+
+        const create_category_form = document.querySelector("#create-category-form");
+        create_category_form.classList.remove("was-validated");
+        create_category_form.reset();
     });
 }
 
@@ -103,6 +107,11 @@ const createCategoryDOMNode = (name, id) => {
 }
 
 const renameCategory = (id, name, old_name) => {
+    if (name.length > 20) {
+        displayCategoryErrorMessage("Failed to create category. The category name must be, at most, 20 characters long.");
+        return;
+    }
+
     fetch('/event/category/rename', {
         method: 'PUT',
         body: JSON.stringify({
@@ -130,14 +139,30 @@ const renameCategory = (id, name, old_name) => {
         } else {
             res.json()
             .then(json => {
-                const success_alert = document.querySelector("#category-table .status-messages > .alert-success");
-                const danger_alert = document.querySelector("#category-table .status-messages > .alert-danger");
-                success_alert.style.display = "none";
-                danger_alert.style.display = "";
-                danger_alert.textContent = `Failed to rename category. ${json.message}`;
+                displayCategoryErrorMessage(`Failed to rename category. ${json.message}`);
             });
         }
+
+        const rename_category_form = document.querySelector("#rename-category-form");
+        rename_category_form.classList.remove("was-validated");
+        rename_category_form.reset();
     });
 }
+
+const displayCategoryErrorMessage = (error_message) => {
+    const success_alert = document.querySelector("#category-table .status-messages > .alert-success");
+    const danger_alert = document.querySelector("#category-table .status-messages > .alert-danger");
+    success_alert.style.display = "none";
+    danger_alert.style.display = "";
+    danger_alert.textContent = error_message;
+}
+
+$('#rename-category-modal').on('shown.bs.modal', () => {
+    $('#rename-category-modal input[name=name]').focus()
+});
+
+$('#create-category-modal').on('shown.bs.modal', () => {
+    $('#create-category-modal input[name=name]').focus()
+});
 
 addEventListeners();
