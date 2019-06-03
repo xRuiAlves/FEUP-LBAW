@@ -61,13 +61,14 @@ class AdminController extends Controller {
 
         $search_query = $request->get('search');
         
-        if(!empty($search_query)){
-            $events = Event::FTS($search_query)->paginate(AdminController::ITEMS_PER_PAGE);
+        $events = Event::WithCategory()
+        ->when(!empty($search_query), function ($q) use ($search_query) {
+            return Event::FTSScope($q, $search_query);
+        })
+        ->paginate(AdminController::ITEMS_PER_PAGE);
 
-            $events->withPath('?search='.$search_query);
-        }else{
-            $events = Event::paginate(AdminController::ITEMS_PER_PAGE);
-        }
+        $events->appends(['search' => $search_query]);
+        
 
         return view('pages.admin.events', ['events' => $events]);
     }
