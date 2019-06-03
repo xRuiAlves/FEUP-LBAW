@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Database\QueryException;
 use Illuminate\Database\DB;
 
@@ -46,6 +47,14 @@ class EventController extends Controller
                 
         $announcements = $event->posts()->announcements()->get();
 
+        $user = Auth::user();
+
+        if($user) {
+            $favorited = $event->favorited($id, $user->id);
+        } else {
+            $favorited = false;
+        }
+
         $discussions = $event->posts()->discussions()->get();
         $discussion_comments = [];
         foreach($discussions as $i => $discussion) {
@@ -54,7 +63,7 @@ class EventController extends Controller
 
         return view('pages.events.index',
         [
-            'event' => $event, 'owner' => $owner, 'announcements' => $announcements, 'category' => $category,
+            'event' => $event, 'owner' => $owner, 'announcements' => $announcements, 'category' => $category, 'favorited' => $favorited,
             'discussions' => $discussions, 'discussion_comments' => $discussion_comments
         ]);
     }

@@ -281,4 +281,12 @@ class Event extends Model
         $this->EndScope($query, $end_date);
     }
 
+    public function scopeFavorited($query, $event_id, $user_id) {
+        return !$query
+        ->join('favorites', 'events.id', '=', 'favorites.event_id')
+        ->whereRaw('favorites.user_id = ? AND favorites.event_id = ?', [$user_id, $event_id])
+        ->get()
+        ->isEmpty();
+    }
+
 }

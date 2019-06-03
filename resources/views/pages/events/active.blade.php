@@ -13,7 +13,15 @@
     <div class="event-brief">
         <div class="row no-gutters main">
             <div class="col-12 col-lg-9 event-title font-title">
-                <h1>{{$event->title}}</h1>
+                <h1>
+                    {{$event->title}}
+                    @if($favorited)  
+                        <span title="Favorited" class="favorite-marker"><i class="fas fa-star"></i></span>
+                    @else
+                        <span title="Mark as Favorite" class="favorite-marker"><i class="far fa-star"></i></span>
+                    @endif
+                    
+                </h1>
             </div>
             <div class="col-12 col-lg-3 attend-btn alone-right">
                 {{-- Todo: Ifs here for authenticated/owner/etc? --}}
