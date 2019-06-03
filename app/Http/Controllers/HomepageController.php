@@ -20,8 +20,8 @@ class HomepageController extends Controller
         $search_query = $request->get('search');
         $location_query = $request->get('location');
         $category = $request->get('event_category');
-        $start_date = new \DateTime($request->get('start_date'));
-        $end_date = new \DateTime($request->get('end_date'));
+        $start_date = $request->get('start_date');
+        $end_date = $request->get('end_date');
 
         $events = Event::relevant()
         ->when(!empty($search_query), function ($q) use ($search_query) {
@@ -34,10 +34,10 @@ class HomepageController extends Controller
             return Event::CategoryScope($q, $category);
         })
         ->when(!empty($start_date), function ($q) use ($start_date) {
-            return Event::StartScope($q, $start_date);
+            return Event::StartScope($q, new \DateTime($start_date));
         })
         ->when(!empty($end_date), function ($q) use ($end_date) {
-            return Event::EndScope($q, $end_date);
+            return Event::EndScope($q, new \DateTime($end_date));
         })
         ->paginate(HomepageController::ITEMS_PER_PAGE); 
 
