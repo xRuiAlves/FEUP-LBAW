@@ -2,7 +2,7 @@ const addFavoriteClickEvent = () => {
     const favorite_btn = document.getElementById("favorite-marker");
     
     favorite_btn.addEventListener("click", (e) => {
-        const new_val = favorite_btn.getAttribute('aria-pressed') === 'true' ? false : true;
+        const new_val = favorite_btn.classList.contains('active') ? false : true;
 
         const event_id = favorite_btn.getAttribute('data-event-id');
         
@@ -15,9 +15,7 @@ const addFavoriteClickEvent = () => {
                 if (res.status === 200) {
                     res.json()
                     .then(json => {
-                        console.log('====================================');
-                        console.dir("toggle the button here instead of bootstrap toggle");
-                        console.log('====================================');
+                        favorite_btn.classList.add('active');
                         
                     });
                 } else {
@@ -40,9 +38,7 @@ const addFavoriteClickEvent = () => {
                 if (res.status === 200) {
                     res.json()
                     .then(json => {
-                        console.log('====================================');
-                        console.dir("toggle the button here instead of bootstrap toggle");
-                        console.log('====================================');
+                        favorite_btn.classList.remove('active');
                     });
                 } else {
                     res.json()

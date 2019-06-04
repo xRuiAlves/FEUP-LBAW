@@ -16,9 +16,9 @@
                 <h1>
                     {{$event->title}}
                     @if($favorited)
-                        <button type="button" class="btn btn-primary active" id="favorite-marker" data-toggle="button" data-event-id="{{$event->id}}" aria-pressed="true" autocomplete="off">
+                        <button type="button" class="btn btn-primary active" id="favorite-marker" data-event-id="{{$event->id}}">
                     @else        
-                        <button type="button" class="btn btn-primary" id="favorite-marker" data-toggle="button" aria-pressed="false" data-event-id="{{$event->id}}" autocomplete="off">
+                        <button type="button" class="btn btn-primary" id="favorite-marker" data-event-id="{{$event->id}}">
                     @endif
                             <span title="Favorited" class=" favorite"><i class="fas fa-star"></i></span>
                         </button>
