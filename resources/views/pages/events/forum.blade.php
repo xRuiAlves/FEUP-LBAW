@@ -76,7 +76,7 @@
                                                 </div>
                                             </div>
                                             <div class="form-group">
-                                                <textarea name="comment" placeholder="Add a comment..." required class="form-control"></textarea>
+                                                <textarea name="comment" placeholder="Add a comment..." required class="form-control" aria-label="Comment"></textarea>
                                                 <div class="invalid-feedback">Please provide the comment content.</div>
                                             </div>
                                             <button type="submit" class="btn publish-button submit-comment">Create comment</button>

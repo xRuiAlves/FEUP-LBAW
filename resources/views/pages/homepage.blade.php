@@ -90,11 +90,11 @@
         <div class="row">
             <div class="col-12 col-lg-4">
                 <i class="fas fa-search"></i>
-                <input type="text" placeholder="Search" name="search" class="search-field" />
+                <input type="text" placeholder="Search" aria-label="Search" name="search" class="search-field" />
             </div>
             <div class="col-12 col-sm-3 col-lg-2">
                 <i class="fas fa-map-marker-alt"></i>
-                <input type="text" name="location" placeholder="Location" class="location-field" />
+                <input type="text" name="location" placeholder="Location" aria-label="Location" class="location-field" />
             </div>
             <div class="col-12 col-sm-3 col-lg-2">
                 <div class="dropdown">                
@@ -128,7 +128,7 @@
         </div>
         <div class="collapse" id="datetimepickerwrapper_start">
             <div class="date input-group" id="datetimepicker_start" data-target-input="nearest">
-                <input id="start_input" type="text" class="form-control datetimepicker-input" data-target="#datetimepicker_start" value="" name="start_date" placeholder="Ex. 2019/05/20 10:37"/>
+                <input id="start_input" type="text" class="form-control datetimepicker-input" data-target="#datetimepicker_start" value="" name="start_date" placeholder="Ex. 2019/05/20 10:37"  aria-label="Start Date"/>
                 <div class="input-group-append" data-target="#datetimepicker_start" data-toggle="datetimepicker">
                     <div class="input-group-text"><i class="fa fa-calendar"></i></div>
                 </div>
@@ -136,7 +136,7 @@
         </div>
         <div class="collapse" id="datetimepickerwrapper_end">
             <div class="input-group date" id="datetimepicker_end" data-target-input="nearest">
-                <input id="end_input" type="text" class="form-control datetimepicker-input" data-target="#datetimepicker_end" value="" name="end_date" placeholder="Ex. 2019/05/31 22:37"/>
+                <input id="end_input" type="text" class="form-control datetimepicker-input" data-target="#datetimepicker_end" value="" name="end_date" placeholder="Ex. 2019/05/31 22:37" aria-label="End Date"/>
                 <div class="input-group-append" data-target="#datetimepicker_end" data-toggle="datetimepicker">
                     <div class="input-group-text"><i class="fa fa-calendar"></i></div>
                 </div>

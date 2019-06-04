@@ -117,7 +117,7 @@
             </div>
             <form>
                 <div class="modal-body">
-                    <textarea name="announcement-content" placeholder="Post content ..."></textarea>
+                    <textarea name="announcement-content" placeholder="Post content ..." aria-label="Content"></textarea>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn publish-button" data-dismiss="modal">Create</button>

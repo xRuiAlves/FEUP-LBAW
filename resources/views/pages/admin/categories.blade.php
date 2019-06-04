@@ -59,7 +59,7 @@
                 <div novalidate class="needs-validation">
                     <div class="modal-body"> 
                         <div class="form-group">
-                            <input type="text" name="name" autocomplete="off" placeholder="Category name" required class="form-control">
+                            <input type="text" name="name" autocomplete="off" placeholder="Category name" required class="form-control" aria-label="Category Name">
                             <div class="invalid-feedback">Please provide a category name</div>
                         </div>
                     </div>
@@ -89,7 +89,7 @@
                 <div novalidate class="needs-validation">
                         <div class="modal-body"> 
                             <div class="form-group">
-                                <input type="text" name="name" autocomplete="off" placeholder="New category name" required class="form-control">
+                                <input type="text" name="name" autocomplete="off" placeholder="New category name" required class="form-control" aria-label="New Category Name">
                                 <div class="invalid-feedback">Please provide the new category name</div>
                             </div>
                         </div>

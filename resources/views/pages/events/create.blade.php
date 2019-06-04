@@ -16,7 +16,7 @@
         <header class="row no-gutters">
             <div class="col-12">
                 <div class="form-group">
-                    <input class="form-control title-input" value="{{Request::old('title')}}" required type="text" name="title" placeholder="Title">
+                    <input class="form-control title-input" value="{{Request::old('title')}}" required type="text" name="title" placeholder="Title" aria-label="Title">
                     <div class="invalid-feedback">
                         Please provide a title for the event
                     </div>
@@ -34,7 +34,7 @@
                             </span>
                             Start
                             <div class="input-group date" id="datetimepicker_start" data-target-input="nearest">
-                                <input type="text" class="form-control datetimepicker-input" required data-target="#datetimepicker_start" value="{{Request::old('start_timestamp')}}" name="start_timestamp"/>
+                                <input type="text" class="form-control datetimepicker-input" required data-target="#datetimepicker_start" value="{{Request::old('start_timestamp')}}" name="start_timestamp" aria-label="Start Date"/>
                                 <div class="input-group-append" data-target="#datetimepicker_start" data-toggle="datetimepicker">
                                     <div class="input-group-text"><i class="fa fa-calendar"></i></div>
                                 </div>
@@ -47,7 +47,7 @@
                     <div class="col-12">
                         <label> End (Optional)
                             <div class="input-group date" id="datetimepicker_end" data-target-input="nearest">
-                                <input type="text" class="form-control datetimepicker-input" data-target="#datetimepicker_end" value="{{Request::old('end_timestamp')}}" name="end_timestamp"/>
+                                <input type="text" class="form-control datetimepicker-input" data-target="#datetimepicker_end" value="{{Request::old('end_timestamp')}}" name="end_timestamp" aria-label="End Date"/>
                                 <div class="input-group-append" data-target="#datetimepicker_end" data-toggle="datetimepicker">
                                     <div class="input-group-text"><i class="fa fa-calendar"></i></div>
                                 </div>
@@ -62,7 +62,7 @@
                             <span>
                                 <i class="fas fa-map-marker-alt icon-left"></i>
                             </span>
-                            <input class="form-control" required type="text" name="location" value="{{Request::old('location')}}" placeholder="Location">
+                            <input class="form-control" required type="text" name="location" value="{{Request::old('location')}}" placeholder="Location" aria-label="Location">
                             <div class="invalid-feedback">Please provide a valid location for the event</div>
                         </div>
                     </div>
@@ -72,7 +72,7 @@
                 <div class="row no-gutters">
                     <div class="col-12 price event-field">
                         <div class="form-group">
-                            <input class="form-control" required type="text" name="price" value="{{Request::old('price')}}" min="0" placeholder="0.00">
+                            <input class="form-control" required type="text" name="price" value="{{Request::old('price')}}" min="0" placeholder="0.00" aria-label="Price">
                             <div class="invalid-feedback">Please provide a valid price for the event</div>
                         </div>
                         <span class="currency">€</span>

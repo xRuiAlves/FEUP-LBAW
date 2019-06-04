@@ -108,11 +108,11 @@
                 {{ csrf_field() }}
                 <div class="modal-body">                 
                     <div class="form-group">
-                        <input class="form-control" required type="text" name="title" placeholder="Title" autocomplete="off" value="{{ old('price') }}">
+                        <input class="form-control" required type="text" name="title" placeholder="Title" aria-label="Title" autocomplete="off" value="{{ old('price') }}">
                         <div class="invalid-feedback">Please provide a title for the issue</div>
                     </div>
                     <div class="form-group">
-                        <textarea class="form-control" required name="content" placeholder="Tell us what's wrong">{{ old('content') }}</textarea>
+                        <textarea class="form-control" required name="content" placeholder="Tell us what's wrong" aria-label="Issue Description">{{ old('content') }}</textarea>
                         <div class="invalid-feedback">Please describe your issue</div>
                     </div>
                     <div class="row no-gutters">

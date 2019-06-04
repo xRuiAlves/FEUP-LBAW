@@ -17,7 +17,7 @@
         <form method="POST" action="{{route('login')}}" novalidate class="needs-validation font-content">
             {{ csrf_field() }}
             <div class="form-group">
-                <input type="email" name="email" value="{{ old('email') }}" placeholder="email" required autofocus class="form-control">
+                <input type="email" name="email" value="{{ old('email') }}" placeholder="email" aria-label="Email" required autofocus class="form-control">
                 @if ($errors->has('email'))
                     <span class="error">
                     {{ $errors->first('email') }}
@@ -28,7 +28,7 @@
                 </div>
             </div>
             <div class="form-group">
-                <input type="password" name="password" placeholder="password" required class="form-control">
+                <input type="password" name="password" placeholder="password" aria-label="Password" required class="form-control">
                 @if ($errors->has('password'))
                 <span class="error">
                     {{ $errors->first('password') }}

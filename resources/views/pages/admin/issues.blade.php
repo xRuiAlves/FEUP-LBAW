@@ -12,7 +12,7 @@
     <div class="searchbar-container">
         <form class="form-inline" action="" method="get">
             <label class="sr-only" for="inlineFormInputName2">Search for Issues</label>
-            <input type="text" class="form-control mb-2 mr-sm-2" id="inlineFormInputName2" placeholder="Ex: Ticket bug" name="search">
+            <input type="text" class="form-control mb-2 mr-sm-2" id="inlineFormInputName2" placeholder="Ex: Ticket bug" name="search" aria-label="Search Issue">
             
             <button type="submit" class="btn btn-primary mb-2">Search</button>
         </form>
@@ -79,7 +79,7 @@
                 {{ csrf_field() }}
                 <div class="modal-body">                 
                     <div class="form-group">
-                        <textarea required class="form-control" name="content" placeholder="Enter a reply message to send to the user ...">{{ old('content') }}</textarea>
+                        <textarea required class="form-control" name="content" placeholder="Enter a reply message to send to the user ..." aria-label="Reply Message">{{ old('content') }}</textarea>
                         <div class="invalid-feedback">Please provide a reply to the user that submitted the issue</div>
                     </div>
                 </div>

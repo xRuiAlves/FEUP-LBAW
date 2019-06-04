@@ -18,7 +18,7 @@
         {{ csrf_field() }}
         <div novalidate class="needs-validation">
             <div class="form-group">
-                <input type="text" name="name" autocomplete="off" placeholder="New Name" required class="form-control">
+                <input type="text" name="name" autocomplete="off" placeholder="New Name" aria-label="New Name" required class="form-control">
                 <div class="invalid-feedback">Please a valid new name</div>
             </div>
             <button type="submit" class="btn change-button change-name-button">Change Name</button>
@@ -31,15 +31,15 @@
     <form id="change-password-form" novalidate class="needs-validation" method="POST" action="/password/change">
         {{ csrf_field() }}
         <div class="form-group">
-            <input type="password" name="current_password" placeholder="Current Password" required class="form-control">
+            <input type="password" name="current_password" placeholder="Current Password" aria-label="Current Password" required class="form-control">
             <div class="invalid-feedback">Please provide a valid password</div>
         </div>
         <div class="form-group">
-            <input type="password" name="new_password" placeholder="New Password" required class="form-control">
+            <input type="password" name="new_password" placeholder="New Password" aria-label="New Password" required class="form-control">
             <div class="invalid-feedback">Please provide a valid new password</div>
         </div>
         <div class="form-group">
-            <input type="password" name="new_password_confirmation" placeholder="Confirm New Password" required class="form-control">
+            <input type="password" name="new_password_confirmation" placeholder="Confirm New Password" aria-label="Confirm New Password" required class="form-control">
             <div class="invalid-feedback">Please type your new password again</div>
         </div>
         <button type="submit" class="btn change-button change-password-button">Change Password</button>

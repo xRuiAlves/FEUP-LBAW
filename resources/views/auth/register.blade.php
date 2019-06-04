@@ -13,7 +13,7 @@
       <form method="POST" action="{{route('register')}}" novalidate class="needs-validation font-content">
         {{ csrf_field() }}
         <div class="form-group">
-          <input type="text" name="name" value="{{ old('name') }}" placeholder="name" required autofocus class="form-control">
+          <input type="text" name="name" value="{{ old('name') }}" placeholder="name" aria-label="Name" required autofocus class="form-control">
             @if ($errors->has('name'))
             <span class="error">
                 {{ $errors->first('name') }}
@@ -24,7 +24,7 @@
             </div>
         </div>
         <div class="form-group">
-            <input type="email" name="email" value="{{ old('email') }}" placeholder="email" required class="form-control">
+            <input type="email" name="email" value="{{ old('email') }}" placeholder="email" aria-label="Email" required class="form-control">
             @if ($errors->has('email'))
                 <span class="error">
                 {{ $errors->first('email') }}
@@ -35,7 +35,7 @@
             </div>
         </div>
         <div class="form-group">
-          <input type="password" name="password" placeholder="password" required class="form-control">
+          <input type="password" name="password" placeholder="password" aria-label="Password" required class="form-control">
           @if ($errors->has('password'))
           <span class="error">
               {{ $errors->first('password') }}
@@ -46,7 +46,7 @@
           </div>
         </div>
         <div class="form-group">
-          <input type="password" name="password_confirmation" placeholder="confirm password" required class="form-control">
+          <input type="password" name="password_confirmation" placeholder="confirm password" aria-label="Password Confirmation" required class="form-control">
           <div class="invalid-feedback">
               Please type your password again
           </div>
