@@ -126,4 +126,9 @@ class UserController extends Controller
             "Your password was successfully changed!"
         );
     }
+
+    public function deleteAccount(Request $request) {
+        User::destroy(auth()->user()->id);
+        return redirect('/');
+    }
 }

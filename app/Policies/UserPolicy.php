@@ -22,6 +22,17 @@ class UserPolicy
     }
 
     /**
+     * Determine if the user may delete their account.
+     *
+     * @param  \App\User  $user
+     */
+    public function deleteAccount(User $user)
+    {
+        // Any logged user may delete its account
+        return Auth::check();
+    }
+
+    /**
      * Determine whether the user can view the model.
      *
      * @param  \App\User  $user

@@ -143,7 +143,7 @@ CREATE TABLE tickets (
 	nif INTEGER DEFAULT 999999999,
 	billing_name VARCHAR(64),
 	address VARCHAR(128),
-    event_voucher_id INTEGER REFERENCES event_vouchers(id) ON UPDATE CASCADE,
+    event_voucher_id INTEGER REFERENCES event_vouchers(id) ON UPDATE CASCADE ON DELETE CASCADE,
 	type TICKET_PAYMENT_TYPE NOT NULL,
 	paypal_order_id VARCHAR(256),
 
@@ -370,17 +370,6 @@ CREATE OR REPLACE FUNCTION
         END LOOP;
 
         RETURN NEW;
-    END;
-$$ LANGUAGE 'plpgsql';
-
--- FUNCTION09
-CREATE OR REPLACE FUNCTION
-    remove_attendee_function() RETURNS TRIGGER AS $$
-    BEGIN
-        INSERT INTO notifications(type, user_id, event_id)
-        VALUES ('EventRemoval', OLD.user_id, OLD.event_id);
-        
-        RETURN OLD;
     END;
 $$ LANGUAGE 'plpgsql';
 
@@ -778,12 +767,6 @@ CREATE TRIGGER activate_event_trigger
     FOR EACH ROW 
     WHEN (NEW.is_disabled = false)
     EXECUTE PROCEDURE activate_event_function();
-
--- TRIGGER09
-CREATE TRIGGER remove_attendee_trigger
-    AFTER DELETE ON tickets
-    FOR EACH ROW
-    EXECUTE PROCEDURE remove_attendee_function();
 
 -- TRIGGER10
 CREATE TRIGGER organizer_promotion_trigger

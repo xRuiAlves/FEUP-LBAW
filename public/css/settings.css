@@ -12,3 +12,9 @@ button.btn.change-button {
     margin-bottom: 1em;
 }
 
+#delete-account-modal .delete-text {
+    font-weight: bolder;
+    color: var(--danger-red);
+    text-decoration: underline;
+}
+
