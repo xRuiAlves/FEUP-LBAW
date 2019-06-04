@@ -97,7 +97,7 @@ CREATE TABLE event_vouchers (
 -- R08
 CREATE TABLE posts (
     id SERIAL PRIMARY KEY,
-    content TEXT NOT NULL,
+    content VARCHAR(300) NOT NULL,
     "timestamp" TIMESTAMP WITH TIME zone DEFAULT now() NOT NULL,
     rating INTEGER DEFAULT 0,
     num_comments INTEGER DEFAULT 0,

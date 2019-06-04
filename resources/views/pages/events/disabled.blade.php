@@ -9,7 +9,7 @@
 @section('content')
 <div id="background_wave"></div>
 
-<div id="page-card" class="container card-container font-content event-card">
+<div id="page-card" class="container card-container font-content event-card" data-event-id={{$event->id}}>
     <div class="event-brief">
         <div class="row no-gutters main">
             <div class="col-12 event-title font-title">

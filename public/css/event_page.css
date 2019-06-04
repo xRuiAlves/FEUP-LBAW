@@ -263,6 +263,23 @@
     width: 100%; 
 }
 
+button.create-post-button {
+    background: var(--secondary-color-medium);
+    color: white;
+    padding: 0.5em 1em;
+    margin-top: 2em;
+    margin-left: 2em;
+    font-weight: bold;
+}
+
+button.create-post-button i {
+    margin-right: 0.4em;
+}
+
+#create-post-modal .status-messages {
+    margin: 0 1em;
+}
+
 @media only screen and (min-width: 576px) {
     .post .name::after {
         content: ' - '

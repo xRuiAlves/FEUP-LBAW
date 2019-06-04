@@ -33,12 +33,14 @@
             </div>
             <div class="tab-pane fade" id="nav-discussion" role="tabpanel" aria-labelledby="nav-discussion-tab">
                 <div class="discussions-area">
-                    <div class="add-btn" data-toggle="modal" data-target="#login_modal">
+                    @if(Auth::check())
+                    <button type="submit" class="btn create-post-button" data-toggle="modal" data-target="#create-post-modal">
                         <span>
                             <i class="far fa-edit"></i>
                         </span>
                         Create Post
-                    </div>
+                    </button>
+                    @endif
                     @if(count($discussions) > 0)
                         @foreach ($discussions as $discussion_key => $discussion)
                         <div class="post" data-post-id={{$discussion->id}}>
@@ -53,9 +55,18 @@
                                         </div>
                                     </div>
                                     <div class="text rating">
-                                        <i class="fas fa-chevron-up upvote"></i>
-                                        <span class="rating-value">{{$discussion->rating}}</span>
-                                        <i class="fas fa-chevron-down downvote"></i>
+                                        @if(Auth::check())
+                                            <i class="fas fa-chevron-up upvote"></i>
+                                        @endif
+                                        <div>
+                                            @if(Auth::guest())
+                                                Rating:
+                                            @endif
+                                            <span class="rating-value">{{$discussion->rating}}</span>
+                                        </div>
+                                        @if(Auth::check())
+                                            <i class="fas fa-chevron-down downvote"></i>
+                                        @endif
                                     </div>
                                 </header>
                                 <div class="text">
@@ -111,3 +122,35 @@
         </div>
     </div>
 </div>
+
+<div id="create-post-modal" class="modal fade font-content" tabindex="-1" role="dialog">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <div class="header-container">
+                        <div class="modal-title custom-modal-title">Create a new Post</div>
+                    </div>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <form id="create-post-form" novalidate class="needs-validation">
+                    {{ csrf_field() }}
+                    <div class="modal-body">                 
+                        <div class="form-group">
+                            <textarea required class="form-control" name="content" placeholder="Enter the post content..." aria-label="Post Content"></textarea>
+                            <div class="invalid-feedback">Please provide the post content</div>
+                        </div>
+                    </div>
+                    <div class="status-messages">
+                        <div class="alert alert-danger" style="display:none;white-space:pre-line"></div>
+                        <div class="alert alert-success" style="display:none;white-space:pre-line"></div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn publish-button solve-issue">Create</button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>

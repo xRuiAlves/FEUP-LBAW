@@ -22,13 +22,29 @@ const addEventListeners = () => {
         const downvote_node = rating_node.querySelector(".downvote");
         const rating_value_node = rating_node.querySelector(".rating-value");
         
-        upvote_node.addEventListener("click", (e) => {
-            upvotePost(post_id, rating_value_node);
-        });
+        if (upvote_node) {
+            upvote_node.addEventListener("click", (e) => {
+                upvotePost(post_id, rating_value_node);
+            });
+        }
         
-        downvote_node.addEventListener("click", (e) => {
-            downvotePost(post_id, rating_value_node);
-        });
+        if (downvote_node) {
+            downvote_node.addEventListener("click", (e) => {
+                downvotePost(post_id, rating_value_node);
+            });
+        }
+    });
+
+    const create_post_form = document.querySelector("#create-post-form");
+    create_post_form.addEventListener("submit", (e) => {
+        e.preventDefault();
+        if (!create_post_form.checkValidity()) {
+            return;
+        }
+        
+        const event_id = document.querySelector("#page-card.event-card").getAttribute("data-event-id");
+        const content = create_post_form.querySelector("textarea[name=content]").value;
+        createPost(event_id, content);
     });
 }
 
@@ -91,7 +107,7 @@ const createComment = (post_id, content) => {
                 const danger_alert = form.querySelector(".status-messages > .alert-danger");
                 success_alert.style.display = "";
                 danger_alert.style.display = "none";
-                success_alert.textContent = `The issue was successfully submitted to the administration team.`;
+                success_alert.textContent = `The comment was successfully created.`;
 
                 form.reset();
                 form.classList.remove("was-validated");
@@ -109,6 +125,68 @@ const createComment = (post_id, content) => {
 }
 
 const createCommentDOMNode = (post_id, content, name, formatted_timestamp) => {
+    const comment_node = document.createElement("div");
+    comment_node.classList.add("comment");
+    const name_node = document.createElement("div");
+    name_node.classList.add("name");
+    const content_node = document.createElement("div");
+    content_node.classList.add("text");
+    const timestamp_node = document.createElement("div");
+    timestamp_node.classList.add("date");
+
+    name_node.textContent = name;
+    content_node.textContent = content;
+    timestamp_node.textContent = `${formatted_timestamp}h`;
+
+    comment_node.appendChild(name_node);
+    comment_node.appendChild(timestamp_node);
+    comment_node.appendChild(content_node);
+
+    const post_node = document.querySelector(`div[data-post-id='${post_id}']`);
+    const comments_list_node = post_node.querySelector(".comments-list");
+    const num_comments_node = post_node.querySelector(".num-comments");
+    num_comments_node.textContent = parseInt(num_comments_node.textContent) + 1;
+    comments_list_node.prepend(comment_node);
+}
+
+const createPost = (event_id, content) => {
+    fetch('/api/post', {
+        method: 'POST',
+        body: JSON.stringify({
+            event_id,
+            content
+        }),
+        headers: {
+            'Content-Type': 'application/json',
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content'),
+            'Accept': 'application/json'
+        }
+    })
+    .then(res => {res.json().then(json => {
+        const form = document.querySelector("#create-post-form");
+        if (res.status === 200) {
+            const success_alert = form.querySelector(".status-messages > .alert-success");
+            const danger_alert = form.querySelector(".status-messages > .alert-danger");
+            success_alert.style.display = "";
+            danger_alert.style.display = "none";
+            success_alert.textContent = `The post was successfully created.`;
+
+            form.reset();
+            form.classList.remove("was-validated");
+
+            //createPostDOMNode(post_id, content, json.name, json.formatted_timestamp);
+        } else {
+            const success_alert = form.querySelector(".status-messages > .alert-success");
+            const danger_alert = form.querySelector(".status-messages > .alert-danger");
+            success_alert.style.display = "none";
+            danger_alert.style.display = "";
+            danger_alert.textContent = json.message;
+        }
+    });
+    });
+} 
+
+const createPostDOMNode = (content, name, formatted_timestamp) => {
     const comment_node = document.createElement("div");
     comment_node.classList.add("comment");
     const name_node = document.createElement("div");

@@ -59,6 +59,9 @@ Route::put('api/name/change', 'UserController@changeName');
 // Comments
 Route::post('api/comment', 'CommentController@store');
 
+// Posts
+Route::post('api/post', 'PostController@store');
+
 // Rating
 Route::put('api/post/upvote', 'RatingController@upvote');
 Route::put('api/post/downvote', 'RatingController@downvote');
