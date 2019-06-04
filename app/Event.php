@@ -48,6 +48,13 @@ class Event extends Model
     }
 
     /**
+     * The users that marked this event as favorite.
+     */
+    public function usersFavorited() {
+        return $this->belongsToMany('App\User', 'favorites', 'event_id', 'user_id');        
+    }
+
+    /**
      * Get the start date string
      *
      * @return string

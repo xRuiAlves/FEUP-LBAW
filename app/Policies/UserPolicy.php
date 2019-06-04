@@ -102,4 +102,16 @@ class UserPolicy
     {
         //
     }
+
+    /**
+     * Determine whether the user can mark an event as favorite.
+     *
+     * @param  \App\User  $user
+     * @param  \App\User  $model
+     * @return mixed
+     */
+    public function markFavorite(User $user)
+    {
+        return Auth::check($user);
+    }
 }

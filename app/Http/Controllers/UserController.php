@@ -11,6 +11,7 @@ use Illuminate\Database\Eloquent\ModelNotFoundException;
 
 use App\User;
 use App\Event;
+use App\FavoritEventEntry;
 use App\Utilities\TimeUtilities;
 use Hash;
 
@@ -130,5 +131,63 @@ class UserController extends Controller
     public function deleteAccount(Request $request) {
         User::destroy(auth()->user()->id);
         return redirect('/');
+    }
+
+    public function markEventAsFavorite(Request $request) {
+        $this->authorize('markFavorite', User::class);
+
+        $validated_data = $request->validate([
+            'event_id' => 'required'
+        ]);
+
+        try {
+            $event_id = $request->event_id;
+            $event = Event::find($event_id);
+
+            $event->usersFavorited()->attach(Auth::user());
+            $event->save();
+
+            return response()->json([
+                'favorited' => true,
+            ]);
+
+        } catch (ModelNotFoundException $err) {
+            return response(null, 404);
+        } catch (QueryException $err) {
+            return response()->json([
+                'message' => 'Bad request.'
+            ], 400);
+            
+        }
+    }
+
+    public function unmarkEventAsFavorite(Request $request) {
+        $this->authorize('markFavorite', User::class);
+
+        $validated_data = $request->validate([
+            'event_id' => 'required'
+        ]);
+
+        try {
+
+            $event_id = $request->event_id;
+            $event = Event::find($event_id);
+
+            $event->usersFavorited()->detach(Auth::user());
+            $event->save();
+
+            return response()->json([
+                'favorited' => false,
+            ]);
+
+
+        } catch (ModelNotFoundException $err) {
+            return response(null, 404);
+        } catch (QueryException $err) {
+            return response()->json([
+                'message' => 'Bad request.'
+            ], 400);
+            
+        }
     }
 }
