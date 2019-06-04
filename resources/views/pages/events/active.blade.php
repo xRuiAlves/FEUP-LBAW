@@ -16,11 +16,11 @@
                 <h1>
                     {{$event->title}}
                     @if($favorited)
-                        <button type="button" class="btn btn-primary active" id="favorite-marker" data-event-id="{{$event->id}}">
+                        <button title="Unmark as Favorite" type="button" class="btn btn-primary active" id="favorite-marker" data-event-id="{{$event->id}}">
                     @else        
-                        <button type="button" class="btn btn-primary" id="favorite-marker" data-event-id="{{$event->id}}">
+                        <button title="Mark as Favorite" type="button" class="btn btn-primary" id="favorite-marker" data-event-id="{{$event->id}}">
                     @endif
-                            <span title="Favorited" class=" favorite"><i class="fas fa-star"></i></span>
+                            <span  class="favorite"><i class="fas fa-star"></i></span>
                         </button>
                     
                 </h1>

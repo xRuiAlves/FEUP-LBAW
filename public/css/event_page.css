@@ -9,9 +9,6 @@
     overflow: hidden;
 } */
 
-.card-container.event-card .event-title #favorite-marker > * {
-    pointer-events: none;
-}
 
 .card-container.event-card .event-title #favorite-marker {
     background-color: transparent;
@@ -20,21 +17,12 @@
     margin-bottom: .5rem;
 }
 
-.card-container.event-card .event-title #favorite-marker:hover {
-    background-color: var(--secondary-color-medium);
-    color: goldenrod;
-}
 
 .card-container.event-card .event-title #favorite-marker.active {
     background-color: var(--secondary-color-medium);
     color: goldenrod;
 }
 
-.card-container.event-card .event-title #favorite-marker.active:hover {
-    background-color:transparent;
-    color: var(--secondary-color-medium);
-    border-color: var(--secondary-color-medium);
-}
 
 
 .card-container.event-card .admin-view-label h6 {

@@ -14,6 +14,7 @@ const addFavoriteClickEvent = () => {
                     res.json()
                     .then(json => {
                         favorite_btn.classList.add('active');
+                        favorite_btn.setAttribute('title', 'Unmark as Favorite')
                         
                     });
                 }
@@ -27,6 +28,8 @@ const addFavoriteClickEvent = () => {
                     res.json()
                     .then(json => {
                         favorite_btn.classList.remove('active');
+                        favorite_btn.setAttribute('title', 'Mark as Favorite')
+
                     });
                 }
             });
