@@ -56,22 +56,29 @@ class UserController extends Controller
             return $event;
         });
 
+        
+
         $favorite_events = $user->favoriteEvents()->get()
         ->map(function ($event, $key) {
-            $event['relationship'] = 'favorite';
+            $event['is_favorite'] = true;
             return $event;
         });
 
-        // return $organizing_events;
 
         // The order for merge must be this one because of not overriding positions with higher priority
-        $events = $organizing_events->merge($attending_events)->merge($owned_events)->merge($favorite_events)->sortBy('start_timestamp')->values();
+        $events = $organizing_events->merge($attending_events)->merge($owned_events);
 
-        // return $events;
+        foreach ($events as $key => $value) {
+            if($favorite_events->contains($events[$key])) {
+                $events[$key]['is_favorite'] = true;
+            }
+        }
+
+        $retEvents = $favorite_events->merge($events)->sortBy('start_timestamp')->values();
 
         // TODO: Key the events array by month of the year so that the templating can do its magic :/
 
-        return view('pages.dashboard', ['user' => $user, 'events' => $events]);
+        return view('pages.dashboard', ['user' => $user, 'events' => $retEvents]);
     }
 
     public function changeName(Request $request) {
