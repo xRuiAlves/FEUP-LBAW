@@ -94,8 +94,8 @@
         </div>
     </div>
     @else
-        <h2>Not attending or organizing any event yet!</h2>
-        <h3>Create an event <a href="/event/create">here</a> or search for events <a href="/#search-box-anchor">here!</a></h3>
+        <h2>Not attending or organizing any event yet.</h2>
+        <h3><a href="/event/create">Create an event</a> or <a href="/#search-box-anchor">search for events</a> to attend!</h3>
     @endif
 </div>
 @endsection
