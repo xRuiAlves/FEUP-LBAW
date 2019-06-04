@@ -1,3 +1,10 @@
+.card-container.settings-container {
+    position: relative;
+    top: 7em;
+    margin-bottom: 12em;
+    padding-bottom: 2em;
+}
+
 #page-card.settings-container header {
     margin-bottom: 2em;
 }
@@ -18,3 +25,43 @@ button.btn.change-button {
     text-decoration: underline;
 }
 
+.card-container.settings-container header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.5em;
+}
+    
+.card-container.settings-container header h1 {
+    margin-bottom: 0em;
+}
+
+.card-container.notifications-container {
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+    top: 0;
+    padding: 0;
+    margin-bottom: 2em;
+    border-radius: 0;
+    background: transparent;    
+}
+
+@media only screen and (max-width: 576px) {
+    .card-container.settings-container {
+        -webkit-box-shadow: none;
+        -moz-box-shadow: none;
+        box-shadow: none;
+        top: 0;
+        padding: 1em;
+        margin-bottom: 2em;
+        border-radius: 0;
+        background: transparent;    
+    }
+
+    .card-container.settings-container header {
+        padding-left: 0.5em;
+        padding-top: 0.5em;
+        background-color: transparent;
+        padding-bottom: 13vh;
+    }
+}

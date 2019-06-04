@@ -13,6 +13,7 @@
 <div id="page-card" class="container card-container font-content settings-container">
     <header>
         <h1>User Settings</h1>
+        <i class="fas fa-question-circle form-info" data-toggle="popover" data-placement="top" data-content="In this page, you may edit your personal data, such as your user name and password."></i>
     </header>
     <form id="change-name-form" novalidate class="needs-validation" action="#">
         {{ csrf_field() }}

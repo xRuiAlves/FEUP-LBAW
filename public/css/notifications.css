@@ -59,11 +59,11 @@
         background: transparent;    
     }
 
-    .card-container.notifications-container header h1 {
+    .card-container.notifications-container header {
         padding-left: 0.5em;
         padding-top: 0.5em;
-        background-color: var(--primary-color);
-        margin-bottom: 4em;
+        background-color: transparent;
+        padding-bottom: 15vh;
     }
 
     .card-container.notifications-container .notification-item:nth-of-type(1) {
