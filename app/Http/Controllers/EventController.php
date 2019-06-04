@@ -107,7 +107,7 @@ class EventController extends Controller
             'price' => 'required|numeric|min:0',
             'event_category_id' => 'required',
             'start_timestamp' => 'required|date|after:now',
-            'end_timestamp' => 'sometimes|nullable|date|after:start_date',
+            'end_timestamp' => 'sometimes|nullable|date|after:start_timestamp',
             'description' => 'required',
         ]);
         
