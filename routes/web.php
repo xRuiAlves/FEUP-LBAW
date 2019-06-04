@@ -31,7 +31,8 @@ Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
 Route::post('login', 'Auth\LoginController@login');
 Route::get('register', 'Auth\RegisterController@showRegistrationForm')->name('register');
 Route::post('register', 'Auth\RegisterController@register');
-Route::get('logout', 'Auth\LoginController@logout')->name('logout');
+Route::get('logout', 'Auth\Login\Controller@logout')->name('logout');
+Route::post('password/change', 'UserController@changePassword');
 
 // Events
 Route::get('/event/{id}', 'EventController@show')->where(['id' => '[0-9]+']);

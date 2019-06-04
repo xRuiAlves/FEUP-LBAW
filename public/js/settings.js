@@ -18,11 +18,11 @@ const addEventListeners = () => {
             return;
         }
 
-        const current_password = change_password_form.querySelector("input[name=current-password]").value;
-        const new_password = change_password_form.querySelector("input[name=new-password]").value;
-        const new_password_confirmation = change_password_form.querySelector("input[name=new-password-confirmation]").value;
+        const current_password = change_password_form.querySelector("input[name=current_password]").value;
+        const new_password = change_password_form.querySelector("input[name=new_password]").value;
+        const new_password_confirmation = change_password_form.querySelector("input[name=new_password_confirmation]").value;
 
-        changePassword(current_password, new_password, new_password_confirmation);
+        changePassword(current_password, new_password, new_password_confirmation, change_password_form);
     });
 }
 
@@ -47,7 +47,7 @@ const changeName = (name) => {
         if (res.status === 200) {
             displayNameSuccessMessage(name);
             document.querySelector("#nav_user_name").textContent = name;
-            
+
             const change_name_form = document.querySelector("#change-name-form");
             change_name_form.reset();
             change_name_form.classList.remove("was-validated");
@@ -60,7 +60,7 @@ const changeName = (name) => {
     });
 } 
 
-const changePassword = (current_password, new_password, new_password_confirmation) => {
+const changePassword = (current_password, new_password, new_password_confirmation, form) => {
     if (new_password.length < 6) {
         displayPasswordErrorMessage("Your new password must be, at least, 6 characters long.");
         return;
@@ -68,7 +68,8 @@ const changePassword = (current_password, new_password, new_password_confirmatio
         displayPasswordErrorMessage("Your new password does not match the new password confirmation.");
         return;
     }
-    displayPasswordSuccessMessage();
+
+    form.submit();
 }
 
 const displayNameErrorMessage = (error_message) => {

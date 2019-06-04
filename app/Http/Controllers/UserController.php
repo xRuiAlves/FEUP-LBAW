@@ -12,6 +12,7 @@ use Illuminate\Database\Eloquent\ModelNotFoundException;
 use App\User;
 use App\Event;
 use App\Utilities\TimeUtilities;
+use Hash;
 
 class UserController extends Controller
 {
@@ -99,5 +100,30 @@ class UserController extends Controller
                 ], 400);
             }
         }
+    }
+
+    public function changePassword(Request $request){
+        $validatedData = $request->validate([
+            'current_password' => 'required',
+            'new_password' => 'required|string',
+        ]);
+
+        $current_password = $validatedData["current_password"];
+        $new_password = $validatedData["new_password"];
+
+        if (!(Hash::check($current_password, Auth::user()->password))) {
+            return redirect()->back()->with(
+                "error",
+                "The current password you provided is not correct. Please try again."
+            );
+        }
+        
+        $user = Auth::user();
+        $user->password = bcrypt($request->get('new_password'));
+        $user->save();
+        return redirect()->back()->with(
+            "success",
+            "Your password was successfully changed!"
+        );
     }
 }

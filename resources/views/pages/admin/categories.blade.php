@@ -55,8 +55,8 @@
                 </button>
             </div>
             <form id="create-category-form" novalidate class="needs-validation" action="#">
+                {{ csrf_field() }}
                 <div novalidate class="needs-validation">
-                    {{ csrf_field() }}
                     <div class="modal-body"> 
                         <div class="form-group">
                             <input type="text" name="name" autocomplete="off" placeholder="Category name" required class="form-control">
@@ -85,8 +85,8 @@
                 </button>
             </div>
             <form id="rename-category-form" novalidate class="needs-validation" action="#">
+                {{ csrf_field() }}
                 <div novalidate class="needs-validation">
-                    {{ csrf_field() }}
                         <div class="modal-body"> 
                             <div class="form-group">
                                 <input type="text" name="name" autocomplete="off" placeholder="New category name" required class="form-control">
