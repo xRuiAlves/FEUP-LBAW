@@ -222,5 +222,14 @@ class EventController extends Controller
         // $card->delete();
 
         // return $card;
+    }   
+
+    public function manage(Request $request){
+
+        $event = Event::find($request->id);
+
+        $this->authorize('eventSettings', $event);
+
+        return view('pages.events.manage', ['event' => $event, 'attendees' => $event->attendees()->paginate(10), 'organizers' => $event->organizers()->paginate(10), 'isEventAdmin' => Auth::user()->id === $event->user_id]);    
     }
 }

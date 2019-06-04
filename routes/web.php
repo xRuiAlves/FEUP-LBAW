@@ -36,6 +36,7 @@ Route::post('password/change', 'UserController@changePassword');
 
 // Events
 Route::get('/event/{id}', 'EventController@show')->where(['id' => '[0-9]+']);
+Route::get('/event/{id}/manage', 'EventController@manage')->where(['id' => '[0-9]+']);;
 Route::get('/event/create', 'EventController@create');
 Route::post('/event/create', 'EventController@store');
 Route::put('api/event/enable', 'AdminController@enableEvent');

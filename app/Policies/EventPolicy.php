@@ -47,6 +47,13 @@ class EventPolicy {
     }
 
     /**
+     * Determine whether the user can rename event categories.
+     */
+    public function eventSettings(User $user, Event $event) {
+        return $user->organizingEvents->contains($event);
+    }
+
+    /**
      * Determine whether the user can update the event.
      *
      * @param  \App\User  $user

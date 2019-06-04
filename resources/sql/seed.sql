@@ -1270,14 +1270,15 @@ INSERT INTO ratings(user_id, post_id, value) VALUES
 -- Tickets
 INSERT INTO tickets(user_id, event_id, type, paypal_order_id, timestamp)
     VALUES (1, 3, 'Paypal', 'PAYPAL-CONFIRMATION-6424', to_timestamp('02-03-2020 23:42:31', 'dd-mm-yyyy hh24:mi:ss'));
-INSERT INTO tickets(user_id, event_id, type, paypal_order_id, nif, billing_name, timestamp) VALUES 
-    (5, 2, 'Paypal', 'PAYPAL-CONFIRMATION-4002', 245024952, 'Peter', to_timestamp('12-03-2020 13:13:06', 'dd-mm-yyyy hh24:mi:ss')),
-    (5, 11, 'Paypal', 'PAYPAL-CONFIRMATION-7601', 239682352, 'Mark Anthony', to_timestamp('13-03-2020 14:13:43', 'dd-mm-yyyy hh24:mi:ss')),
-    (6, 12, 'Paypal', 'PAYPAL-CONFIRMATION-8277', 249486937, 'Sarah', to_timestamp('13-03-2020 15:13:12', 'dd-mm-yyyy hh24:mi:ss')),
-    (7, 12, 'Paypal', 'PAYPAL-CONFIRMATION-9648', 228574453, 'António Lopes', to_timestamp('02-03-2020 16:21:52', 'dd-mm-yyyy hh24:mi:ss')),
-    (13, 3, 'Paypal', 'PAYPAL-CONFIRMATION-2326', 282397537, 'Cassandra Mel', to_timestamp('03-03-2020 21:37:27', 'dd-mm-yyyy hh24:mi:ss')),
-    (15, 4, 'Paypal', 'PAYPAL-CONFIRMATION-2266', 229385479, 'Varys Humgburt', to_timestamp('07-03-2020 22:22:36', 'dd-mm-yyyy hh24:mi:ss')),
-    (14, 12, 'Paypal', 'PAYPAL-CONFIRMATION-4713', 205791573, 'John Malcovich', to_timestamp('05-03-2020 23:41:31', 'dd-mm-yyyy hh24:mi:ss'));
+INSERT INTO tickets(user_id, event_id, type, paypal_order_id, nif, billing_name, timestamp, is_checked_in) VALUES 
+    (5, 2, 'Paypal', 'PAYPAL-CONFIRMATION-4002', 245024952, 'Peter', to_timestamp('12-03-2020 13:13:06', 'dd-mm-yyyy hh24:mi:ss'), true),
+    (5, 11, 'Paypal', 'PAYPAL-CONFIRMATION-7601', 239682352, 'Mark Anthony', to_timestamp('13-03-2020 14:13:43', 'dd-mm-yyyy hh24:mi:ss'), true),
+    (6, 12, 'Paypal', 'PAYPAL-CONFIRMATION-8277', 249486937, 'Sarah', to_timestamp('13-03-2020 15:13:12', 'dd-mm-yyyy hh24:mi:ss'), true),
+    (7, 12, 'Paypal', 'PAYPAL-CONFIRMATION-9648', 228574453, 'António Lopes', to_timestamp('02-03-2020 16:21:52', 'dd-mm-yyyy hh24:mi:ss'), true),
+    (13, 3, 'Paypal', 'PAYPAL-CONFIRMATION-2326', 282397537, 'Cassandra Mel', to_timestamp('03-03-2020 21:37:27', 'dd-mm-yyyy hh24:mi:ss'), true),
+    (15, 4, 'Paypal', 'PAYPAL-CONFIRMATION-2266', 229385479, 'Varys Humgburt', to_timestamp('07-03-2020 22:22:36', 'dd-mm-yyyy hh24:mi:ss'), true),
+    (9, 15, 'Paypal', 'PAYPAL-CONFIRMATION-2266', 229234580, 'Henry Button', to_timestamp('07-03-2020 22:34:01', 'dd-mm-yyyy hh24:mi:ss'), true),
+    (14, 12, 'Paypal', 'PAYPAL-CONFIRMATION-4713', 205791573, 'John Malcovich', to_timestamp('05-03-2020 23:41:31', 'dd-mm-yyyy hh24:mi:ss'), true);
 INSERT INTO tickets(user_id, event_id, type, event_voucher_id, timestamp) VALUES 
     (1, 2, 'Voucher', 1, to_timestamp('02-03-2020 11:31:11', 'dd-mm-yyyy hh24:mi:ss')),
     (1, 2, 'Voucher', 2, to_timestamp('03-03-2020 12:32:12', 'dd-mm-yyyy hh24:mi:ss')),

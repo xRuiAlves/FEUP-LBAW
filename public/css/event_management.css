@@ -1,0 +1,11 @@
+@import "common.css";
+@import "palette.css";
+
+#page-card.card-container.event-card {
+    padding: 2em;
+}
+
+.event-title {
+    font-size: 2em;
+    font-weight: bold;
+}
