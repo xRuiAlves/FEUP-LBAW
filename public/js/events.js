@@ -150,6 +150,11 @@ const createCommentDOMNode = (post_id, content, name, formatted_timestamp) => {
 }
 
 const createPost = (event_id, content) => {
+    if (content.length > 300) {
+        displayPostErrorMessage("The post content must be, at most, 300 characters long.");
+        return;
+    }
+    
     fetch('/api/post', {
         method: 'POST',
         body: JSON.stringify({
@@ -162,29 +167,35 @@ const createPost = (event_id, content) => {
             'Accept': 'application/json'
         }
     })
-    .then(res => {res.json().then(json => {
-        const form = document.querySelector("#create-post-form");
-        if (res.status === 200) {
-            const success_alert = form.querySelector(".status-messages > .alert-success");
-            const danger_alert = form.querySelector(".status-messages > .alert-danger");
-            success_alert.style.display = "";
-            danger_alert.style.display = "none";
-            success_alert.textContent = `The post was successfully created.`;
+    .then(res => {
+        res.json().then(json => {
+            if (res.status === 200) {
+                const form = document.querySelector("#create-post-form");
+                const success_alert = form.querySelector(".status-messages > .alert-success");
+                const danger_alert = form.querySelector(".status-messages > .alert-danger");
+                success_alert.style.display = "";
+                danger_alert.style.display = "none";
+                success_alert.textContent = `The post was successfully created.`;
 
-            form.reset();
-            form.classList.remove("was-validated");
+                form.reset();
+                form.classList.remove("was-validated");
 
-            //createPostDOMNode(post_id, content, json.name, json.formatted_timestamp);
-        } else {
-            const success_alert = form.querySelector(".status-messages > .alert-success");
-            const danger_alert = form.querySelector(".status-messages > .alert-danger");
-            success_alert.style.display = "none";
-            danger_alert.style.display = "";
-            danger_alert.textContent = json.message;
-        }
-    });
+                createPostDOMNode(content, json.name, json.formatted_timestamp);
+            } else {
+                displayPostErrorMessage(json.message);
+            }
+        });
     });
 } 
+
+const displayPostErrorMessage = (message) => {
+    const form = document.querySelector("#create-post-form");
+    const success_alert = form.querySelector(".status-messages > .alert-success");
+    const danger_alert = form.querySelector(".status-messages > .alert-danger");
+    success_alert.style.display = "none";
+    danger_alert.style.display = "";
+    danger_alert.textContent = message;
+}
 
 const createPostDOMNode = (content, name, formatted_timestamp) => {
     const comment_node = document.createElement("div");
