@@ -49,7 +49,7 @@
             @else
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="{{route('dashboard')}}">
+                    <a id="nav_user_name" class="nav-link" href="{{route('dashboard')}}">
                         {{Auth::user()->name}}
                     </a>
                 </li>
@@ -74,6 +74,12 @@
                     </a>
                 </li>
                 @endif
+                <li class="nav-item">
+                    <a title="Settings" class="nav-link" href="{{route('settings')}}">
+                        <i class="fas fa-cog"></i>
+                        <span class="nav-item-label">Settings</span>
+                    </a>
+                </li>
                 <li class="nav-item">
                     <a title="Exit" class="nav-link" href="{{route('logout')}}">
                         <i class="fas fa-sign-out-alt nav-item-icon"></i>

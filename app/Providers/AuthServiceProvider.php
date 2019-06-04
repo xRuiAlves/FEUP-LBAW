@@ -17,6 +17,7 @@ class AuthServiceProvider extends ServiceProvider
       'App\Event' => 'App\Policies\EventPolicy',
       'App\Issue' => 'App\Policies\IssuePolicy',
       'App\Rating' => 'App\Policies\RatingPolicy',
+      'App\User' => 'App\Policies\UserPolicy',
       'App\Comment' => 'App\Policies\CommentPolicy'
     ];
 

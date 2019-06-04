@@ -24,7 +24,7 @@
 
 Route::get('/', 'HomepageController@display');
 Route::view('faq', 'pages.faq')->name('faq');
-Route::view('settings', 'pages.settings')->name('settings');
+Route::get('settings', 'SettingsController@show')->name('settings');
 
 // Auth
 Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
@@ -52,6 +52,7 @@ Route::put('api/notification/dismiss', 'NotificationsController@dismiss');
 
 // User related routes
 Route::get('dashboard', 'UserController@showDashboard')->name('dashboard');
+Route::put('api/name/change', 'UserController@changeName');
 
 // Comments
 Route::post('api/comment', 'CommentController@store');

@@ -31,7 +31,33 @@ const changeName = (name) => {
         displayNameErrorMessage("Failed to change name. The chosen name must be between 3 and 20 characters long.");
         return;
     }
-    displayNameSuccessMessage(name);
+
+    fetch('/api/name/change', {
+        method: 'PUT',
+        body: JSON.stringify({
+            name
+        }),
+        headers: {
+            'Content-Type': 'application/json',
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content'),
+            'Accept': 'application/json'
+        }
+    })
+    .then(res => {
+        if (res.status === 200) {
+            displayNameSuccessMessage(name);
+            document.querySelector("#nav_user_name").textContent = name;
+            
+            const change_name_form = document.querySelector("#change-name-form");
+            change_name_form.reset();
+            change_name_form.classList.remove("was-validated");
+        } else {
+            res.json()
+            .then(json => {
+                displayNameErrorMessage(`Failed to change name. ${json.message}`);
+            });
+        }
+    });
 } 
 
 const changePassword = (current_password, new_password, new_password_confirmation) => {
