@@ -184,34 +184,9 @@ button.admin-tab:focus {
     border: 1px solid var(--danger-red-dark);
 }
 
-
-
 .content-table .pagination{
     display: flex;
     justify-content: center;
-}
-
-.content-table .pagination .page-item.active span{
-    color: var(--secondary-color-light);
-    border-bottom: 1px var(--secondary-color-light) solid;
-    background-color: white;
-}
-
-.content-table .pagination .page-item span, .content-table .pagination .page-item a{
-    border: 0;
-    color: var(--color-grey-darker);
-}
-
-.content-table .pagination .page-item {
-    border-radius: 5px;
-    border: 0;
-    width: 5em;
-    text-align: center;
-}
-
-.content-table .pagination .page-item:hover {
-    background-color: var(--color-grey-light);
-    border-radius: 10px;
 }
 
 button.solved-issue {
@@ -247,6 +222,12 @@ button.solved-issue {
 
 #user-table .actions button:not([disabled]) {
     cursor: pointer;
+}
+
+.admin-dashboard button.fts-search-button {
+    background-color: var(--secondary-color-medium);
+    color: white;
+    border-color: var(--secondary-color-medium);
 }
 
 @media only screen and (max-width: 768px) {

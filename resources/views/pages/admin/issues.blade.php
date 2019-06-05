@@ -14,7 +14,7 @@
             <label class="sr-only" for="inlineFormInputName2">Search for Issues</label>
             <input type="text" class="form-control mb-2 mr-sm-2" id="inlineFormInputName2" placeholder="Ex: Ticket bug" name="search" aria-label="Search Issue">
             
-            <button type="submit" class="btn btn-primary mb-2">Search</button>
+            <button type="submit" class="btn btn-primary mb-2 fts-search-button">Search</button>
         </form>
     </div>
     <div class="row no-gutters">

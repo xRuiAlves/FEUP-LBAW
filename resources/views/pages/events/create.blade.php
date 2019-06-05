@@ -16,7 +16,7 @@
         <header class="row no-gutters">
             <div class="col-12">
                 <div class="form-group">
-                    <input class="form-control title-input" value="{{Request::old('title')}}" required type="text" name="title" placeholder="Title" aria-label="Title">
+                    <input class="form-control title-input" autocomplete="off" value="{{Request::old('title')}}" required type="text" name="title" placeholder="Title" aria-label="Title">
                     <div class="invalid-feedback">
                         Please provide a title for the event
                     </div>
@@ -72,7 +72,7 @@
                 <div class="row no-gutters">
                     <div class="col-12 price event-field">
                         <div class="form-group">
-                            <input class="form-control" required type="text" name="price" value="{{Request::old('price')}}" min="0" placeholder="0.00" aria-label="Price">
+                            <input class="form-control" autocomplete="off" required type="text" name="price" value="{{Request::old('price')}}" min="0" placeholder="0.00" aria-label="Price">
                             <div class="invalid-feedback">Please provide a valid price for the event</div>
                         </div>
                         <span class="currency">€</span>
@@ -112,11 +112,13 @@
             </div>
         </footer>
         @if ($errors->any())
+            <div class="form-errors">
             @foreach ($errors->all() as $error)
                 <p class="submission-error">
                     {{ $error }}
                 </p>       
             @endforeach
+            </div>
         @endif
     </form>
 </div>

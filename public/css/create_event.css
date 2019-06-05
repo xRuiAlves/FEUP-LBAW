@@ -160,8 +160,12 @@
     text-align: right;
 }
 
+.form-errors {
+    margin-top: 2em;
+}
+
 .card-container.event-creation-container .submission-error {
-    color: red;
+    color: var(--danger-red);
 }
 
 

@@ -13,7 +13,7 @@
             <label class="sr-only" for="inlineFormInputName2">Name</label>
             <input type="text" class="form-control mb-2 mr-sm-2" id="inlineFormInputName2" placeholder="Ex: SINF 2020" name="search" aria-label="Search Events">
             
-            <button type="submit" class="btn btn-primary mb-2">Search</button>
+            <button type="submit" class="btn btn-primary mb-2 fts-search-button">Search</button>
         </form>
     </div>
         <div class="row no-gutters">

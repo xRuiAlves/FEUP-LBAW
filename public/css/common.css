@@ -213,6 +213,19 @@ footer.page-footer p.footer-questions {
     margin-top: 1.5em;
 }
 
+ul.pagination li.page-item {
+    font-family: Montserrat, sans-serif;
+}
+
+ul.pagination li.page-item.active span.page-link {
+    background-color: var(--secondary-color-medium);
+    border-color: var(--secondary-color-medium);
+}
+
+ul.pagination li.page-item a.page-link {
+    color: var(--secondary-color-medium);
+}
+
 @media only screen and (max-width: 576px) {
     body {
         background-color: white;
