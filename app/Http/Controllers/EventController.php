@@ -230,10 +230,10 @@ class EventController extends Controller
 
         $this->authorize('eventSettings', $event);
 
-        $attendees = $event->attendees()->paginate(1, ['*'], 'attendees');
+        $attendees = $event->attendees()->paginate(10, ['*'], 'attendees');
         $attendees->setPageName('attendees');
 
-        $organizers = $event->organizers()->paginate(1, ['*'], 'organizers');
+        $organizers = $event->organizers()->paginate(10, ['*'], 'organizers');
         $organizers->setPageName('organizers');
 
         return view('pages.events.manage', 
@@ -243,5 +243,25 @@ class EventController extends Controller
             'organizers' => $organizers,
             'isEventAdmin' => Auth::user()->id === $event->user_id
         ]);    
+    }
+
+    public function checkIn(Request $request){
+
+        $event = Event::find($request->id);
+        
+        $this->authorize('eventSettings', $event);
+
+        try{
+            $ticket = $event->attendees->find($request->user_id)->ticket;
+            $ticket->is_checked_in = true;
+            $ticket->save();
+
+            return response()->json([], 500);
+        } catch (ModelNotFoundException $err) {
+            return response()->json([], 404);
+        }catch(QueryException $e){
+            return response()->json([], 400);
+        }
+
     }
 }

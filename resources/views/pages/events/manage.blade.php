@@ -4,12 +4,16 @@
 <link href="{{ asset('css/event_management.css') }}" rel="stylesheet">
 @endsection
 
+@section('scripts')
+<script src="{{ asset('js/event_management.js')}}" defer></script>
+@endsection
+
 @section('title', 'Manage ' . $event->title . ' - Eventually')
 
 @section('content')
 <div id="background_wave"></div>
 
-<div id="page-card" class="container card-container font-content event-card">
+<div id="page-card" class="container card-container font-content event-card" data-event_id="{{$event->id}}">
     <div class="row no-gutters main">
         <div class="col-12 event-title font-title">
                 {{$event->title}} - Management
@@ -50,7 +54,7 @@
                         @if ($user->ticket->is_checked_in)
                             <button type="button" class="btn" disabled>Checked In  <i class="fas fa-check"></i></button>
                         @else
-                            <button type="button" class="btn btn-success">Check-In</button>
+                    <button type="button" class="btn btn-success check-in" data-user_id="{{$user->id}}">Check-In</button>
                         @endif
                     </td>
                     <td class="text-right"><button type="button" class="btn"><i class="fas fa-trash-alt text-right"></i></button></td>

@@ -36,13 +36,15 @@ Route::post('password/change', 'UserController@changePassword');
 
 // Events
 Route::get('/event/{id}', 'EventController@show')->where(['id' => '[0-9]+']);
-Route::get('/event/{id}/manage', 'EventController@manage')->where(['id' => '[0-9]+']);;
 Route::get('/event/create', 'EventController@create');
 Route::post('/event/create', 'EventController@store');
 Route::put('api/event/enable', 'AdminController@enableEvent');
 Route::put('api/event/disable', 'AdminController@disableEvent');
 Route::post('/event/category', 'EventController@storeCategory');
 Route::put('/event/category/rename', 'EventController@renameCategory');
+
+Route::get('/event/{id}/manage', 'EventController@manage')->where(['id' => '[0-9]+']);
+Route::put('api/event/{id}/check-in', 'EventController@checkIn');
 
 // Issues
 Route::post('issue/create', 'IssueController@create');
