@@ -11,6 +11,7 @@ use Illuminate\Database\Eloquent\ModelNotFoundException;
 
 use App\User;
 use App\Event;
+use App\FavoritEventEntry;
 use App\Utilities\TimeUtilities;
 use Hash;
 
@@ -55,22 +56,29 @@ class UserController extends Controller
             return $event;
         });
 
+        
+
         $favorite_events = $user->favoriteEvents()->get()
         ->map(function ($event, $key) {
-            $event['relationship'] = 'favorite';
+            $event['is_favorite'] = true;
             return $event;
         });
 
-        // return $organizing_events;
 
         // The order for merge must be this one because of not overriding positions with higher priority
-        $events = $organizing_events->merge($attending_events)->merge($owned_events)->merge($favorite_events)->sortBy('start_timestamp')->values();
+        $events = $organizing_events->merge($attending_events)->merge($owned_events);
 
-        // return $events;
+        foreach ($events as $key => $value) {
+            if($favorite_events->contains($events[$key])) {
+                $events[$key]['is_favorite'] = true;
+            }
+        }
+
+        $retEvents = $favorite_events->merge($events)->sortBy('start_timestamp')->values();
 
         // TODO: Key the events array by month of the year so that the templating can do its magic :/
 
-        return view('pages.dashboard', ['user' => $user, 'events' => $events]);
+        return view('pages.dashboard', ['user' => $user, 'events' => $retEvents]);
     }
 
     public function changeName(Request $request) {
@@ -130,5 +138,63 @@ class UserController extends Controller
     public function deleteAccount(Request $request) {
         User::destroy(auth()->user()->id);
         return redirect('/');
+    }
+
+    public function markEventAsFavorite(Request $request) {
+        $this->authorize('markFavorite', User::class);
+
+        $validated_data = $request->validate([
+            'event_id' => 'required'
+        ]);
+
+        try {
+            $event_id = $request->event_id;
+            $event = Event::find($event_id);
+
+            $event->usersFavorited()->attach(Auth::user());
+            $event->save();
+
+            return response()->json([
+                'favorited' => true,
+            ]);
+
+        } catch (ModelNotFoundException $err) {
+            return response(null, 404);
+        } catch (QueryException $err) {
+            return response()->json([
+                'message' => 'Bad request.'
+            ], 400);
+            
+        }
+    }
+
+    public function unmarkEventAsFavorite(Request $request) {
+        $this->authorize('markFavorite', User::class);
+
+        $validated_data = $request->validate([
+            'event_id' => 'required'
+        ]);
+
+        try {
+
+            $event_id = $request->event_id;
+            $event = Event::find($event_id);
+
+            $event->usersFavorited()->detach(Auth::user());
+            $event->save();
+
+            return response()->json([
+                'favorited' => false,
+            ]);
+
+
+        } catch (ModelNotFoundException $err) {
+            return response(null, 404);
+        } catch (QueryException $err) {
+            return response()->json([
+                'message' => 'Bad request.'
+            ], 400);
+            
+        }
     }
 }
