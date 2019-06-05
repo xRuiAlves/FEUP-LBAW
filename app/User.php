@@ -68,7 +68,7 @@ class User extends Authenticatable
 
     public function scopeFTS($query, $search) {
 
-        return $query->selectRaw('id, name, email')
+        return $query->selectRaw('id, name, email, is_admin, is_disabled')
         ->whereRaw("search @@ plainto_tsquery('english', ?)", [$search])
         ->orderByRaw("ts_rank(search, plainto_tsquery('english', ?)) DESC", [$search]);
     }
