@@ -11,6 +11,8 @@ use Illuminate\Database\DB;
 use App\Event;
 use App\EventCategory;
 use App\Post;
+use App\User;
+use App\Notification;
 
 
 class EventController extends Controller
@@ -297,7 +299,7 @@ class EventController extends Controller
         
         $this->authorize('eventAdmin', $event);
 
-        if($event->user_id === Auth::user()->id){
+        if($event->user_id === $request->user_id){
             return response()->json(['Cannot remove event admin'], 400);
         }
 
@@ -305,6 +307,98 @@ class EventController extends Controller
             $pivot = $event->organizers->find($request->user_id)->pivot;
             $pivot->delete();
 
+            return response()->json([], 200);
+        } catch (ModelNotFoundException $err) {
+            return response()->json([], 404);
+        }catch(QueryException $e){
+            return response()->json([], 400);
+        }
+    }
+
+    public function addOrganizerPage(Request $request){
+
+        $event = Event::find($request->id);
+
+        $this->authorize('eventAdmin', $event);
+
+        $search_query = $request->get('search');
+        
+        if(!empty($search_query)){
+            $users = User::FTS($search_query)->whereNotIn('id', $event->organizers->pluck('id'))->paginate(AdminController::ITEMS_PER_PAGE);
+
+            $users->withPath('?search='.$search_query);
+        }else{
+            $users = User::whereNotIn('id', $event->organizers->pluck('id'))->paginate(AdminController::ITEMS_PER_PAGE);
+        }
+        
+        return view('pages.events.add-organizer', ['event' => $event, 'users' => $users, 'searchQuery' => $search_query]);
+    }
+
+
+
+    public function invitePage(Request $request){
+
+        $event = Event::find($request->id);
+
+        $this->authorize('eventSettings', $event);
+
+        $search_query = $request->get('search');
+        
+        if(!empty($search_query)){
+            $users = User::FTS($search_query)
+                ->whereNotIn('id', $event->attendees->pluck('id'))
+                ->whereNotIn('id', Notification::where('event_id', $event->id)->invitedEvents()->pluck('user_id'))
+                ->paginate(AdminController::ITEMS_PER_PAGE);
+
+            $users->withPath('?search='.$search_query);
+        }else{
+            $users = User::whereNotIn('id', $event->attendees->pluck('id'))
+                ->whereNotIn('id', Notification::where('event_id', $event->id)->invitedEvents()->pluck('user_id'))
+                ->paginate(AdminController::ITEMS_PER_PAGE);
+        }
+
+        return view('pages.events.invite', ['event' => $event, 'users' => $users, 'searchQuery' => $search_query]);
+    }
+
+
+    public function addOrganizer(Request $request){
+        $request->validate([
+            'user_id' => 'required|integer'
+        ]);
+
+        $event = Event::find($request->id);
+        
+        $this->authorize('eventAdmin', $event);
+
+        try{
+            $event->organizers()->attach($request->user_id);
+
+            return response()->json([], 200);
+        } catch (ModelNotFoundException $err) {
+            return response()->json([], 404);
+        }catch(QueryException $e){
+            return response()->json([], 400);
+        }
+    }
+
+    public function invite(Request $request){
+
+        $request->validate([
+            'user_id' => 'required|integer'
+        ]);
+
+        $event = Event::find($request->id);
+
+        $this->authorize('eventSettings', $event);
+
+        try{
+            // Create the notification
+            $notification = new Notification;
+            $notification->type = 'EventInvitation';
+            $notification->user_id = $request->user_id;
+            $notification->event_id = $event->id;
+            $notification->save();
+        
             return response()->json([], 200);
         } catch (ModelNotFoundException $err) {
             return response()->json([], 404);

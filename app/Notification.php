@@ -119,5 +119,9 @@ class Notification extends Model
         }
     }
 
+    public function scopeInvitedEvents($query){
+        return $query->where('type', 'EventInvitation');
+    }
+
 
 }
