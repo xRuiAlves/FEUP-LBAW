@@ -247,22 +247,26 @@ class EventController extends Controller
     }
 
     public function attend(Request $request, $event_id) {
-        // $validator = Validator::make($request->all(), [
-        //     'tickets.*.nif' => 'required|numeric|size:9|max:2',
+        
+        // $request->validate([
+        //     'tickets.*.nif' => 'required|numeric|digits:9',
         //     'tickets.*.address' => 'required|max:128',
         //     'tickets.*.billing_name' => 'required|max:64',
-        //     'tickets.*.voucher_code' => 'size:32',
+        //     'tickets.*.voucher_code' => 'nullable|size:32',
         // ]);
-        
-        $request->validate([
-            'tickets.*.nif' => 'required|numeric|digits:9',
-            'tickets.*.address' => 'required|max:128',
-            'tickets.*.billing_name' => 'required|max:64',
-            'tickets.*.voucher_code' => 'nullable|size:32',
-        ]);
+
+        return response()->json([
+            'errors' => [
+                'global' => [
+                    'There was a global error',
+                    'There was another global error',
+                ]
+            ]
+        ], 400);
+
+
         
 
-        //NAO RETORNAR JSON- mandar para uma view
         return response()->json([
             'data' => $request->tickets,
         ], 200);

@@ -69,6 +69,11 @@ const parseErrors = (errors) => {
 
     Object.keys(errors).forEach(key => {
 
+        if(key === 'global') { // special case for global error
+            ret['global']= errors[key];
+            return;
+        }
+
         let reg = /.*\.(\d+)\.(.*)/g;
         let match = reg.exec(key);
 
