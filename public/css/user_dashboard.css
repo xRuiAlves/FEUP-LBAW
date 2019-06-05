@@ -12,7 +12,11 @@
 }
 
 .user-dashboard-container > header .title-container h1 {
-    margin-bottom: 0;
+    margin-bottom: 1.5em;
+}
+
+.user-dashboard-container > header .title-container h1 i {
+    font-size: 1.5rem;
 }
 
 .user-dashboard-container > header .label {

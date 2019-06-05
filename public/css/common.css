@@ -15,8 +15,8 @@
 #page-card.card-container {
     position: relative;
     top: 4em;
-    margin-bottom: 4em;
-    overflow: hidden;
+    /* margin-bottom: 4em; */
+    /* overflow: hidden; */
 }
 
 #page-card.card-container.event-card {
@@ -244,6 +244,7 @@ footer.page-footer p.footer-questions {
     #page-card.card-container {
         position: static;
         top: 0;
+        margin-bottom: 4em;
     }
 
     #page-card.card-container.login-register {
