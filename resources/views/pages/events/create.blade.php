@@ -113,9 +113,9 @@
         </footer>
         @if ($errors->any())
             @foreach ($errors->all() as $error)
-                <span class="submission-error">
+                <p class="submission-error">
                     {{ $error }}
-                </span>       
+                </p>       
             @endforeach
         @endif
     </form>
