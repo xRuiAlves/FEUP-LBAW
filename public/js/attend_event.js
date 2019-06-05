@@ -13,6 +13,12 @@ const addTicketClickEvent = () => {
         tickets_container.appendChild(new_separator);
 
         const new_ticket = document.querySelector('.ticket').cloneNode(true);
+
+        //clear each input
+        $(new_ticket).find('input[name="nif"]').each(function() {
+            $(this).val("");
+        });
+
         tickets_container.appendChild(new_ticket);
 
 
@@ -22,24 +28,38 @@ const addTicketClickEvent = () => {
 const submitAttendClickEvent = () => {
     const form = document.getElementById('ticket-form');
 
-    console.log(form);
-
-
     form.addEventListener('submit', (e) => {
 
         e.preventDefault();
 
+        
         const tickets_container = document.getElementById('tickets-container');
-        console.log('====================================');
-        console.dir($(tickets_container).children('.ticket').map(function () {
+        const tickets = $(tickets_container).children('.ticket').map(function () {
             return {
                 nif: $($(this).find('input[name="nif"]')[0]).val(),
                 address: $($(this).find('input[name="address"]')[0]).val(),
                 billing_name: $($(this).find('input[name="billing_name"]')[0]).val(),
                 voucher_code: $($(this).find('input[name="voucher_code"]')[0]).val()
             }
-        }).toArray());
-        console.log('====================================');
+        }).toArray();
+
+
+        sendRequest(form.getAttribute('action'), 'POST', {tickets})
+        .then(res => {
+            res.json()
+                .then(data => {
+                    console.log('====================================');
+                    console.log(data);
+                    console.log('====================================');
+                    if(res.status !== 200) {
+                        console.log('====================================');
+                        console.log(data.errors);
+                        console.log('====================================');
+                    }
+                })
+            }
+        );
+
         return false;
     })
 

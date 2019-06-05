@@ -40,7 +40,7 @@ Route::get('/event/{id}', 'EventController@show')->where(['id' => '[0-9]+']);
 Route::get('/event/create', 'EventController@create');
 Route::post('/event/create', 'EventController@store');
 Route::get('/event/{id}/attend', 'EventController@showAttendPage')->where(['id' => '[0-9]+']);
-Route::post('/event/{id}/attend', 'EventController@attend')->where(['id' => '[0-9]+']);
+Route::post('event/{id}/attend', 'EventController@attend')->where(['id' => '[0-9]+']);
 Route::put('api/event/enable', 'AdminController@enableEvent');
 Route::post('api/event/favorite', 'UserController@markEventAsFavorite');
 Route::delete('api/event/favorite', 'UserController@unmarkEventAsFavorite');

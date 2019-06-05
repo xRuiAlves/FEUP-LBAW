@@ -246,7 +246,25 @@ class EventController extends Controller
 
     }
 
-    public function attend(Request $request) {
-        dd($request);
+    public function attend(Request $request, $event_id) {
+        // $validator = Validator::make($request->all(), [
+        //     'tickets.*.nif' => 'required|numeric|size:9|max:2',
+        //     'tickets.*.address' => 'required|max:128',
+        //     'tickets.*.billing_name' => 'required|max:64',
+        //     'tickets.*.voucher_code' => 'size:32',
+        // ]);
+        
+        $request->validate([
+            'tickets.*.nif' => 'required|numeric|size:9|max:2',
+            'tickets.*.address' => 'required|max:128',
+            'tickets.*.billing_name' => 'required|max:64',
+            // 'tickets.*.voucher_code' => 'size:32',
+        ]);
+        
+
+        //NAO RETORNAR JSON- mandar para uma view
+        return response()->json([
+            'data' => $request->tickets,
+        ], 200);
     }
 }
