@@ -12,6 +12,10 @@
     max-width: 50em;
 }
 
+#page-card.card-container.login-register form .error {
+    color: var(--danger-red);
+}
+
 #page-card.card-container {
     position: relative;
     top: 4em;
