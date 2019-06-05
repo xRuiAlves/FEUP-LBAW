@@ -37,14 +37,14 @@
             </thead>
             <tbody>
                 @foreach($issues as $issue)
-                <tr class="issue-header" data-toggle="collapse" data-target="#issue{{$issue->id}}collapse" 
+                <tr class="issue-header" data-toggle="collapse" data-target="#issue{{$issue->id}}collapse" aria-expanded="false" aria-controls="issue{{$issue->id}}collapse" 
                 data-issue-solved={{$issue->is_solved ? "1" : "0"}} data-issue-id={{$issue->id}} data-issue-creator-id={{$issue->creator_id}}>
                     <td>{{$issue->id}}</td>
                     <td>{{$issue->creator_name}}</td>
                     <td>{{$issue->date}}</td>
                     <td>{{$issue->time}}</td>
                     <td>{{$issue->title}}</td>
-                    <td>
+                    <td class="button-data-field">
                         @if($issue->is_solved) 
                             <button class="btn action-btn solve-issue-pop-modal solved-issue">Solved</button> 
                         @else 
@@ -53,9 +53,7 @@
                     </td>
                 </tr>
                 <tr class="collapse" id="issue{{$issue->id}}collapse">
-                    <td></td>
-                    <td class="text-center" colspan="5"><i class="fas fa-chevron-down"></i><br><p class="text-left">{{$issue->content}}</p></td>
-                    <td></td>
+                    <td colspan="6" class="no-borders-cell"><strong>Issue Description:&nbsp;</strong>{{$issue->content}}</td>
                 </tr>
                 @endforeach
             </tbody>
