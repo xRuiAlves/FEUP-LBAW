@@ -250,7 +250,18 @@ class UserController extends Controller
             $user = User::findOrFail($user_id);
             $user->is_disabled = true;    
             $user->save();
-            return response()->json([], 200);
+
+            $user_events = Event::ownerUser($user_id)->enabled()->get();
+            $disabled_events = [];
+            foreach($user_events as $event) {
+                $event->is_disabled = true;
+                $event->save();
+                array_push($disabled_events, $event->title);
+            }
+
+            return response()->json([
+                "disabled_events" => $disabled_events
+            ], 200);
         } catch (ModelNotFoundException $err) {
             return response()->json([], 404);
         } 

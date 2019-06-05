@@ -296,4 +296,16 @@ class Event extends Model
         ->isEmpty();
     }
 
+    public function scopeOwnerUser($query, $user_id) {
+        return $query->where('user_id', $user_id);
+    }
+
+    public function scopeDisabled($query) {
+        return $query->where('is_disabled', true);
+    }
+
+    public function scopeEnabled($query) {
+        return $query->where('is_disabled', false);
+    }
+
 }

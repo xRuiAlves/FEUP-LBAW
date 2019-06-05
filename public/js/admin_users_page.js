@@ -80,7 +80,7 @@ const promoteToAdmin = (user_id, name, button_node) => {
             const danger_alert = document.querySelector("#user-table .status-messages > .alert-danger");
             success_alert.style.display = "";
             danger_alert.style.display = "none";
-            success_alert.textContent = `Successfully promoted user '${name}' to admin`;
+            success_alert.innerHTML = `Successfully promoted user <strong><u>${name}</u></strong> to admin`;
             button_node.setAttribute("disabled", "disabled");
         } else {
             const success_alert = document.querySelector("#user-table .status-messages > .alert-success");
@@ -93,7 +93,6 @@ const promoteToAdmin = (user_id, name, button_node) => {
 }
 
 const enableUserAccount = (user_id, name, button_node) => {
-    console.log("Enabling");
     fetch('/api/user/enable', {
         method: 'PUT',
         body: JSON.stringify({
@@ -111,7 +110,7 @@ const enableUserAccount = (user_id, name, button_node) => {
             const danger_alert = document.querySelector("#user-table .status-messages > .alert-danger");
             success_alert.style.display = "";
             danger_alert.style.display = "none";
-            success_alert.textContent = `Successfully enabled user '${name}' account`;
+            success_alert.innerHTML = `Successfully enabled user <strong><u>${name}</u></strong> account`;
 
             const icon_node = button_node.querySelector("i");
             const user_node = document.querySelector(`#user-table .user-entry[data-user-id='${user_id}']`);
@@ -131,7 +130,6 @@ const enableUserAccount = (user_id, name, button_node) => {
 }
 
 const disableUserAccount = (user_id, name, button_node) => {
-    console.log("Disabling");
     fetch('/api/user/disable', {
         method: 'PUT',
         body: JSON.stringify({
@@ -145,19 +143,35 @@ const disableUserAccount = (user_id, name, button_node) => {
     })
     .then(res => {
         if (res.status === 200) {
-            const success_alert = document.querySelector("#user-table .status-messages > .alert-success");
-            const danger_alert = document.querySelector("#user-table .status-messages > .alert-danger");
-            success_alert.style.display = "";
-            danger_alert.style.display = "none";
-            success_alert.textContent = `Successfully disabled user '${name}' account`;
-
-            const icon_node = button_node.querySelector("i");
-            const user_node = document.querySelector(`#user-table .user-entry[data-user-id='${user_id}']`);
-            user_node.setAttribute("data-user-disabled", "true");
-            user_node.querySelector(".status").textContent = "Disabled";
-            button_node.querySelector(".text").textContent = "Enable";
-            icon_node.classList.remove("fa-ban");
-            icon_node.classList.add("fa-undo");
+            res.json().then(({ disabled_events }) => {
+                let success_message = `Successfully disabled user <strong><u>${name}</u></strong> account. `;
+                if (disabled_events.length === 0) {
+                    success_message += "The user was not hosting any events that were active, thus no events were disabled."
+                } else if (disabled_events.length === 1) {
+                    success_message += `The event <i><u>${disabled_events[0]}</u></i> was disabled`;
+                } else {
+                    success_message += "The events "
+                    let prefix = "";
+                    for (let i = 0; i < disabled_events.length - 1; i++) {
+                        success_message += `${prefix}<i><u>${disabled_events[i]}</u></i>`;
+                        prefix = ", ";
+                    }
+                    success_message += ` and <i><u>${disabled_events[disabled_events.length - 1]}</u></i> (a total of <strong>${disabled_events.length} events</strong>) were disabled.`
+                }
+                const success_alert = document.querySelector("#user-table .status-messages > .alert-success");
+                const danger_alert = document.querySelector("#user-table .status-messages > .alert-danger");
+                success_alert.style.display = "";
+                danger_alert.style.display = "none";
+                success_alert.innerHTML = success_message;
+    
+                const icon_node = button_node.querySelector("i");
+                const user_node = document.querySelector(`#user-table .user-entry[data-user-id='${user_id}']`);
+                user_node.setAttribute("data-user-disabled", "true");
+                user_node.querySelector(".status").textContent = "Disabled";
+                button_node.querySelector(".text").textContent = "Enable";
+                icon_node.classList.remove("fa-ban");
+                icon_node.classList.add("fa-undo");
+            });
         } else {
             const success_alert = document.querySelector("#user-table .status-messages > .alert-success");
             const danger_alert = document.querySelector("#user-table .status-messages > .alert-danger");
