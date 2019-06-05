@@ -52,9 +52,9 @@ const submitAttendClickEvent = () => {
                     console.log(data);
                     console.log('====================================');
                     if(res.status !== 200) {
-                        console.log('====================================');
-                        console.log(data.errors);
-                        console.log('====================================');
+                        const errors = parseErrors(data.errors);
+                        console.log("hello,", errors);
+                        
                     }
                 })
             }
@@ -62,7 +62,30 @@ const submitAttendClickEvent = () => {
 
         return false;
     })
+}
 
+const parseErrors = (errors) => {
+    let ret = {};
+
+    console.log('what the keys?',errors)
+
+    Object.keys(errors).forEach(key => {
+
+        let reg = /.*\.(\d+)\.(.*)/g;
+        let match = reg.exec(key);
+
+        const ticket_num = match[1];
+        const field = match[2];
+
+
+        if(!ret[ticket_num]) {
+            ret[ticket_num] = {};
+        }
+
+        ret[ticket_num][field] = errors[key];
+    })
+
+    return ret;
 
 }
 
