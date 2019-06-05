@@ -8,6 +8,8 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Database\QueryException;
 use Illuminate\Database\DB;
 
+use Illuminate\Database\Eloquent\ModelNotFoundException;
+
 use App\Event;
 use App\EventCategory;
 use App\Post;
@@ -231,5 +233,20 @@ class EventController extends Controller
         // $card->delete();
 
         // return $card;
+    }
+
+
+    public function showAttendPage(Request $request) {
+        try {
+            $event = Event::findOrFail($request->id);
+            return view('pages.events.attend', ['event' => $event]);
+        } catch (ModelNotFoundException $e) {
+            return redirect('/')->withErrors(['Event not available']);
+        }
+
+    }
+
+    public function attend(Request $request) {
+        dd($request);
     }
 }
