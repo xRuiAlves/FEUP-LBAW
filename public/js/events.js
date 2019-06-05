@@ -204,13 +204,6 @@ $('#create-post-modal').on('shown.bs.modal', () => {
 $(function(){
     const hash = window.location.hash;
     hash && $('div.nav a[href="' + hash + '"]').tab('show');
-  
-    // $('.nav-tabs a').click((e) => {
-        // $(this).tab('show');
-        // const scrollmem = $('body').scrollTop();
-        // window.location.hash = this.hash;
-        // $('html,body').scrollTop(scrollmem);
-    // });
 });
 
 addEventListeners();

@@ -11,17 +11,53 @@ const addEventListeners = () => {
         $('#promote-to-admin-modal').modal('hide');
     });
 
+    const user_status_modal = document.querySelector("#user-status-modal");
+    user_status_modal.querySelector("form").addEventListener("submit", (e) => {
+        e.preventDefault();
+        
+        const user_id = user_status_modal.getAttribute("data-user-id");
+        const name = user_status_modal.getAttribute("data-user-name");
+        const is_disabled = user_status_modal.getAttribute("data-user-disabled");
+        const button_node = document.querySelector(`#user-table .user-entry[data-user-id='${user_id}'] button.account-enable-toggle`);
+
+        if (is_disabled == "true") {
+            enableUserAccount(user_id, name, button_node);
+        } else {
+            disableUserAccount(user_id, name, button_node);
+        }
+        
+        $('#user-status-modal').modal('hide');
+    });
+
     document.querySelectorAll("#user-table .user-entry").forEach(entry => {
-        const button_node = entry.querySelector("button.promote-admin-button");
-        button_node.addEventListener("click", (e) => {
-            const user_id = entry.getAttribute("data-user-id");
-            const name = entry.getAttribute("data-user-name");
+        const promote_admin_button_node = entry.querySelector("button.promote-admin-button");
+        const account_enable_toggle_button_node = entry.querySelector("button.account-enable-toggle");
+        const user_id = entry.getAttribute("data-user-id");
+        const name = entry.getAttribute("data-user-name");
+        promote_admin_button_node.addEventListener("click", (e) => {
+            const is_disabled = entry.getAttribute("data-user-disabled");
             promote_to_admin_modal.setAttribute("data-user-id", user_id);
             promote_to_admin_modal.setAttribute("data-user-name", name);
+            promote_to_admin_modal.setAttribute("data-user-disabled", is_disabled);
 
             $('#promote-to-admin-modal').modal();
             promote_to_admin_modal.querySelector(".modal-body").innerHTML = 
                 `Are you sure you want to promote user <u><strong>${name}</strong></u> to a platform administrator?`;
+        });
+        account_enable_toggle_button_node.addEventListener("click", (e) => {
+            const is_disabled = entry.getAttribute("data-user-disabled");
+            user_status_modal.setAttribute("data-user-id", user_id);
+            user_status_modal.setAttribute("data-user-name", name);
+            user_status_modal.setAttribute("data-user-disabled", is_disabled);
+
+            $('#user-status-modal').modal();
+            user_status_modal.querySelector(".modal-title").innerHTML = 
+                `${is_disabled == "true" ? "Enabling" : "Disabling"} user account`
+            user_status_modal.querySelector(".modal-body").innerHTML = 
+                `Do you want to ${is_disabled == "true" ? "enable" : "disable"} user <u><strong>${name}</strong></u> account? 
+                ${is_disabled == "true" ? "" : "This action will cause <u>all the events the user created to be <strong>disabled</strong></u>."}`;
+            user_status_modal.querySelector(".modal-footer button[type=submit]").innerHTML = 
+                is_disabled == "true" ? "Enable" : "Disable";
         });
     });
 }
@@ -55,5 +91,83 @@ const promoteToAdmin = (user_id, name, button_node) => {
         }
     });
 }
+
+const enableUserAccount = (user_id, name, button_node) => {
+    console.log("Enabling");
+    fetch('/api/user/enable', {
+        method: 'PUT',
+        body: JSON.stringify({
+            user_id,
+        }),
+        headers: {
+            'Content-Type': 'application/json',
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content'),
+            'Accept': 'application/json'
+        }
+    })
+    .then(res => {
+        if (res.status === 200) {
+            const success_alert = document.querySelector("#user-table .status-messages > .alert-success");
+            const danger_alert = document.querySelector("#user-table .status-messages > .alert-danger");
+            success_alert.style.display = "";
+            danger_alert.style.display = "none";
+            success_alert.textContent = `Successfully enabled user '${name}' account`;
+
+            const icon_node = button_node.querySelector("i");
+            const user_node = document.querySelector(`#user-table .user-entry[data-user-id='${user_id}']`);
+            user_node.setAttribute("data-user-disabled", "false");
+            user_node.querySelector(".status").textContent = "Active";
+            button_node.querySelector(".text").textContent = "Disable";
+            icon_node.classList.remove("fa-undo");
+            icon_node.classList.add("fa-ban");
+        } else {
+            const success_alert = document.querySelector("#user-table .status-messages > .alert-success");
+            const danger_alert = document.querySelector("#user-table .status-messages > .alert-danger");
+            success_alert.style.display = "none";
+            danger_alert.style.display = "";
+            danger_alert.textContent = "Failed to enable user account";
+        }
+    });
+}
+
+const disableUserAccount = (user_id, name, button_node) => {
+    console.log("Disabling");
+    fetch('/api/user/disable', {
+        method: 'PUT',
+        body: JSON.stringify({
+            user_id,
+        }),
+        headers: {
+            'Content-Type': 'application/json',
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content'),
+            'Accept': 'application/json'
+        }
+    })
+    .then(res => {
+        if (res.status === 200) {
+            const success_alert = document.querySelector("#user-table .status-messages > .alert-success");
+            const danger_alert = document.querySelector("#user-table .status-messages > .alert-danger");
+            success_alert.style.display = "";
+            danger_alert.style.display = "none";
+            success_alert.textContent = `Successfully disabled user '${name}' account`;
+
+            const icon_node = button_node.querySelector("i");
+            const user_node = document.querySelector(`#user-table .user-entry[data-user-id='${user_id}']`);
+            user_node.setAttribute("data-user-disabled", "true");
+            user_node.querySelector(".status").textContent = "Disabled";
+            button_node.querySelector(".text").textContent = "Enable";
+            icon_node.classList.remove("fa-ban");
+            icon_node.classList.add("fa-undo");
+        } else {
+            const success_alert = document.querySelector("#user-table .status-messages > .alert-success");
+            const danger_alert = document.querySelector("#user-table .status-messages > .alert-danger");
+            success_alert.style.display = "none";
+            danger_alert.style.display = "";
+            danger_alert.textContent = "Failed to disable user account";
+        }
+    });
+}
+
+
 
 addEventListeners();

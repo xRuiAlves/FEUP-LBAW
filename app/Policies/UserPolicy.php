@@ -44,6 +44,17 @@ class UserPolicy
     }
 
     /**
+     * Determine if the user may enable/disable other users accounts
+     *
+     * @param  \App\User  $user
+     */
+    public function enableDisable(User $user)
+    {
+        // Only admins may enable/disable other users accounts
+        return $user->is_admin;
+    }
+
+    /**
      * Determine whether the user can view the model.
      *
      * @param  \App\User  $user

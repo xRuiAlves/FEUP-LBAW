@@ -36,17 +36,17 @@
             </thead>
             <tbody>
                 @foreach($users as $user)
-                <tr class="user-entry" data-user-id="{{$user->id}}" data-user-name="{{$user->name}}">
+            <tr class="user-entry" data-user-id="{{$user->id}}" data-user-name="{{$user->name}}" data-user-disabled="{{$user->is_disabled ? "true" : "false"}}">
                     <td>{{$user->name}}</td>
                     <td>{{$user->email}}</td>
                     <td>{{$user->is_admin ? "Admin" : "User"}}</td>
-                    <td>{{$user->is_disabled ? "Disabled" : "Active"}}</td>
+                    <td class="status">{{$user->is_disabled ? "Disabled" : "Active"}}</td>
                     <td class="actions">
                         <button 
                             class="btn action-btn account-enable-toggle" 
-                            title="{{$user->is_disabled ? 'Re-enable user account' : 'Disable user account'}}">
+                            title="{{$user->is_disabled ? 'Enable user account' : 'Disable user account'}}">
                             <i class="{{$user->is_disabled ? 'fas fa-undo' : 'fas fa-ban'}}"></i>
-                            {{$user->is_disabled ? 'Re-enable' : 'Disable'}}
+                            <span class="text">{{$user->is_disabled ? 'Enable' : 'Disable'}}</span>
                         </button> 
                         <button 
                             {{$user->is_admin ? 'disabled' : ''}} 
@@ -81,6 +81,28 @@
                 </div>
                 <div class="modal-footer">
                     <button type="submit" class="btn publish-button dismiss-notification">Promote</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div id="user-status-modal" class="modal fade font-content" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="header-container">
+                    <div class="modal-title custom-modal-title"></div>
+                </div>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form action="#">
+                <div class="modal-body"> </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn publish-button"></button>
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                 </div>
             </form>

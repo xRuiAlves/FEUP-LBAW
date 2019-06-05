@@ -58,6 +58,8 @@ Route::put('api/notification/dismiss', 'NotificationsController@dismiss');
 Route::get('dashboard', 'UserController@showDashboard')->name('dashboard');
 Route::put('api/name/change', 'UserController@changeName');
 Route::put('api/admin/promote', 'UserController@promoteToAdmin');
+Route::put('api/user/enable', 'UserController@enable');
+Route::put('api/user/disable', 'UserController@disable');
 
 // Comments
 Route::post('api/comment', 'CommentController@store');

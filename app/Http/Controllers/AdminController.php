@@ -65,10 +65,10 @@ class AdminController extends Controller {
         ->when(!empty($search_query), function ($q) use ($search_query) {
             return Event::FTSScope($q, $search_query);
         })
+        ->orderBy('title')
         ->paginate(AdminController::ITEMS_PER_PAGE);
 
         $events->appends(['search' => $search_query]);
-        
 
         return view('pages.admin.events', ['events' => $events]);
     }

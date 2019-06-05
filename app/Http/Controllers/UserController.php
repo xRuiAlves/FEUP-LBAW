@@ -217,4 +217,42 @@ class UserController extends Controller
             return response()->json([], 404);
         } 
     }
+
+    public function enable(Request $request) {
+        $this->authorize('enableDisable', User::class);
+
+        $validated_data = $request->validate([
+            'user_id' => 'required'
+        ]);
+
+        $user_id = $validated_data["user_id"];
+
+        try {
+            $user = User::findOrFail($user_id);
+            $user->is_disabled = false;    
+            $user->save();
+            return response()->json([], 200);
+        } catch (ModelNotFoundException $err) {
+            return response()->json([], 404);
+        } 
+    }
+
+    public function disable(Request $request) {
+        $this->authorize('enableDisable', User::class);
+
+        $validated_data = $request->validate([
+            'user_id' => 'required'
+        ]);
+
+        $user_id = $validated_data["user_id"];
+
+        try {
+            $user = User::findOrFail($user_id);
+            $user->is_disabled = true;    
+            $user->save();
+            return response()->json([], 200);
+        } catch (ModelNotFoundException $err) {
+            return response()->json([], 404);
+        } 
+    }
 }
