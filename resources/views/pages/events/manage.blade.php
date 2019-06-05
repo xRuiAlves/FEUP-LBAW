@@ -22,7 +22,7 @@
     <div class="separator main-separator">
         <hr>
     </div>
-    <button type="button" class="btn btn-warning">Generate Voucher Code</button>
+    <button type="button" class="btn btn-secondary">Generate Voucher Code</button>
     
     <br><br><br>
 
@@ -40,7 +40,7 @@
             </thead>
             <tbody>
                 @foreach($attendees as $user)
-                <tr>
+                <tr class="attendee" data-user_id="{{$user->id}}">
                     <td>{{$user->name}}</td>
                     <td>
                         @if (empty($user->ticket->billing_name))
@@ -57,7 +57,7 @@
                     <button type="button" class="btn btn-success check-in" data-user_id="{{$user->id}}">Check-In</button>
                         @endif
                     </td>
-                    <td class="text-right"><button type="button" class="btn"><i class="fas fa-trash-alt text-right"></i></button></td>
+                    <td class="text-right"><button type="button" class="btn remove-attendee" data-user_id="{{$user->id}}"><i class="fas fa-trash-alt text-right"></i></button></td>
                 </tr>
                 @endforeach
             </tbody>
@@ -86,13 +86,17 @@
                 </thead>
                 <tbody>
                     @foreach($organizers as $user)
-                    <tr>
+                    <tr class="organizer" data-user_id="{{$user->id}}">
                         <td>{{$user->name}}</td>
                         <td>{{$user->email}}</td>
                         <td class="text-right">
-                            <button type="button" class="btn">
-                                <i class="fas fa-trash-alt"></i>
-                            </button>
+                            @if ($user->id === $event->user_id)
+                                <span class="text-muted">Event Admin</span>
+                            @else
+                                <button type="button" class="btn remove-organizer" data-user_id="{{$user->id}}">
+                                    <i class="fas fa-trash-alt"></i>
+                                </button>
+                            @endif
                         </td>
                     </tr>
                     @endforeach

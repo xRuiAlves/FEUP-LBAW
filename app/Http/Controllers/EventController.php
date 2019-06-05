@@ -254,14 +254,62 @@ class EventController extends Controller
         try{
             $ticket = $event->attendees->find($request->user_id)->ticket;
             $ticket->is_checked_in = true;
+            $ticket->check_in_organizer_id = Auth::user()->id;
             $ticket->save();
 
-            return response()->json([], 500);
+            return response()->json([], 200);
         } catch (ModelNotFoundException $err) {
             return response()->json([], 404);
         }catch(QueryException $e){
             return response()->json([], 400);
         }
+    }
 
+    public function removeAttendee(Request $request){
+
+        $request->validate([
+            'user_id' => 'required|integer'
+        ]);
+
+        $event = Event::find($request->id);
+        
+        $this->authorize('eventSettings', $event);
+
+        try{
+            $ticket = $event->attendees->find($request->user_id)->ticket;
+            $ticket->delete();
+
+            return response()->json([], 200);
+        } catch (ModelNotFoundException $err) {
+            return response()->json([], 404);
+        }catch(QueryException $e){
+            return response()->json([], 400);
+        }
+    }
+
+    public function removeOrganizer(Request $request){
+
+        $request->validate([
+            'user_id' => 'required|integer'
+        ]);
+
+        $event = Event::find($request->id);
+        
+        $this->authorize('eventAdmin', $event);
+
+        if($event->user_id === Auth::user()->id){
+            return response()->json(['Cannot remove event admin'], 400);
+        }
+
+        try{
+            $pivot = $event->organizers->find($request->user_id)->pivot;
+            $pivot->delete();
+
+            return response()->json([], 200);
+        } catch (ModelNotFoundException $err) {
+            return response()->json([], 404);
+        }catch(QueryException $e){
+            return response()->json([], 400);
+        }
     }
 }

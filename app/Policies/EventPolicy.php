@@ -47,10 +47,17 @@ class EventPolicy {
     }
 
     /**
-     * Determine whether the user can rename event categories.
+     * Determine whether the user can change event settings.
      */
     public function eventSettings(User $user, Event $event) {
         return $user->organizingEvents->contains($event);
+    }
+
+    /**
+     * Determine whether the user can performe event admin actions.
+     */
+    public function eventAdmin(User $user, Event $event) {
+        return $event->user_id === $user->id;
     }
 
     /**

@@ -45,6 +45,8 @@ Route::put('/event/category/rename', 'EventController@renameCategory');
 
 Route::get('/event/{id}/manage', 'EventController@manage')->where(['id' => '[0-9]+']);
 Route::put('api/event/{id}/check-in', 'EventController@checkIn');
+Route::delete('api/event/{id}/attendee', 'EventController@removeAttendee');
+Route::delete('api/event/{id}/organizer', 'EventController@removeOrganizer');
 
 // Issues
 Route::post('issue/create', 'IssueController@create');

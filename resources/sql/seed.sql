@@ -376,10 +376,17 @@ $$ LANGUAGE 'plpgsql';
 -- FUNCTION09
 CREATE OR REPLACE FUNCTION
     remove_attendee_function() RETURNS TRIGGER AS $$
+
     BEGIN
-        INSERT INTO notifications(type, user_id, event_id)
-        VALUES ('EventRemoval', OLD.user_id, OLD.event_id);
-        
+        IF EXISTS
+            (SELECT id
+            FROM users
+            WHERE users.id = OLD.user_id)
+        THEN
+            INSERT INTO notifications(type, user_id, event_id)
+            VALUES ('EventRemoval', OLD.user_id, OLD.event_id);
+        END IF;       
+
         RETURN OLD;
     END;
 $$ LANGUAGE 'plpgsql';
