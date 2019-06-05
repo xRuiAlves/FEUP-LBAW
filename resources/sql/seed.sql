@@ -373,6 +373,17 @@ CREATE OR REPLACE FUNCTION
     END;
 $$ LANGUAGE 'plpgsql';
 
+-- FUNCTION09
+CREATE OR REPLACE FUNCTION
+    remove_attendee_function() RETURNS TRIGGER AS $$
+    BEGIN
+        INSERT INTO notifications(type, user_id, event_id)
+        VALUES ('EventRemoval', OLD.user_id, OLD.event_id);
+        
+        RETURN OLD;
+    END;
+$$ LANGUAGE 'plpgsql';
+
 -- FUNCTION10
 CREATE OR REPLACE FUNCTION
     organizer_promotion_function() RETURNS TRIGGER AS $$
@@ -767,6 +778,12 @@ CREATE TRIGGER activate_event_trigger
     FOR EACH ROW 
     WHEN (NEW.is_disabled = false)
     EXECUTE PROCEDURE activate_event_function();
+
+-- TRIGGER09
+CREATE TRIGGER remove_attendee_trigger
+    AFTER DELETE ON tickets
+    FOR EACH ROW
+    EXECUTE PROCEDURE remove_attendee_function();
 
 -- TRIGGER10
 CREATE TRIGGER organizer_promotion_trigger
