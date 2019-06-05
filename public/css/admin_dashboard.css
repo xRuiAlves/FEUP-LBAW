@@ -237,6 +237,12 @@ button.solved-issue {
     border: none;
 }
 
+#issue-table tbody tr td .issue-description {
+    font-weight: bold;
+    color: var(--secondary-color-medium-dark);
+    text-decoration: underline;
+}
+
 #issue-table tbody td.button-data-field {
     padding-bottom: 0;
 }
