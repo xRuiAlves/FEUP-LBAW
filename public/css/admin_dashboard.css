@@ -226,6 +226,29 @@ button.solved-issue {
     margin-bottom: 0.5em;
 }
 
+#user-table td.actions i {
+    margin-right: 0.4em;
+}
+
+#user-table td.actions button + button {
+    margin-left: 1em;
+}
+
+#user-table .actions button {
+    background-color: var(--secondary-color-medium);
+    color: white;
+}
+
+#user-table .actions button[disabled] {
+    opacity: 0;
+    transition-property: opacity;
+    transition-duration: 0.2s;
+}
+
+#user-table .actions button:not([disabled]) {
+    cursor: pointer;
+}
+
 @media only screen and (max-width: 768px) {
     .admin-dashboard .custom-title {
         margin-top: 0.5em;

@@ -39,11 +39,11 @@ class AdminController extends Controller {
         $search_query = $request->get('search');
         
         if(!empty($search_query)){
-            $users = User::FTS($search_query)->paginate(AdminController::ITEMS_PER_PAGE);
+            $users = User::FTS($search_query)->orderBy('name')->paginate(AdminController::ITEMS_PER_PAGE);
 
             $users->withPath('?search='.$search_query);
         }else{
-            $users = User::paginate(AdminController::ITEMS_PER_PAGE);
+            $users = User::orderBy('name')->paginate(AdminController::ITEMS_PER_PAGE);
         }
 
         return view('pages.admin.users', ['users' => $users]);

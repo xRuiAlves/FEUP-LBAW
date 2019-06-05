@@ -25,7 +25,7 @@
                     <th>Id</th>
                     <th>Category Name</th>
                     <th>Number of Events</th>
-                    <th>Action</th>
+                    <th></th>
                 </tr>
             </thead>
             <tbody id="categories-list">

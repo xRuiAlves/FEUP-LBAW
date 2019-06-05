@@ -2,7 +2,7 @@
 
 @section('asset_includes')
 @parent
-<script src="{{asset('js/admin_user_editing.js')}}" defer></script>
+<script src="{{asset('js/admin_events_page.js')}}" defer></script>
 @endsection
 
 @section('table')

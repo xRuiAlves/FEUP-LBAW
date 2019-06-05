@@ -33,6 +33,17 @@ class UserPolicy
     }
 
     /**
+     * Determine if the user may promote other users to admin
+     *
+     * @param  \App\User  $user
+     */
+    public function promoteToAdmin(User $user)
+    {
+        // Only admins may promote other users to admin
+        return $user->is_admin;
+    }
+
+    /**
      * Determine whether the user can view the model.
      *
      * @param  \App\User  $user

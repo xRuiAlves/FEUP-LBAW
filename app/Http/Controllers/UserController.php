@@ -92,11 +92,12 @@ class UserController extends Controller
         $id = auth()->user()->id;
 
         try {
-            $user = User::find($id);
+            $user = User::findOrFail($id);
             $user->name = $name;    
             $user->save();
+            return response()->json([], 200);
         } catch (ModelNotFoundException $err) {
-            return response(null, 404);
+            return response()->json([], 404);
         } catch (QueryException $err) {
             if ($err->getCode() == 22001 || $err->getCode() == 23514) {
                 return response()->json([
@@ -149,7 +150,7 @@ class UserController extends Controller
 
         try {
             $event_id = $request->event_id;
-            $event = Event::find($event_id);
+            $event = Event::findOrFail($event_id);
 
             $event->usersFavorited()->attach(Auth::user());
             $event->save();
@@ -159,7 +160,7 @@ class UserController extends Controller
             ]);
 
         } catch (ModelNotFoundException $err) {
-            return response(null, 404);
+            return response()->json([], 404);
         } catch (QueryException $err) {
             return response()->json([
                 'message' => 'Bad request.'
@@ -185,16 +186,35 @@ class UserController extends Controller
 
             return response()->json([
                 'favorited' => false,
-            ]);
+            ], 200);
 
 
         } catch (ModelNotFoundException $err) {
-            return response(null, 404);
+            return response()->json([], 404);
         } catch (QueryException $err) {
             return response()->json([
                 'message' => 'Bad request.'
             ], 400);
             
         }
+    }
+
+    public function promoteToAdmin(Request $request) {
+        $this->authorize('promoteToAdmin', User::class);
+
+        $validated_data = $request->validate([
+            'user_id' => 'required'
+        ]);
+
+        $user_id = $validated_data["user_id"];
+
+        try {
+            $user = User::findOrFail($user_id);
+            $user->is_admin = true;    
+            $user->save();
+            return response()->json([], 200);
+        } catch (ModelNotFoundException $err) {
+            return response()->json([], 404);
+        } 
     }
 }

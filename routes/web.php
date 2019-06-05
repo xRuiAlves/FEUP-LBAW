@@ -54,9 +54,10 @@ Route::put('api/issue/solve', 'AdminController@solveIssue');
 Route::get('notifications', 'NotificationsController@show')->name('notifications');
 Route::put('api/notification/dismiss', 'NotificationsController@dismiss');
 
-// User related routes
+// Users
 Route::get('dashboard', 'UserController@showDashboard')->name('dashboard');
 Route::put('api/name/change', 'UserController@changeName');
+Route::put('api/admin/promote', 'UserController@promoteToAdmin');
 
 // Comments
 Route::post('api/comment', 'CommentController@store');
