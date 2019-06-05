@@ -2,16 +2,16 @@
     <div class="col-12 message-area">
         <nav>
             <div class="nav nav-tabs" id="nav-tab" role="tablist">
-                <a class="nav-item nav-link active" id="nav-announcements-tab" data-toggle="tab"
-                    href="#nav-announcements" role="tab" aria-controls="nav-announcements"
+                <a class="nav-item nav-link active" id="announcements-section-tab" data-toggle="tab"
+                    href="#announcements-section" role="tab" aria-controls="announcements-section"
                     aria-selected="true">Announcements</a>
-                <a class="nav-item nav-link" id="nav-discussion-tab" data-toggle="tab" href="#nav-discussion"
-                    role="tab" aria-controls="nav-discussion" aria-selected="false">Discussion</a>
+                <a class="nav-item nav-link" id="discussion-section-tab" data-toggle="tab" href="#discussion-section"
+                    role="tab" aria-controls="discussion-section" aria-selected="false">Discussion</a>
             </div>
         </nav>
         <div class="tab-content" id="nav-tabContent">
-            <div class="tab-pane fade show active" id="nav-announcements" role="tabpanel"
-                aria-labelledby="nav-announcements-tab">
+            <div class="tab-pane fade show active" id="announcements-section" role="tabpanel"
+                aria-labelledby="announcements-section-tab">
                 <div class="announcements-area">
                     @if(count($announcements) > 0)
                         @foreach ($announcements as $announcement)
@@ -26,12 +26,15 @@
                             </div>
                         </div>
                         @endforeach
+                        <div class="pagination-container">
+                            {{$announcements->appends(['discussions' => $discussions->currentPage()])->fragment('announcements-section')->links("pagination::bootstrap-4")}}
+                        </div>
                     @else
                         No announcements yet!
                     @endif
                 </div>
             </div>
-            <div class="tab-pane fade" id="nav-discussion" role="tabpanel" aria-labelledby="nav-discussion-tab">
+            <div class="tab-pane fade" id="discussion-section" role="tabpanel" aria-labelledby="discussion-section-tab">
                 <div class="discussions-area">
                     @if(Auth::check())
                     <button type="submit" class="btn create-post-button" data-toggle="modal" data-target="#create-post-modal">
@@ -114,6 +117,9 @@
                             </div>
                         </div>
                         @endforeach
+                        <div class="pagination-container">
+                            {{$discussions->appends(['announcements' => $announcements->currentPage()])->fragment('discussion-section')->links("pagination::bootstrap-4")}}
+                        </div>
                     @else
                         No discussion posts yet!
                     @endif

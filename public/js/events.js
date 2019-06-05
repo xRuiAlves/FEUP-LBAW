@@ -180,7 +180,7 @@ const createPost = (event_id, content) => {
                 form.reset();
                 form.classList.remove("was-validated");
 
-                createPostDOMNode(content, json.name, json.formatted_timestamp);
+                location.href = `/event/${event_id}?#discussion-section`;
             } else {
                 displayPostErrorMessage(json.message);
             }
@@ -197,30 +197,20 @@ const displayPostErrorMessage = (message) => {
     danger_alert.textContent = message;
 }
 
-const createPostDOMNode = (content, name, formatted_timestamp) => {
-    const comment_node = document.createElement("div");
-    comment_node.classList.add("comment");
-    const name_node = document.createElement("div");
-    name_node.classList.add("name");
-    const content_node = document.createElement("div");
-    content_node.classList.add("text");
-    const timestamp_node = document.createElement("div");
-    timestamp_node.classList.add("date");
+$('#create-post-modal').on('shown.bs.modal', () => {
+    $('#create-post-modal textarea[name=content]').focus()
+});
 
-    name_node.textContent = name;
-    content_node.textContent = content;
-    timestamp_node.textContent = `${formatted_timestamp}h`;
-
-    comment_node.appendChild(name_node);
-    comment_node.appendChild(timestamp_node);
-    comment_node.appendChild(content_node);
-
-    const post_node = document.querySelector(`div[data-post-id='${post_id}']`);
-    const comments_list_node = post_node.querySelector(".comments-list");
-    const num_comments_node = post_node.querySelector(".num-comments");
-    num_comments_node.textContent = parseInt(num_comments_node.textContent) + 1;
-    comments_list_node.prepend(comment_node);
-}
-
+$(function(){
+    const hash = window.location.hash;
+    hash && $('div.nav a[href="' + hash + '"]').tab('show');
+  
+    // $('.nav-tabs a').click((e) => {
+        // $(this).tab('show');
+        // const scrollmem = $('body').scrollTop();
+        // window.location.hash = this.hash;
+        // $('html,body').scrollTop(scrollmem);
+    // });
+});
 
 addEventListeners();

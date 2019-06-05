@@ -45,7 +45,7 @@ class EventController extends Controller
 
         $category = $event->category;
                 
-        $announcements = $event->posts()->announcements()->get();
+        $announcements = $event->posts()->announcements()->orderBy('timestamp', 'desc')->paginate(6, ["*"], "announcements");
 
         $user = Auth::user();
 
@@ -55,7 +55,7 @@ class EventController extends Controller
             $favorited = false;
         }
 
-        $discussions = $event->posts()->discussions()->get();
+        $discussions = $event->posts()->discussions()->orderBy('rating', 'desc')->paginate(6, ["*"], "discussions");
         $discussion_comments = [];
         foreach($discussions as $i => $discussion) {
             $discussion_comments[$i] = $discussion->comments()->get();

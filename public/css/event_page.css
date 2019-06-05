@@ -9,6 +9,12 @@
     overflow: hidden;
 } */
 
+.pagination-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 1.5em;
+}
+
 .card-container.event-card .admin-view-label h6 {
     padding: 0.5em;
     border: 1px solid var(--primary-color);
@@ -107,7 +113,7 @@
 }
 
 .message-area {
-    padding-bottom: 2em;
+    padding-bottom: 1em;
     background-color: var(--color-grey-light)
 }
 .message-area .nav-item {
