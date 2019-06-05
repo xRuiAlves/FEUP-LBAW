@@ -40,6 +40,8 @@ Route::get('/event/{id}', 'EventController@show')->where(['id' => '[0-9]+']);
 Route::get('/event/create', 'EventController@create');
 Route::post('/event/create', 'EventController@store');
 Route::put('api/event/enable', 'AdminController@enableEvent');
+Route::post('api/event/favorite', 'UserController@markEventAsFavorite');
+Route::delete('api/event/favorite', 'UserController@unmarkEventAsFavorite');
 Route::put('api/event/disable', 'AdminController@disableEvent');
 Route::post('/event/category', 'EventController@storeCategory');
 Route::put('/event/category/rename', 'EventController@renameCategory');

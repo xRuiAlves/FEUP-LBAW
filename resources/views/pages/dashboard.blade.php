@@ -63,7 +63,7 @@
                                 @endif
                                 @if($event->relationship === 'organizer') item-type-organizer
                                 @endif
-                                @if($event->relationship === 'favorite') item-type-favorite
+                                @if($event->is_favorite) item-type-favorite
                                 @endif
                             ">
                                 <header class="row">

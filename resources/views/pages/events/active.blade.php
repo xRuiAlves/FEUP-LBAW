@@ -15,11 +15,13 @@
             <div class="col-12 col-lg-9 event-title font-title">
                 <h1>
                     {{$event->title}}
-                    @if($favorited)  
-                        <span title="Favorited" class="favorite-marker"><i class="fas fa-star"></i></span>
-                    @else
-                        <span title="Mark as Favorite" class="favorite-marker"><i class="far fa-star"></i></span>
+                    @if($favorited)
+                        <button title="Unmark as Favorite" type="button" class="btn btn-primary active" id="favorite-marker" data-event-id="{{$event->id}}">
+                    @else        
+                        <button title="Mark as Favorite" type="button" class="btn btn-primary" id="favorite-marker" data-event-id="{{$event->id}}">
                     @endif
+                            <span  class="favorite"><i class="fas fa-star"></i></span>
+                        </button>
                     
                 </h1>
             </div>
@@ -147,4 +149,7 @@
         </div>
     </div>
 </div>
+@endsection
+@section('scripts')
+    <script type="text/javascript" src="{{ asset('js/active_events.js') }}" defer></script>
 @endsection
