@@ -230,6 +230,18 @@ class EventController extends Controller
 
         $this->authorize('eventSettings', $event);
 
-        return view('pages.events.manage', ['event' => $event, 'attendees' => $event->attendees()->paginate(10), 'organizers' => $event->organizers()->paginate(10), 'isEventAdmin' => Auth::user()->id === $event->user_id]);    
+        $attendees = $event->attendees()->paginate(1, ['*'], 'attendees');
+        $attendees->setPageName('attendees');
+
+        $organizers = $event->organizers()->paginate(1, ['*'], 'organizers');
+        $organizers->setPageName('organizers');
+
+        return view('pages.events.manage', 
+        [
+            'event' => $event,
+            'attendees' => $attendees,
+            'organizers' => $organizers,
+            'isEventAdmin' => Auth::user()->id === $event->user_id
+        ]);    
     }
 }

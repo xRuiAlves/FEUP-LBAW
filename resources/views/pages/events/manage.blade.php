@@ -58,7 +58,8 @@
                 @endforeach
             </tbody>
         </table>
-        {{$attendees->links("pagination::bootstrap-4")}}
+        {{$attendees->appends(['organizers' => $organizers->currentPage()])->links("pagination::bootstrap-4")}}
+        
     </div>
 
     <br>
@@ -93,7 +94,7 @@
                     @endforeach
                 </tbody>
             </table>
-            {{$organizers->links("pagination::bootstrap-4")}}
+            {{$organizers->appends(['attendees' => $attendees->currentPage()])->links("pagination::bootstrap-4")}}
         </div>
 
         <button type="button" class="btn btn-danger ">Cancel Event</button>
