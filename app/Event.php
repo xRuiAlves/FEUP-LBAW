@@ -191,7 +191,7 @@ class Event extends Model
     public function scopeWithCategory($query) {
         return $query
         ->select()
-        ->addSelect(DB::raw('event_categories.name AS category'))
+        ->addSelect(DB::raw('events.id as id, event_categories.name AS category'))
         ->join('event_categories', 'events.event_category_id', '=', 'event_categories.id');
     }
 
