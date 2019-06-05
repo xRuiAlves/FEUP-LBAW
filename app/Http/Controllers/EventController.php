@@ -255,10 +255,10 @@ class EventController extends Controller
         // ]);
         
         $request->validate([
-            'tickets.*.nif' => 'required|numeric|size:9|max:2',
+            'tickets.*.nif' => 'required|numeric|digits:9',
             'tickets.*.address' => 'required|max:128',
             'tickets.*.billing_name' => 'required|max:64',
-            // 'tickets.*.voucher_code' => 'size:32',
+            'tickets.*.voucher_code' => 'nullable|size:32',
         ]);
         
 

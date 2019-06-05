@@ -67,8 +67,6 @@ const submitAttendClickEvent = () => {
 const parseErrors = (errors) => {
     let ret = {};
 
-    console.log('what the keys?',errors)
-
     Object.keys(errors).forEach(key => {
 
         let reg = /.*\.(\d+)\.(.*)/g;
@@ -82,11 +80,21 @@ const parseErrors = (errors) => {
             ret[ticket_num] = {};
         }
 
-        ret[ticket_num][field] = errors[key];
+        ret[ticket_num][field] = errors[key].map(msg => parseErrorMessage(msg));
     })
 
     return ret;
 
+}
+
+const parseErrorMessage = msg => {
+    let reg = /The .*\.(\d+)\.(.*)\s(.*)/g;
+    let match = reg.exec(msg);
+
+    const ticket_num = match[1];
+    const field = match[2];
+
+    return `The ${field} ${match[3]}`;
 }
 
 const sendRequest = async (url, method, body) => {
