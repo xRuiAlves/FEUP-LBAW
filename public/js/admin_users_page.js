@@ -19,7 +19,7 @@ const addEventListeners = () => {
         const button_node = document.querySelector(`#user-table .user-entry[data-user-id='${user_id}'] button.account-enable-toggle`);
 
         if (is_disabled == "true") {
-            enableUserAccount(user_id, name, button_node);
+            enableUserAccount(user_id, name, button_node, false);
         } else {
             disableUserAccount(user_id, name, button_node, false);
         }
@@ -28,14 +28,17 @@ const addEventListeners = () => {
     });
     user_status_modal.querySelector("button.action-2").addEventListener("click", () => {
         const is_disabled = user_status_modal.getAttribute("data-user-disabled");
-        if (is_disabled == "false") {
-            const user_id = user_status_modal.getAttribute("data-user-id");
-            const name = user_status_modal.getAttribute("data-user-name");
-            const button_node = document.querySelector(`#user-table .user-entry[data-user-id='${user_id}'] button.account-enable-toggle`);
+        const user_id = user_status_modal.getAttribute("data-user-id");
+        const name = user_status_modal.getAttribute("data-user-name");
+        const button_node = document.querySelector(`#user-table .user-entry[data-user-id='${user_id}'] button.account-enable-toggle`);
 
+        if (is_disabled == "true") {
+            enableUserAccount(user_id, name, button_node, true);
+        } else {
             disableUserAccount(user_id, name, button_node, true);
-            $('#user-status-modal').modal('hide');
         }
+
+        $('#user-status-modal').modal('hide');
     });
 
     document.querySelectorAll("#user-table .user-entry").forEach(entry => {
@@ -63,13 +66,14 @@ const addEventListeners = () => {
             user_status_modal.querySelector(".modal-title").innerHTML = 
                 `${is_disabled == "true" ? "Enabling" : "Disabling"} user account`
             user_status_modal.querySelector(".modal-body").innerHTML = 
-                `Do you want to ${is_disabled == "true" ? "enable" : "disable"} user <u><strong>${name}</strong></u> account? 
-                ${is_disabled == "true" ? "" : "This action will cause <u>all the events the user created to be <strong>disabled</strong></u>."}`;
+                `Do you want to ${is_disabled == "true" ? "enable" : "disable"} user <u><strong>${name}</strong></u> account? ${is_disabled == "true" ? 
+                    "You may choose to <u><strong>re-enable</strong> all the events created by the user." : 
+                    "You may choose to <u><strong>disable</strong> all the events the user created</u>."}`;
             const action_button_1 = user_status_modal.querySelector(".modal-footer button.action-1");
             const action_button_2 = user_status_modal.querySelector(".modal-footer button.action-2");
             if (is_disabled == "true") {
-                action_button_1.innerHTML = "Enable"
-                action_button_2.style.display = "none;"
+                action_button_1.innerHTML = "Enable User"
+                action_button_2.innerHTML = "Enable User and Events"
             } else {
                 action_button_1.innerHTML = "Disable User";
                 action_button_2.innerHTML = "Disable User and Events";
@@ -108,11 +112,12 @@ const promoteToAdmin = (user_id, name, button_node) => {
     });
 }
 
-const enableUserAccount = (user_id, name, button_node) => {
+const enableUserAccount = (user_id, name, button_node, enable_events) => {
     fetch('/api/user/enable', {
         method: 'PUT',
         body: JSON.stringify({
             user_id,
+            enable_events
         }),
         headers: {
             'Content-Type': 'application/json',
@@ -122,19 +127,35 @@ const enableUserAccount = (user_id, name, button_node) => {
     })
     .then(res => {
         if (res.status === 200) {
-            const success_alert = document.querySelector("#user-table .status-messages > .alert-success");
-            const danger_alert = document.querySelector("#user-table .status-messages > .alert-danger");
-            success_alert.style.display = "";
-            danger_alert.style.display = "none";
-            success_alert.innerHTML = `Successfully enabled user <strong><u>${name}</u></strong> account`;
+            res.json().then(({ enabled_events }) => {
+                let success_message = `Successfully disabled user <strong><u>${name}</u></strong> account. `;
+                if (enabled_events.length === 0 && enable_events) {
+                    success_message += "The user was not hosting any events that were disabled, thus no events were re-enabled."
+                } else if (enabled_events.length === 1) {
+                    success_message += `The event <i><u>${enabled_events[0]}</u></i> was re-enabled.`;
+                } else if (enabled_events.length > 1) {
+                    success_message += "The events "
+                    let prefix = "";
+                    for (let i = 0; i < enabled_events.length - 1; i++) {
+                        success_message += `${prefix}<i><u>${enabled_events[i]}</u></i>`;
+                        prefix = ", ";
+                    }
+                    success_message += ` and <i><u>${enabled_events[enabled_events.length - 1]}</u></i> (a total of <strong>${enabled_events.length} events</strong>) were re-enabled.`
+                }
+                const success_alert = document.querySelector("#user-table .status-messages > .alert-success");
+                const danger_alert = document.querySelector("#user-table .status-messages > .alert-danger");
+                success_alert.style.display = "";
+                danger_alert.style.display = "none";
+                success_alert.innerHTML = success_message;
 
-            const icon_node = button_node.querySelector("i");
-            const user_node = document.querySelector(`#user-table .user-entry[data-user-id='${user_id}']`);
-            user_node.setAttribute("data-user-disabled", "false");
-            user_node.querySelector(".status").textContent = "Active";
-            button_node.querySelector(".text").textContent = "Disable";
-            icon_node.classList.remove("fa-undo");
-            icon_node.classList.add("fa-ban");
+                const icon_node = button_node.querySelector("i");
+                const user_node = document.querySelector(`#user-table .user-entry[data-user-id='${user_id}']`);
+                user_node.setAttribute("data-user-disabled", "false");
+                user_node.querySelector(".status").textContent = "Active";
+                button_node.querySelector(".text").textContent = "Disable";
+                icon_node.classList.remove("fa-undo");
+                icon_node.classList.add("fa-ban");
+            });
         } else {
             const success_alert = document.querySelector("#user-table .status-messages > .alert-success");
             const danger_alert = document.querySelector("#user-table .status-messages > .alert-danger");
@@ -161,7 +182,6 @@ const disableUserAccount = (user_id, name, button_node, disable_events) => {
     .then(res => {
         if (res.status === 200) {
             res.json().then(({ disabled_events }) => {
-                console.log(disabled_events);
                 let success_message = `Successfully disabled user <strong><u>${name}</u></strong> account. `;
                 if (disabled_events.length === 0 && disable_events) {
                     success_message += "The user was not hosting any events that were active, thus no events were disabled."

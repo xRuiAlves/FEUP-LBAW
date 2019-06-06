@@ -205,16 +205,31 @@ class UserController extends Controller
         $this->authorize('enableDisable', User::class);
 
         $validated_data = $request->validate([
-            'user_id' => 'required'
+            'user_id' => 'required',
+            'enable_events' => 'required'
         ]);
 
         $user_id = $validated_data["user_id"];
+        $enable_events = $validated_data["enable_events"];
 
         try {
             $user = User::findOrFail($user_id);
             $user->is_disabled = false;    
             $user->save();
-            return response()->json([], 200);
+
+            $enabled_events = [];
+            if ($enable_events == true) {
+                $user_events = Event::ownerUser($user_id)->disabled()->get();
+                foreach($user_events as $event) {
+                    $event->is_disabled = false;
+                    $event->save();
+                    array_push($enabled_events, $event->title);
+                }
+            }
+
+            return response()->json([
+                "enabled_events" => $enabled_events
+            ], 200);
         } catch (ModelNotFoundException $err) {
             return response()->json([], 404);
         } 
