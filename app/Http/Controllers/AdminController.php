@@ -33,7 +33,7 @@ class AdminController extends Controller {
      */
     public function users(Request $request) {
         if(!Auth::user()->is_admin) { // TODO: Change this to use policies
-            return abort(401, 'You do not possess the required permissions to acces the administration pages');
+            return abort(401, 'You do not possess the required permissions to access the administration pages');
         }
         
         $search_query = $request->get('search');

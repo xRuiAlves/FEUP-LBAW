@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Database\QueryException;
 use Illuminate\Database\DB;
+use Illuminate\Support\Str;
 
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 
@@ -14,6 +15,9 @@ use App\Event;
 use App\EventVoucher;
 use App\EventCategory;
 use App\Post;
+use App\User;
+use App\Notification;
+use App\EventVoucher;
 
 
 class EventController extends Controller
@@ -234,6 +238,225 @@ class EventController extends Controller
         // $card->delete();
 
         // return $card;
+    }   
+
+    public function manage(Request $request){
+
+        $event = Event::find($request->id);
+
+        $this->authorize('eventSettings', $event);
+
+        $attendees = $event->attendees()->paginate(10, ['*'], 'attendees');
+        $attendees->setPageName('attendees');
+
+        $organizers = $event->organizers()->paginate(10, ['*'], 'organizers');
+        $organizers->setPageName('organizers');
+
+        return view('pages.events.manage', 
+        [
+            'event' => $event,
+            'attendees' => $attendees,
+            'organizers' => $organizers,
+            'isEventAdmin' => Auth::user()->id === $event->user_id
+        ]);    
+    }
+
+    public function checkIn(Request $request){
+
+        $event = Event::find($request->id);
+        
+        $this->authorize('eventSettings', $event);
+
+        try{
+            $ticket = $event->attendees->find($request->user_id)->ticket;
+            $ticket->is_checked_in = true;
+            $ticket->check_in_organizer_id = Auth::user()->id;
+            $ticket->save();
+
+            return response()->json([], 200);
+        } catch (ModelNotFoundException $err) {
+            return response()->json([], 404);
+        }catch(QueryException $e){
+            return response()->json([], 400);
+        }
+    }
+
+    public function removeAttendee(Request $request){
+
+        $request->validate([
+            'user_id' => 'required|integer'
+        ]);
+
+        $event = Event::find($request->id);
+        
+        $this->authorize('eventSettings', $event);
+
+        try{
+            $ticket = $event->attendees->find($request->user_id)->ticket;
+            $ticket->delete();
+
+            return response()->json([], 200);
+        } catch (ModelNotFoundException $err) {
+            return response()->json([], 404);
+        }catch(QueryException $e){
+            return response()->json([], 400);
+        }
+    }
+
+    public function removeOrganizer(Request $request){
+
+        $request->validate([
+            'user_id' => 'required|integer'
+        ]);
+
+        $event = Event::find($request->id);
+        
+        $this->authorize('eventAdmin', $event);
+
+        if($event->user_id === $request->user_id){
+            return response()->json(['Cannot remove event admin'], 400);
+        }
+
+        try{
+            $pivot = $event->organizers->find($request->user_id)->pivot;
+            $pivot->delete();
+
+            return response()->json([], 200);
+        } catch (ModelNotFoundException $err) {
+            return response()->json([], 404);
+        }catch(QueryException $e){
+            return response()->json([], 400);
+        }
+    }
+
+    public function addOrganizerPage(Request $request){
+
+        $event = Event::find($request->id);
+
+        $this->authorize('eventAdmin', $event);
+
+        $search_query = $request->get('search');
+        
+        if(!empty($search_query)){
+            $users = User::FTS($search_query)->whereNotIn('id', $event->organizers->pluck('id'))->paginate(AdminController::ITEMS_PER_PAGE);
+
+            $users->withPath('?search='.$search_query);
+        }else{
+            $users = User::whereNotIn('id', $event->organizers->pluck('id'))->paginate(AdminController::ITEMS_PER_PAGE);
+        }
+        
+        return view('pages.events.add-organizer', ['event' => $event, 'users' => $users, 'searchQuery' => $search_query]);
+    }
+
+
+
+    public function invitePage(Request $request){
+
+        $event = Event::find($request->id);
+
+        $this->authorize('eventSettings', $event);
+
+        $search_query = $request->get('search');
+        
+        if(!empty($search_query)){
+            $users = User::FTS($search_query)
+                ->whereNotIn('id', $event->attendees->pluck('id'))
+                ->whereNotIn('id', Notification::where('event_id', $event->id)->invitedEvents()->pluck('user_id'))
+                ->paginate(AdminController::ITEMS_PER_PAGE);
+
+            $users->withPath('?search='.$search_query);
+        }else{
+            $users = User::whereNotIn('id', $event->attendees->pluck('id'))
+                ->whereNotIn('id', Notification::where('event_id', $event->id)->invitedEvents()->pluck('user_id'))
+                ->paginate(AdminController::ITEMS_PER_PAGE);
+        }
+
+        return view('pages.events.invite', ['event' => $event, 'users' => $users, 'searchQuery' => $search_query]);
+    }
+
+
+    public function addOrganizer(Request $request){
+        $request->validate([
+            'user_id' => 'required|integer'
+        ]);
+
+        $event = Event::find($request->id);
+        
+        $this->authorize('eventAdmin', $event);
+
+        try{
+            $event->organizers()->attach($request->user_id);
+
+            return response()->json([], 200);
+        } catch (ModelNotFoundException $err) {
+            return response()->json([], 404);
+        }catch(QueryException $e){
+            return response()->json([], 400);
+        }
+    }
+
+    public function invite(Request $request){
+
+        $request->validate([
+            'user_id' => 'required|integer'
+        ]);
+
+        $event = Event::find($request->id);
+
+        $this->authorize('eventSettings', $event);
+
+        try{
+            // Create the notification
+            $notification = new Notification;
+            $notification->type = 'EventInvitation';
+            $notification->user_id = $request->user_id;
+            $notification->event_id = $event->id;
+            $notification->save();
+        
+            return response()->json([], 200);
+        } catch (ModelNotFoundException $err) {
+            return response()->json([], 404);
+        }catch(QueryException $e){
+            return response()->json([], 400);
+        }
+    }
+
+    public function generateVouchersPage(Request $request){
+
+        $event = Event::find($request->id);
+
+        $this->authorize('eventSettings', $event);
+
+        return view('pages.events.generate-vouchers', ['event' => $event]);
+    }
+
+    public function generateVouchers(Request $request){
+        $nVouchers = $request->nVouchers;
+        $event_id = $request->id;
+
+        $this->authorize('eventSettings', Event::find($event_id));
+
+        $result = [];
+
+       try{
+            for($i = 0; $i < $nVouchers; $i++){
+                $newCode;
+                do {
+                    $newCode = "EVT-" . Str::uuid()->toString();
+                }while(EventVoucher::where('code', $newCode)->exists());
+
+                $newVoucher = new EventVoucher;
+                $newVoucher->event_id = $event_id;
+                $newVoucher->user_id = Auth::user()->id;
+                $newVoucher->code = $newCode;
+                $newVoucher->save();
+
+                array_push($result, $newCode);
+            }
+            return response()->json($result, 200);
+        }catch(QueryException $e){
+            return response()->json([], 500);
+        }
     }
 
 
