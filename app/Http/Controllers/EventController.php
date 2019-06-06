@@ -475,7 +475,8 @@ class EventController extends Controller
             'tickets.*.nif' => 'required|numeric|digits:9',
             'tickets.*.address' => 'required|max:128',
             'tickets.*.billing_name' => 'required|max:64',
-            'tickets.*.voucher_code' => 'nullable|size:32',
+            //make a better validation of voucher code with number groups and '-'
+            'tickets.*.voucher_code' => 'nullable|regex:/^EVT/',
         ]);
 
         //please try catch me
