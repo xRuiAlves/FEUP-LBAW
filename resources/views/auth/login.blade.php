@@ -56,8 +56,9 @@
             </a>
         </div>
     </div>
-    <div class="modal-footer">
-        <span>Don't have an account yet? Register <a href="{{route('register')}}">here!</a></span>
+    <div class="login-register-footer">
+        <p>Don't have an account yet? Register <a href="{{route('register')}}">here!</a></p>
+        <p>Forgot your password? Reset your password <a href="password/reset">here!</a></p>
     </div>
 </div>
 @endsection

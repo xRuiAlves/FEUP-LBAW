@@ -67,8 +67,9 @@
         </a>
     </div>
   </div>
-  <div class="modal-footer">
-      <span>Already have an account? Login <a href="{{route('login')}}">here!</a></span>
+  <div class="login-register-footer">
+      <p>Already have an account? Login <a href="{{route('login')}}">here!</a></p>
+      <p>Forgot your password? Reset your password <a href="password/reset">here!</a></p>
   </div>
 </div>
 @endsection
