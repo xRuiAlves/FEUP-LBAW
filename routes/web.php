@@ -11,17 +11,6 @@
 |
 */
 
-
-// Route::get('/', function () {
-//     return redirect('login');
-// });
-
-///////////////////////////////////////////////////
-///////////////////////////////////////////////////
-///////////////////////////////////////////////////
-
-// Ours (Start deleting the above after the template was understood)
-
 Route::get('/', 'HomepageController@display');
 Route::view('faq', 'pages.faq')->name('faq');
 Route::get('settings', 'SettingsController@show')->name('settings');
@@ -88,3 +77,6 @@ Route::get('admin/users', 'AdminController@users')->name('admin-users');
 Route::get('admin/issues', 'AdminController@issues')->name('admin-issues');
 Route::get('admin/events', 'AdminController@events')->name('admin-events');
 Route::get('admin/categories', 'AdminController@categories')->name('admin-categories');
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
