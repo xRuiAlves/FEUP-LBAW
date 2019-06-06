@@ -75,12 +75,8 @@ class PostController extends Controller
         try {
             $post = Post::findOrFail($id);
 
-            if ($post->is_announcement) {
-                $this->authorize('eventSettings', Event::findOrFail($post->event_id));
-            } else {
-                $this->authorize('delete', Post::class);
-            }
-
+            $this->authorize('eventSettings', Event::findOrFail($post->event_id));
+                
             Post::destroy($id);
             return response()->json([], 200);
         } catch (ModelNotFoundException $err) {
