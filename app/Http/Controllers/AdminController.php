@@ -206,6 +206,8 @@ class AdminController extends Controller {
         $content = $validated_data['content'] ? $validated_data['content'] : "";
 
         try {
+            DB::beginTransaction();
+
             // Solve the issue
             $issue = Issue::findOrFail($issue_id);
             $issue->is_solved = true;
@@ -220,8 +222,11 @@ class AdminController extends Controller {
             $notification->content = $content;
             $notification->save();
 
+            DB::commit();
+
             return response(null, 200);
         } catch (ModelNotFoundException $err) {
+            DB::rollBack();
             return response(null, 404);
         }
     }
