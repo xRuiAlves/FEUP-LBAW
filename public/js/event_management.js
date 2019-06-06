@@ -3,6 +3,7 @@ const event_id = document.getElementById('page-card').dataset.event_id;
 document.querySelectorAll('.btn.check-in').forEach((elem) => {
     elem.addEventListener('click', () => {
         let user_id = elem.dataset.user_id;
+        let user_name = elem.dataset.user_name;
 
         fetch(`/api/event/${event_id}/check-in`, {
             method: 'PUT',
@@ -20,11 +21,23 @@ document.querySelectorAll('.btn.check-in').forEach((elem) => {
                 elem.classList.remove('btn-success');
                 elem.setAttribute('disabled', true);
                 elem.innerHTML = 'Checked In  <i class="fas fa-check"></i>'
+                
+                const success_alert = document.querySelector("#event-management-status-messages .alert-success");
+                const danger_alert = document.querySelector("#event-management-status-messages .alert-danger");
+                success_alert.style.display = "";
+                danger_alert.style.display = "none";
+                success_alert.innerHTML = `Successfully checked-in user <strong>${user_name}</strong>`;
             }else{
                 elem.classList.remove('btn-success');
                 elem.classList.add('btn-danger');
                 elem.setAttribute('disabled', true);
                 elem.innerHTML = 'ERROR'
+
+                const success_alert = document.querySelector("#event-management-status-messages .alert-success");
+                const danger_alert = document.querySelector("#event-management-status-messages .alert-danger");
+                success_alert.style.display = "none";
+                danger_alert.style.display = "";
+                danger_alert.innerHTML = `Failed to check-in user <strong>${user_name}</strong>`;
             }
         });
     });
@@ -33,6 +46,7 @@ document.querySelectorAll('.btn.check-in').forEach((elem) => {
 document.querySelectorAll('.btn.remove-attendee').forEach((elem) => {
     elem.addEventListener('click', () => {
         let user_id = elem.dataset.user_id;
+        let user_name = elem.dataset.user_name;
 
         confirmModal("Are you sure you wish to delete this attendee's ticket?").then(() => 
             fetch(`/api/event/${event_id}/attendee`, {
@@ -50,6 +64,18 @@ document.querySelectorAll('.btn.remove-attendee').forEach((elem) => {
                 if (res.status === 200) {
                     let row = document.querySelector(`.attendee[data-user_id="${user_id}"]`);
                     row.parentElement.removeChild(row);
+                
+                    const success_alert = document.querySelector("#event-management-status-messages .alert-success");
+                    const danger_alert = document.querySelector("#event-management-status-messages .alert-danger");
+                    success_alert.style.display = "";
+                    danger_alert.style.display = "none";
+                    success_alert.innerHTML = `Successfully removed user <strong>${user_name}</strong> from the event`;
+                } else {
+                    const success_alert = document.querySelector("#event-management-status-messages .alert-success");
+                    const danger_alert = document.querySelector("#event-management-status-messages .alert-danger");
+                    success_alert.style.display = "none";
+                    danger_alert.style.display = "";
+                    danger_alert.innerHTML = `Failed to remove user <strong>${user_name}</strong> from the event`;
                 }
             })
         );
@@ -59,6 +85,7 @@ document.querySelectorAll('.btn.remove-attendee').forEach((elem) => {
 document.querySelectorAll('.btn.remove-organizer').forEach((elem) => {
     elem.addEventListener('click', () => {
         let user_id = elem.dataset.user_id;
+        let user_name = elem.dataset.user_name;
 
         confirmModal("Are you sure you wish to remove this organizer from the event?").then(() => 
             fetch(`/api/event/${event_id}/organizer`, {
@@ -76,6 +103,18 @@ document.querySelectorAll('.btn.remove-organizer').forEach((elem) => {
                 if (res.status === 200) {
                     let row = document.querySelector(`.organizer[data-user_id="${user_id}"]`);
                     row.parentElement.removeChild(row);
+                
+                    const success_alert = document.querySelector("#event-management-status-messages .alert-success");
+                    const danger_alert = document.querySelector("#event-management-status-messages .alert-danger");
+                    success_alert.style.display = "";
+                    danger_alert.style.display = "none";
+                    success_alert.innerHTML = `Successfully removed organizer <strong>${user_name}</strong> from the organization team`;
+                } else {
+                    const success_alert = document.querySelector("#event-management-status-messages .alert-success");
+                    const danger_alert = document.querySelector("#event-management-status-messages .alert-danger");
+                    success_alert.style.display = "none";
+                    danger_alert.style.display = "";
+                    danger_alert.innerHTML = `Failed to remove organizer <strong>${user_name}</strong> from the organization team`;
                 }
             })
         );

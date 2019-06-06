@@ -20,6 +20,10 @@
                 {{$event->title}} - Management
         </div>
     </div>
+    <div id="event-management-status-messages" class="status-messages">
+        <div class="alert alert-danger" style="display:none;white-space:pre-line"></div>
+        <div class="alert alert-success" style="display:none;white-space:pre-line"></div>
+    </div>
     <div class="separator main-separator">
         <hr>
     </div>
@@ -34,6 +38,9 @@
                 <a href="./invite">Invite User <i class="fas fa-plus"></i></a>
             </div>
         </div>
+        @if(count($attendees) == 0)
+            <p>There are <strong>no attendees</strong> in the event yet.</p>
+        @else
         <table class="table">
             <thead>
                 <tr>
@@ -46,7 +53,7 @@
             </thead>
             <tbody>
                 @foreach($attendees as $user)
-                <tr class="attendee" data-user_id="{{$user->id}}">
+                <tr class="attendee" data-user_id="{{$user->id}}" data-user_name="{{$user->name}}">
                     <td>{{$user->name}}</td>
                     <td>
                         @if (empty($user->ticket->billing_name))
@@ -60,14 +67,15 @@
                         @if ($user->ticket->is_checked_in)
                             <button type="button" class="btn" disabled>Checked In  <i class="fas fa-check"></i></button>
                         @else
-                    <button type="button" class="btn btn-success check-in" data-user_id="{{$user->id}}">Check-In</button>
+                    <button type="button" class="btn btn-success check-in" data-user_id="{{$user->id}}" data-user_name="{{$user->name}}">Check-In</button>
                         @endif
                     </td>
-                    <td class="text-right"><button type="button" class="btn remove-attendee" data-user_id="{{$user->id}}"><i class="fas fa-trash-alt text-right"></i></button></td>
+                    <td class="text-right"><button type="button" class="btn remove-attendee" data-user_id="{{$user->id}}" data-user_name="{{$user->name}}"><i class="fas fa-trash-alt text-right"></i></button></td>
                 </tr>
                 @endforeach
             </tbody>
         </table>
+        @endif
         {{$attendees->appends(['organizers' => $organizers->currentPage()])->links("pagination::bootstrap-4")}}
         
     </div>
@@ -92,14 +100,14 @@
                 </thead>
                 <tbody>
                     @foreach($organizers as $user)
-                    <tr class="organizer" data-user_id="{{$user->id}}">
+                    <tr class="organizer" data-user_id="{{$user->id}}" data-user_name="{{$user->name}}">
                         <td>{{$user->name}}</td>
                         <td>{{$user->email}}</td>
                         <td class="text-right">
                             @if ($user->id === $event->user_id)
                                 <span class="text-muted">Event Admin</span>
                             @else
-                                <button type="button" class="btn remove-organizer" data-user_id="{{$user->id}}">
+                                <button type="button" class="btn remove-organizer" data-user_id="{{$user->id}}" data-user_name="{{$user->name}}">
                                     <i class="fas fa-trash-alt"></i>
                                 </button>
                             @endif
