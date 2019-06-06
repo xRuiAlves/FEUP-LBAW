@@ -29,8 +29,14 @@ class Event extends Model
      * The attendees of this event.
      */
     public function attendees() {
-        // TODO: Add ->withPivot(columns...);
-        return $this->belongsToMany('App\User', 'tickets', 'user_id', 'event_id');
+        return $this->belongsToMany('App\User', 'tickets', 'event_id', 'user_id')->withPivot('is_checked_in', 'billing_name')->as('ticket');
+    }
+
+    /**
+     * The attendees of this event.
+     */
+    public function organizers() {
+        return $this->belongsToMany('App\User', 'organizers', 'event_id', 'user_id');
     }
 
     /**

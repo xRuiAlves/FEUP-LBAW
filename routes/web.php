@@ -46,6 +46,17 @@ Route::put('api/event/disable', 'AdminController@disableEvent');
 Route::post('/event/category', 'EventController@storeCategory');
 Route::put('/event/category/rename', 'EventController@renameCategory');
 
+Route::get('/event/{id}/manage', 'EventController@manage')->where(['id' => '[0-9]+']);
+Route::get('/event/{id}/add-organizer', 'EventController@addOrganizerPage')->where(['id' => '[0-9]+']);
+Route::get('/event/{id}/invite', 'EventController@invitePage')->where(['id' => '[0-9]+']);
+Route::get('/event/{id}/generate-vouchers', 'EventController@generateVouchersPage')->where(['id' => '[0-9]+']);
+Route::put('api/event/{id}/check-in', 'EventController@checkIn');
+Route::delete('api/event/{id}/attendee', 'EventController@removeAttendee');
+Route::delete('api/event/{id}/organizer', 'EventController@removeOrganizer');
+Route::put('api/event/{id}/organizer', 'EventController@addOrganizer');
+Route::put('api/event/{id}/invite', 'EventController@invite');
+Route::post('api/event/{id}/vouchers', 'EventController@generateVouchers');
+
 // Issues
 Route::post('issue/create', 'IssueController@create');
 Route::put('api/issue/solve', 'AdminController@solveIssue');

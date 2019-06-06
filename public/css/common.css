@@ -1,5 +1,14 @@
 @import "./palette.css";
 
+button.btn-secondary{
+    background-color: var(--secondary-color-medium);
+}
+
+button.btn-secondary:hover{
+    background-color: var(--secondary-color-dark);
+    border-color: var(--secondary-color-dark);
+}
+
 /************ CARD CONTAINER **************/
 
 #page-card {

@@ -47,6 +47,20 @@ class EventPolicy {
     }
 
     /**
+     * Determine whether the user can change event settings.
+     */
+    public function eventSettings(User $user, Event $event) {
+        return $user->organizingEvents->contains($event);
+    }
+
+    /**
+     * Determine whether the user can performe event admin actions.
+     */
+    public function eventAdmin(User $user, Event $event) {
+        return $event->user_id === $user->id;
+    }
+
+    /**
      * Determine whether the user can update the event.
      *
      * @param  \App\User  $user
