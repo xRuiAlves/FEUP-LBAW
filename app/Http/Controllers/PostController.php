@@ -66,8 +66,6 @@ class PostController extends Controller
      * Deletes a post.
      */
     public function delete(Request $request) {
-        $this->authorize('delete', Post::class);
-
         $validated_data = $request->validate([
             'id' => 'required',
         ]);
@@ -75,7 +73,15 @@ class PostController extends Controller
         $id = $validated_data["id"];
 
         try {
-            $post = Post::destroy($id);
+            $post = Post::findOrFail($id);
+
+            if ($post->is_announcement) {
+                $this->authorize('eventSettings', Event::findOrFail($post->event_id));
+            } else {
+                $this->authorize('delete', Post::class);
+            }
+
+            Post::destroy($id);
             return response()->json([], 200);
         } catch (ModelNotFoundException $err) {
             return response()->json([], 404);

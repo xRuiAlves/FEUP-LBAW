@@ -36,7 +36,7 @@
                                     {{$announcement->content}}
                                 </div>
                             </div>
-                            @if(Auth::check() && Auth::user()->is_admin)
+                            @if($is_organizer || (Auth::check() && Auth::user()->is_admin))
                             <div class="delete-post-icon">
                                 <i class="fas fa-trash-alt" title="Delete announcement" data-toggle="modal" data-target="#delete-announcement-modal"></i>
                             </div>
