@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Database\QueryException;
 
 use App\Post;
+use App\Event;
 
 class PostController extends Controller
 {
@@ -23,28 +24,34 @@ class PostController extends Controller
      * Creates a new post.
      */
     public function store(Request $request) {
-        $this->authorize('create', Post::class);
-
         $validated_data = $request->validate([
             'event_id' => 'required',
-            'content' => 'required'
+            'content' => 'required',
+            'is_announcement' => 'required'
         ]);
 
         $event_id = $validated_data["event_id"];
         $content = $validated_data["content"];
+        $is_announcement = $validated_data["is_announcement"];
+
+        if ($is_announcement) {
+            $this->authorize('eventSettings', Event::find($event_id));
+        } else {
+            $this->authorize('create', Post::class);
+        }
 
         try {
             $post = new Post();
             $post->user_id = auth()->user()->id;
             $post->event_id = $event_id;
             $post->content = $content;
-            $post->is_announcement = false;
+            $post->is_announcement = $is_announcement;
             $post->save();
             $post = Post::findOrFail($post->id);
         } catch (QueryException $err) {
             if ($err->getCode() == 22001) {
                 return response()->json([
-                    'message' => 'The post content must be, at most, 300 characters long.'
+                    'message' => 'The content must be, at most, 300 characters long.'
                 ], 400);
             }
         }

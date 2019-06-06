@@ -55,6 +55,18 @@ const addEventListeners = () => {
         createPost(event_id, content);
     });
 
+    const create_announcement_form = document.querySelector("#create-announcement-form");
+    create_announcement_form.addEventListener("submit", (e) => {
+        e.preventDefault();
+        if (!create_announcement_form.checkValidity()) {
+            return;
+        }
+        
+        const event_id = document.querySelector("#page-card.event-card").getAttribute("data-event-id");
+        const content = create_announcement_form.querySelector("textarea[name=content]").value;
+        createAnnouncement(event_id, content);
+    });
+
     delete_post_modal.querySelector("button.delete-post").addEventListener("click", (e) => {
         const post_id = delete_post_modal.getAttribute("data-post-id");
         deletePost(post_id);
@@ -191,7 +203,8 @@ const createPost = (event_id, content) => {
         method: 'POST',
         body: JSON.stringify({
             event_id,
-            content
+            content,
+            is_announcement: false
         }),
         headers: {
             'Content-Type': 'application/json',
@@ -220,8 +233,57 @@ const createPost = (event_id, content) => {
     });
 } 
 
+const createAnnouncement = (event_id, content) => {
+    if (content.length > 300) {
+        displayPostErrorMessage("The announcement content must be, at most, 300 characters long.");
+        return;
+    }
+    
+    fetch('/api/post', {
+        method: 'POST',
+        body: JSON.stringify({
+            event_id,
+            content,
+            is_announcement: true
+        }),
+        headers: {
+            'Content-Type': 'application/json',
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content'),
+            'Accept': 'application/json'
+        }
+    })
+    .then(res => {
+        res.json().then(json => {
+            if (res.status === 200) {
+                const form = document.querySelector("#create-announcement-form");
+                const success_alert = form.querySelector(".status-messages > .alert-success");
+                const danger_alert = form.querySelector(".status-messages > .alert-danger");
+                success_alert.style.display = "";
+                danger_alert.style.display = "none";
+                success_alert.textContent = `The announcement was successfully created.`;
+
+                form.reset();
+                form.classList.remove("was-validated");
+
+                location.href = `/event/${event_id}?event_id=${event_id}#announcements-section`;
+            } else {
+                displayAnnouncementErrorMessage(json.message);
+            }
+        });
+    });
+} 
+
 const displayPostErrorMessage = (message) => {
     const form = document.querySelector("#create-post-form");
+    const success_alert = form.querySelector(".status-messages > .alert-success");
+    const danger_alert = form.querySelector(".status-messages > .alert-danger");
+    success_alert.style.display = "none";
+    danger_alert.style.display = "";
+    danger_alert.textContent = message;
+}
+
+const displayAnnouncementErrorMessage = (message) => {
+    const form = document.querySelector("#create-announcement-form");
     const success_alert = form.querySelector(".status-messages > .alert-success");
     const danger_alert = form.querySelector(".status-messages > .alert-danger");
     success_alert.style.display = "none";

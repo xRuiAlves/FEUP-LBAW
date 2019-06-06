@@ -17,6 +17,14 @@
             <div class="tab-pane fade show active" id="announcements-section" role="tabpanel"
                 aria-labelledby="announcements-section-tab">
                     @if(count($announcements) > 0)
+                    @if($is_organizer)
+                    <button type="submit" class="btn create-post-button" data-toggle="modal" data-target="#create-announcement-modal">
+                        <span>
+                            <i class="far fa-edit"></i>
+                        </span>
+                        Create Announcement
+                    </button>
+                    @endif
                     <div class="announcements-area">
                         @foreach ($announcements as $announcement)
                         <div class="announcement" data-announcement-id={{$announcement->id}}>
@@ -40,8 +48,20 @@
                         </div>
                     </div>
                     @else
-                    <div class="no-announcements">
-                        The <strong>event organizers</strong> haven't posted any announcements yet!
+                    <div class="no-posts">
+                        <div class="description">
+                            The <strong>event organizers</strong> haven't posted any announcements yet!
+                        </div>
+                        <div class="button-container">
+                            @if(Auth::check())
+                                <button type="submit" class="btn create-post-button no-posts-button" data-toggle="modal" data-target="#create-announcement-modal">
+                                    <span>
+                                        <i class="far fa-edit"></i>
+                                    </span>
+                                    Create Announcement
+                                </button>
+                            @endif
+                        </div>
                     </div>
                     @endif
             </div>
@@ -164,39 +184,74 @@
 </div>
 
 <div id="create-post-modal" class="modal fade font-content" tabindex="-1" role="dialog">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <div class="header-container">
-                        <div class="modal-title custom-modal-title">Create a new Post</div>
-                    </div>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="header-container">
+                    <div class="modal-title custom-modal-title">Create a new Post</div>
                 </div>
-                <form id="create-post-form" novalidate class="needs-validation">
-                <fieldset>
-                    <legend style="display:none;">Create post form</legend>
-                    {{ csrf_field() }}
-                    <div class="modal-body">                 
-                        <div class="form-group">
-                            <textarea required class="form-control" name="content" placeholder="Enter the post content..." aria-label="Post Content"></textarea>
-                            <div class="invalid-feedback">Please provide the post content</div>
-                        </div>
-                    </div>
-                    <div class="status-messages">
-                        <div class="alert alert-danger" style="display:none;white-space:pre-line"></div>
-                        <div class="alert alert-success" style="display:none;white-space:pre-line"></div>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="submit" class="btn publish-button solve-issue">Create</button>
-                        <button type="button" class="btn btn-secondary close-button" data-dismiss="modal">Close</button>
-                    </div>
-                </fieldset>
-                </form>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
             </div>
+            <form id="create-post-form" novalidate class="needs-validation">
+            <fieldset>
+                <legend style="display:none;">Create post form</legend>
+                {{ csrf_field() }}
+                <div class="modal-body">                 
+                    <div class="form-group">
+                        <textarea required class="form-control" name="content" placeholder="Enter the post content..." aria-label="Post Content"></textarea>
+                        <div class="invalid-feedback">Please provide the post content</div>
+                    </div>
+                </div>
+                <div class="status-messages">
+                    <div class="alert alert-danger" style="display:none;white-space:pre-line"></div>
+                    <div class="alert alert-success" style="display:none;white-space:pre-line"></div>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn publish-button solve-issue">Create</button>
+                    <button type="button" class="btn btn-secondary close-button" data-dismiss="modal">Close</button>
+                </div>
+            </fieldset>
+            </form>
         </div>
     </div>
+</div>
+
+<div id="create-announcement-modal" class="modal fade font-content" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="header-container">
+                    <div class="modal-title custom-modal-title">Create a new announcement</div>
+                </div>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form id="create-announcement-form" novalidate class="needs-validation">
+            <fieldset>
+                <legend style="display:none;">Create announcement form</legend>
+                {{ csrf_field() }}
+                <div class="modal-body">                 
+                    <div class="form-group">
+                        <textarea required class="form-control" name="content" placeholder="Enter the announcement content..." aria-label="Announcement Content"></textarea>
+                        <div class="invalid-feedback">Please provide the announcement content</div>
+                    </div>
+                </div>
+                <div class="status-messages">
+                    <div class="alert alert-danger" style="display:none;white-space:pre-line"></div>
+                    <div class="alert alert-success" style="display:none;white-space:pre-line"></div>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn publish-button solve-issue">Create</button>
+                    <button type="button" class="btn btn-secondary close-button" data-dismiss="modal">Close</button>
+                </div>
+            </fieldset>
+            </form>
+        </div>
+    </div>
+</div>
 
 <div id="delete-post-modal" class="modal fade font-content" tabindex="-1" role="dialog">
     <div class="modal-dialog modal-dialog-centered" role="document">
