@@ -73,16 +73,6 @@
                             <div class="invalid-feedback">Please provide a valid location for the event</div>
                         </div>
                     </div>
-                    <div class="col-12">
-                        <div id="map_wrapper">
-                            <iframe class="event-map"
-                                src="https://maps.google.com/?q={{Request::old('latitude')}},{{Request::old('longitude')}}&ie=UTF8&t=&z=14&iwloc=B&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0">
-                            </iframe>
-                        </div>
-                        <input type="hidden" name="latitude" value="{{Request::old('latitude')}}">
-                        <input type="hidden" name="longitude" value="{{Request::old('longitude')}}">
-                        <small>Latitude and Longitude searching provided by <a href="http://nominatim.org/">Nominatim</a></small>
-                    </div>
                 </div>
             </div>
             <div class="col-12 col-lg-6 event-category">
@@ -108,6 +98,16 @@
                         </div>
                     </div>
                 </div>
+            </div>
+            <div class="col-12">
+                <div id="map_wrapper">
+                    <iframe class="event-map"
+                        src="https://maps.google.com/?q={{Request::old('latitude')}},{{Request::old('longitude')}}&ie=UTF8&t=&z=14&iwloc=B&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0">
+                    </iframe>
+                </div>
+                <input type="hidden" name="latitude" value="{{Request::old('latitude')}}">
+                <input type="hidden" name="longitude" value="{{Request::old('longitude')}}">
+                <small>Latitude and Longitude searching provided by <a href="http://nominatim.org/">Nominatim</a></small>
             </div>
         </div>
         <div class="row no-gutters event-description">
