@@ -11,7 +11,7 @@
     
     <div id="page-card" class="container card-container font-content not-found-container">
         <header>
-            <h1>401 - Unauthorized</h1>
+            <h1>403 - Access Forbidden</h1>
         </header>
         <div class="mobile-wave" id="background_wave"></div>
         <div class="not-found-body">

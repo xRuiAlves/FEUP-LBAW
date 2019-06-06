@@ -3,6 +3,9 @@
 namespace App\Exceptions;
 
 use Exception;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
+use Illuminate\Auth\Access\AuthorizationException;
+use Illuminate\Auth\AuthenticationException;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 
 class Handler extends ExceptionHandler
@@ -48,6 +51,14 @@ class Handler extends ExceptionHandler
      */
     public function render($request, Exception $exception)
     {
+        if ($exception instanceof AuthorizationException || $exception instanceof NotFoundHttpException || $exception instanceof AuthenticationException) {
+            return parent::render($request, $exception);   
+        }
+
+        if (config('app.debug') == false && !$request->expectsJson()) {
+            return response()->view("errors.500");
+        }
+
         return parent::render($request, $exception);
     }
 }

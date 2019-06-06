@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Auth\Access\AuthorizationException;
 
 use App\Event;
 use App\EventCategory;
@@ -33,7 +34,7 @@ class AdminController extends Controller {
      */
     public function users(Request $request) {
         if(!Auth::user()->is_admin) { // TODO: Change this to use policies
-            return abort(401, 'You do not possess the required permissions to acces the administration pages');
+            throw new AuthorizationException('You do not possess the required permissions to acces the administration pages');
         }
         
         $search_query = $request->get('search');
@@ -56,7 +57,7 @@ class AdminController extends Controller {
      */
     public function events(Request $request) {
         if(!Auth::user()->is_admin) { // TODO: Change this to use policies
-            return abort(401, 'You do not possess the required permissions to acces the administration pages');
+            throw new AuthorizationException('You do not possess the required permissions to acces the administration pages');
         }
 
         $search_query = $request->get('search');
@@ -79,8 +80,8 @@ class AdminController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function issues(Request $request) {
-        if(!Auth::user()->is_admin) { // TODO: Change this to use policies
-            return abort(401, 'You do not possess the required permissions to acces the administration pages');
+        if(!Auth::user()->is_admin) {
+            throw new AuthorizationException('You do not possess the required permissions to acces the administration pages');
         }
 
         $search_query = $request->get('search');
@@ -103,7 +104,7 @@ class AdminController extends Controller {
      */
     public function categories() {
         if(!Auth::user()->is_admin) { // TODO: Change this to use policies
-            return abort(401, 'You do not possess the required permissions to acces the administration pages');
+            throw new AuthorizationException('You do not possess the required permissions to acces the administration pages');
         }
 
         $categories = EventCategory::orderBy('id')->paginate(AdminController::ITEMS_PER_PAGE);
