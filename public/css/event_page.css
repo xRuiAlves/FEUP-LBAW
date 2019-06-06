@@ -9,6 +9,28 @@
     overflow: hidden;
 } */
 
+.card-container.event-card .no-announcements {
+    margin-top: 3em;
+    margin-bottom: 2em;
+    text-align: center;
+    color: var(--secondary-color-medium-dark);
+}
+
+.card-container.event-card .no-posts {
+    margin-top: 3em;
+    margin-bottom: 2em;
+}
+
+.card-container.event-card .no-posts .description {
+    color: var(--secondary-color-medium-dark);
+    text-align: center;
+}
+
+.card-container.event-card .no-posts .button-container {
+    display: flex;
+    justify-content: center;
+}
+
 .pagination-container {
     display: flex;
     justify-content: center;
@@ -286,12 +308,18 @@
 }
 
 button.create-post-button {
+    display: block;
     background: var(--secondary-color-medium);
     color: white;
     padding: 0.5em 1em;
     margin-top: 2em;
     margin-left: 2em;
     font-weight: bold;
+}
+
+button.create-post-button.no-posts-button {
+    margin-top: 1em;
+    margin-left: 0;
 }
 
 button.create-post-button i {

@@ -27,19 +27,7 @@ class UserController extends Controller
             return redirect('/login');
         }
 
-        // TODO - Must add EventPolicy as well
-        // $this->authorize('list', Event::class);
-
         $user = Auth::user();
-        // $user = User::find(2);
-
-        $owned_events = $user->ownedEvents()->get()
-        ->map(function ($event, $key) {
-            $event['relationship'] = 'owner';
-            return $event;
-        });
-
-        // return $owned_events;
 
         // Distinct because the user might have several tickets for the same event
         $attending_events = $user->attendingEvents()->distinct()->get()
@@ -47,8 +35,6 @@ class UserController extends Controller
             $event['relationship'] = 'attendee';
             return $event;
         });
-
-        // return $attending_events;
 
         $organizing_events = $user->organizingEvents()->get()
         ->map(function ($event, $key) {
@@ -64,9 +50,8 @@ class UserController extends Controller
             return $event;
         });
 
-
         // The order for merge must be this one because of not overriding positions with higher priority
-        $events = $organizing_events->merge($attending_events)->merge($owned_events);
+        $events = $organizing_events->merge($attending_events);
 
         foreach ($events as $key => $value) {
             if($favorite_events->contains($events[$key])) {

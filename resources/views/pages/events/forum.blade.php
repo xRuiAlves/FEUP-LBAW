@@ -12,8 +12,8 @@
         <div class="tab-content" id="nav-tabContent">
             <div class="tab-pane fade show active" id="announcements-section" role="tabpanel"
                 aria-labelledby="announcements-section-tab">
-                <div class="announcements-area">
                     @if(count($announcements) > 0)
+                    <div class="announcements-area">
                         @foreach ($announcements as $announcement)
                         <div class="announcement">
                             <div class="content">
@@ -29,22 +29,24 @@
                         <div class="pagination-container">
                             {{$announcements->appends(['discussions' => $discussions->currentPage()])->fragment('announcements-section')->links("pagination::bootstrap-4")}}
                         </div>
+                    </div>
                     @else
-                        No announcements yet!
+                    <div class="no-announcements">
+                        The <strong>event organizers</strong> haven't posted any announcements yet!
+                    </div>
                     @endif
-                </div>
             </div>
             <div class="tab-pane fade" id="discussion-section" role="tabpanel" aria-labelledby="discussion-section-tab">
                 <div class="discussions-area">
-                    @if(Auth::check())
-                    <button type="submit" class="btn create-post-button" data-toggle="modal" data-target="#create-post-modal">
-                        <span>
-                            <i class="far fa-edit"></i>
-                        </span>
-                        Create Post
-                    </button>
-                    @endif
                     @if(count($discussions) > 0)
+                        @if(Auth::check())
+                        <button type="submit" class="btn create-post-button" data-toggle="modal" data-target="#create-post-modal">
+                            <span>
+                                <i class="far fa-edit"></i>
+                            </span>
+                            Create Post
+                        </button>
+                        @endif
                         @foreach ($discussions as $discussion_key => $discussion)
                         <div class="post" data-post-id={{$discussion->id}}>
                             <div class="content">
@@ -124,7 +126,21 @@
                             {{$discussions->appends(['announcements' => $announcements->currentPage()])->fragment('discussion-section')->links("pagination::bootstrap-4")}}
                         </div>
                     @else
-                        No discussion posts yet!
+                        <div class="no-posts">
+                            <div class="description">
+                                No one has created a <strong>post</strong> on this event
+                            </div>
+                            <div class="button-container">
+                                @if(Auth::check())
+                                    <button type="submit" class="btn create-post-button no-posts-button" data-toggle="modal" data-target="#create-post-modal">
+                                        <span>
+                                            <i class="far fa-edit"></i>
+                                        </span>
+                                        Create Post
+                                    </button>
+                                @endif
+                            </div>
+                        </div>
                     @endif
                 </div>
             </div>
