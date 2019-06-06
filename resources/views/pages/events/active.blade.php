@@ -35,7 +35,12 @@
                 </button>
             </div>
             <div class="col-12 hosted-by-label mt-2 mt-lg-0">
-                <h6>Event hosted by {{$owner->name}}</h6>
+                <h6>
+                    Event hosted by {{$owner->name}}
+                    @if($owner->is_disabled)
+                        <p class="user-account-disabled"><strong>Note:</strong> This user's account was disabled</p>
+                    @endif
+                </h6>
             </div>
         </div>
         <div class="mobile-wave" id="background_wave"></div>

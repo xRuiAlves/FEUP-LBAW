@@ -51,7 +51,12 @@
     color: goldenrod;
 }
 
-
+.card-container.event-card h6 .user-account-disabled {
+    font-style: normal;
+    color: var(--danger-red);
+    font-size: 0.8em;
+    margin-top: 0.4em;
+}
 
 .card-container.event-card .admin-view-label h6 {
     padding: 0.5em;
@@ -416,9 +421,14 @@ button.create-post-button i {
         border-color: var(--secondary-color-medium);
     }
     
+    .card-container.event-card h6 .user-account-disabled {
+        color: white;
+    }
+
     .event-card .attend-btn button {
         font-size: 0.9em;
     }
+    
 }
 
 @media only screen and (min-width: 992px) {
