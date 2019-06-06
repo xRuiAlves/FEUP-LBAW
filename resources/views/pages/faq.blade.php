@@ -20,7 +20,7 @@
                     Q: How many events can I organize at the same time using this application?
                 </div>
                 <div class="collapse answer" id="answer_1">
-                    A: Using Eventually, you may organize any number of events at the same time at any given time, free
+                    <strong>A:</strong> Using Eventually, you may organize any number of events at the same time at any given time, free
                     of charge.
                 </div>
             </div>
@@ -29,7 +29,7 @@
                     Q: I don't want to organize an event by myself. Can I get help from other users?
                 </div>
                 <div class="collapse answer" id="answer_2">
-                    A: Yes. Eventually offers a collaborative way to manage your events. You need only to search for
+                    <strong>A:</strong> Yes. Eventually offers a collaborative way to manage your events. You need only to search for
                     other users in your event's page and invite them to assist you in the organization process. Once
                     they accept your invitation, they will be able to emit vouchers, check-in attendees, create
                     annoucements and edit the event's data.
@@ -40,7 +40,7 @@
                     Q: I want to contact an administrator. How may I do so?
                 </div>
                 <div class="collapse answer" id="answer_3">
-                    A: In order to contact one of the administrators, you need only click the "Submit an Issue" button
+                    <strong>A:</strong> In order to contact one of the administrators, you need only click the "Submit an Issue" button
                     on your navigation bar, at the top of the page. The most common usage of this tool is for reporting
                     an event, reporting another user's behavior or asking questions about the application.
                 </div>
@@ -50,19 +50,25 @@
                     Q: I want to communicate with the event organizers. How may I do so?
                 </div>
                 <div class="collapse answer" id="answer_4">
-                    A: In order to contact the event organizers, you can visit the event's page and scroll down to the
+                    <strong>A:</strong> In order to contact the event organizers, you can visit the event's page and scroll down to the
                     "Discussion" section. In this section, you are able to create a post asking a question and observe
                     other matters related to the event.
                 </div>
             </div>
             <div class="qa-item">
                 <div class="question" data-toggle="collapse" data-target="#answer_5">
-                    Q: I'm used to using Google™ Calendar for managing my appointments. Can I integrate my events with
-                    it?
+                    Q: How many events may I attend at the same time?
                 </div>
                 <div class="collapse answer" id="answer_5">
-                    A: Yes. Eventually allows the possibility of exporting an event to your own Google™ Calendar. To do
-                    so, you need only to access the event's page and click the "Export to Google Calender" button.
+                    <strong>A:</strong> As many events as you want. Eventually allows you to take part in multiple events at the same time, no restrictions.
+                </div>
+            </div>
+            <div class="qa-item">
+                <div class="question" data-toggle="collapse" data-target="#answer_6">
+                    Q: I want to easily follow an event's activity. How may I do so?
+                </div>
+                <div class="collapse answer" id="answer_6">
+                    <strong>A:</strong> In order to follow all the event's activity, you need only to mark the event as <strong>Favorite</strong>. To do so, just access the event's page and click the <strong>Star</strong> icon on the top, near the event's title. 
                 </div>
             </div>
         </div>
