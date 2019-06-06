@@ -23,6 +23,7 @@ Route::post('register', 'Auth\RegisterController@register');
 Route::get('logout', 'Auth\LoginController@logout')->name('logout');
 Route::post('password/change', 'UserController@changePassword');
 Route::delete('account', 'UserController@deleteAccount');
+Auth::routes();
 
 // Events
 Route::get('/event/{id}', 'EventController@show')->where(['id' => '[0-9]+']);
@@ -77,6 +78,3 @@ Route::get('admin/users', 'AdminController@users')->name('admin-users');
 Route::get('admin/issues', 'AdminController@issues')->name('admin-issues');
 Route::get('admin/events', 'AdminController@events')->name('admin-events');
 Route::get('admin/categories', 'AdminController@categories')->name('admin-categories');
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');

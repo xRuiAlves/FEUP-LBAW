@@ -16,6 +16,7 @@ DROP TABLE IF EXISTS tags CASCADE;
 DROP TABLE IF EXISTS events CASCADE;
 DROP TABLE IF EXISTS event_categories CASCADE;
 DROP TABLE IF EXISTS users CASCADE;
+DROP TABLE IF EXISTS password_resets CASCADE;
 
 DROP TYPE IF EXISTS TICKET_PAYMENT_TYPE CASCADE;
 DROP TYPE IF EXISTS NOTIFICATION_TYPE CASCADE;
@@ -212,6 +213,12 @@ CREATE TABLE notifications (
 	)
 );
 
+-- Necessary because of Laravel's password reset implementation
+CREATE TABLE password_resets (
+    email TEXT,
+    token TEXT,
+    created_at TIMESTAMP
+);
 
 ---------------
 -- Functions --
