@@ -86,7 +86,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="submit" class="btn publish-button dismiss-notification">Promote</button>
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-secondary close-button" data-dismiss="modal">Close</button>
                 </div>
             </fieldset>
             </form>
@@ -105,16 +105,12 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <form action="#">
-            <fieldset>
-                <legend style="display:none;">Toggle user status form</legend>
-                <div class="modal-body"> </div>
-                <div class="modal-footer">
-                    <button type="submit" class="btn publish-button"></button>
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                </div>
-            </fieldset>
-            </form>
+            <div class="modal-body"> </div>
+            <div class="modal-footer">
+                <button type="button" class="btn publish-button action-1"></button>
+                <button type="button" class="btn publish-button action-2"></button>
+                <button type="button" class="btn btn-secondary close-button" data-dismiss="modal">Close</button>
+            </div>
         </div>
     </div>
 </div>

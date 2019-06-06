@@ -67,7 +67,7 @@
                     </div>
                     <div class="modal-footer">
                         <button type="submit" class="btn publish-button create-category">Create</button>
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-secondary close-button" data-dismiss="modal">Close</button>
                     </div>
                 </div>
             </fieldset>
@@ -100,7 +100,7 @@
                         </div>
                     <div class="modal-footer">
                         <button type="submit" class="btn publish-button rename-category">Rename</button>
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-secondary close-button" data-dismiss="modal">Close</button>
                     </div>
                 </div>
             </fieldset>

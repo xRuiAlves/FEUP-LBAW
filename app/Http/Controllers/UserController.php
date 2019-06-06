@@ -224,22 +224,26 @@ class UserController extends Controller
         $this->authorize('enableDisable', User::class);
 
         $validated_data = $request->validate([
-            'user_id' => 'required'
+            'user_id' => 'required',
+            'disable_events' => 'required'
         ]);
 
         $user_id = $validated_data["user_id"];
+        $disable_events = $validated_data["disable_events"];
 
         try {
             $user = User::findOrFail($user_id);
             $user->is_disabled = true;    
             $user->save();
 
-            $user_events = Event::ownerUser($user_id)->enabled()->get();
             $disabled_events = [];
-            foreach($user_events as $event) {
-                $event->is_disabled = true;
-                $event->save();
-                array_push($disabled_events, $event->title);
+            if ($disable_events == true) {
+                $user_events = Event::ownerUser($user_id)->enabled()->get();
+                foreach($user_events as $event) {
+                    $event->is_disabled = true;
+                    $event->save();
+                    array_push($disabled_events, $event->title);
+                }
             }
 
             return response()->json([

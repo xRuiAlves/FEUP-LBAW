@@ -12,9 +12,7 @@ const addEventListeners = () => {
     });
 
     const user_status_modal = document.querySelector("#user-status-modal");
-    user_status_modal.querySelector("form").addEventListener("submit", (e) => {
-        e.preventDefault();
-        
+    user_status_modal.querySelector("button.action-1").addEventListener("click", () => {        
         const user_id = user_status_modal.getAttribute("data-user-id");
         const name = user_status_modal.getAttribute("data-user-name");
         const is_disabled = user_status_modal.getAttribute("data-user-disabled");
@@ -23,10 +21,21 @@ const addEventListeners = () => {
         if (is_disabled == "true") {
             enableUserAccount(user_id, name, button_node);
         } else {
-            disableUserAccount(user_id, name, button_node);
+            disableUserAccount(user_id, name, button_node, false);
         }
         
         $('#user-status-modal').modal('hide');
+    });
+    user_status_modal.querySelector("button.action-2").addEventListener("click", () => {
+        const is_disabled = user_status_modal.getAttribute("data-user-disabled");
+        if (is_disabled == "false") {
+            const user_id = user_status_modal.getAttribute("data-user-id");
+            const name = user_status_modal.getAttribute("data-user-name");
+            const button_node = document.querySelector(`#user-table .user-entry[data-user-id='${user_id}'] button.account-enable-toggle`);
+
+            disableUserAccount(user_id, name, button_node, true);
+            $('#user-status-modal').modal('hide');
+        }
     });
 
     document.querySelectorAll("#user-table .user-entry").forEach(entry => {
@@ -56,8 +65,15 @@ const addEventListeners = () => {
             user_status_modal.querySelector(".modal-body").innerHTML = 
                 `Do you want to ${is_disabled == "true" ? "enable" : "disable"} user <u><strong>${name}</strong></u> account? 
                 ${is_disabled == "true" ? "" : "This action will cause <u>all the events the user created to be <strong>disabled</strong></u>."}`;
-            user_status_modal.querySelector(".modal-footer button[type=submit]").innerHTML = 
-                is_disabled == "true" ? "Enable" : "Disable";
+            const action_button_1 = user_status_modal.querySelector(".modal-footer button.action-1");
+            const action_button_2 = user_status_modal.querySelector(".modal-footer button.action-2");
+            if (is_disabled == "true") {
+                action_button_1.innerHTML = "Enable"
+                action_button_2.style.display = "none;"
+            } else {
+                action_button_1.innerHTML = "Disable User";
+                action_button_2.innerHTML = "Disable User and Events";
+            }
         });
     });
 }
@@ -129,11 +145,12 @@ const enableUserAccount = (user_id, name, button_node) => {
     });
 }
 
-const disableUserAccount = (user_id, name, button_node) => {
+const disableUserAccount = (user_id, name, button_node, disable_events) => {
     fetch('/api/user/disable', {
         method: 'PUT',
         body: JSON.stringify({
             user_id,
+            disable_events
         }),
         headers: {
             'Content-Type': 'application/json',
@@ -144,12 +161,13 @@ const disableUserAccount = (user_id, name, button_node) => {
     .then(res => {
         if (res.status === 200) {
             res.json().then(({ disabled_events }) => {
+                console.log(disabled_events);
                 let success_message = `Successfully disabled user <strong><u>${name}</u></strong> account. `;
-                if (disabled_events.length === 0) {
+                if (disabled_events.length === 0 && disable_events) {
                     success_message += "The user was not hosting any events that were active, thus no events were disabled."
                 } else if (disabled_events.length === 1) {
                     success_message += `The event <i><u>${disabled_events[0]}</u></i> was disabled`;
-                } else {
+                } else if (disabled_events.length > 1) {
                     success_message += "The events "
                     let prefix = "";
                     for (let i = 0; i < disabled_events.length - 1; i++) {

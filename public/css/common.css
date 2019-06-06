@@ -4,6 +4,16 @@ button.btn-secondary{
     background-color: var(--secondary-color-medium);
 }
 
+button.btn-secondary.close-button {
+    background-color: var(--color-grey-medium-dark);
+    border-color: var(--color-grey-medium-dark);
+}
+
+button.btn-secondary.close-button:hover {
+    background-color: var(--color-grey-medium-darker);
+    border-color: var(--color-grey-medium-darker);
+}
+
 button.btn-secondary:hover{
     background-color: var(--secondary-color-dark);
     border-color: var(--secondary-color-dark);

@@ -125,7 +125,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn publish-button" data-dismiss="modal">Create</button>
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-secondary close-button" data-dismiss="modal">Close</button>
                 </div>
             </fieldset>
             </form>
@@ -147,7 +147,7 @@
             </div>
             <div class="modal-footer">
                 <a href="/event_page_attendee.html" class="btn publish-button">Confirm</a>
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-secondary close-button" data-dismiss="modal">Close</button>
             </div>
         </div>
     </div>
