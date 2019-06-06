@@ -30,7 +30,7 @@ class Event extends Model
      */
     public function attendees() {
         // TODO: Add ->withPivot(columns...);
-        return $this->belongsToMany('App\User', 'tickets', 'user_id', 'event_id');
+        return $this->belongsToMany('App\User', 'tickets', 'event_id', 'user_id');
     }
 
     /**

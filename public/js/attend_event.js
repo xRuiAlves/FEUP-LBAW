@@ -15,7 +15,7 @@ const addTicketClickEvent = () => {
         const new_ticket = document.querySelector('.ticket').cloneNode(true);
 
         //clear each input
-        $(new_ticket).find('input[name="nif"]').each(function() {
+        $(new_ticket).find('input').each(function() {
             $(this).val("");
         });
 
