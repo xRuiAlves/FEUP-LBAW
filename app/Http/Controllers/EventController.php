@@ -491,7 +491,7 @@ class EventController extends Controller
                 return response()->json([
                     'errors' => [
                         'global' => [
-                            "Cannot buy $num_tickets_to_buy ticket(s). Attendance limit reached",
+                            "Cannot buy $num_tickets_to_buy ticket(s). Attendance limit reached. Purchase halted.",
                         ]
                     ]
                 ], 400);
@@ -519,7 +519,7 @@ class EventController extends Controller
                             return response()->json([
                                 'errors' => [
                                     'global' => [
-                                        "The submitted voucher for ticket $ticket_num was already used",
+                                        "The submitted voucher for Ticket #$ticket_num was already used. Purchase halted.",
                                     ]
                                 ]
                             ], 400);
@@ -530,7 +530,7 @@ class EventController extends Controller
                         return response()->json([
                             'errors' => [
                                 'global' => [
-                                    "The submitted voucher for ticket $ticket_num is invalid",
+                                    "The submitted voucher for Ticket #$ticket_num is invalid. Purchase halted.",
                                 ]
                             ]
                         ], 400);
@@ -556,7 +556,7 @@ class EventController extends Controller
             return response()->json([
                 'errors' => [
                     'global' => [
-                        'The event was not found',
+                        'The event was not found. Purchase halted.',
                     ]
                 ]
             ], 400);

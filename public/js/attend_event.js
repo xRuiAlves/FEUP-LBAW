@@ -30,6 +30,20 @@ const addTicketClickEvent = () => {
     })
 }
 
+const sendRequest = async (url, method, body) => {
+
+    return fetch(url, {
+        method: method,
+        body: JSON.stringify(body),
+        headers: {
+            'Content-Type': 'application/json',
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content'),
+            'Accept': 'application/json'
+        }
+    })
+
+}
+
 const submitAttendClickEvent = () => {
     const form = document.getElementById('ticket-form');
 
@@ -49,17 +63,16 @@ const submitAttendClickEvent = () => {
         }).toArray();
 
 
-        sendRequest(form.getAttribute('action'), 'POST', {tickets})
+        sendRequest(`/event/${form.getAttribute('data-event-id')}/attend`, 'POST', {tickets})
         .then(res => {
             res.json()
                 .then(data => {
-                    console.log('====================================');
-                    console.log(data);
-                    console.log('====================================');
                     if(res.status !== 200) {
                         const errors = parseErrors(data.errors);
-                        console.log("hello,", errors);
                         
+                        displayErrors(form, errors);
+                    } else {
+                        window.location.href = `/event/${form.getAttribute('data-event-id')}`;
                     }
                 })
             }
@@ -107,18 +120,36 @@ const parseErrorMessage = msg => {
     return `The ${field} ${match[3]}`;
 }
 
-const sendRequest = async (url, method, body) => {
+const displayErrors = (form, errors) => {
+    $('.invalid-feedback').remove();
+    $('.form-error').remove();
 
-    return fetch(url, {
-        method: method,
-        body: JSON.stringify(body),
-        headers: {
-            'Content-Type': 'application/json',
-            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content'),
-            'Accept': 'application/json'
+    Object.keys(errors).forEach(error_type => {
+        if(error_type === 'global') { //special case for global form error
+
+            const error_elem = document.createElement('div');
+            error_elem.classList.add('form-error');
+            errors['global'].forEach(msg => {
+                const error_msg = document.createElement('p');
+                $(error_msg).html(msg);
+                error_elem.appendChild(error_msg);
+            })
+            $(form).append(error_elem)
+
+        } else {//case where the error is for a single ticket
+            const ticket_num = error_type;
+
+            const ticket = $('.ticket')[ticket_num];
+            Object.entries(errors[error_type]).forEach(([field, messages]) => {
+                messages.forEach(msg => {
+                    const error_elem = document.createElement('div');
+                    error_elem.classList.add('invalid-feedback');
+                    $(error_elem).html(msg)
+                    $(ticket).find(`input[name="${field}"]`).parent().append(error_elem);
+                })
+            })
         }
     })
-
 }
 
 addTicketClickEvent();

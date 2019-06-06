@@ -30,3 +30,8 @@
     background-color: var(--secondary-color-medium);
     color: white;
 }
+
+.form-error {
+    margin-top: 1em;
+    color: var(--bootstrap-red);
+}
