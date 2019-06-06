@@ -71,10 +71,12 @@ class EventController extends Controller
             $discussion_comments[$i] = $discussion->comments()->get();
         }
 
+        $is_organizer = $event->organizers()->where('user_id', Auth::user()->id)->exists();
+
         return view('pages.events.index',
         [
             'event' => $event, 'owner' => $owner, 'announcements' => $announcements, 'category' => $category, 'favorited' => $favorited,
-            'discussions' => $discussions, 'discussion_comments' => $discussion_comments
+            'discussions' => $discussions, 'discussion_comments' => $discussion_comments, 'is_organizer' => $is_organizer
         ]);
     }
 

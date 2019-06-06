@@ -32,6 +32,15 @@
                     </span>
                     Attend
                 </button>
+                @if($is_organizer)
+                    <br><br>
+                    <a href="/event/{{$event->id}}/manage" class="btn">
+                        <span>
+                            <i class="fas fa-edit icon-left"></i>
+                        </span>
+                        Manage Event
+                    </a>
+                @endif
             </div>
             <div class="col-12 hosted-by-label mt-2 mt-lg-0">
                 <h6>

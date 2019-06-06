@@ -125,6 +125,11 @@
     font-size: 1.25em;
 }
 
+.attend-btn a {
+    background-color: var(--primary-color);
+    color: white;
+}
+
 .attend-btn button {
     background-color: var(--secondary-color-medium);
     color: white;

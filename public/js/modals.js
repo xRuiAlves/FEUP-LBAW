@@ -16,7 +16,6 @@ async function confirmModal(msg) {
         }
 
         let onNo = () => {
-            reject();
             yesBtn.removeEventListener('click', onYes);
             noBtn.removeEventListener('click', onNo);
             $(modal).modal('hide');
