@@ -12,7 +12,6 @@ use Illuminate\Support\Str;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 
 use App\Event;
-use App\EventVoucher;
 use App\EventCategory;
 use App\Post;
 use App\User;
