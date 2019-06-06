@@ -236,8 +236,22 @@ class EventController extends Controller
 
     }
 
-    public function delete(Request $request, $id) {
+    public function delete(Request $request) {
+
+        $event = Event::find($request->id);
         
+        $this->authorize('eventAdmin', $event);
+        
+        try{
+            $event->is_cancelled = true;
+            $event->save();
+
+            return response()->json([], 200);
+        } catch (ModelNotFoundException $err) {
+            return response()->json([], 404);
+        }catch(QueryException $e){
+            return response()->json([], 400);
+        }
     }   
 
     public function manage(Request $request){
@@ -319,6 +333,27 @@ class EventController extends Controller
 
         try{
             $pivot = $event->organizers->find($request->user_id)->pivot;
+            $pivot->delete();
+
+            return response()->json([], 200);
+        } catch (ModelNotFoundException $err) {
+            return response()->json([], 404);
+        }catch(QueryException $e){
+            return response()->json([], 400);
+        }
+    }
+
+    public function quitOrganization(Request $request){
+        $event = Event::find($request->id);
+        
+        $this->authorize('eventSettings', $event);
+
+        if($event->user_id === Auth::user()->id){
+            return response()->json(['Cannot remove event admin'], 400);
+        }
+
+        try{
+            $pivot = $event->organizers->find(Auth::user()->id)->pivot;
             $pivot->delete();
 
             return response()->json([], 200);

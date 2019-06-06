@@ -50,7 +50,7 @@ class EventPolicy {
      * Determine whether the user can change event settings.
      */
     public function eventSettings(User $user, Event $event) {
-        return $user->organizingEvents->contains($event);
+        return !($event->is_cancelled) && !($event->is_disabled) && $user->organizingEvents->contains($event);
     }
 
     /**

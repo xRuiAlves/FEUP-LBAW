@@ -111,9 +111,9 @@
             {{$organizers->appends(['attendees' => $attendees->currentPage()])->links("pagination::bootstrap-4")}}
         </div>
 
-        <button type="button" class="btn btn-danger ">Cancel Event</button>
+        <button id="cancel-event-btn" type="button" class="btn btn-danger">Cancel Event</button>
     @else
-        <button type="button" class="btn btn-danger">Quit Event Organization</button>
+        <button id="quit-organization-btn" type="button" class="btn btn-danger">Quit Event Organization</button>
     @endif
 
 

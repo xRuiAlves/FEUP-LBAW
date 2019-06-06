@@ -17,6 +17,8 @@
     <script type="text/javascript" src="{{ asset('js/moment.js/moment-with-locales.js') }}" defer></script>
     <script type="text/javascript" src="{{ asset('js/popovers.js') }}" defer></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.0.0-alpha14/js/tempusdominus-bootstrap-4.min.js" defer></script>
+    
+    <script type="text/javascript" src="{{ asset('js/modals.js') }}" defer></script>
 
     @yield('scripts')
     
@@ -51,6 +53,20 @@
     @if(empty($hideFooter))
         @include('inc.footer')
     @endif
+
+    <div class="modal fade" tabindex="-1" role="dialog" aria-labelledby="confirmationModal" aria-hidden="true" id="confirmation-modal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="confirmation-modal-text">Confirmar</h4>
+                </div>
+                <div class="modal-footer">
+                <button type="button" class="btn btn-default" id="confirmation-modal-yes">Yes</button>
+                <button type="button" class="btn btn-primary" id="confirmation-modal-no">No</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
 </body>
 

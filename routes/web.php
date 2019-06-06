@@ -41,8 +41,10 @@ Route::get('/event/{id}/add-organizer', 'EventController@addOrganizerPage')->whe
 Route::get('/event/{id}/invite', 'EventController@invitePage')->where(['id' => '[0-9]+']);
 Route::get('/event/{id}/generate-vouchers', 'EventController@generateVouchersPage')->where(['id' => '[0-9]+']);
 Route::put('api/event/{id}/check-in', 'EventController@checkIn');
+Route::delete('api/event/{id}', 'EventController@delete');
 Route::delete('api/event/{id}/attendee', 'EventController@removeAttendee');
 Route::delete('api/event/{id}/organizer', 'EventController@removeOrganizer');
+Route::put('api/event/{id}/quit-organization', 'EventController@quitOrganization');
 Route::put('api/event/{id}/organizer', 'EventController@addOrganizer');
 Route::put('api/event/{id}/invite', 'EventController@invite');
 Route::post('api/event/{id}/vouchers', 'EventController@generateVouchers');
