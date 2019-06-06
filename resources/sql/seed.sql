@@ -60,6 +60,7 @@ CREATE TABLE events (
 	description TEXT NOT NULL,
 	price REAL NOT NULL,
 	location VARCHAR(60),
+    capacity INTEGER NOT NULL DEFAULT -1,
 	latitude REAL,
 	longitude REAL,
 	start_timestamp TIMESTAMP WITH TIME zone NOT NULL,
@@ -1006,8 +1007,8 @@ INSERT INTO event_categories(name) VALUES
     ('Entertainment');
 
 -- Events
-INSERT INTO events(title, description, price, location, latitude, longitude, start_timestamp, end_timestamp, event_category_id, user_id) VALUES 
-    ('SINF 2020', 'Semana de Informática is a conference that aims to bring together students of informatics, computer science and engineering to learn, socialize and connect with each other and the business world. The event takes place every year in Faculdade de Engenharia da Universidade do Porto, in Portugal.', 1.00, 'FEUP, Porto, Portugal', 41.1780, -8.5980, to_timestamp('16-05-2020 15:36:38', 'dd-mm-yyyy hh24:mi:ss'), to_timestamp('17-05-2020 15:36:38', 'dd-mm-yyyy hh24:mi:ss'), 4, 2);
+INSERT INTO events(title, description, price, location, capacity, latitude, longitude, start_timestamp, end_timestamp, event_category_id, user_id) VALUES 
+    ('SINF 2020', 'Semana de Informática is a conference that aims to bring together students of informatics, computer science and engineering to learn, socialize and connect with each other and the business world. The event takes place every year in Faculdade de Engenharia da Universidade do Porto, in Portugal.', 1.00, 'FEUP, Porto, Portugal', 1, 41.1780, -8.5980, to_timestamp('16-05-2020 15:36:38', 'dd-mm-yyyy hh24:mi:ss'), to_timestamp('17-05-2020 15:36:38', 'dd-mm-yyyy hh24:mi:ss'), 4, 2);
 INSERT INTO events(title, location, latitude, longitude, description, price, start_timestamp, event_category_id, is_cancelled, is_disabled, user_id) VALUES 
     ('Hash Code 2020', 'Delhi, India', 28.644800, 77.216721, 'Hash Code is a team programming competition, organized by Google, for students and professionals around the world. You pick your team and programming language and we pick an engineering problem for you to solve. This year’s contest kicks off with an Online Qualification Round, where your team can compete from wherever you’d like, including from one of our Hash Code hubs. Top teams will then be invited to a Google office for the Final Round. In this years edition, we will be hosting the main event in India, the new capital of technology and the tech market.', 0.00, to_timestamp('20-05-2021 15:36:38', 'dd-mm-yyyy hh24:mi:ss'), 5, false, false, 2),
     ('Visiting Albania', 'Tirana, Albania', 41.327953, 19.819025, 'A part of Illyria in ancient times and later of the Roman Empire, Albania was ruled by the Byzantine Empire from 535 to 1204. An alliance (1444–1466) of Albanian chiefs failed to halt the advance of the Ottoman Turks, and the country remained under at least nominal Turkish rule for more than four centuries, until it proclaimed its independence on Nov. 28, 1912. Talking about Albania is talking about history. About overcoming challenges. About sharing, fighting and conquering. Dont miss the opportunity to find out more about this fantastic country, in an event hosted in its very own capital.', 1.00, to_timestamp('22-05-2020 15:36:38', 'dd-mm-yyyy hh24:mi:ss'), 8, false, false, 3),

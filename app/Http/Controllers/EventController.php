@@ -248,27 +248,43 @@ class EventController extends Controller
 
     public function attend(Request $request, $event_id) {
         
-        // $request->validate([
-        //     'tickets.*.nif' => 'required|numeric|digits:9',
-        //     'tickets.*.address' => 'required|max:128',
-        //     'tickets.*.billing_name' => 'required|max:64',
-        //     'tickets.*.voucher_code' => 'nullable|size:32',
-        // ]);
+        $request->validate([
+            'tickets.*.nif' => 'required|numeric|digits:9',
+            'tickets.*.address' => 'required|max:128',
+            'tickets.*.billing_name' => 'required|max:64',
+            'tickets.*.voucher_code' => 'nullable|size:32',
+        ]);
 
-        return response()->json([
-            'errors' => [
-                'global' => [
-                    'There was a global error',
-                    'There was another global error',
+        //please try catch me
+        //iterate over tickets and add them
+
+        try {
+            $event = Event::findOrFail($event_id);
+    
+            //missing verification for capacity
+            foreach ($request->tickets as $key => $ticket) {    
+                $event->attendees()->attach(Auth::user(), [
+                    'nif' => $ticket['nif'],
+                    'billing_name' => $ticket['billing_name'],
+                    'address' => $ticket['address'],
+                    'type' => 'Paypal',
+                    'paypal_order_id' => 'PAYPAL-CONFIRMATION-4002'
+//missing voucher handling - verificar se n foi ja usado e por aqui o id, nao o actual code
+                ]);                
+            }
+
+            return response()->json([
+                'data' => $request->tickets,
+            ], 200);
+
+        } catch (ModelNotFoundException $e) {
+            return response()->json([
+                'errors' => [
+                    'global' => [
+                        'The event was not found',
+                    ]
                 ]
-            ]
-        ], 400);
-
-
-        
-
-        return response()->json([
-            'data' => $request->tickets,
-        ], 200);
+            ], 400);
+        }
     }
 }
