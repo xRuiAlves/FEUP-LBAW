@@ -27,6 +27,7 @@
                     <div class="invalid-feedback">
                         Please provide a title for the event
                     </div>
+                    <i class="fas fa-question-circle form-info" data-toggle="popover" data-placement="top" data-content="In this page, you may create a new Event. All fields are mandatory, except for the ones marked as optional. You will be able to add other users to the organization team after the event is created."></i>
                 </div>
             </div>
         </header>

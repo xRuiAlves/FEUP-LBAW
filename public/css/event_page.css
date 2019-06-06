@@ -400,6 +400,12 @@ button.create-post-button i {
         font-size: 0.9em;
     }
 
+    .event-creation-container header i {
+        position: absolute;
+        top: -1em;
+        right: -1em;
+    }
+
     .event-card .separator.main-separator {
         display: none;
     }
