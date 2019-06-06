@@ -12,8 +12,8 @@
 
 <div id="banner-wrapper">
     <div id="banner-image-container">
-        <img src="{{asset('images/concert2.jpg')}}" />
-        <img src="{{asset('images/concert1.jpg')}}" />
+        <img src="{{asset('images/concert2.jpg')}}" alt="In-door concert"/>
+        <img src="{{asset('images/concert1.jpg')}}" alt="Out-door concert"/>
     </div>
     <div id="page-title">
         <div class="row no-gutters text-right">
