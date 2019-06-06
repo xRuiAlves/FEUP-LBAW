@@ -82,6 +82,8 @@
                                 <div class="collapse" id="comments_section_{{$discussion_key}}">
                                     <div class="add-comment">
                                         <form class="needs-validation create-comment-form" novalidate action="#" data-post-id={{$discussion->id}}>
+                                            <fieldset>
+                                            <legend style="display:none;">Create comment form</legend>
                                             {{ csrf_field() }}
                                             <div class="row no-gutters">
                                                 <div class="col-12 status-messages">
@@ -94,6 +96,7 @@
                                                 <div class="invalid-feedback">Please provide the comment content.</div>
                                             </div>
                                             <button type="submit" class="btn publish-button submit-comment">Create comment</button>
+                                        </fieldset>
                                         </form>
                                     </div>
                                     <div class="comments-list">
@@ -141,6 +144,8 @@
                     </button>
                 </div>
                 <form id="create-post-form" novalidate class="needs-validation">
+                <fieldset>
+                    <legend style="display:none;">Create post form</legend>
                     {{ csrf_field() }}
                     <div class="modal-body">                 
                         <div class="form-group">
@@ -156,6 +161,7 @@
                         <button type="submit" class="btn publish-button solve-issue">Create</button>
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                     </div>
+                </fieldset>
                 </form>
             </div>
         </div>

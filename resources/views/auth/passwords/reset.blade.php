@@ -9,6 +9,8 @@
 
                 <div class="panel-body">
                     <form class="form-horizontal" method="POST" action="{{ route('password.request') }}">
+                    <fieldset>
+                        <legend style="display:none;">Reset password form</legend>
                         {{ csrf_field() }}
 
                         <input type="hidden" name="token" value="{{ $token }}">
@@ -61,6 +63,7 @@
                                 </button>
                             </div>
                         </div>
+                    </fieldset>
                     </form>
                 </div>
             </div>

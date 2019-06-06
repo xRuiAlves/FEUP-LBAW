@@ -15,6 +15,8 @@
     </header>
     <div class="modal-body">{{--  TODO:remove --}}
         <form method="POST" action="{{route('login')}}" novalidate class="needs-validation font-content">
+        <fieldset>
+            <legend style="display:none;">Login form</legend>
             {{ csrf_field() }}
             <div class="form-group">
                 <input type="email" name="email" value="{{ old('email') }}" placeholder="email" aria-label="Email" required autofocus class="form-control">
@@ -47,6 +49,7 @@
             <div class="d-flex justify-content-center">
                 <button class="my-btn my-btn-primary" type="submit">Login</button>
             </div>
+        </fieldset>
         </form>
         <div class="d-flex justify-content-center">
             <a class="my-btn my-btn-borderless-secondary" href="/WIP">

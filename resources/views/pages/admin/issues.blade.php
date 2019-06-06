@@ -11,10 +11,13 @@
     <div class="custom-title">Issues</div>
     <div class="searchbar-container">
         <form class="form-inline" action="" method="get">
+        <fieldset>
+            <legend style="display:none;">Search issues form</legend>
             <label class="sr-only" for="inlineFormInputName2">Search for Issues</label>
             <input type="text" class="form-control mb-2 mr-sm-2" id="inlineFormInputName2" placeholder="Ex: Ticket bug" name="search" aria-label="Search Issue">
             
             <button type="submit" class="btn btn-primary mb-2 fts-search-button">Search</button>
+        </fieldset>
         </form>
     </div>
     <div class="row no-gutters">
@@ -74,6 +77,8 @@
                 </button>
             </div>
             <form id="solve-issue-form" novalidate class="needs-validation">
+            <fieldset>
+                <legend style="display:none;">Solve issue form</legend>
                 {{ csrf_field() }}
                 <div class="modal-body">                 
                     <div class="form-group">
@@ -85,6 +90,7 @@
                     <button type="submit" class="btn publish-button solve-issue">Solve</button>
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                 </div>
+            </fieldset>
             </form>
         </div>
     </div>

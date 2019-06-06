@@ -10,10 +10,13 @@
     <div class="collapse-title custom-title">Events</div>
     <div class="searchbar-container">
         <form class="form-inline" action="" method="get">
+        <fieldset>
+            <legend style="display:none;">Search events form</legend>
             <label class="sr-only" for="inlineFormInputName2">Name</label>
             <input type="text" class="form-control mb-2 mr-sm-2" id="inlineFormInputName2" placeholder="Ex: SINF 2020" name="search" aria-label="Search Events">
             
             <button type="submit" class="btn btn-primary mb-2 fts-search-button">Search</button>
+        </fieldset>
         </form>
     </div>
         <div class="row no-gutters">

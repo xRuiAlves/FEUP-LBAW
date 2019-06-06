@@ -118,6 +118,8 @@
                 </button>
             </div>
             <form>
+            <fieldset>
+                <legend style="display:none;">Create post form</legend>
                 <div class="modal-body">
                     <textarea name="announcement-content" placeholder="Post content ..." aria-label="Content"></textarea>
                 </div>
@@ -125,6 +127,7 @@
                     <button type="button" class="btn publish-button" data-dismiss="modal">Create</button>
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                 </div>
+            </fieldset>
             </form>
         </div>
     </div>

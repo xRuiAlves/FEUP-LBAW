@@ -22,6 +22,8 @@
                 </li>
 
                 <form class=" nav-item ml-2 my-2 my-lg-0">
+                <fieldset>
+                    <legend style="display:none;">Search events form</legend>
                     <div class="input-group">
                         <input type="text" class="form-control" placeholder="Search" aria-label="Search"
                             aria-describedby="basic-addon2">
@@ -31,6 +33,7 @@
                             </button>
                         </div>
                     </div>
+                </fieldset>
                 </form>
             </ul>
             @if(Auth::guest())
@@ -105,6 +108,8 @@
                 </button>
             </div>
             <form id="create-issue-form" novalidate class="needs-validation create-issue-form" action="#">
+            <fieldset>
+                <legend style="display:none;">Create issue form</legend>
                 {{ csrf_field() }}
                 <div class="modal-body">                 
                     <div class="form-group">
@@ -126,6 +131,7 @@
                     <button type="submit" class="btn publish-button">Submit</button>
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                 </div>
+            </fieldset>
             </form>
         </div>
     </div>

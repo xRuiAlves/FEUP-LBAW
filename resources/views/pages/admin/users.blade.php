@@ -11,10 +11,13 @@
     <div class="collapse-title custom-title">Users</div>
     <div class="searchbar-container">
         <form class="form-inline" action="" method="get">
+        <fieldset>
+            <legend style="display:none;"> Search users form</legend>
             <label class="sr-only" for="inlineFormInputName2">Name</label>
             <input type="text" class="form-control mb-2 mr-sm-2" id="inlineFormInputName2" placeholder="Ex: Martha" name="search" aria-label="Search User">
             
             <button type="submit" class="btn btn-primary mb-2 fts-search-button">Search</button>
+        </fieldset>
         </form>
     </div>
     <div class="row no-gutters">
@@ -76,6 +79,8 @@
                 </button>
             </div>
             <form action="#">
+            <fieldset>
+                <legend style="display:none;">Admin promotion form</legend>
                 <div class="modal-body">                 
                     Are you sure you want to promote this user to a platform administrator?
                 </div>
@@ -83,6 +88,7 @@
                     <button type="submit" class="btn publish-button dismiss-notification">Promote</button>
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                 </div>
+            </fieldset>
             </form>
         </div>
     </div>
@@ -100,11 +106,14 @@
                 </button>
             </div>
             <form action="#">
+            <fieldset>
+                <legend style="display:none;">Toggle user status form</legend>
                 <div class="modal-body"> </div>
                 <div class="modal-footer">
                     <button type="submit" class="btn publish-button"></button>
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                 </div>
+            </fieldset>
             </form>
         </div>
     </div>

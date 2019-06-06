@@ -55,6 +55,8 @@
                 </button>
             </div>
             <form id="create-category-form" novalidate class="needs-validation" action="#">
+            <fieldset>
+                <legend style="display:none;">Create category form</legend>
                 {{ csrf_field() }}
                 <div novalidate class="needs-validation">
                     <div class="modal-body"> 
@@ -68,6 +70,7 @@
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                     </div>
                 </div>
+            </fieldset>
             </form>
         </div>
     </div>
@@ -85,6 +88,8 @@
                 </button>
             </div>
             <form id="rename-category-form" novalidate class="needs-validation" action="#">
+            <fieldset>
+                <legend style="display:none;">Rename category form</legend>
                 {{ csrf_field() }}
                 <div novalidate class="needs-validation">
                         <div class="modal-body"> 
@@ -98,6 +103,7 @@
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                     </div>
                 </div>
+            </fieldset>
             </form>
         </div>
     </div>

@@ -12,6 +12,8 @@
 
 <div id="page-card" class="container card-container font-content event-card event-creation-container">
     <form novalidate class="needs-validation" action="/event/create" method="post">
+        <fieldset>
+        <legend style="display:none;">Create event form</legend>
         {{ csrf_field() }}
         <header class="row no-gutters">
             <div class="col-12">
@@ -120,6 +122,7 @@
             @endforeach
             </div>
         @endif
+        </fieldset>
     </form>
 </div>
 @endsection
