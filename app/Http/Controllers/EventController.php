@@ -475,19 +475,29 @@ class EventController extends Controller
             'tickets.*.nif' => 'required|numeric|digits:9',
             'tickets.*.address' => 'required|max:128',
             'tickets.*.billing_name' => 'required|max:64',
-            //make a better validation of voucher code with number groups and '-'
-            'tickets.*.voucher_code' => 'nullable|regex:/^EVT/',
+            'tickets.*.voucher_code' => 'nullable',
         ]);
-
-        //please try catch me
-        //iterate over tickets and add them
+       
 
         try {
             $event = Event::findOrFail($event_id);
 
-            $errors = array();
-    
-            //missing verification for capacity
+
+            $current_num_attendees = $event->attendees()->count();
+
+            if($event->capacity != -1 && $current_num_attendees + count($request->tickets) > $event->capacity) { //max capacity reached, cant buy so many tickets
+                $num_tickets_to_buy = count($request->tickets);
+                
+                return response()->json([
+                    'errors' => [
+                        'global' => [
+                            "Cannot buy $num_tickets_to_buy ticket(s). Attendance limit reached",
+                        ]
+                    ]
+                ], 400);
+            }
+            
+            
             for ($i=0; $i < count($request->tickets); $i++) { 
                 $ticket = $request->tickets[$i];
             
@@ -499,12 +509,13 @@ class EventController extends Controller
 
                 if(!empty($ticket['voucher_code'])) { //using voucher code
                     $ticket_info['type'] = 'Voucher';
+                    $ticket_num = $i + 1;
 
                     try {
                         $voucher = EventVoucher::where('code', '=', $ticket['voucher_code'])->firstOrFail();
                         $ticket_info['event_voucher_id'] = $voucher->id;
 
-                        if($voucher->is_used) {//vouhcer already redeemed
+                        if($voucher->is_used) {//voucher already redeemed
                             return response()->json([
                                 'errors' => [
                                     'global' => [
@@ -514,13 +525,8 @@ class EventController extends Controller
                             ], 400);
                         }
 
-                        //make sure that when buying this ticket, the voucher toggles redeemed
-
-
                     } catch (ModelNotFoundException $e) {
                         
-                        $ticket_num = $i + 1;
-
                         return response()->json([
                             'errors' => [
                                 'global' => [
@@ -542,7 +548,8 @@ class EventController extends Controller
             
 
             return response()->json([
-                'data' => $request->tickets,
+                'tickets' => $request->tickets,
+                'num_attendees' => $event->attendees()->count(),
             ], 200);
 
         } catch (ModelNotFoundException $e) {
