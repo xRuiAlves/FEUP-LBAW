@@ -23,12 +23,17 @@
     <div class="separator main-separator">
         <hr>
     </div>
-    <button type="button" class="btn btn-secondary">Generate Voucher Code</button>
+    <button id="generate-vouchers" type="button" class="btn btn-secondary">Generate Voucher Codes</button>
     
     <br><br><br>
 
     <div class="content-table">
-        <h4>Attendees</h4>
+        <div class="row">
+            <h4 class="col-12 col-md-8">Attendees</h4>
+            <div class="col-12 col-md-4 text-right">
+                <a href="./invite">Invite User <i class="fas fa-plus"></i></a>
+            </div>
+        </div>
         <table class="table">
             <thead>
                 <tr>
@@ -74,7 +79,7 @@
             <div class="row">
                 <h4 class="col-12 col-md-8">Organizers</h4>
                 <div class="col-12 col-md-4 text-right">
-                    <button type="button" class="btn btn-light">Add Organizer <i class="fas fa-plus"></i></button>
+                    <a href="./add-organizer">Add Organizer <i class="fas fa-plus"></i></a>
                 </div>
             </div>
             <table class="table">

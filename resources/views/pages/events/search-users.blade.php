@@ -1,4 +1,4 @@
-<div id="user-table" data-event_id="{{$event->id}}" class="admin-dashboard col-12 col-md-10 col-xl-11">
+<div id="user-table" data-event_id="{{$event->id}}" class="admin-dashboard col-12">
     <div class="collapse-title custom-title">Users</div>
     <div class="searchbar-container">
         <form class="form-inline" action="" method="get">

@@ -7,12 +7,14 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Database\QueryException;
 use Illuminate\Database\DB;
+use Illuminate\Support\Str;
 
 use App\Event;
 use App\EventCategory;
 use App\Post;
 use App\User;
 use App\Notification;
+use App\EventVoucher;
 
 
 class EventController extends Controller
@@ -404,6 +406,44 @@ class EventController extends Controller
             return response()->json([], 404);
         }catch(QueryException $e){
             return response()->json([], 400);
+        }
+    }
+
+    public function generateVouchersPage(Request $request){
+
+        $event = Event::find($request->id);
+
+        $this->authorize('eventSettings', $event);
+
+        return view('pages.events.generate-vouchers', ['event' => $event]);
+    }
+
+    public function generateVouchers(Request $request){
+        $nVouchers = $request->nVouchers;
+        $event_id = $request->id;
+
+        $this->authorize('eventSettings', Event::find($event_id));
+
+        $result = [];
+
+       try{
+            for($i = 0; $i < $nVouchers; $i++){
+                $newCode;
+                do {
+                    $newCode = "EVT-" . Str::uuid()->toString();
+                }while(EventVoucher::where('code', $newCode)->exists());
+
+                $newVoucher = new EventVoucher;
+                $newVoucher->event_id = $event_id;
+                $newVoucher->user_id = Auth::user()->id;
+                $newVoucher->code = $newCode;
+                $newVoucher->save();
+
+                array_push($result, $newCode);
+            }
+            return response()->json($result, 200);
+        }catch(QueryException $e){
+            return response()->json([], 500);
         }
     }
 }

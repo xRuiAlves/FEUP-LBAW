@@ -1,4 +1,4 @@
-let event_id = document.getElementById('page-card').dataset.event_id;
+const event_id = document.getElementById('page-card').dataset.event_id;
 
 document.querySelectorAll('.btn.check-in').forEach((elem) => {
     elem.addEventListener('click', () => {
@@ -77,3 +77,5 @@ document.querySelectorAll('.btn.remove-organizer').forEach((elem) => {
         });
     });
 });
+
+document.querySelector('#generate-vouchers').addEventListener('click', () => window.location.href = "./generate-vouchers");
