@@ -335,13 +335,17 @@ button.create-post-button i {
     margin: 0 1em;
 }
 
-.post .delete-post-icon i {
+.delete-post-icon i {
     margin-left: 1.5em;
     cursor: pointer;
     padding: 0.5em;
     background-color: var(--secondary-color-medium);
     color: white;
     border-radius: 0.3em;
+}
+
+#forum-status-messages {
+    margin-top: 1.5em;
 }
 
 @media only screen and (min-width: 576px) {

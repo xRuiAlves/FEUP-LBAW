@@ -57,8 +57,26 @@ const addEventListeners = () => {
 
     delete_post_modal.querySelector("button.delete-post").addEventListener("click", (e) => {
         const post_id = delete_post_modal.getAttribute("data-post-id");
-        const event_id = document.querySelector("#page-card.event-card").getAttribute("data-event-id");
-        deletePost(post_id, event_id);
+        deletePost(post_id);
+    });
+
+
+    const delete_announcement_modal = document.querySelector("#delete-announcement-modal");
+    const announcements = document.querySelectorAll(".announcement");
+    announcements.forEach((announcement) => {
+        const announcement_id = announcement.getAttribute("data-announcement-id");
+
+        const delete_node = announcement.querySelector(".delete-post-icon i");
+        if (delete_node) {
+            delete_node.addEventListener("click", (e) => {
+                delete_announcement_modal.setAttribute("data-announcement-id", announcement_id);
+            });
+        }
+    });
+
+    delete_announcement_modal.querySelector("button.delete-announcement").addEventListener("click", (e) => {
+        const announcement_id = delete_announcement_modal.getAttribute("data-announcement-id");
+        deleteAnnouncement(announcement_id);
     });
 }
 
@@ -211,7 +229,7 @@ const displayPostErrorMessage = (message) => {
     danger_alert.textContent = message;
 }
 
-const deletePost = (id, event_id) => {
+const deletePost = (id) => {
     fetch('/api/post', {
         method: 'DELETE',
         body: JSON.stringify({
@@ -224,10 +242,10 @@ const deletePost = (id, event_id) => {
         }
     })
     .then(res => {
-        const discussion_section_node = document.querySelector("#discussion-section");
+        const status_node = document.querySelector("#forum-status-messages");
         if (res.status === 200) {
-            const success_alert = discussion_section_node.querySelector(".status-messages > .alert-success");
-            const danger_alert = discussion_section_node.querySelector(".status-messages > .alert-danger");
+            const success_alert = status_node.querySelector(".status-messages > .alert-success");
+            const danger_alert = status_node.querySelector(".status-messages > .alert-danger");
             success_alert.style.display = "";
             danger_alert.style.display = "none";
             success_alert.textContent = `The post was successfully deleted.`;
@@ -237,11 +255,46 @@ const deletePost = (id, event_id) => {
 
             $('#delete-post-modal').modal('hide');
         } else {
-            const success_alert = discussion_section_node.querySelector(".status-messages > .alert-success");
-            const danger_alert = discussion_section_node.querySelector(".status-messages > .alert-danger");
+            const success_alert = status_node.querySelector(".status-messages > .alert-success");
+            const danger_alert = status_node.querySelector(".status-messages > .alert-danger");
             success_alert.style.display = "none";
             danger_alert.style.display = "";
             danger_alert.textContent = `Failed to delete the post.`;
+        }
+    });
+}
+
+const deleteAnnouncement = (id) => {
+    fetch('/api/announcement', {
+        method: 'DELETE',
+        body: JSON.stringify({
+            id
+        }),
+        headers: {
+            'Content-Type': 'application/json',
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content'),
+            'Accept': 'application/json'
+        }
+    })
+    .then(res => {
+        const status_node = document.querySelector("#forum-status-messages");
+        if (res.status === 200) {
+            const success_alert = status_node.querySelector(".status-messages > .alert-success");
+            const danger_alert = status_node.querySelector(".status-messages > .alert-danger");
+            success_alert.style.display = "";
+            danger_alert.style.display = "none";
+            success_alert.textContent = `The announcement was successfully deleted.`;
+
+            const announcement_node = document.querySelector(`.announcement[data-announcement-id='${id}']`);
+            announcement_node.style.display = "none";
+
+            $('#delete-announcement-modal').modal('hide');
+        } else {
+            const success_alert = status_node.querySelector(".status-messages > .alert-success");
+            const danger_alert = status_node.querySelector(".status-messages > .alert-danger");
+            success_alert.style.display = "none";
+            danger_alert.style.display = "";
+            danger_alert.textContent = `Failed to delete the announcement.`;
         }
     });
 }

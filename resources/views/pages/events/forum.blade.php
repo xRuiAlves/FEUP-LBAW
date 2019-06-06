@@ -9,13 +9,17 @@
                     role="tab" aria-controls="discussion-section" aria-selected="false">Discussion</a>
             </div>
         </nav>
+        <div id="forum-status-messages" class="status-messages">
+            <div class="alert alert-danger" style="display:none;white-space:pre-line"></div>
+            <div class="alert alert-success" style="display:none;white-space:pre-line"></div>
+        </div>
         <div class="tab-content" id="nav-tabContent">
             <div class="tab-pane fade show active" id="announcements-section" role="tabpanel"
                 aria-labelledby="announcements-section-tab">
                     @if(count($announcements) > 0)
                     <div class="announcements-area">
                         @foreach ($announcements as $announcement)
-                        <div class="announcement">
+                        <div class="announcement" data-announcement-id={{$announcement->id}}>
                             <div class="content">
                                 <div class="date">
                                     {{$announcement->formatted_timestamp}}h
@@ -24,6 +28,11 @@
                                     {{$announcement->content}}
                                 </div>
                             </div>
+                            @if(Auth::check() && Auth::user()->is_admin)
+                            <div class="delete-post-icon">
+                                <i class="fas fa-trash-alt" title="Delete announcement" data-toggle="modal" data-target="#delete-announcement-modal"></i>
+                            </div>
+                            @endif
                         </div>
                         @endforeach
                         <div class="pagination-container">
@@ -37,10 +46,6 @@
                     @endif
             </div>
             <div class="tab-pane fade" id="discussion-section" role="tabpanel" aria-labelledby="discussion-section-tab">
-                <div class="discussions-area"><div class="status-messages">
-                    <div class="alert alert-danger" style="display:none;white-space:pre-line"></div>
-                    <div class="alert alert-success" style="display:none;white-space:pre-line"></div>
-                </div>
                     @if(count($discussions) > 0)
                         @if(Auth::check())
                         <button type="submit" class="btn create-post-button" data-toggle="modal" data-target="#create-post-modal">
@@ -209,6 +214,28 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-danger delete-post">Delete</button>
+                <button type="button" class="btn btn-secondary close-button" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="delete-announcement-modal" class="modal fade font-content" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="header-container">
+                    <div class="modal-title custom-modal-title">Delete announcement</div>
+                </div>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">                 
+                Are you sure you want to delete this announcement?
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger delete-announcement">Delete</button>
                 <button type="button" class="btn btn-secondary close-button" data-dismiss="modal">Close</button>
             </div>
         </div>
