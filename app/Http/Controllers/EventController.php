@@ -11,6 +11,7 @@ use Illuminate\Database\DB;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 
 use App\Event;
+use App\EventVoucher;
 use App\EventCategory;
 use App\Post;
 
@@ -260,18 +261,62 @@ class EventController extends Controller
 
         try {
             $event = Event::findOrFail($event_id);
+
+            $errors = array();
     
             //missing verification for capacity
-            foreach ($request->tickets as $key => $ticket) {    
-                $event->attendees()->attach(Auth::user(), [
+            for ($i=0; $i < count($request->tickets); $i++) { 
+                $ticket = $request->tickets[$i];
+            
+                $ticket_info = [
                     'nif' => $ticket['nif'],
                     'billing_name' => $ticket['billing_name'],
                     'address' => $ticket['address'],
-                    'type' => 'Paypal',
-                    'paypal_order_id' => 'PAYPAL-CONFIRMATION-4002'
-//missing voucher handling - verificar se n foi ja usado e por aqui o id, nao o actual code
-                ]);                
+                ];
+
+                if(!empty($ticket['voucher_code'])) { //using voucher code
+                    $ticket_info['type'] = 'Voucher';
+
+                    try {
+                        $voucher = EventVoucher::where('code', '=', $ticket['voucher_code'])->firstOrFail();
+                        $ticket_info['event_voucher_id'] = $voucher->id;
+
+                        if($voucher->is_used) {//vouhcer already redeemed
+                            return response()->json([
+                                'errors' => [
+                                    'global' => [
+                                        "The submitted voucher for ticket $ticket_num was already used",
+                                    ]
+                                ]
+                            ], 400);
+                        }
+
+                        //make sure that when buying this ticket, the voucher toggles redeemed
+
+
+                    } catch (ModelNotFoundException $e) {
+                        
+                        $ticket_num = $i + 1;
+
+                        return response()->json([
+                            'errors' => [
+                                'global' => [
+                                    "The submitted voucher for ticket $ticket_num is invalid",
+                                ]
+                            ]
+                        ], 400);
+                               
+                    }
+
+                } else {
+                    $ticket_info['type'] = 'Paypal';
+                    $ticket_info['paypal_order_id'] = 'PAYPAL-CONFIRMATION-DUMMY';
+                }
+
+                $event->attendees()->attach(Auth::user(), $ticket_info);                
             }
+
+            
 
             return response()->json([
                 'data' => $request->tickets,
