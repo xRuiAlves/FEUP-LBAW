@@ -21,7 +21,7 @@ class NotificationPolicy
      */
     public function view(User $user, Notification $notification)
     {
-        // N/A? TODO: Discuss
+
     }
 
     /**
@@ -45,7 +45,7 @@ class NotificationPolicy
      */
     public function create(User $user)
     {
-        // TODO: Discuss
+
     }
 
     /**
@@ -69,6 +69,6 @@ class NotificationPolicy
      */
     public function delete(User $user, Notification $notification)
     {
-        // TODO: Discuss
+        
     }
 }

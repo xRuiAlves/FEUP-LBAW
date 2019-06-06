@@ -42,9 +42,6 @@ class EventController extends Controller
             return abort(404, 'The event with id ' . $id . ' does not seem to exist.');
         }
 
-        // TODO: Decide which view to show based on auth probably
-        // $this->authorize('show', $event); //TODO
-        
         $owner = $event->owner;
 
         $category = $event->category;
@@ -78,16 +75,6 @@ class EventController extends Controller
      * @return Event The event created.
      */
     public function create(Request $request) {
-        // TODO
-        // $card = new Card();
-
-        // $this->authorize('create', $card);
-
-        // $card->name = $request->input('name');
-        // $card->user_id = Auth::user()->id;
-        // $card->save();
-
-        // return $card;
         $this->authorize('create', Event::class);
 
         $categories = EventCategory::all();
@@ -241,13 +228,7 @@ class EventController extends Controller
     }
 
     public function delete(Request $request, $id) {
-        // TODO
-        // $card = Card::find($id);
-
-        // $this->authorize('delete', $card);
-        // $card->delete();
-
-        // return $card;
+        
     }   
 
     public function manage(Request $request){

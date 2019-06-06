@@ -56,7 +56,7 @@
                     </td>
                 </tr>
                 <tr class="collapse" id="issue{{$issue->id}}collapse">
-                    <td colspan="6" class="no-borders-cell"><span class="issue-description">Issue Description:&nbsp;</span>{{$issue->content}}</td>
+                    <td colspan="6" class="no-borders-cell"><span class="issue-description">Description:&nbsp;</span>{{$issue->content}}</td>
                 </tr>
                 @endforeach
             </tbody>

@@ -16,10 +16,6 @@ class NotificationsController extends Controller
             return redirect('/login');
         }
 
-        // TODO:
-        // Supposedly should be working but does not, test more in depth later
-        // $this->authorize('list', Notification::class);
-
         $notifications = Auth::user()
             ->notifications()
             ->notSeen()

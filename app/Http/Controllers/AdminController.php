@@ -33,8 +33,8 @@ class AdminController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function users(Request $request) {
-        if(!Auth::user()->is_admin) { // TODO: Change this to use policies
-            throw new AuthorizationException('You do not possess the required permissions to acces the administration pages');
+        if(!Auth::user()->is_admin) {
+            throw new AuthorizationException('You do not possess the required permissions to access the administration pages');
         }
         
         $search_query = $request->get('search');
@@ -56,8 +56,8 @@ class AdminController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function events(Request $request) {
-        if(!Auth::user()->is_admin) { // TODO: Change this to use policies
-            throw new AuthorizationException('You do not possess the required permissions to acces the administration pages');
+        if(!Auth::user()->is_admin) {
+            throw new AuthorizationException('You do not possess the required permissions to access the administration pages');
         }
 
         $search_query = $request->get('search');
@@ -81,7 +81,7 @@ class AdminController extends Controller {
      */
     public function issues(Request $request) {
         if(!Auth::user()->is_admin) {
-            throw new AuthorizationException('You do not possess the required permissions to acces the administration pages');
+            throw new AuthorizationException('You do not possess the required permissions to access the administration pages');
         }
 
         $search_query = $request->get('search');
@@ -103,8 +103,8 @@ class AdminController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function categories() {
-        if(!Auth::user()->is_admin) { // TODO: Change this to use policies
-            throw new AuthorizationException('You do not possess the required permissions to acces the administration pages');
+        if(!Auth::user()->is_admin) {
+            throw new AuthorizationException('You do not possess the required permissions to access the administration pages');
         }
 
         $categories = EventCategory::orderBy('id')->paginate(AdminController::ITEMS_PER_PAGE);

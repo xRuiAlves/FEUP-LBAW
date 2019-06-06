@@ -59,8 +59,6 @@ class UserController extends Controller
 
         $retEvents = $favorite_events->merge($events)->sortBy('start_timestamp')->values();
 
-        // TODO: Key the events array by month of the year so that the templating can do its magic :/
-
         return view('pages.dashboard', ['user' => $user, 'events' => $retEvents]);
     }
 

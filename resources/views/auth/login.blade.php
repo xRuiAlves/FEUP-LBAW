@@ -1,9 +1,5 @@
 @extends('layouts.app')
 
-@section('asset_includes')
-{{-- navbar --}}
-@endsection
-
 @section('title', 'Login - Eventually')
 
 @section('content')
@@ -13,7 +9,7 @@
     <header>
         <div class="modal-title custom-modal-title font-title">Login</div>
     </header>
-    <div class="modal-body">{{--  TODO:remove --}}
+    <div class="modal-body">
         <form method="POST" action="{{route('login')}}" novalidate class="needs-validation font-content">
         <fieldset>
             <legend style="display:none;">Login form</legend>

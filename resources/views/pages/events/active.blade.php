@@ -26,7 +26,6 @@
                 </h1>
             </div>
             <div class="col-12 col-lg-3 attend-btn alone-right">
-                {{-- Todo: Ifs here for authenticated/owner/etc? --}}
                 <button type="button" class="btn" data-toggle="modal" data-target="#login_modal">
                     <span>
                         <i class="fas fa-calendar-check icon-left"></i>
