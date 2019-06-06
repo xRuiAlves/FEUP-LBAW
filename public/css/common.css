@@ -230,6 +230,17 @@ ul.pagination li.page-item a.page-link {
     color: var(--secondary-color-medium);
 }
 
+noscript {
+    display: block;
+    padding: 1.5em;
+    background-color: white;
+}
+
+noscript .warning {
+    color: var(--danger-red);
+    font-weight: bold;
+}
+
 @media only screen and (max-width: 576px) {
     body {
         background-color: white;

@@ -39,6 +39,10 @@
             @include('inc.navbar')
         @endif
     </header>
+
+    <noscript>
+        <span class="warning">Warning:&nbsp;</span><i>JavaScript</i> is currently disabled and is required to fully experience this website
+    </noscript>
     
     
     @yield('content')
