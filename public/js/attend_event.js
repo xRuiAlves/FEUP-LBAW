@@ -14,6 +14,11 @@ const addTicketClickEvent = () => {
 
         const new_ticket = document.querySelector('.ticket').cloneNode(true);
 
+        const new_ticket_number = $('.ticket').length + 1;
+
+        $($(new_ticket).find('header h3')).html(`Ticket #${new_ticket_number}`);
+
+
         //clear each input
         $(new_ticket).find('input').each(function() {
             $(this).val("");

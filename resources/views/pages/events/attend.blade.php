@@ -34,6 +34,9 @@
                     {{ csrf_field() }}
                     <div id="tickets-container">
                         <div class="ticket">
+                            <header>
+                                <h3>Ticket #1</h3>
+                            </header>
                             <div class="form-group">
                                 <label>
                                     NIF:
