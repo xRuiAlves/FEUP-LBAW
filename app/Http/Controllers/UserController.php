@@ -42,8 +42,6 @@ class UserController extends Controller
             return $event;
         });
 
-        
-
         $favorite_events = $user->favoriteEvents()->get()
         ->map(function ($event, $key) {
             $event['is_favorite'] = true;

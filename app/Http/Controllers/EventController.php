@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Database\QueryException;
-use Illuminate\Database\DB;
+use Illuminate\Support\Facades\DB;
 
 use App\Event;
 use App\EventCategory;
@@ -102,7 +102,7 @@ class EventController extends Controller
 
         $validator = Validator::make($request->all(), [
             'title' => 'required|max:30|min:1',
-            'location' => 'required_with:longitude,latitude|string|max:80',
+            'location' => 'required_with:longitude,latitude|string|nullable|max:80',
             'price' => 'required|numeric|min:0',
             'event_category_id' => 'required|integer',
             'start_timestamp' => 'required|date|after:now',
@@ -117,9 +117,10 @@ class EventController extends Controller
                 ->withErrors($validator)
                 ->withInput();
         }
+
+        DB::beginTransaction();
          
         try {
-
             $event = new Event();
             $event->title = $request->input('title');
             $event->location = $request->input('location');
@@ -140,8 +141,16 @@ class EventController extends Controller
             $event->user_id = auth()->user()->id;
             $event->save();
 
+            DB::table('organizers')->insert([
+                'user_id' => $event->user_id, 
+                'event_id' => $event->id
+            ]);
+
+            DB::commit();
+
             return redirect($event->href);
         } catch (QueryException $err) {
+            DB::rollBack();
             return redirect('event/create')
                 ->withErrors(["Error in submitting request to database"])
                 ->withInput();
