@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Database\QueryException;
-use Illuminate\Database\DB;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 
 use App\Event;
