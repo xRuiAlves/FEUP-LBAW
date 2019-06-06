@@ -5,6 +5,11 @@
 <link rel="stylesheet" href="{{ asset('css/create_event.css') }}">
 @endsection
 
+@section('scripts')
+<script src="{{ asset('js/setlocale-datetime.js') }}" type="text/javascript" defer></script>
+<script src="{{ asset('js/create_event.js') }}" type="text/javascript" defer></script>
+@endsection
+
 @section('title', 'Create Event - Eventually')
 
 @section('content')
@@ -64,9 +69,19 @@
                             <span>
                                 <i class="fas fa-map-marker-alt icon-left"></i>
                             </span>
-                            <input class="form-control" required type="text" name="location" value="{{Request::old('location')}}" placeholder="Location" aria-label="Location">
+                            <input class="form-control" type="text" name="location" value="{{Request::old('location')}}" placeholder="Location (optional)" aria-label="Location">
                             <div class="invalid-feedback">Please provide a valid location for the event</div>
                         </div>
+                    </div>
+                    <div class="col-12">
+                        <div id="map_wrapper">
+                            <iframe class="event-map"
+                                src="https://maps.google.com/?q={{Request::old('latitude')}},{{Request::old('longitude')}}&ie=UTF8&t=&z=14&iwloc=B&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0">
+                            </iframe>
+                        </div>
+                        <input type="hidden" name="latitude" value="{{Request::old('latitude')}}">
+                        <input type="hidden" name="longitude" value="{{Request::old('longitude')}}">
+                        <small>Latitude and Longitude searching provided by <a href="http://nominatim.org/">Nominatim</a></small>
                     </div>
                 </div>
             </div>
@@ -125,9 +140,4 @@
         </fieldset>
     </form>
 </div>
-@endsection
-
-@section('scripts')
-<script src="{{ asset('js/setlocale-datetime.js') }}" type="text/javascript" defer>
-</script>
 @endsection

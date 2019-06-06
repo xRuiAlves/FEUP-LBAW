@@ -99,22 +99,23 @@ class EventController extends Controller
     public function store(Request $request) {
         
         $this->authorize('create', Event::class);
-        
 
         $validator = Validator::make($request->all(), [
             'title' => 'required|max:30|min:1',
-            'location' => 'required|max:60',
+            'location' => 'required_with:longitude,latitude|string|max:80',
             'price' => 'required|numeric|min:0',
-            'event_category_id' => 'required',
+            'event_category_id' => 'required|integer',
             'start_timestamp' => 'required|date|after:now',
             'end_timestamp' => 'sometimes|nullable|date|after:start_timestamp',
-            'description' => 'required',
+            'description' => 'required|string',
+            'latitude' => 'required_with:location,longitude|nullable|numeric',
+            'longitude' => 'required_with:location,latitude|nullable|numeric',
         ]);
         
         if ($validator->fails()) {
             return redirect('event/create')
-            ->withErrors($validator)
-            ->withInput();
+                ->withErrors($validator)
+                ->withInput();
         }
          
         try {
@@ -122,13 +123,18 @@ class EventController extends Controller
             $event = new Event();
             $event->title = $request->input('title');
             $event->location = $request->input('location');
+            $event->latitude = $request->input('latitude');
+            $event->longitude = $request->input('longitude');
             $event->price = $request->input('price');
             $event->event_category_id = $request->input('event_category_id');
             $event->start_timestamp = $request->input('start_timestamp');
             $event->description = $request->input('description');
 
-            if (!empty(request()->input('end_timestamp'))) {
+            if (!empty($request->input('end_timestamp'))) {
                 $event->end_timestamp = $request->input('end_timestamp');
+            }
+
+            if (!empty($request->input('latitude')) && !empty($request->input('longitude'))) {
             }
 
             $event->user_id = auth()->user()->id;
@@ -136,11 +142,9 @@ class EventController extends Controller
 
             return redirect($event->href);
         } catch (QueryException $err) {
-            
-
             return redirect('event/create')
-            ->withErrors(["Error submitting request to database"])
-            ->withInput();
+                ->withErrors(["Error in submitting request to database"])
+                ->withInput();
         }
     }
 

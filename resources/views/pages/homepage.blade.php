@@ -4,12 +4,14 @@
 <link href="{{ asset('css/main_page.css') }}" rel="stylesheet">
 @endsection
 
+@section('scripts')
+<script src="{{ asset('js/setlocale-datetime.js') }}" type="text/javascript" defer></script>
+<script src="{{ asset('js/main_page.js') }}" defer></script>
+@endsection
+
 @section('title', 'Eventually')
 
 @section('content')
-
-<script src="{{ asset('js/main_page.js') }}" defer></script>
-
 <div id="banner-wrapper">
     <div id="banner-image-container">
         <img src="{{asset('images/concert2.jpg')}}" alt="In-door concert"/>
@@ -214,8 +216,4 @@
         </div>
     </div>
 </div>
-@endsection
-
-@section('scripts')
-<script src="{{ asset('js/setlocale-datetime.js') }}" type="text/javascript" defer></script>
 @endsection
