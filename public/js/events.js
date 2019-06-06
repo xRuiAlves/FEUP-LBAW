@@ -14,6 +14,7 @@ const addEventListeners = () => {
         });
     });
 
+    const delete_post_modal = document.querySelector("#delete-post-modal");
     const posts = document.querySelectorAll(".post");
     posts.forEach((post) => {
         const post_id = post.getAttribute("data-post-id");
@@ -33,6 +34,13 @@ const addEventListeners = () => {
                 downvotePost(post_id, rating_value_node);
             });
         }
+
+        const delete_node = post.querySelector(".delete-post-icon i");
+        if (delete_node) {
+            delete_node.addEventListener("click", (e) => {
+                delete_post_modal.setAttribute("data-post-id", post_id);
+            });
+        }
     });
 
     const create_post_form = document.querySelector("#create-post-form");
@@ -45,6 +53,12 @@ const addEventListeners = () => {
         const event_id = document.querySelector("#page-card.event-card").getAttribute("data-event-id");
         const content = create_post_form.querySelector("textarea[name=content]").value;
         createPost(event_id, content);
+    });
+
+    delete_post_modal.querySelector("button.delete-post").addEventListener("click", (e) => {
+        const post_id = delete_post_modal.getAttribute("data-post-id");
+        const event_id = document.querySelector("#page-card.event-card").getAttribute("data-event-id");
+        deletePost(post_id, event_id);
     });
 }
 
@@ -195,6 +209,41 @@ const displayPostErrorMessage = (message) => {
     success_alert.style.display = "none";
     danger_alert.style.display = "";
     danger_alert.textContent = message;
+}
+
+const deletePost = (id, event_id) => {
+    fetch('/api/post', {
+        method: 'DELETE',
+        body: JSON.stringify({
+            id
+        }),
+        headers: {
+            'Content-Type': 'application/json',
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content'),
+            'Accept': 'application/json'
+        }
+    })
+    .then(res => {
+        const discussion_section_node = document.querySelector("#discussion-section");
+        if (res.status === 200) {
+            const success_alert = discussion_section_node.querySelector(".status-messages > .alert-success");
+            const danger_alert = discussion_section_node.querySelector(".status-messages > .alert-danger");
+            success_alert.style.display = "";
+            danger_alert.style.display = "none";
+            success_alert.textContent = `The post was successfully deleted.`;
+
+            const post_node = document.querySelector(`.post[data-post-id='${id}']`);
+            post_node.style.display = "none";
+
+            $('#delete-post-modal').modal('hide');
+        } else {
+            const success_alert = discussion_section_node.querySelector(".status-messages > .alert-success");
+            const danger_alert = discussion_section_node.querySelector(".status-messages > .alert-danger");
+            success_alert.style.display = "none";
+            danger_alert.style.display = "";
+            danger_alert.textContent = `Failed to delete the post.`;
+        }
+    });
 }
 
 $('#create-post-modal').on('shown.bs.modal', () => {

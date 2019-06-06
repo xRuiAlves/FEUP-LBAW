@@ -7,7 +7,6 @@ use App\Utilities\TimeUtilities;
 
 class Notification extends Model
 {
-    // TODO: Discuss
     // Don't add create and update timestamps in database.
     public $timestamps  = false;
 

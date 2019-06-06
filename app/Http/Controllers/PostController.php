@@ -54,4 +54,26 @@ class PostController extends Controller
             "formatted_timestamp" => $post->formatted_timestamp,
         ], 200);
     }
+
+    /**
+     * Deletes a post.
+     */
+    public function delete(Request $request) {
+        $this->authorize('delete', Post::class);
+
+        $validated_data = $request->validate([
+            'id' => 'required',
+        ]);
+
+        $id = $validated_data["id"];
+
+        try {
+            $post = Post::destroy($id);
+            return response()->json([], 200);
+        } catch (ModelNotFoundException $err) {
+            return response()->json([], 404);
+        } catch (QueryException $err) {
+            return response()->json([], 400);
+        }
+    }
 }

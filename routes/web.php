@@ -67,6 +67,7 @@ Route::post('api/comment', 'CommentController@store');
 
 // Posts
 Route::post('api/post', 'PostController@store');
+Route::delete('api/post', 'PostController@delete');
 
 // Rating
 Route::put('api/post/upvote', 'RatingController@upvote');

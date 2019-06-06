@@ -52,12 +52,45 @@ class Handler extends ExceptionHandler
      */
     public function render($request, Exception $exception)
     {
+        return parent::render($request, $exception);
+        // 405
         if ($exception instanceof MethodNotAllowedHttpException) {
+            if ($request->expectsJson()) {
+                return response()->json([
+                    "message" => "Method not allowed"
+                ], 405);
+            }
             return response()->view("errors.404");
         }
 
-        if ($exception instanceof AuthorizationException || $exception instanceof NotFoundHttpException || $exception instanceof AuthenticationException) {
-            return parent::render($request, $exception);   
+        // 403
+        if ($exception instanceof AuthorizationException) {
+            if ($request->expectsJson()) {
+                return response()->json([
+                    "message" => "Access forbidden"
+                ], 403);
+            }
+            return parent::render($request, $exception);
+        }
+
+        // 401
+        if ($exception instanceof AuthenticationException) {
+            if ($request->expectsJson()) {
+                return response()->json([
+                    "message" => "Authentication needed"
+                ], 401);
+            }
+            return parent::render($request, $exception);
+        }
+
+        // 404
+        if ($exception instanceof NotFoundHttpException) {
+            if ($request->expectsJson()) {
+                return response()->json([
+                    "message" => "Not found"
+                ], 404);
+            }
+            return parent::render($request, $exception);
         }
 
         if (config('app.debug') == false && !$request->expectsJson()) {

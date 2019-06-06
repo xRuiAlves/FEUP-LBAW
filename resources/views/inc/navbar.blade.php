@@ -69,7 +69,7 @@
                         <span class="nav-item-label">Submit an Issue</span>
                     </div>
                 </li>
-                @if(Auth::user()->is_admin)
+                @if(Auth::check() && Auth::user()->is_admin)
                 <li class="nav-item">
                     <a title="Administration Dashboard" class="nav-link" href="{{route('admin')}}">
                         <i class="fas fa-clipboard-list nav-item-icon"></i>
