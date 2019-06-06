@@ -272,6 +272,20 @@ noscript .warning {
     margin-top: 0.8em;
 }
 
+#search-events-home-form i.fa-search {
+    cursor: pointer;
+    margin-right: 1em;
+    border-radius: 0.3em;
+    transition-property: background-color, border-color;
+    transition-duration: 0.3s;
+    border: 1px solid transparent;
+}
+
+#search-events-home-form i.fa-search:hover {
+    background-color: var(--secondary-color-medium-translucid);
+    border-color: var(--secondary-color-light);
+}
+
 @media only screen and (max-width: 576px) {
     body {
         background-color: white;

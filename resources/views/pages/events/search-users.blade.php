@@ -5,7 +5,7 @@
             <label class="sr-only" for="inlineFormInputName2">Name</label>
         <input type="text" class="form-control mb-2 mr-sm-2" id="inlineFormInputName2" placeholder="Ex: Martha" name="search" value="{{$searchQuery}}">
             
-            <button type="submit" class="btn btn-primary mb-2">Search</button>
+            <button type="submit" class="btn btn-secondary mb-2">Search</button>
         </form>
     </div>
     <div class="content-table">

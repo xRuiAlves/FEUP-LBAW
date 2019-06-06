@@ -88,12 +88,12 @@
 @include('inc.navbar')
 
 <div class="container" id="search-box">
-    <form action="/#search-box-anchor" method="get">
+    <form id="search-events-home-form" action="/#search-box-anchor" method="get">
         <fieldset>
         <legend style="display:none;">Find events form</legend>
         <div class="row">
             <div class="col-12 col-lg-4">
-                <i class="fas fa-search"></i>
+                <i class="fas fa-search" title="Search events"></i>
                 <input type="text" placeholder="Search" aria-label="Search" name="search" class="search-field" />
             </div>
             <div class="col-12 col-sm-3 col-lg-2">

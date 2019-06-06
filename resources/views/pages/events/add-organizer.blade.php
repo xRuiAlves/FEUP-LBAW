@@ -25,6 +25,11 @@
         <hr>
     </div>
 
+    <div id="event-add-organizer-status-messages" class="status-messages">
+        <div class="alert alert-danger" style="display:none;white-space:pre-line"></div>
+        <div class="alert alert-success" style="display:none;white-space:pre-line"></div>
+    </div>
+
     @include('pages.events.search-users', ['action' => 'Promote to Organizer', 'users' => $users, 'searchQuery' => $searchQuery])
 
 </div>

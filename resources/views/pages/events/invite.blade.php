@@ -24,10 +24,12 @@
     <div class="separator main-separator">
         <hr>
     </div>
+
     <div id="event-invite-status-messages" class="status-messages">
         <div class="alert alert-danger" style="display:none;white-space:pre-line"></div>
         <div class="alert alert-success" style="display:none;white-space:pre-line"></div>
     </div>
+    
     @include('pages.events.search-users', ['action' => 'Invite', 'users' => $users, 'searchQuery' => $searchQuery])
 </div>
 @endsection

@@ -20,10 +20,22 @@ document.querySelectorAll('#user-table .btn.action').forEach((elem) => {
                 elem.classList.add('btn-success');
                 elem.setAttribute('disabled', true);
                 elem.innerHTML = '<i class="fas fa-check"></i>'
+                
+                const success_alert = document.querySelector("#event-add-organizer-status-messages .alert-success");
+                const danger_alert = document.querySelector("#event-add-organizer-status-messages .alert-danger");
+                success_alert.style.display = "";
+                danger_alert.style.display = "none";
+                success_alert.innerHTML = `Successfully added <strong>user ${user_id}</strong> to the organization team`;
             }else{
                 elem.classList.add('btn-danger');
                 elem.setAttribute('disabled', true);
                 elem.innerHTML = 'ERROR'
+
+                const success_alert = document.querySelector("#event-add-organizer-status-messages .alert-success");
+                const danger_alert = document.querySelector("#event-add-organizer-status-messages .alert-danger");
+                success_alert.style.display = "none";
+                danger_alert.style.display = "";
+                danger_alert.innerHTML = `Failed to add <strong>user ${user_id}</strong> to the organization team`;
             }
         });
     });
