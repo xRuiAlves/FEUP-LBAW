@@ -30,7 +30,7 @@
                 <h2>
                     Ticket Order
                 </h2>
-                <form novalidate id="ticket-form" class="needs-validation" data-event-id="{{$event->id}}" method="post">
+                <form novalidate id="ticket-form" class="needs-validation" data-event-id="{{$event->id}}" action="/event/{{$event->id}}/attend" method="post">
                     {{ csrf_field() }}
                     <div id="tickets-container">
                         <div class="ticket">
@@ -38,31 +38,35 @@
                                 <h3>Ticket #1</h3>
                             </header>
                             <div class="form-group">
+                                {{-- <div class="form-group">
+                                    <label for="nif-1">NIF:</label>
+                                    <input class="form-control" type="number" id="nif-1" required name="nif" >
+                            </div> --}}
                                 <label>
                                     NIF:
                                     <input class="form-control" type="number" required name="nif" >
-                                    {{-- <div class="invalid-feedback">Please provide a NIF</div> --}}
+                                    <div class="invalid-feedback">asdasd</div>
                                 </label>
                             </div>
                             <div class="form-group">
                                 <label>
                                     Address:
                                     <input class="form-control" type="text" required name="address" >
-                                    {{-- <div class="invalid-feedback">Please provide an address</div> --}}
+                                    <div class="invalid-feedback">Please provide an address</div>
                                 </label>
                             </div>
                             <div class="form-group">
                                 <label>
                                     Billing Name:
                                     <input class="form-control" type="text" required name="billing_name" >
-                                    {{-- <div class="invalid-feedback">Please provide a billing name</div> --}}
+                                    <div class="invalid-feedback">Please provide a billing name</div>
                                 </label>
                             </div>
                             <div class="form-group">
                                 <label>
                                     Voucher Code:
                                     <input class="form-control" type="text" name="voucher_code" >
-                                    {{-- <div class="invalid-feedback"></div> --}}
+                                    <div class="invalid-feedback"></div>
                                 </label>
                             </div>
                         </div>

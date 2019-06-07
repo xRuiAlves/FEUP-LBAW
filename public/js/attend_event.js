@@ -121,6 +121,9 @@ const parseErrorMessage = msg => {
 }
 
 const displayErrors = (form, errors) => {
+    $('input').each(function() {
+        this.setCustomValidity(true);
+    });
     $('.invalid-feedback').remove();
     $('.form-error').remove();
 
@@ -145,6 +148,9 @@ const displayErrors = (form, errors) => {
                     const error_elem = document.createElement('div');
                     error_elem.classList.add('invalid-feedback');
                     $(error_elem).html(msg)
+                    $(ticket).find(`input[name="${field}"]`).each(function() {
+                        this.setCustomValidity(false);
+                    });
                     $(ticket).find(`input[name="${field}"]`).parent().append(error_elem);
                 })
             })
