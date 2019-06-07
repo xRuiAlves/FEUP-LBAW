@@ -54,6 +54,14 @@
                     @endif
                 </h6>
             </div>
+            @if($event->attendees()->get()->contains(Auth::user()))
+            <div class="col-12 tickets-label mt-2 mt-lg-0">
+                <h6>
+                    You already have {{$event->attendees()->where('user_id', Auth::user()->id)->count()}} tickets for this event.
+                    <a href="/event/{{$event->id}}/tickets">Manage Tickets</a>
+                </h6>
+            </div>
+            @endif
         </div>
         <div class="mobile-wave" id="background_wave"></div>
         <div class="separator main-separator">

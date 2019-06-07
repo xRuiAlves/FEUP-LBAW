@@ -266,4 +266,20 @@ class UserController extends Controller
             return response()->json([], 404);
         } 
     }
+
+    public function showTicketsForEvent(Request $request, $event_id) {
+        //find or fail event
+
+        try {
+            $event = Event::findOrFail($event_id);
+
+            $tickets = $event->attendees()->where('user_id', Auth::user()->id)->paginate(1);
+            return view('pages.events.tickets', ['event'=> $event , 'tickets' => $tickets]);
+        } catch(ModelNotFoundException $e) {
+            return redirect('/')->withErrors(['Event not available']);
+        }
+        
+        // com base no event obter user tickets
+        // mostrar lista de tickets
+    }
 }
