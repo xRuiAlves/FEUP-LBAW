@@ -35,6 +35,7 @@ Route::put('api/event/enable', 'AdminController@enableEvent');
 Route::post('api/event/favorite', 'UserController@markEventAsFavorite');
 Route::delete('api/event/favorite', 'UserController@unmarkEventAsFavorite');
 Route::put('api/event/disable', 'AdminController@disableEvent');
+Route::delete('api/event/{id}/ticket', 'UserController@removeOwnTicket')->where(['id' => '[0-9]+']);
 Route::post('/event/category', 'EventController@storeCategory');
 Route::put('/event/category/rename', 'EventController@renameCategory');
 
@@ -43,6 +44,9 @@ Route::post('/event/{id}/edit', 'EventController@store')->where(['id' => '[0-9]+
 Route::get('/event/{id}/manage', 'EventController@manage')->where(['id' => '[0-9]+']);
 Route::get('/event/{id}/add-organizer', 'EventController@addOrganizerPage')->where(['id' => '[0-9]+']);
 Route::get('/event/{id}/invite', 'EventController@invitePage')->where(['id' => '[0-9]+']);
+Route::get('/event/{id}/tickets', 'UserController@showTicketsForEvent')->where(['id' => '[0-9]+']);
+//missing cancel ticket route (check existing route de orga a cancelar ticket)
+
 Route::get('/event/{id}/generate-vouchers', 'EventController@generateVouchersPage')->where(['id' => '[0-9]+']);
 Route::put('api/event/{id}/check-in', 'EventController@checkIn');
 Route::delete('api/event/{id}', 'EventController@delete');

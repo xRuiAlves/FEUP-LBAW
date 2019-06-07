@@ -64,4 +64,6 @@ class EventPolicy {
     public function disable(User $user) {
         return $user->is_admin;
     }
+
+  
 }

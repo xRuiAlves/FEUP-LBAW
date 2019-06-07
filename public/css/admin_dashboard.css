@@ -283,6 +283,10 @@ button.solved-issue {
     .admin-dashboard-container .separator hr {
         display: none;
     }
+
+    #user-table td.actions button + button {
+        margin-left: 0em;
+    }
 }
 
 #issue-table .issue-header{

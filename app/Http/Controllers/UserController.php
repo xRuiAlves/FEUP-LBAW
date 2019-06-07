@@ -266,4 +266,48 @@ class UserController extends Controller
             return response()->json([], 404);
         } 
     }
+
+    public function showTicketsForEvent(Request $request, $event_id) {
+        //find or fail event
+
+        try {
+            $event = Event::findOrFail($event_id);
+
+            $tickets = $event->attendees()->where('user_id', Auth::user()->id)->paginate(1);
+            return view('pages.events.tickets', ['event'=> $event , 'tickets' => $tickets]);
+        } catch(ModelNotFoundException $e) {
+            return redirect('/')->withErrors(['Event not available']);
+        }
+        
+        // com base no event obter user tickets
+        // mostrar lista de tickets
+    }
+
+    public function removeOwnTicket(Request $request, $event_id){
+
+        $request->validate([
+            'ticket_id' => 'required|integer'
+        ]);
+
+        $event = Event::find($event_id);
+        
+        
+        // $this->authorize('removeOwnTicket', $event, $request->ticket_id);
+
+        $tickets = $event->attendees()->where('user_id', Auth::user()->id)->get();
+
+        if(!Auth::check() || $tickets->where('ticket.id', $request->ticket_id)->isEmpty()) {
+            return response()->json([], 403);
+        }
+
+        try{
+            DB::table('tickets')->where('id' , $request->ticket_id)->delete();
+
+            return response()->json([], 200);
+        } catch (ModelNotFoundException $err) {
+            return response()->json([], 404);
+        }catch(QueryException $e){
+            return response()->json([], 400);
+        }
+    }
 }
