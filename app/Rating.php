@@ -3,6 +3,9 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Post;
+use App\Event;
+use Illuminate\Support\Facades\DB;
 
 class Rating extends Model
 {

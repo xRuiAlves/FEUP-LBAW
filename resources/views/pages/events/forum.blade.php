@@ -13,6 +13,7 @@
             <div class="alert alert-danger" style="display:none;white-space:pre-line"></div>
             <div class="alert alert-success" style="display:none;white-space:pre-line"></div>
         </div>
+        
         <div class="tab-content" id="nav-tabContent">
             <div class="tab-pane fade show active" id="announcements-section" role="tabpanel"
                 aria-labelledby="announcements-section-tab">
@@ -90,7 +91,7 @@
                                     <div style="display:flex;">
                                         <div class="text rating">
                                             @if(Auth::check())
-                                                <i class="fas fa-chevron-up upvote"></i>
+                                                <i class="fas fa-chevron-up upvote {{$discussion_votes[$discussion_key] == 1 ? 'vote-check' : ''}}"></i>
                                             @endif
                                             <div>
                                                 @if(Auth::guest())
@@ -99,7 +100,7 @@
                                                 <span class="rating-value">{{$discussion->rating}}</span>
                                             </div>
                                             @if(Auth::check())
-                                                <i class="fas fa-chevron-down downvote"></i>
+                                                <i class="fas fa-chevron-down downvote {{$discussion_votes[$discussion_key] == -1 ? 'vote-check' : ''}}"></i>
                                             @endif
                                         </div>
                                         @if($is_organizer || (Auth::check() && Auth::user()->is_admin))

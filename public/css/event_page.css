@@ -227,6 +227,12 @@
 
 .post .content header .rating i {
     cursor: pointer;
+    transition-property: color;
+    transition-duration: 0.2s;
+}
+
+.post .content header .rating i.vote-check {
+    color: var(--primary-color);
 }
 
 .announcement .content .date, .post .content .date,

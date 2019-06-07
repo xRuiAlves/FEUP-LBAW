@@ -15,6 +15,7 @@ use App\Post;
 use App\User;
 use App\Notification;
 use App\EventVoucher;
+use App\Rating;
 
 
 class EventController extends Controller
@@ -67,8 +68,15 @@ class EventController extends Controller
             ->orderBy('timestamp', 'desc')
             ->paginate(10, ["*"], "discussions");
         $discussion_comments = [];
+        $discussion_votes = [];
         foreach($discussions as $i => $discussion) {
             $discussion_comments[$i] = $discussion->comments()->get();
+            if(Rating::where('user_id',$user->id)->where('post_id', $discussion->id)->exists()) {
+                $value = Rating::where('user_id', $user->id)->where('post_id', $discussion->id)->first()->value;
+                $discussion_votes[$i] = $value;
+            } else {
+                $discussion_votes[$i] = null;
+            }
         }
 
         $is_organizer = Auth::check() ? $event->organizers()->where('user_id', Auth::user()->id)->exists() : false;
@@ -76,7 +84,7 @@ class EventController extends Controller
         return view('pages.events.index',
         [
             'event' => $event, 'owner' => $owner, 'announcements' => $announcements, 'category' => $category, 'favorited' => $favorited,
-            'discussions' => $discussions, 'discussion_comments' => $discussion_comments, 'is_organizer' => $is_organizer
+            'discussions' => $discussions, 'discussion_comments' => $discussion_comments, 'is_organizer' => $is_organizer, 'discussion_votes' => $discussion_votes
         ]);
     }
 

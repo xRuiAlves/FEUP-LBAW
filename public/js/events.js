@@ -25,13 +25,13 @@ const addEventListeners = () => {
         
         if (upvote_node) {
             upvote_node.addEventListener("click", (e) => {
-                upvotePost(post_id, rating_value_node);
+                upvotePost(post_id, rating_value_node, upvote_node, downvote_node);
             });
         }
         
         if (downvote_node) {
             downvote_node.addEventListener("click", (e) => {
-                downvotePost(post_id, rating_value_node);
+                downvotePost(post_id, rating_value_node, upvote_node, downvote_node);
             });
         }
 
@@ -92,7 +92,7 @@ const addEventListeners = () => {
     });
 }
 
-const upvotePost = (post_id, rating_value_node) => {
+const upvotePost = (post_id, rating_value_node, upvote_node, downvote_node) => {
     fetch('/api/post/upvote', {
         method: 'PUT',
         body: JSON.stringify({
@@ -105,13 +105,17 @@ const upvotePost = (post_id, rating_value_node) => {
         }
     })
     .then(res => {
-        res.json().then(json => {
-            rating_value_node.textContent = json.rating
-        });
+        if (res.status === 200) {
+            res.json().then(json => {
+                rating_value_node.textContent = json.rating;
+                upvote_node.style.color = "#ff8e00";
+                downvote_node.style.color = "#346488";
+            });
+        }
     });
 }
 
-const downvotePost = (post_id, rating_value_node) => {
+const downvotePost = (post_id, rating_value_node, upvote_node, downvote_node) => {
     fetch('/api/post/downvote', {
         method: 'PUT',
         body: JSON.stringify({
@@ -124,9 +128,13 @@ const downvotePost = (post_id, rating_value_node) => {
         }
     })
     .then(res => {
-        res.json().then(json => {
-            rating_value_node.textContent = json.rating
-        });
+        if (res.status === 200) {
+            res.json().then(json => {
+                rating_value_node.textContent = json.rating
+                upvote_node.style.color = "#346488";
+                downvote_node.style.color = "#ff8e00";
+            });
+        }
     });
 }
 
