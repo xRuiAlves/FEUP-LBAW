@@ -54,7 +54,7 @@
         @include('inc.footer')
     @endif
 
-    <div class="modal fade" tabindex="-1" role="dialog" aria-labelledby="confirmationModal" aria-hidden="true" id="confirmation-modal">
+    <div class="modal fade font-content" tabindex="-1" role="dialog" aria-labelledby="confirmationModal" aria-hidden="true" id="confirmation-modal">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">

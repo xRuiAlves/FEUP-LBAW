@@ -35,6 +35,7 @@ Route::put('api/event/enable', 'AdminController@enableEvent');
 Route::post('api/event/favorite', 'UserController@markEventAsFavorite');
 Route::delete('api/event/favorite', 'UserController@unmarkEventAsFavorite');
 Route::put('api/event/disable', 'AdminController@disableEvent');
+Route::delete('api/event/{id}/ticket', 'EventController@removeOwnTicket');
 Route::post('/event/category', 'EventController@storeCategory');
 Route::put('/event/category/rename', 'EventController@renameCategory');
 

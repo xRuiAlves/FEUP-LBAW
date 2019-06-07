@@ -48,7 +48,7 @@ document.querySelectorAll('.btn.remove-attendee').forEach((elem) => {
         let user_id = elem.dataset.user_id;
         let user_name = elem.dataset.user_name;
 
-        confirmModal("Are you sure you wish to delete this attendee's ticket?").then(() => 
+        confirmModal("Are you sure you wish to delete this ticket?").then(() => 
             fetch(`/api/event/${event_id}/attendee`, {
                 method: 'DELETE',
                 body: JSON.stringify({

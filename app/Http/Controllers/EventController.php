@@ -329,6 +329,28 @@ class EventController extends Controller
         }
     }
 
+    public function removeOwnTicket(Request $request, $event_id){
+
+        $request->validate([
+            'ticket_id' => 'required|integer'
+        ]);
+
+        $event = Event::find($event_id);
+        
+        $this->authorize('removeOwnTicket', $event);
+
+        try{
+            $ticket = $event->attendees->find($request->user_id)->ticket;
+            $ticket->delete();
+
+            return response()->json([], 200);
+        } catch (ModelNotFoundException $err) {
+            return response()->json([], 404);
+        }catch(QueryException $e){
+            return response()->json([], 400);
+        }
+    }
+
     public function removeOrganizer(Request $request){
 
         $request->validate([

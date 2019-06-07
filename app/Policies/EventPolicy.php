@@ -46,6 +46,10 @@ class EventPolicy {
         return $user->is_admin;
     }
 
+    public function removeOwnTicket(User $user, $ticket) {
+        return Auth::check() && //verificar que o ticket é do user
+    }
+
     /**
      * Determine whether the user can change event settings.
      */

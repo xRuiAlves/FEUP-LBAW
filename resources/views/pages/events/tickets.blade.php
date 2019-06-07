@@ -22,10 +22,10 @@
             </h1>
         </header>
     </div>
-    <div id="event-management-status-messages" class="status-messages">
-        <div class="alert alert-danger" style="display:none;white-space:pre-line"></div>
-        <div class="alert alert-success" style="display:none;white-space:pre-line"></div>
-    </div>
+    <div id="event-tickets-status-messages" class="status-messages">
+            <div class="alert alert-danger" style="display:none;white-space:pre-line"></div>
+            <div class="alert alert-success" style="display:none;white-space:pre-line"></div>
+        </div>
     <div class="separator main-separator">
         <hr>
     </div>
@@ -40,29 +40,26 @@
         <table class="table">
             <thead>
                 <tr>
-                    <th>NIF</th>
-                    <th>Address</th>
+                    <th>Ticket ID</th>
                     <th>Billing Name</th>
                     <th></th>
                 </tr>
             </thead>
             <tbody>
                 @foreach($tickets as $ticket_full)
+                {{$ticket_full}}
                 @php
-                    $ticket = $ticket_full['ticket']
+                    $ticket = $ticket_full['ticket'];
                 @endphp
                 <tr class="ticket" data-user_id="{{Auth::user()}}">
                     <td>
-                        {{$ticket->nif}}
-                    </td>
-                    <td>
-                        {{$ticket->address}}
+                        {{$ticket->id}}
                     </td>
                     <td>
                         {{$ticket->billing_name}}
                     </td>
                     <td class="text-right">
-                        <button type="button" class="btn">Cancel <i class="fas fa-trash-alt"></i></button>
+                        <button type="button" data-user-id="{{Auth::user()->id}}" data-ticket-id="{{$ticket->id}}" data-event-id="{{$event->id}}" class="btn cancel-ticket">Cancel <i class="fas fa-trash-alt"></i></button>
                     </td>
                 </tr>
                 @endforeach
