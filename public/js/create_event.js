@@ -59,6 +59,14 @@ const tagsInput = document.querySelector("#add-tag-input");
 const addTagBtn = document.querySelector("#add-tag-button");
 const addedTagsStringElem = document.querySelector("#added-tags-string");
 
+Array.from(addedTagsElem.children).forEach(tag => {
+    tag.addEventListener('click', (e) => {
+        addedTagsElem.removeChild(tag);
+        e.preventDefault();
+        refreshAddedTags();
+    }, true);
+});
+
 const refreshAddedTags = () => {
     addedTagsStringElem.value = JSON.stringify(
         Array.from(addedTagsElem.children).reduce(
