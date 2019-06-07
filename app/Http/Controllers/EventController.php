@@ -557,11 +557,12 @@ class EventController extends Controller
     public function showAttendPage(Request $request) {
         try {
             $event = Event::findOrFail($request->id);
+            $this->authorize('attend', $event);
+
             return view('pages.events.attend', ['event' => $event]);
         } catch (ModelNotFoundException $e) {
             return redirect('/')->withErrors(['Event not available']);
         }
-
     }
 
     public function attend(Request $request, $event_id) {

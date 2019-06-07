@@ -65,5 +65,7 @@ class EventPolicy {
         return $user->is_admin;
     }
 
-  
+    public function attend(User $user, Event $event) {
+        return !($user->organizingEvents->contains($event));
+    }
 }
