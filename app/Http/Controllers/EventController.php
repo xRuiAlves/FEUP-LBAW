@@ -71,7 +71,7 @@ class EventController extends Controller
         $discussion_votes = [];
         foreach($discussions as $i => $discussion) {
             $discussion_comments[$i] = $discussion->comments()->get();
-            if(Rating::where('user_id',$user->id)->where('post_id', $discussion->id)->exists()) {
+            if(Auth::user() && Rating::where('user_id',$user->id)->where('post_id', $discussion->id)->exists()) {
                 $value = Rating::where('user_id', $user->id)->where('post_id', $discussion->id)->first()->value;
                 $discussion_votes[$i] = $value;
             } else {
