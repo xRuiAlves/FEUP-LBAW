@@ -3,6 +3,7 @@
 @section('asset_includes')
 <link href="{{ asset('css/event_page.css') }}" rel="stylesheet">
 <link href="{{ asset('css/event_management.css') }}" rel="stylesheet">
+<link href="{{ asset('css/settings.css') }}" rel="stylesheet">
 @endsection
 
 @section('scripts')
@@ -15,13 +16,11 @@
 <div id="background_wave"></div>
 
 <div id="page-card" class="container card-container font-content event-card" data-event_id="{{$event->id}}">
-    <div class="row no-gutters main">
-        <header id="management-header">
-            <h1>
-                Tickets<span class="event-title-name"> - {{$event->title}}</span>
-            </h1>
-        </header>
-    </div>
+    <header id="management-header">
+        <h1>
+            Tickets<span class="event-title-name"> - {{$event->title}}</span>
+        </h1>
+    </header>
     <div id="event-tickets-status-messages" class="status-messages">
             <div class="alert alert-danger" style="display:none;white-space:pre-line"></div>
             <div class="alert alert-success" style="display:none;white-space:pre-line"></div>
