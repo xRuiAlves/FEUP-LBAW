@@ -92,7 +92,7 @@
         <fieldset>
         <legend style="display:none;">Find events form</legend>
         <div class="row">
-            <div class="col-12 col-lg-4">
+            <div class="col-12 col-lg-4 search-button-container">
                 <i class="fas fa-search" title="Search events"></i>
                 <input type="text" placeholder="Search" aria-label="Search" name="search" class="search-field" />
             </div>

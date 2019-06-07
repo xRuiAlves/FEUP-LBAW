@@ -287,6 +287,19 @@ noscript .warning {
 }
 
 @media only screen and (max-width: 576px) {
+    #search-events-home-form .search-button-container {
+        margin-left: -0.2em;
+    }
+
+    #search-events-home-form i.fa-search {
+        margin-right: -0.2em;
+    }
+
+    #search-events-home-form i.fa-search:hover {
+        background-color: transparent;
+        border-color: transparent;
+    }
+
     body {
         background-color: white;
     }
