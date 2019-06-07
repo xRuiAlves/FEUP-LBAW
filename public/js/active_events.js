@@ -9,7 +9,7 @@ const attendEventClick = () => {
 const addFavoriteClickEvent = () => {
     const favorite_btn = document.getElementById("favorite-marker");
     
-    favorite_btn.addEventListener("click", (e) => {
+    favorite_btn && favorite_btn.addEventListener("click", (e) => {
         const new_val = favorite_btn.classList.contains('active') ? false : true;
 
         const event_id = favorite_btn.getAttribute('data-event-id');

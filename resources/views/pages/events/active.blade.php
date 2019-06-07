@@ -15,14 +15,15 @@
             <div class="col-12 col-lg-9 event-title font-title">
                 <h1>
                     {{$event->title}}
-                    @if($favorited)
-                        <button title="Unmark as Favorite" type="button" class="btn btn-primary active" id="favorite-marker" data-event-id="{{$event->id}}">
-                    @else        
-                        <button title="Mark as Favorite" type="button" class="btn btn-primary" id="favorite-marker" data-event-id="{{$event->id}}">
-                    @endif
-                            <span  class="favorite"><i class="fas fa-star"></i></span>
-                        </button>
-                    
+                    @if(Auth::check())
+                        @if($favorited)
+                            <button title="Unmark as Favorite" type="button" class="btn btn-primary active" id="favorite-marker" data-event-id="{{$event->id}}">
+                        @else        
+                            <button title="Mark as Favorite" type="button" class="btn btn-primary" id="favorite-marker" data-event-id="{{$event->id}}">
+                        @endif
+                                <span  class="favorite"><i class="fas fa-star"></i></span>
+                            </button>
+                    @endif                    
                 </h1>
             </div>
             <div class="col-12 col-lg-3 attend-btn alone-right">
