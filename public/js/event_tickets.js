@@ -6,7 +6,7 @@ document.querySelectorAll('.btn.cancel-ticket').forEach((elem) => {
         let event_id = elem.dataset.eventId;
 
         confirmModal("Are you sure you wish to delete this attendee's ticket?").then(() => 
-            fetch(`/api/event/${event_id}/attendee`, {
+            fetch(`/api/event/${event_id}/ticket`, {
                 method: 'DELETE',
                 body: JSON.stringify({
                     ticket_id
@@ -19,6 +19,7 @@ document.querySelectorAll('.btn.cancel-ticket').forEach((elem) => {
             })
             .then((res)=>{
                 if (res.status === 200) {
+                    console.log("DONE!")
                     let row = document.querySelector(`.ticket[data-ticket-id="${ticket_id}"]`);
                     row.parentElement.removeChild(row);
                 

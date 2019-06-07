@@ -47,11 +47,10 @@
             </thead>
             <tbody>
                 @foreach($tickets as $ticket_full)
-                {{$ticket_full}}
                 @php
                     $ticket = $ticket_full['ticket'];
                 @endphp
-                <tr class="ticket" data-user_id="{{Auth::user()}}">
+                <tr class="ticket" data-ticket-id="{{$ticket->id}}">
                     <td>
                         {{$ticket->id}}
                     </td>
