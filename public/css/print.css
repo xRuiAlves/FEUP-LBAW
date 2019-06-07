@@ -1,0 +1,13 @@
+@media print {
+    #background_wave {
+        display: none;
+    }
+
+    .generate-voucher-title {
+        display: none;
+    }
+
+    body {
+        background-color: white !important;
+    }
+}

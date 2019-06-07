@@ -17,7 +17,7 @@
 <div id="page-card" class="container card-container font-content event-card" data-event_id="{{$event->id}}">
     <header id="management-header">
         <h1>
-            Generate Voucher<span class="event-title-name"> - {{$event->title}}</span>
+            <span class="generate-voucher-title">Generate Voucher - </span><span class="event-title-name">{{$event->title}}</span>
         </h1>
     </header>
     <div class="separator main-separator">
