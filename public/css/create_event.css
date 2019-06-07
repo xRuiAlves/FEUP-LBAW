@@ -148,12 +148,6 @@
     position: relative;
 }
 
-.card-container.event-creation-container .price .currency {
-    position: absolute;
-    right: 0;
-    top: 0.05em;
-}
-
 .card-container.event-creation-container input[name="price"] {
     padding-right: 1.2em;
     max-width: 10em;
@@ -168,6 +162,13 @@
     color: var(--danger-red);
 }
 
+.card-container.event-creation-container #added-tags button.added-tag {
+    margin: 0.2em;
+}
+
+.card-container.event-creation-container #added-tags-string {
+    display:none;
+}
 
 @media only screen and (max-width: 576px) {
 
@@ -234,9 +235,8 @@
         padding: 0 2em;
     }
 
-    .card-container.event-creation-container .price .currency {
-        left: 0;
-        right: initial;
+    .card-container.event-creation-container .price {
+        display:inline-block;
     }
 
     .card-container.event-creation-container input[name="price"] {

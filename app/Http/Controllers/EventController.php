@@ -17,6 +17,7 @@ use App\Post;
 use App\User;
 use App\Notification;
 use App\EventVoucher;
+use App\Tag;
 use App\Rating;
 
 
@@ -104,12 +105,25 @@ class EventController extends Controller
     }
 
     /**
+     * Renders the event editing page
+     */
+    public function edit(Request $request) {
+        
+        $event = Event::find($request->id);
+        $this->authorize('eventSettings', $event);
+        
+        $categories = EventCategory::all();
+        
+        return view('pages.events.create', ['categories' => $categories, 'event' => $event]);
+    }
+
+    /**
      * Creates a new event.
      *
      * @return Event The event created.
      */
     public function store(Request $request) {
-        
+
         $this->authorize('create', Event::class);
 
         $validator = Validator::make($request->all(), [
@@ -122,6 +136,7 @@ class EventController extends Controller
             'description' => 'required|string',
             'latitude' => 'required_with:location,longitude|nullable|numeric',
             'longitude' => 'required_with:location,latitude|nullable|numeric',
+            'capacity' => 'sometimes|nullable|integer',
         ]);
         
         if ($validator->fails()) {
@@ -133,7 +148,13 @@ class EventController extends Controller
         DB::beginTransaction();
          
         try {
-            $event = new Event();
+            if(!empty($request->id)){ //editing event
+                $event = Event::find($request->id);
+                $this->authorize('eventSettings', $event);
+            }else{ //creating event
+                $event = new Event();
+                $event->user_id = auth()->user()->id;
+            }
             $event->title = $request->input('title');
             $event->location = $request->input('location');
             $event->latitude = $request->input('latitude');
@@ -147,25 +168,39 @@ class EventController extends Controller
                 $event->end_timestamp = $request->input('end_timestamp');
             }
 
-            if (!empty($request->input('latitude')) && !empty($request->input('longitude'))) {
+            if (!empty($request->input('capacity'))) {
+                $event->capacity = $request->input('capacity');
             }
-
-            $event->user_id = auth()->user()->id;
+            
             $event->save();
 
+            $tags = json_decode($request->tags);
+            foreach($tags as $tagName){
+                $tag = Tag::firstOrCreate(['name' => $tagName]);
+                
+                if(!$event->tags()->where('id', $tag->id)->exists()){
+                    $event->tags()->attach($tag->id);
+                }
+            }
+
+            if(!empty($request->id)){ //editing event
+                DB::commit();
+                return redirect($event->href);
+            }
+            
             DB::table('organizers')->insert([
                 'user_id' => $event->user_id, 
                 'event_id' => $event->id
-            ]);
-
+                ]);
+                
             DB::commit();
 
             return redirect($event->href);
         } catch (QueryException $err) {
             DB::rollBack();
-            return redirect('event/create')
+            return redirect(empty($request->id) ? 'event/create' : ('event/'.$event->id.'/edit'))
                 ->withErrors(["Error in submitting request to database"])
-                ->withInput();
+            ->withInput();
         }
     }
 

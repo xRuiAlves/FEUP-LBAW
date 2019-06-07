@@ -38,6 +38,8 @@ Route::put('api/event/disable', 'AdminController@disableEvent');
 Route::post('/event/category', 'EventController@storeCategory');
 Route::put('/event/category/rename', 'EventController@renameCategory');
 
+Route::get('/event/{id}/edit', 'EventController@edit')->where(['id' => '[0-9]+']);
+Route::post('/event/{id}/edit', 'EventController@store')->where(['id' => '[0-9]+']);
 Route::get('/event/{id}/manage', 'EventController@manage')->where(['id' => '[0-9]+']);
 Route::get('/event/{id}/add-organizer', 'EventController@addOrganizerPage')->where(['id' => '[0-9]+']);
 Route::get('/event/{id}/invite', 'EventController@invitePage')->where(['id' => '[0-9]+']);

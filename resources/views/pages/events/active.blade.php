@@ -37,12 +37,17 @@
                     Attend
                 </button>
                 @if($is_organizer)
-                    <br><br>
                     <a href="/event/{{$event->id}}/manage" class="btn">
                         <span>
                             <i class="fas fa-edit icon-left"></i>
                         </span>
                         Manage Event
+                    </a>
+                    <a href="/event/{{$event->id}}/edit" class="btn">
+                        <span>
+                            <i class="fas fa-edit icon-left"></i>
+                        </span>
+                        Edit Information
                     </a>
                 @endif
             </div>
