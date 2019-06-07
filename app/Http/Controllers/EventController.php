@@ -148,7 +148,7 @@ class EventController extends Controller
                 $tags = json_decode($request->tags);
                 foreach($tags as $tagName){
                     $tag = Tag::firstOrCreate(['name' => $tagName]);
-
+                    
                     $event->tags()->attach($tag->id);
                 }
             }catch(Exception $e){}

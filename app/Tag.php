@@ -9,9 +9,8 @@ class Tag extends Model
     // Don't add create and update timestamps in database.
     public $timestamps  = false;
 
-    protected $fillable = ['id', 'name'];
-
-    public $incrementing = false;
+    protected $primaryKey = "id";
+    protected $fillable = ['name'];
 
     /**
      * The events that have this tag.
