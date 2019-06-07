@@ -64,6 +64,15 @@
                     @endif
                 </h6>
             </div>
+            <div class="col-12 attendance-label mt-2 mt-lg-0">
+                <h6 title="Event Attendance">
+                    <i class="fas fa-user mr-2"></i>
+                    {{$event->attendees()->count()}}
+                    @if($event->capacity != -1)
+                    / {{$event->capacity}}
+                    @endif
+                </h6>
+            </div>
             @if($event->attendees()->get()->contains(Auth::user()))
             <div class="col-12 tickets-label mt-2 mt-lg-0">
                 <h6>

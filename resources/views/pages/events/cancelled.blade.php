@@ -33,6 +33,15 @@
             <div class="col-12 hosted-by-label mt-2 mt-lg-0">
                 <h6>Event hosted by {{$owner->name}}</h6>
             </div>
+            <div class="col-12 attendance-label mt-2 mt-lg-0">
+                <h6 title="Event Attendance">
+                    <i class="fas fa-user mr-2"></i>
+                    {{$event->attendees()->count()}}
+                    @if($event->capacity != -1)
+                    / {{$event->capacity}}
+                    @endif
+                </h6>
+            </div>
         </div>
         <div class="mobile-wave" id="background_wave"></div>
         <div class="separator main-separator">
