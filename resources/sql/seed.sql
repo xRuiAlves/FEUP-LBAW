@@ -984,7 +984,7 @@ INSERT INTO users(name, email, password, is_admin) VALUES
     ('Lucy', 'lucy1997@email.net', '$2y$10$AUu.UDFET4ym3OCW0OthOeR0wdpSFIxCtIWA2M1bOsmVRKkihCP3W', true),
     ('Susan', 'susana123@email.net', '$2y$10$AUu.UDFET4ym3OCW0OthOeR0wdpSFIxCtIWA2M1bOsmVRKkihCP3W', true),
     ('Peter', 'peter_football@email.net', '$2y$10$AFi2ltvOFRIbexmG.dowyu5JuhTIzP6wl9cM/0ZU7ttU2PAOaAB5q', true),
-    ('David', 'david@lbaw.pt', '$2y$10$t002qZCJVbe0Kpi1m9mA3ul5Nh/hAfybRSuCHpqfisziGXJr/P6Mm', true),
+    ('Mr. Admin', 'admin@lbaw.pt', '$2y$10$AUu.UDFET4ym3OCW0OthOeR0wdpSFIxCtIWA2M1bOsmVRKkihCP3W', true),
     ('John', 'john_the_man@email.net', '$2y$10$AUu.UDFET4ym3OCW0OthOeR0wdpSFIxCtIWA2M1bOsmVRKkihCP3W', true);
 INSERT INTO users(name, email, password) VALUES 
     ('Jonathan', 'jonny.mp4@email.net', '$2y$10$AUu.UDFET4ym3OCW0OthOeR0wdpSFIxCtIWA2M1bOsmVRKkihCP3W'),
