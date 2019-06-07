@@ -170,6 +170,8 @@ class EventController extends Controller
 
             if (!empty($request->input('capacity'))) {
                 $event->capacity = $request->input('capacity');
+            }else{
+                $event->capacity = -1; //for when editing
             }
             
             $event->save();

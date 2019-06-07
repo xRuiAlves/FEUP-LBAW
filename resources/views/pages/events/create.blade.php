@@ -73,7 +73,7 @@
                         </div>
                         <div class="col-12 text-left price event-field">
                             <div class="form-group">
-                                <input class="form-control" autocomplete="off" type="text" name="capacity" value="{{empty($event) ? Request::old('capacity') : (empty(Request::old('capacity')) ? $event['capacity'] : Request::old('capacity'))}}" min="1" placeholder="No maximum set (optional)" aria-label="Capacity">
+                                <input class="form-control" autocomplete="off" type="text" name="capacity" value="{{(empty($event) ? Request::old('capacity') : (empty(Request::old('capacity')) ? $event['capacity'] : Request::old('capacity'))) === -1 ? '' : (empty($event) ? Request::old('capacity') : (empty(Request::old('capacity')) ? $event['capacity'] : Request::old('capacity')))}}" min="1" placeholder="No maximum set (optional)" aria-label="Capacity">
                             </div>
                         </div>
                     </div>
