@@ -15,6 +15,7 @@ use App\Post;
 use App\User;
 use App\Notification;
 use App\EventVoucher;
+use App\Tag;
 
 
 class EventController extends Controller
@@ -122,7 +123,7 @@ class EventController extends Controller
 
         DB::beginTransaction();
          
-        try {
+        //try {
             $event = new Event();
             $event->title = $request->input('title');
             $event->location = $request->input('location');
@@ -143,6 +144,15 @@ class EventController extends Controller
             $event->user_id = auth()->user()->id;
             $event->save();
 
+            try{
+                $tags = json_decode($request->tags);
+                foreach($tags as $tagName){
+                    $tag = Tag::firstOrCreate(['name' => $tagName]);
+
+                    $event->tags()->attach($tag->id);
+                }
+            }catch(Exception $e){}
+
             DB::table('organizers')->insert([
                 'user_id' => $event->user_id, 
                 'event_id' => $event->id
@@ -151,12 +161,12 @@ class EventController extends Controller
             DB::commit();
 
             return redirect($event->href);
-        } catch (QueryException $err) {
+        /*} catch (QueryException $err) {
             DB::rollBack();
             return redirect('event/create')
                 ->withErrors(["Error in submitting request to database"])
                 ->withInput();
-        }
+        }*/
     }
 
     /**

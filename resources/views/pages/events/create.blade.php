@@ -24,10 +24,10 @@
             <div class="col-12">
                 <div class="form-group">
                     <input class="form-control title-input" autocomplete="off" value="{{Request::old('title')}}" required type="text" name="title" placeholder="Title" aria-label="Title">
+                    <i class="fas fa-question-circle form-info" data-toggle="popover" data-placement="top" data-content="In this page, you may create a new Event. All fields are mandatory, except for the ones marked as optional. You will be able to add other users to the organization team after the event is created."></i>
                     <div class="invalid-feedback">
                         Please provide a title for the event
                     </div>
-                    <i class="fas fa-question-circle form-info" data-toggle="popover" data-placement="top" data-content="In this page, you may create a new Event. All fields are mandatory, except for the ones marked as optional. You will be able to add other users to the organization team after the event is created."></i>
                 </div>
             </div>
         </header>
@@ -64,29 +64,27 @@
                         </label>
                     </div>
                 </div>
-                <div class="row no-gutters">
-                    <div class="col-12 location event-field">
-                        <div class="form-group">
-                            <span>
-                                <i class="fas fa-map-marker-alt icon-left"></i>
-                            </span>
-                            <input class="form-control" type="text" name="location" value="{{Request::old('location')}}" placeholder="Location (optional)" aria-label="Location">
-                            <div class="invalid-feedback">Please provide a valid location for the event</div>
-                        </div>
-                    </div>
-                </div>
             </div>
             <div class="col-12 col-lg-6 event-category">
                 <div class="row no-gutters">
-                    <div class="col-12 price event-field">
+                    <div class="col-12 text-left">
+                        <h4>Price</h4>
+                    </div>
+                    <div class="col-12 text-left price event-field">
                         <div class="form-group">
                             <input class="form-control" autocomplete="off" required type="text" name="price" value="{{Request::old('price')}}" min="0" placeholder="0.00" aria-label="Price">
                             <div class="invalid-feedback">Please provide a valid price for the event</div>
+                            €
                         </div>
-                        <span class="currency">€</span>
                     </div>
                 </div>
+                <div class="separator main-separator">
+                    <hr>
+                </div>
                 <div class="row no-gutters">
+                    <div class="col-12 text-left">
+                        <h4>Category</h4>
+                    </div>
                     <div class="col-12 event-field">
                         <div class="dropdown category-picker form-group">
                             <select required name="event_category_id" class="custom-select">
@@ -99,8 +97,43 @@
                         </div>
                     </div>
                 </div>
+                <div class="separator main-separator">
+                    <hr>
+                </div>
+                <div class="row no-gutters">
+                    <div class="col-12 text-left">
+                        <h4>Tags</h4>
+                        Write a comma or click the '+' button to add a tag
+                    </div>
+                    <div id="added-tags">
+                        @if(!empty(Request::old("tags")))
+                            @foreach(json_decode(Request::old("tags")) as $tag)
+                                <button class="added-tag btn btn-light" value="{{$tag}}">{{$tag}} &times;</button>
+                            @endforeach
+                        @endif
+                    </div>
+                    <div class="col-12 text-left">
+                        <input id="add-tag-input" type="text" placeholder="Add a tag">
+                        <i id="add-tag-button" class="fas fa-plus"></i>
+                        <input id="added-tags-string" name="tags" type="text" value="{{Request::old("tags")}}">
+                    </div>
+                </div>
             </div>
             <div class="col-12">
+                <div class="separator main-separator">
+                    <br><hr>
+                </div>
+                <div class="row no-gutters">
+                    <div class="col-12 location event-field">
+                        <div class="form-group">
+                            <span>
+                                <i class="fas fa-map-marker-alt icon-left"></i>
+                            </span>
+                            <input class="form-control" type="text" name="location" value="{{Request::old('location')}}" placeholder="Location (optional)" aria-label="Location">
+                            <div class="invalid-feedback">Please provide a valid location for the event</div>
+                        </div>
+                    </div>
+                </div>
                 <div id="map_wrapper">
                     <iframe class="event-map"
                         src="https://maps.google.com/?q={{Request::old('latitude')}},{{Request::old('longitude')}}&ie=UTF8&t=&z=14&iwloc=B&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0">

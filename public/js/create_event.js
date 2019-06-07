@@ -53,3 +53,31 @@ document.querySelector("input[name='location']").addEventListener('input', e => 
 
     timeout_to_request_lat_long = setTimeout(requestLatLong, DELAY_UNTIL_LAT_LONG_REQUEST_MS);
 });
+
+const addedTagsElem = document.querySelector("#added-tags");
+const tagsInput = document.querySelector("#add-tag-input");
+const addTagBtn = document.querySelector("#add-tag-button");
+const addedTagsStringElem = document.querySelector("#added-tags-string");
+
+const refreshAddedTags = () => {
+    addedTagsStringElem.value = JSON.stringify(
+        Array.from(addedTagsElem.children).reduce(
+            (arr, tagElem) => tagElem ? [...arr, tagElem.value] : arr, []));
+}
+
+const addTag = () => {
+    let newTag = document.createElement('BUTTON');
+    let tag = tagsInput.value.replace(/^[\s,]+|[\s,]+$/gm,'');
+    if(tag !== ""){
+        newTag.innerText = tag + " ×";
+        newTag.value = tag;
+        newTag.classList.add("added-tag", "btn", "btn-light");
+        newTag.addEventListener('click', ()=> addedTagsElem.removeChild(newTag) && refreshAddedTags());
+        addedTagsElem.appendChild(newTag);
+        refreshAddedTags();
+    }
+    tagsInput.value = "";
+}
+
+tagsInput.addEventListener("keyup", (e) =>  e.keyCode === 188 && addTag() && e.stopPropagation());
+addTagBtn.addEventListener("click", () => addTag());    

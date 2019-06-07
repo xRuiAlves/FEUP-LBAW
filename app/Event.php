@@ -61,6 +61,13 @@ class Event extends Model
     }
 
     /**
+     * The tags of this event.
+     */
+    public function tags() {
+        return $this->belongsToMany('App\Tag', 'event_tags', 'event_id', 'tag_id');        
+    }
+
+    /**
      * Get the start date string
      *
      * @return string
