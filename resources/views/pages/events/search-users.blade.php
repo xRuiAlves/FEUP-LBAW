@@ -8,7 +8,7 @@
             <button type="submit" class="btn btn-secondary mb-2">Search</button>
         </form>
     </div>
-    <div class="content-table">
+    <div class="content-table table-responsive">
         <table class="table">
             <thead>
                 <tr>
