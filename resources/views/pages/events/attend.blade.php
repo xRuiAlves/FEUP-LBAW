@@ -102,5 +102,5 @@
 
 @endsection
 @section('scripts')
-    <script type="text/javascript" src="{{ asset('js/attend_event.js') }}" defer></script>
+    <script src="{{ asset('js/attend_event.js') }}" defer></script>
 @endsection

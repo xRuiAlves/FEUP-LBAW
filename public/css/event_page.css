@@ -360,6 +360,10 @@ button.create-post-button i {
     margin-top: 1.5em;
 }
 
+iframe.event-map {
+    border-width: 0;
+}
+
 @media only screen and (min-width: 576px) {
     .post .name::after {
         content: ' - '

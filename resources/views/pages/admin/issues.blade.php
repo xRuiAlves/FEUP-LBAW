@@ -10,7 +10,7 @@
 <div id="issue-table" class="admin-dashboard col-12 col-md-10 col-xl-11">
     <div class="custom-title">Issues</div>
     <div class="searchbar-container">
-        <form class="form-inline" action="" method="get">
+        <form class="form-inline" method="get">
         <fieldset>
             <legend style="display:none;">Search issues form</legend>
             <label class="sr-only" for="inlineFormInputName2">Search for Issues</label>

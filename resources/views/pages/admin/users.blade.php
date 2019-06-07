@@ -10,7 +10,7 @@
 <div id="user-table" class="admin-dashboard col-12 col-md-10 col-xl-11">
     <div class="collapse-title custom-title">Users</div>
     <div class="searchbar-container">
-        <form class="form-inline" action="" method="get">
+        <form class="form-inline" method="get">
         <fieldset>
             <legend style="display:none;"> Search users form</legend>
             <label class="sr-only" for="inlineFormInputName2">Name</label>

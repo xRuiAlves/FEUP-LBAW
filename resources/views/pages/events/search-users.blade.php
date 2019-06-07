@@ -1,7 +1,7 @@
 <div id="user-table" data-event_id="{{$event->id}}" class="admin-dashboard col-12">
     <div class="collapse-title custom-title">Users</div>
     <div class="searchbar-container">
-        <form class="form-inline" action="" method="get">
+        <form class="form-inline" method="get">
             <label class="sr-only" for="inlineFormInputName2">Name</label>
         <input type="text" class="form-control mb-2 mr-sm-2" id="inlineFormInputName2" placeholder="Ex: Martha" name="search" value="{{$searchQuery}}">
             

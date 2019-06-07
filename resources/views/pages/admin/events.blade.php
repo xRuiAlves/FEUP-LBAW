@@ -9,7 +9,7 @@
 <div id="events-table" class="admin-dashboard col-12 col-md-10 col-xl-11">
     <div class="collapse-title custom-title">Events</div>
     <div class="searchbar-container">
-        <form class="form-inline" action="" method="get">
+        <form class="form-inline" method="get">
         <fieldset>
             <legend style="display:none;">Search events form</legend>
             <label class="sr-only" for="inlineFormInputName2">Name</label>

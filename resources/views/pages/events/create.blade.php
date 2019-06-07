@@ -6,8 +6,8 @@
 @endsection
 
 @section('scripts')
-<script src="{{ asset('js/setlocale-datetime.js') }}" type="text/javascript" defer></script>
-<script src="{{ asset('js/create_event.js') }}" type="text/javascript" defer></script>
+<script src="{{ asset('js/setlocale-datetime.js') }}" defer></script>
+<script src="{{ asset('js/create_event.js') }}" defer></script>
 @endsection
 
 @section('title', (empty($event) ? "Create Event" : ("Edit " . $event->title)) . ' - Eventually')
@@ -179,7 +179,7 @@
                 </div>
                 <div id="map_wrapper">
                     <iframe class="event-map"
-                        src="https://maps.google.com/?q={{empty($event) ? Request::old('latitude') : (empty(Request::old('latitude')) ? $event['latitude'] : Request::old('latitude'))}},{{empty($event) ? Request::old('longitude') : (empty(Request::old('longitude')) ? $event['longitude'] : Request::old('longitude'))}}&ie=UTF8&t=&z=14&iwloc=B&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0">
+                        src="https://maps.google.com/?q={{empty($event) ? Request::old('latitude') : (empty(Request::old('latitude')) ? $event['latitude'] : Request::old('latitude'))}},{{empty($event) ? Request::old('longitude') : (empty(Request::old('longitude')) ? $event['longitude'] : Request::old('longitude'))}}&ie=UTF8&t=&z=14&iwloc=B&output=embed">
                     </iframe>
                 </div>
                 <input type="hidden" name="latitude" value="{{empty($event) ? Request::old('latitude') : (empty(Request::old('latitude')) ? $event['latitude'] : Request::old('latitude'))}}">

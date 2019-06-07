@@ -5,7 +5,7 @@
 @endsection
 
 @section('scripts')
-<script src="{{ asset('js/setlocale-datetime.js') }}" type="text/javascript" defer></script>
+<script src="{{ asset('js/setlocale-datetime.js') }}" defer></script>
 <script src="{{ asset('js/main_page.js') }}" defer></script>
 @endsection
 
@@ -210,6 +210,7 @@
     </a>
     @endforeach
     {{ $events->fragment('search-box-anchor')->links("pagination::bootstrap-4") }}
+</div>
 
 <div class="container-fluid white-section" id="about">
     <div class="container">

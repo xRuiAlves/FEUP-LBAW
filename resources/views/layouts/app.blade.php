@@ -10,15 +10,15 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>@yield('title')</title>
-    <script type="text/javascript" src="{{ asset('bootstrap/jquery-3.3.1.min.js') }}" defer></script>
-    <script type="text/javascript" src="{{ asset('bootstrap/popper.min.js') }}" defer></script>
-    <script type="text/javascript" src="{{ asset('bootstrap/js/bootstrap.min.js') }}" defer></script>
-    <script type="text/javascript" src="{{ asset('js/form_validation.js') }}" defer></script>
-    <script type="text/javascript" src="{{ asset('js/moment.js/moment-with-locales.js') }}" defer></script>
-    <script type="text/javascript" src="{{ asset('js/popovers.js') }}" defer></script>
-    <script type="text/javascript" src="{{ asset('js/tempus_dominus/index.js') }}" defer></script>
+    <script src="{{ asset('bootstrap/jquery-3.3.1.min.js') }}" defer></script>
+    <script src="{{ asset('bootstrap/popper.min.js') }}" defer></script>
+    <script src="{{ asset('bootstrap/js/bootstrap.min.js') }}" defer></script>
+    <script src="{{ asset('js/form_validation.js') }}" defer></script>
+    <script src="{{ asset('js/moment.js/moment-with-locales.js') }}" defer></script>
+    <script src="{{ asset('js/popovers.js') }}" defer></script>
+    <script src="{{ asset('js/tempus_dominus/index.js') }}" defer></script>
     
-    <script type="text/javascript" src="{{ asset('js/modals.js') }}" defer></script>
+    <script src="{{ asset('js/modals.js') }}" defer></script>
 
     @yield('scripts')
     
@@ -55,7 +55,7 @@
         @include('inc.footer')
     @endif
 
-    <div class="modal fade" tabindex="-1" role="dialog" aria-labelledby="confirmationModal" aria-hidden="true" id="confirmation-modal">
+    <div class="modal fade" tabindex="-1" role="dialog" aria-hidden="true" id="confirmation-modal">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">

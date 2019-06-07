@@ -76,7 +76,6 @@
                     <div class="col-12 col-md-auto">
                         <span>
                             <i class="fas fa-minus icon-left"></i>
-                            </i>
                         </span> {{$event->formatted_end_timestamp}}
                     </div>
                     @endif
@@ -123,36 +122,11 @@
     <div class="row no-gutters event-map">
         <div class="col-12">
             <iframe class="event-map"
-                src="https://maps.google.com/?q={{$event->latitude}},{{$event->longitude}}&amp;ie=UTF8&amp;t=&amp;z=14&amp;iwloc=B&amp;output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0">
+                src="https://maps.google.com/?q={{$event->latitude}},{{$event->longitude}}&amp;ie=UTF8&amp;t=&amp;z=14&amp;iwloc=B&amp;output=embed">
             </iframe>
         </div>
     </div>
     @include('pages.events.forum')
-</div>
-
-<div id="create-post-modal" class="modal fade font-content" tabindex="-1" role="dialog">
-    <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <div class="modal-title custom-modal-title">Create Post</div>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <form>
-            <fieldset>
-                <legend style="display:none;">Create post form</legend>
-                <div class="modal-body">
-                    <textarea name="announcement-content" placeholder="Post content ..." aria-label="Content"></textarea>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn publish-button" data-dismiss="modal">Create</button>
-                    <button type="button" class="btn btn-secondary close-button" data-dismiss="modal">Close</button>
-                </div>
-            </fieldset>
-            </form>
-        </div>
-    </div>
 </div>
 
 <div id="attend-event-modal" class="modal fade font-content" tabindex="-1" role="dialog">
@@ -176,5 +150,5 @@
 </div>
 @endsection
 @section('scripts')
-    <script type="text/javascript" src="{{ asset('js/active_events.js') }}" defer></script>
+    <script src="{{ asset('js/active_events.js') }}" defer></script>
 @endsection
