@@ -136,7 +136,7 @@ class EventController extends Controller
             'description' => 'required|string',
             'latitude' => 'required_with:location,longitude|nullable|numeric',
             'longitude' => 'required_with:location,latitude|nullable|numeric',
-            'capacity' => 'sometimes|nullable|integer',
+            'capacity' => 'sometimes|nullable|integer|min:1',
         ]);
         
         if ($validator->fails()) {
