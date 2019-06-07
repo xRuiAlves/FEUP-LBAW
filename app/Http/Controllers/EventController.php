@@ -9,6 +9,8 @@ use Illuminate\Database\QueryException;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 
+use Illuminate\Database\Eloquent\ModelNotFoundException;
+
 use App\Event;
 use App\EventCategory;
 use App\Post;
@@ -506,6 +508,111 @@ class EventController extends Controller
             return response()->json($result, 200);
         } catch(QueryException $e) {
             return response()->json([], 500);
+        }
+    }
+
+
+    public function showAttendPage(Request $request) {
+        try {
+            $event = Event::findOrFail($request->id);
+            return view('pages.events.attend', ['event' => $event]);
+        } catch (ModelNotFoundException $e) {
+            return redirect('/')->withErrors(['Event not available']);
+        }
+
+    }
+
+    public function attend(Request $request, $event_id) {
+        
+        $request->validate([
+            'tickets.*.nif' => 'required|numeric|digits:9',
+            'tickets.*.address' => 'required|max:128',
+            'tickets.*.billing_name' => 'required|max:64',
+            'tickets.*.voucher_code' => 'nullable',
+        ]);
+       
+
+        try {
+            $event = Event::findOrFail($event_id);
+
+
+            $current_num_attendees = $event->attendees()->count();
+
+            if($event->capacity != -1 && $current_num_attendees + count($request->tickets) > $event->capacity) { //max capacity reached, cant buy so many tickets
+                $num_tickets_to_buy = count($request->tickets);
+                
+                return response()->json([
+                    'errors' => [
+                        'global' => [
+                            "Cannot buy $num_tickets_to_buy ticket(s). Attendance limit reached. Purchase halted.",
+                        ]
+                    ]
+                ], 400);
+            }
+            
+            
+            for ($i=0; $i < count($request->tickets); $i++) { 
+                $ticket = $request->tickets[$i];
+            
+                $ticket_info = [
+                    'nif' => $ticket['nif'],
+                    'billing_name' => $ticket['billing_name'],
+                    'address' => $ticket['address'],
+                ];
+
+                if(!empty($ticket['voucher_code'])) { //using voucher code
+                    $ticket_info['type'] = 'Voucher';
+                    $ticket_num = $i + 1;
+
+                    try {
+                        $voucher = EventVoucher::where('code', '=', $ticket['voucher_code'])->firstOrFail();
+                        $ticket_info['event_voucher_id'] = $voucher->id;
+
+                        if($voucher->is_used) {//voucher already redeemed
+                            return response()->json([
+                                'errors' => [
+                                    'global' => [
+                                        "The submitted voucher for Ticket #$ticket_num was already used. Purchase halted.",
+                                    ]
+                                ]
+                            ], 400);
+                        }
+
+                    } catch (ModelNotFoundException $e) {
+                        
+                        return response()->json([
+                            'errors' => [
+                                'global' => [
+                                    "The submitted voucher for Ticket #$ticket_num is invalid. Purchase halted.",
+                                ]
+                            ]
+                        ], 400);
+                               
+                    }
+
+                } else {
+                    $ticket_info['type'] = 'Paypal';
+                    $ticket_info['paypal_order_id'] = 'PAYPAL-CONFIRMATION-DUMMY';
+                }
+
+                $event->attendees()->attach(Auth::user(), $ticket_info);                
+            }
+
+            
+
+            return response()->json([
+                'tickets' => $request->tickets,
+                'num_attendees' => $event->attendees()->count(),
+            ], 200);
+
+        } catch (ModelNotFoundException $e) {
+            return response()->json([
+                'errors' => [
+                    'global' => [
+                        'The event was not found. Purchase halted.',
+                    ]
+                ]
+            ], 400);
         }
     }
 }

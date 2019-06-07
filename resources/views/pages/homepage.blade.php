@@ -12,6 +12,16 @@
 @section('title', 'Eventually')
 
 @section('content')
+<div id="error-msgs">
+        @if ($errors->any())
+            @foreach ($errors->all() as $error)
+                <p class="error">
+                    {{ $error }}
+                </p>       
+            @endforeach
+        @endif
+    
+    </div>
 <div id="banner-wrapper">
     <div id="banner-image-container">
         <img src="{{asset('images/concert2.jpg')}}" alt="In-door concert"/>

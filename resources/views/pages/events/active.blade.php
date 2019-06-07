@@ -26,7 +26,11 @@
                 </h1>
             </div>
             <div class="col-12 col-lg-3 attend-btn alone-right">
-                <button type="button" class="btn" data-toggle="modal" data-target="#login_modal">
+                @if($event->organizers()->get()->contains(Auth::user())))
+                    <button type="button" class="btn" id="attend-btn" disabled data-event-id="{{$event->id}}" title="You are an Organizer">
+                @else
+                    <button type="button" class="btn" id="attend-btn" data-event-id="{{$event->id}}">
+                @endif
                     <span>
                         <i class="fas fa-calendar-check icon-left"></i>
                     </span>

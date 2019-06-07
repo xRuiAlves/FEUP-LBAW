@@ -334,6 +334,26 @@ a:hover {
     }
 }
 
+/************* ERROR AREA **************/
+
+#error-msgs {
+    position: absolute;
+    text-align: center;
+    top: 5vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+#error-msgs p {
+    padding: 1em;
+    background-color:  #d16d6d;
+    width: 80%;
+    border-radius: 10px;
+}
+
+/***************************************/
+
 @media only screen and (min-width: 577px) {
     #banner-about-text {
         text-align: start;

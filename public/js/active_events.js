@@ -1,3 +1,11 @@
+const attendEventClick = () => {
+    const attend_btn = document.getElementById('attend-btn');
+
+    attend_btn.addEventListener('click', () => {
+        window.location.href = `/event/${attend_btn.getAttribute('data-event-id')}/attend`;
+    })
+}
+
 const addFavoriteClickEvent = () => {
     const favorite_btn = document.getElementById("favorite-marker");
     
@@ -54,3 +62,4 @@ const sendFavoriteRequest = async (url, method, body) => {
 }
 
 addFavoriteClickEvent();
+attendEventClick();
