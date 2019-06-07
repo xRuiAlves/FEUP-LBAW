@@ -2,6 +2,7 @@
 
 @section('asset_includes')
 <link href="{{ asset('css/event_page.css') }}" rel="stylesheet">
+<link href="{{ asset('css/event_management.css') }}" rel="stylesheet">
 @endsection
 
 @section('scripts')
@@ -15,9 +16,9 @@
 
 <div id="page-card" class="container card-container font-content event-card" data-event_id="{{$event->id}}">
     <div class="row no-gutters main">
-        <header class="col-12 event-title font-title">
+        <header id="management-header">
             <h1>
-                {{$event->title}} - Tickets
+                Tickets<span class="event-title-name"> - {{$event->title}}</span>
             </h1>
         </header>
     </div>
