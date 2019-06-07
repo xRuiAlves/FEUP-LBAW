@@ -16,7 +16,7 @@
     <script type="text/javascript" src="{{ asset('js/form_validation.js') }}" defer></script>
     <script type="text/javascript" src="{{ asset('js/moment.js/moment-with-locales.js') }}" defer></script>
     <script type="text/javascript" src="{{ asset('js/popovers.js') }}" defer></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.0.0-alpha14/js/tempusdominus-bootstrap-4.min.js" defer></script>
+    <script type="text/javascript" src="{{ asset('js/tempus_dominus/index.js') }}" defer></script>
     
     <script type="text/javascript" src="{{ asset('js/modals.js') }}" defer></script>
 
