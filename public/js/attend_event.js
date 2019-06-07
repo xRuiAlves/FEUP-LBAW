@@ -22,9 +22,13 @@ const addTicketClickEvent = () => {
         //clear each input
         $(new_ticket).find('input').each(function() {
             $(this).val("");
+            $(this).parent().children('.invalid-feedback').remove();
         });
 
         tickets_container.appendChild(new_ticket);
+
+        const form = document.getElementById('ticket-form');
+        form.classList.remove('was-validated');
 
 
     })

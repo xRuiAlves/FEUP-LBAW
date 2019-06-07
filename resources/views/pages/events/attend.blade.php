@@ -12,6 +12,7 @@
 
 <div id="page-card" class="container card-container font-content event-card" data-event-id={{$event->id}}>
     <div class="event-brief">
+        
         <div class="row no-gutters main">
             <div class="col-12 col-lg-9 event-title font-title">
                 <h1>
@@ -25,11 +26,18 @@
         </div>
 
         <div class="row">
-
+            @if($event->attendees()->get()->contains(Auth::user()))
+                <div class="col-12">
+                    <h4 class="mb-5">You already have {{$event->attendees()->where('user_id', Auth::user()->id)->count()}} tickets for this event</h4>
+                </div>    
+            @endif
             <div class="col-12">
-                <h2>
-                    Ticket Order
-                </h2>
+                <header class="d-flex align-items-center mb-3">
+                    <h2 class="mb-0">
+                        Ticket Order
+                    </h2>
+                    <i class="fas fa-question-circle form-info" data-toggle="popover" data-placement="top" data-content="In this page, you may buy tickets for the event. Please specify the NIF, Address and Billing Name for each ticket. If you have a voucher code, please insert it for the ticket"></i>
+                </header>
                 <form novalidate id="ticket-form" class="needs-validation" data-event-id="{{$event->id}}" action="/event/{{$event->id}}/attend" method="post">
                     {{ csrf_field() }}
                     <div id="tickets-container">

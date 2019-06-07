@@ -27,8 +27,8 @@
             </div>
             <div class="col-12 col-lg-3 attend-btn alone-right">
                 {{-- Todo: Ifs here for authenticated/owner/etc? --}}
-                @if($event->organizers()->get()->contains(Auth::user()) || $event->attendees()->get()->contains(Auth::user()))
-                    <button type="button" class="btn" id="attend-btn" disabled data-event-id="{{$event->id}}">
+                @if($event->organizers()->get()->contains(Auth::user())))
+                    <button type="button" class="btn" id="attend-btn" disabled data-event-id="{{$event->id}}" title="You are an Organizer">
                 @else
                     <button type="button" class="btn" id="attend-btn" data-event-id="{{$event->id}}">
                 @endif
