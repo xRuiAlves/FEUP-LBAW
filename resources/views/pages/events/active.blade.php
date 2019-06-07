@@ -26,7 +26,7 @@
                 </h1>
             </div>
             <div class="col-12 col-lg-3 attend-btn alone-right">
-                @if($event->organizers()->get()->contains(Auth::user())))
+                @if($event->organizers()->get()->contains(Auth::user()))
                     <button type="button" class="btn" id="attend-btn" disabled data-event-id="{{$event->id}}" title="You are an Organizer">
                 @else
                     <button type="button" class="btn" id="attend-btn" data-event-id="{{$event->id}}">
