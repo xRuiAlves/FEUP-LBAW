@@ -29,7 +29,7 @@
         <legend style="display:none;">Generate Event Vouchers form</legend>
         <div class="form-group">
             <label id="vouchers-input-label">Please insert the number of vouchers you wish to generate:</label><br>
-            <input id="number-vouchers" class="form-control" min="1" max="10" value="1" type="number" required autofocus placeholder="Number of Vouchers" aria-label="Number of Vouchers">
+            <input id="number-vouchers" class="form-control" min="1" value="1" type="number" required autofocus placeholder="Number of Vouchers" aria-label="Number of Vouchers">
             <div class="invalid-feedback">
                 Please insert a valid number of vouchers (positive integer).
             </div>
