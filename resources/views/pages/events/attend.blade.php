@@ -36,7 +36,7 @@
                     <h2 class="mb-0">
                         Ticket Order
                     </h2>
-                    <i class="fas fa-question-circle form-info" data-toggle="popover" data-placement="top" data-content="In this page, you may buy tickets for the event. Please specify the NIF, Address and Billing Name for each ticket. If you have a voucher code, please insert it for the ticket"></i>
+                    <i class="fas fa-question-circle form-info" data-toggle="popover" data-placement="top" data-content="In this page, you may buy tickets for the event. Please specify the NIF, Address, Billing Name and Voucher code that was given to you upon purchase, for each ticket."></i>
                 </header>
                 <form novalidate id="ticket-form" class="needs-validation" data-event-id="{{$event->id}}" action="/event/{{$event->id}}/attend" method="post">
                     {{ csrf_field() }}
@@ -73,7 +73,7 @@
                             <div class="form-group">
                                 <label>
                                     Voucher Code:
-                                    <input class="form-control" type="text" name="voucher_code" >
+                                    <input class="form-control" type="text" required name="voucher_code" >
                                     <div class="invalid-feedback"></div>
                                 </label>
                             </div>
