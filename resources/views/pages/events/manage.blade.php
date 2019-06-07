@@ -15,11 +15,11 @@
 <div id="background_wave"></div>
 
 <div id="page-card" class="container card-container font-content event-card" data-event_id="{{$event->id}}">
-    <div class="row no-gutters main">
-        <div class="col-12 event-title font-title">
-                {{$event->title}} - Management
-        </div>
-    </div>
+    <header id="management-header">
+        <h1>
+            Management<span class="event-title-name"> - {{$event->title}}</span>
+        </h1>
+    </header>
     <div id="event-management-status-messages" class="status-messages">
         <div class="alert alert-danger" style="display:none;white-space:pre-line"></div>
         <div class="alert alert-success" style="display:none;white-space:pre-line"></div>

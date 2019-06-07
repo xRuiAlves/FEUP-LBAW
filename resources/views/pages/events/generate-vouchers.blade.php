@@ -15,11 +15,11 @@
 <div id="background_wave"></div>
 
 <div id="page-card" class="container card-container font-content event-card" data-event_id="{{$event->id}}">
-    <div class="row no-gutters main">
-        <div class="col-12 event-title font-title">
-            Generate Voucher - {{$event->title}}
-        </div>
-    </div>
+    <header id="management-header">
+        <h1>
+            Generate Voucher<span class="event-title-name"> - {{$event->title}}</span>
+        </h1>
+    </header>
     <div class="separator main-separator">
         <hr>
     </div>

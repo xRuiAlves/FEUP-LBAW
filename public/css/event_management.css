@@ -22,3 +22,17 @@ input#number-vouchers {
     margin-bottom: 1em;
     min-width: 12em;
 }
+
+@media only screen and (max-width: 576px) {
+    #management-header {
+        margin-bottom: 15vh;
+    }
+
+    header h1 .event-title-name {
+        display: none;
+    }
+
+    #shown-users-note {
+        margin-bottom: 2em;
+    }
+}

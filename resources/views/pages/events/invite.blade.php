@@ -15,12 +15,12 @@
 <div id="background_wave"></div>
 
 <div id="page-card" class="container card-container font-content event-card" data-event_id="{{$event->id}}">
-    <div class="row no-gutters main">
-        <div class="col-12 event-title font-title">
-                Invite - {{$event->title}}
-        </div>
-    </div>
-    (only showing users not yet invited or attending the event)
+        <header id="management-header">
+        <h1>
+            Invite<span class="event-title-name"> - {{$event->title}}</span>
+        </h1>
+    </header>
+    <div id="shown-users-note">Only showing users not yet invited or attending the event</div>
     <div class="separator main-separator">
         <hr>
     </div>
