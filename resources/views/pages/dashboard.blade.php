@@ -13,11 +13,10 @@
     <header class="row no-gutters">
         <div class="col-12 col-sm-8 title font-title">
             <div class="title-container">
+                <h1>Dashboard</h1>
                 <h1>
-                    Dashboard
                     <i class="fas fa-question-circle form-info" data-toggle="popover" data-placement="top" data-content="In this page, you may view information of all events that you are attending and organizing."></i>
                 </h1>
-                
             </div>
         </div>
         <div class="col-12 col-sm-4 labels">

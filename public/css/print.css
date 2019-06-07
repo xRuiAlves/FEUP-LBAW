@@ -3,11 +3,15 @@
         display: none;
     }
 
-    .generate-voucher-title {
+    .generate-voucher-title, #favorite-marker, #attend-btn, .delete-post-icon, .form-info {
         display: none;
     }
 
     body {
         background-color: white !important;
+    }
+
+    .event-card .event-brief {
+        padding: 0 !important;
     }
 }
