@@ -4,6 +4,10 @@
 <link href="{{ asset('css/event_page.css') }}" rel="stylesheet">
 @endsection
 
+@section('open-graph-title')
+<meta property="og:title" content="{{$event->title}}">
+@endsection
+
 @section('title', $event->title . ' - Eventually')
 
 @section('content')

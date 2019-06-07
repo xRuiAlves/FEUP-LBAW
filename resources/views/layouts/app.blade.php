@@ -6,6 +6,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
+    @section('open-graph-title')
+    <meta property="og:title" content="Eventually - Create. Attend. Organize.">
+    @endsection
+    <meta property="og:site_name" content="Eventually">
+    <meta property="og:description" content="Create amazing experiences for everyone. Attend your favorite events. Organize easily and collaboratively.">
+    <meta property="og:type" content="Events">
+
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
