@@ -53,15 +53,28 @@
                         </label>
                     </div>
                     <div class="col-12">
-                        <label> End (Optional)
+                        <label> End
                             <div class="input-group date" id="datetimepicker_end" data-target-input="nearest">
-                                <input type="text" class="form-control datetimepicker-input" data-target="#datetimepicker_end" value="{{Request::old('end_timestamp')}}" name="end_timestamp" aria-label="End Date"/>
+                                <input type="text" class="form-control datetimepicker-input" data-target="#datetimepicker_end" value="{{Request::old('end_timestamp')}}" name="end_timestamp" aria-label="End Date" placeholder="(Optional)"/>
                                 <div class="input-group-append" data-target="#datetimepicker_end" data-toggle="datetimepicker">
                                     <div class="input-group-text"><i class="fa fa-calendar"></i></div>
                                 </div>
                             </div>
                             <div class="invalid-feedback">Please provide at least a start date for the event</div>
                         </label>
+                    </div>
+                    <div class="col-11 separator main-separator">
+                        <br><hr>
+                    </div>
+                    <div class="row no-gutters">
+                        <div class="col-12 text-left">
+                            <h4>Ticket limit</h4>
+                        </div>
+                        <div class="col-12 text-left price event-field">
+                            <div class="form-group">
+                                <input class="form-control" autocomplete="off" type="text" name="capacity" value="{{Request::old('capacity')}}" min="1" placeholder="No maximum set (optional)" aria-label="Capacity">
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

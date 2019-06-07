@@ -113,6 +113,7 @@ class EventController extends Controller
             'description' => 'required|string',
             'latitude' => 'required_with:location,longitude|nullable|numeric',
             'longitude' => 'required_with:location,latitude|nullable|numeric',
+            'capacity' => 'sometimes|nullable|integer',
         ]);
         
         if ($validator->fails()) {
@@ -138,7 +139,8 @@ class EventController extends Controller
                 $event->end_timestamp = $request->input('end_timestamp');
             }
 
-            if (!empty($request->input('latitude')) && !empty($request->input('longitude'))) {
+            if (!empty($request->input('capacity'))) {
+                $event->capacity = $request->input('capacity');
             }
 
             $event->user_id = auth()->user()->id;
