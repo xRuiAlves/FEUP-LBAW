@@ -513,29 +513,43 @@ class EventController extends Controller
         $nVouchers = $validated_data['nVouchers'];
         $event_id = $request->id;
 
-        $this->authorize('eventSettings', Event::find($event_id));
-
-        $result = [];
-
         try {
-            for($i = 0; $i < $nVouchers; $i++){
-                $newCode;
-                do {
-                    $newCode = "EVT-" . Str::uuid()->toString();
-                } while(EventVoucher::where('code', $newCode)->exists());
 
-                $newVoucher = new EventVoucher();
-                $newVoucher->event_id = $event_id;
-                $newVoucher->user_id = Auth::user()->id;
-                $newVoucher->code = $newCode;
-                $newVoucher->save();
+        
+            $event = Event::findOrFail($event_id);
+            $this->authorize('eventSettings', $event);
 
-                array_push($result, $newCode);
+            $result = [];
+
+            $current_num_attendees = EventVoucher::where('event_id', $event_id)->count();
+
+            if($event->capacity != -1 && $current_num_attendees + $nVouchers > $event->capacity) { 
+                // surpassed capacity
+                return response()->json(['message' => 'Voucher limit exceeded for this request'], 400);
             }
 
-            return response()->json($result, 200);
-        } catch(QueryException $e) {
-            return response()->json([], 500);
+            try {
+                for($i = 0; $i < $nVouchers; $i++){
+                    $newCode;
+                    do {
+                        $newCode = "EVT-" . Str::uuid()->toString();
+                    } while(EventVoucher::where('code', $newCode)->exists());
+
+                    $newVoucher = new EventVoucher();
+                    $newVoucher->event_id = $event_id;
+                    $newVoucher->user_id = Auth::user()->id;
+                    $newVoucher->code = $newCode;
+                    $newVoucher->save();
+
+                    array_push($result, $newCode);
+                }
+
+                return response()->json($result, 200);
+            } catch(QueryException $e) {
+                return response()->json([], 500);
+            }
+        } catch(ModelNotFoundException $e) {
+            return response()->json([], 404);
         }
     }
 

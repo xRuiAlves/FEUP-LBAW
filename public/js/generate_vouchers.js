@@ -57,6 +57,18 @@ form.addEventListener('submit', e => {
                 numberInput.removeAttribute('hidden');
                 inputLabel.removeAttribute('hidden');
             })
+        } else if (res.status === 400) {
+            // Invalid data sent to the back-end
+            res.json().then(data => {
+                let error_message = "\n" + data.message;
+                
+                output.innerText = error_message;
+
+                // Inputs "unhidden" to be able to reattempt request
+                btn.removeAttribute('hidden');
+                numberInput.removeAttribute('hidden');
+                inputLabel.removeAttribute('hidden');
+            })
         } else {
             btn.setAttribute('hidden', 'false');
             numberInput.setAttribute('hidden', 'false');
