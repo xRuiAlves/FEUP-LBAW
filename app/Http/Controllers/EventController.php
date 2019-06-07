@@ -95,12 +95,25 @@ class EventController extends Controller
     }
 
     /**
+     * Renders the event editing page
+     */
+    public function edit(Request $request) {
+        
+        $event = Event::find($request->id);
+        $this->authorize('eventSettings', $event);
+        
+        $categories = EventCategory::all();
+        
+        return view('pages.events.create', ['categories' => $categories, 'event' => $event]);
+    }
+
+    /**
      * Creates a new event.
      *
      * @return Event The event created.
      */
     public function store(Request $request) {
-        
+
         $this->authorize('create', Event::class);
 
         $validator = Validator::make($request->all(), [
@@ -124,8 +137,14 @@ class EventController extends Controller
 
         DB::beginTransaction();
          
-        //try {
-            $event = new Event();
+        try {
+            if(!empty($request->id)){ //editing event
+                $event = Event::find($request->id);
+                $this->authorize('eventSettings', $event);
+            }else{ //creating event
+                $event = new Event();
+                $event->user_id = auth()->user()->id;
+            }
             $event->title = $request->input('title');
             $event->location = $request->input('location');
             $event->latitude = $request->input('latitude');
@@ -142,33 +161,37 @@ class EventController extends Controller
             if (!empty($request->input('capacity'))) {
                 $event->capacity = $request->input('capacity');
             }
-
-            $event->user_id = auth()->user()->id;
+            
             $event->save();
 
-            try{
-                $tags = json_decode($request->tags);
-                foreach($tags as $tagName){
-                    $tag = Tag::firstOrCreate(['name' => $tagName]);
-                    
+            $tags = json_decode($request->tags);
+            foreach($tags as $tagName){
+                $tag = Tag::firstOrCreate(['name' => $tagName]);
+                
+                if(!$event->tags()->where('id', $tag->id)->exists()){
                     $event->tags()->attach($tag->id);
                 }
-            }catch(Exception $e){}
+            }
 
+            if(!empty($request->id)){ //editing event
+                DB::commit();
+                return redirect($event->href);
+            }
+            
             DB::table('organizers')->insert([
                 'user_id' => $event->user_id, 
                 'event_id' => $event->id
-            ]);
-
+                ]);
+                
             DB::commit();
 
             return redirect($event->href);
-        /*} catch (QueryException $err) {
+        } catch (QueryException $err) {
             DB::rollBack();
-            return redirect('event/create')
+            return redirect(empty($request->id) ? 'event/create' : ('event/'.$event->id.'/edit'))
                 ->withErrors(["Error in submitting request to database"])
-                ->withInput();
-        }*/
+            ->withInput();
+        }
     }
 
     /**
