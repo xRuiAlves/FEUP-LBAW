@@ -17,17 +17,26 @@
 <div id="page-card" class="container card-container font-content event-card" data-event_id="{{$event->id}}">
     <div class="row no-gutters main">
         <div class="col-12 event-title font-title">
-                Generate Voucher - {{$event->title}}
+            Generate Voucher - {{$event->title}}
         </div>
     </div>
     <div class="separator main-separator">
         <hr>
     </div>
 
-    <label id="vouchers-input-label">Please insert the number of vouchers you wish to generate:</label><br>
-    <input id="number-vouchers" min="1" max="10" value="1" type="number" placeholder="Number of Vouchers">
-    <br>
-    <button id="btn-generator" type="button" class="btn btn-secondary">Generate 1 voucher</button>
+    <form id="voucher_gen_form" novalidate class="needs-validation">
+    <fieldset>
+        <legend style="display:none;">Generate Event Vouchers form</legend>
+        <div class="form-group">
+            <label id="vouchers-input-label">Please insert the number of vouchers you wish to generate:</label><br>
+            <input id="number-vouchers" class="form-control" min="1" max="10" value="1" type="number" required autofocus placeholder="Number of Vouchers" aria-label="Number of Vouchers">
+            <div class="invalid-feedback">
+                Please insert a valid number of vouchers (positive integer).
+            </div>
+        </div>
+        <button id="btn-generator" type="submit" class="btn btn-secondary">Generate 1 voucher</button>
+    </fieldset>
+    </form>
     <div id="vouchers-output"></div>
     <br><br><br>
 

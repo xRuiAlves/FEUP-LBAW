@@ -468,21 +468,25 @@ class EventController extends Controller
     }
 
     public function generateVouchers(Request $request){
-        $nVouchers = $request->nVouchers;
+        $validated_data = $request->validate([
+            'nVouchers' => 'required|integer|min:1',
+        ]);
+
+        $nVouchers = $validated_data['nVouchers'];
         $event_id = $request->id;
 
         $this->authorize('eventSettings', Event::find($event_id));
 
         $result = [];
 
-       try{
+        try {
             for($i = 0; $i < $nVouchers; $i++){
                 $newCode;
                 do {
                     $newCode = "EVT-" . Str::uuid()->toString();
-                }while(EventVoucher::where('code', $newCode)->exists());
+                } while(EventVoucher::where('code', $newCode)->exists());
 
-                $newVoucher = new EventVoucher;
+                $newVoucher = new EventVoucher();
                 $newVoucher->event_id = $event_id;
                 $newVoucher->user_id = Auth::user()->id;
                 $newVoucher->code = $newCode;
@@ -490,8 +494,9 @@ class EventController extends Controller
 
                 array_push($result, $newCode);
             }
+
             return response()->json($result, 200);
-        }catch(QueryException $e){
+        } catch(QueryException $e) {
             return response()->json([], 500);
         }
     }
