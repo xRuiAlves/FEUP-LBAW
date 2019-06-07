@@ -174,20 +174,6 @@ class AdminController extends Controller {
     }
 
     /**
-     * Bans a certain user
-     */
-    public function banUser(Request $request) {
-
-    }
-
-    /**
-     * Unbans a certain user
-     */
-    public function unbanUser(Request $request) {
-
-    }
-
-    /**
      * Solves a certain issue
      */
     public function solveIssue(Request $request) {

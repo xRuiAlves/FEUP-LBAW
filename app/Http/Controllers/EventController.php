@@ -276,15 +276,6 @@ class EventController extends Controller
         }
     }
 
-    /**
-     * Updates an existing event.
-     * 
-     * @return Event The updated event.
-     */
-    public function update(Request $request) {
-
-    }
-
     public function delete(Request $request) {
 
         $event = Event::find($request->id);

@@ -8,8 +8,6 @@ let timeout_to_request_lat_long = null;
 let location_value = null;
 
 const requestLatLong = () => {
-    // console.log("Request called");
-
     const headers = new Headers({
         "Accept"       : "application/json",
         "Content-Type" : "application/json",
@@ -23,7 +21,6 @@ const requestLatLong = () => {
     .then(data => {
         latitude_input.value = data[0].lat;
         longitude_input.value = data[0].lon;
-        // console.log("Data", data);
         updateMapIframe(data[0].lat, data[0].lon);
     })
 };
