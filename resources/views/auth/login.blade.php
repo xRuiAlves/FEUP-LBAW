@@ -6,8 +6,9 @@
 <div id="background_wave"></div>
 
 <div id="page-card" class="container card-container font-content login-register">
-    <header>
-        <div class="modal-title custom-modal-title font-title">Login</div>
+    <header class="d-flex align-items-center">
+        <div class="modal-title custom-modal-title font-title d-inline-block">Login</div>
+        <i class="fas fa-question-circle form-info" data-toggle="popover" data-placement="top" data-content="In this page you may log in into the application if you already have an account."></i>
     </header>
     <div class="modal-body">
         <form method="POST" action="{{route('login')}}" novalidate class="needs-validation font-content">

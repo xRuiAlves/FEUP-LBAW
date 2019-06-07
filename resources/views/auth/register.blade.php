@@ -6,8 +6,9 @@
 <div id="background_wave"></div>
 
 <div id="page-card" class="container card-container font-content login-register">
-  <header>
-    <div class="modal-title custom-modal-title font-title">Register</div>
+  <header class="d-flex align-items-center">
+    <div class="modal-title custom-modal-title font-title d-inline-block">Register</div>
+    <i class="fas fa-question-circle form-info" data-toggle="popover" data-placement="top" data-content="In this page you may register a new account in the application."></i>
   </header>
   <div class="modal-body">
       <form method="POST" action="{{route('register')}}" novalidate class="needs-validation font-content">
