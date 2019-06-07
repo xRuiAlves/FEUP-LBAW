@@ -28,7 +28,7 @@
         <div class="row">
             @if($event->attendees()->get()->contains(Auth::user()))
                 <div class="col-12">
-                    <h4 class="mb-5">You already have {{$event->attendees()->where('user_id', Auth::user()->id)->count()}} tickets for this event</h4>
+                    <h4 class="mb-5">You already have {{$event->attendees()->where('user_id', Auth::user()->id)->count()}} ticket(s) for this event. <a href="/event/{{$event->id}}/tickets">Manage Tickets</a></h4>
                 </div>    
             @endif
             <div class="col-12">
