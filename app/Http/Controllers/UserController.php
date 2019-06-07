@@ -273,7 +273,7 @@ class UserController extends Controller
         try {
             $event = Event::findOrFail($event_id);
 
-            $tickets = $event->attendees()->where('user_id', Auth::user()->id)->paginate(1);
+            $tickets = $event->attendees()->where('user_id', Auth::user()->id)->paginate(10);
             return view('pages.events.tickets', ['event'=> $event , 'tickets' => $tickets]);
         } catch(ModelNotFoundException $e) {
             return redirect('/')->withErrors(['Event not available']);
