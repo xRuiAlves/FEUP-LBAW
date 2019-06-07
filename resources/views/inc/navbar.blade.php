@@ -21,12 +21,11 @@
                     <a class="nav-link" href="/event/create">Create Event</a>
                 </li>
 
-                <form class=" nav-item ml-2 my-2 my-lg-0">
+                <form action="/#search-box-anchor" method="get" class=" nav-item ml-2 my-2 my-lg-0">
                 <fieldset>
                     <legend style="display:none;">Search events form</legend>
                     <div class="input-group">
-                        <input type="text" class="form-control" placeholder="Search" aria-label="Search"
-                            aria-describedby="basic-addon2">
+                        <input type="text" class="form-control" name="search" placeholder="Search" aria-label="Search">
                         <div class="input-group-append">
                             <button class="btn submit-search" type="button">
                                 <i class="fas fa-search"></i>

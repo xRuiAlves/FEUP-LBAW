@@ -8,6 +8,7 @@ use App\Event;
 use App\EventCategory;
 
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Input;
 
 
 class HomepageController extends Controller
@@ -40,7 +41,7 @@ class HomepageController extends Controller
         ->when(!empty($end_date), function ($q) use ($end_date) {
             return Event::EndScope($q, new \DateTime($end_date));
         })
-        ->paginate(HomepageController::ITEMS_PER_PAGE); 
+        ->paginate(HomepageController::ITEMS_PER_PAGE);
 
         $events->appends([
             'search' => $search_query,
@@ -52,8 +53,8 @@ class HomepageController extends Controller
 
         $categories = EventCategory::all();
 
+        Input::flash();
 
-        // return $events;
         return view('pages.homepage', 
             [
                 'events' => $events,
