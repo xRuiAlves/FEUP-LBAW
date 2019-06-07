@@ -27,7 +27,7 @@
                     <div class="input-group">
                         <input type="text" class="form-control" name="search" placeholder="Search" aria-label="Search">
                         <div class="input-group-append">
-                            <button class="btn submit-search" type="button">
+                            <button class="btn submit-search" type="submit">
                                 <i class="fas fa-search"></i>
                             </button>
                         </div>

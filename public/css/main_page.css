@@ -172,17 +172,12 @@ a:hover {
 
 
 #search-box .collapse > .date{
-    /* display: flex; */
-    width: 40%;
+    width: 100%;
 }
 
 #search-box .collapse {
     position: relative;
 }
-
-/* #search-box .collapse > .date > .input-group-append {
-    display: inherit;
-}  */
 
 #search-box .row > div {
     display: flex;
