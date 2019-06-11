@@ -1018,7 +1018,8 @@ INSERT INTO event_categories(name) VALUES
     ('Music'),
     ('Travelling'),
     ('Nature'),
-    ('Entertainment');
+    ('Entertainment'),
+    ('Eletronic');
 
 -- Events
 INSERT INTO events(title, description, price, location, capacity, latitude, longitude, start_timestamp, end_timestamp, event_category_id, user_id) VALUES 
@@ -1336,7 +1337,7 @@ INSERT INTO organizers(user_id, event_id) VALUES
     (21, 12),
     (13, 13),
     (4, 14),
-    (6, 15),
+    (10, 15),
     (1, 1),
     (4, 4),
     (14, 5),
@@ -1346,7 +1347,7 @@ INSERT INTO organizers(user_id, event_id) VALUES
     (19, 10),
     (22, 13),
     (23, 14),
-    (23, 15),
+    (21, 15),
     (11, 1),
     (8, 2),
     (9, 3),
